@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest frontend --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(dotnet new:*)",
+      "Bash(dotnet:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npm run dev:*)",
+      "WebSearch",
+      "Bash($env:PGPASSWORD='5541936')",
+      "Bash(psql:*)",
+      "Bash(PGPASSWORD=5541936 \"C:/Program Files/PostgreSQL/18/bin/psql.exe\":*)",
+      "Bash(dotnet-ef migrations add:*)",
+      "Bash(~/.dotnet/tools/dotnet-ef migrations add:*)",
+      "Bash(taskkill //F //PID 3268)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(~/.dotnet/tools/dotnet-ef database update:*)",
+      "Bash(gh auth:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: add backend and frontend\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git config:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)"
+    ]
+  }
+}
