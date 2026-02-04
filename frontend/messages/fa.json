@@ -1,0 +1,37 @@
+{
+  "common": {
+    "viewProjects": "مشاهده پروژه‌ها",
+    "downloadCV": "دانلود رزومه"
+  },
+  "header": {
+    "title": "پورتفولیو سعیده",
+    "subtitle": "توسعه‌دهنده فول‌استک"
+  },
+  "hero": {
+    "title": "توسعه‌دهنده فول‌استک",
+    "titleHighlight": "مهندس خلاق",
+    "description": "ساختن در تقاطع کد و خلاقیت"
+  },
+  "features": {
+    "title": "کارهای من",
+    "fullstack": {
+      "title": "توسعه فول‌استک",
+      "description": "React، .NET Core، Node.js"
+    },
+    "design": {
+      "title": "طراحی UI/UX",
+      "description": "Figma، طراحی واکنش‌گرا"
+    },
+    "performance": {
+      "title": "عملکرد",
+      "description": "۶۰٪ کوئری سریع‌تر، ۴۰٪ زمان بارگذاری"
+    },
+    "userCentered": {
+      "title": "کاربرمحور",
+      "description": "رابط‌های دسترس‌پذیر و بصری"
+    }
+  },
+  "footer": {
+    "builtWith": "ساخته شده با Next.js، Redux Toolkit، Tailwind CSS و Framer Motion"
+  }
+}

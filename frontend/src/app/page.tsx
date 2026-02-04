@@ -2,13 +2,15 @@
 
 import ThemeModeToggle from '@/components/theme/ThemeModeToggle';
 import ColorSchemeSelector from '@/components/theme/ColorSchemeSelector';
+import LanguageSelector from '@/components/LanguageSelector';
 import { useAppSelector } from '@/lib/redux/hooks';
 import { colorSchemes } from '@/config/themes';
 import { motion } from 'framer-motion';
 import { Code, Palette, Zap, Heart } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
-  const { colorScheme, mode } = useAppSelector((state) => state.theme);
+  const { colorScheme, mode, isHydrated } = useAppSelector((state) => state.theme);
   const currentTheme = colorSchemes[colorScheme];
 
   const colors = currentTheme[mode];
@@ -41,7 +43,8 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-3">
-              <ColorSchemeSelector />
+              {/* Color scheme selector hidden - using Deep Purple & Gold */}
+              <LanguageSelector />
               <ThemeModeToggle />
             </div>
           </div>
@@ -83,6 +86,17 @@ export default function Home() {
               >
                 View Projects
               </button>
+              <Link
+                href="/art"
+                className="px-8 py-3 rounded-lg font-medium border transition-all hover:scale-105 inline-flex items-center gap-2"
+                style={{
+                  borderColor: 'var(--color-accent-500)',
+                  color: 'var(--color-accent-500)',
+                }}
+              >
+                <Palette className="w-4 h-4" />
+                Art Portfolio
+              </Link>
               <button
                 className="px-8 py-3 rounded-lg font-medium border transition-all hover:scale-105"
                 style={{
@@ -178,101 +192,105 @@ export default function Home() {
             className="text-center mb-8"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            {currentTheme.name} - {currentTheme.description}
+            {isHydrated ? `${currentTheme.name} - ${currentTheme.description}` : 'Loading...'}
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Primary Colors */}
-            <div>
-              <h4
-                className="font-semibold mb-4"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                Primary Colors
-              </h4>
-              <div className="grid grid-cols-5 gap-2">
-                {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((shade) => (
-                  <div key={shade} className="text-center">
+          {isHydrated && (
+            <>
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Primary Colors */}
+                <div>
+                  <h4
+                    className="font-semibold mb-4"
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
+                    Primary Colors
+                  </h4>
+                  <div className="grid grid-cols-5 gap-2">
+                    {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((shade) => (
+                      <div key={shade} className="text-center">
+                        <div
+                          className="h-16 rounded-lg border mb-2"
+                          style={{
+                            backgroundColor: colors.primary[shade as keyof typeof colors.primary],
+                            borderColor: 'var(--color-border)',
+                          }}
+                        />
+                        <span
+                          className="text-xs"
+                          style={{ color: 'var(--color-text-secondary)' }}
+                        >
+                          {shade}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Accent Colors */}
+                <div>
+                  <h4
+                    className="font-semibold mb-4"
+                    style={{ color: 'var(--color-text-primary)' }}
+                  >
+                    Accent Colors
+                  </h4>
+                  <div className="grid grid-cols-5 gap-2">
+                    {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((shade) => (
+                      <div key={shade} className="text-center">
+                        <div
+                          className="h-16 rounded-lg border mb-2"
+                          style={{
+                            backgroundColor: colors.accent[shade as keyof typeof colors.accent],
+                            borderColor: 'var(--color-border)',
+                          }}
+                        />
+                        <span
+                          className="text-xs"
+                          style={{ color: 'var(--color-text-secondary)' }}
+                        >
+                          {shade}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Semantic Colors */}
+              <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
+                {[
+                  { name: 'Background', value: colors.background },
+                  { name: 'Surface', value: colors.surface },
+                  { name: 'Text Primary', value: colors.textPrimary },
+                  { name: 'Text Secondary', value: colors.textSecondary },
+                  { name: 'Border', value: colors.border },
+                ].map((color) => (
+                  <div key={color.name} className="text-center">
                     <div
-                      className="h-16 rounded-lg border mb-2"
+                      className="h-20 rounded-lg border mb-2"
                       style={{
-                        backgroundColor: colors.primary[shade as keyof typeof colors.primary],
+                        backgroundColor: color.value,
                         borderColor: 'var(--color-border)',
                       }}
                     />
-                    <span
-                      className="text-xs"
+                    <p
+                      className="text-sm font-medium"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >
+                      {color.name}
+                    </p>
+                    <p
+                      className="text-xs font-mono"
                       style={{ color: 'var(--color-text-secondary)' }}
                     >
-                      {shade}
-                    </span>
+                      {color.value}
+                    </p>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Accent Colors */}
-            <div>
-              <h4
-                className="font-semibold mb-4"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                Accent Colors
-              </h4>
-              <div className="grid grid-cols-5 gap-2">
-                {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((shade) => (
-                  <div key={shade} className="text-center">
-                    <div
-                      className="h-16 rounded-lg border mb-2"
-                      style={{
-                        backgroundColor: colors.accent[shade as keyof typeof colors.accent],
-                        borderColor: 'var(--color-border)',
-                      }}
-                    />
-                    <span
-                      className="text-xs"
-                      style={{ color: 'var(--color-text-secondary)' }}
-                    >
-                      {shade}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Semantic Colors */}
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4">
-            {[
-              { name: 'Background', value: colors.background },
-              { name: 'Surface', value: colors.surface },
-              { name: 'Text Primary', value: colors.textPrimary },
-              { name: 'Text Secondary', value: colors.textSecondary },
-              { name: 'Border', value: colors.border },
-            ].map((color) => (
-              <div key={color.name} className="text-center">
-                <div
-                  className="h-20 rounded-lg border mb-2"
-                  style={{
-                    backgroundColor: color.value,
-                    borderColor: 'var(--color-border)',
-                  }}
-                />
-                <p
-                  className="text-sm font-medium"
-                  style={{ color: 'var(--color-text-primary)' }}
-                >
-                  {color.name}
-                </p>
-                <p
-                  className="text-xs font-mono"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
-                  {color.value}
-                </p>
-              </div>
-            ))}
-          </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -294,7 +312,7 @@ export default function Home() {
             }}
           >
             <pre>
-              {JSON.stringify(
+              {isHydrated ? JSON.stringify(
                 {
                   theme: {
                     colorScheme,
@@ -303,7 +321,7 @@ export default function Home() {
                 },
                 null,
                 2
-              )}
+              ) : 'Loading...'}
             </pre>
           </div>
         </div>

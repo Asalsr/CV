@@ -7,7 +7,14 @@ import { motion } from 'framer-motion';
 
 export default function ThemeModeToggle() {
   const dispatch = useAppDispatch();
-  const mode = useAppSelector((state) => state.theme.mode);
+  const { mode, isHydrated } = useAppSelector((state) => state.theme);
+
+  // Don't render until hydrated to avoid mismatch
+  if (!isHydrated) {
+    return (
+      <div className="w-12 h-12 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)]" />
+    );
+  }
 
   const handleToggle = () => {
     dispatch(toggleThemeMode());

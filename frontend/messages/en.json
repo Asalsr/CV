@@ -1,0 +1,37 @@
+{
+  "common": {
+    "viewProjects": "View Projects",
+    "downloadCV": "Download CV"
+  },
+  "header": {
+    "title": "Saeedeh's Portfolio",
+    "subtitle": "Full-Stack Developer"
+  },
+  "hero": {
+    "title": "Full-Stack Developer",
+    "titleHighlight": "Creative Engineer",
+    "description": "Building at the intersection of code and creativity"
+  },
+  "features": {
+    "title": "What I Do",
+    "fullstack": {
+      "title": "Full-Stack Development",
+      "description": "React, .NET Core, Node.js"
+    },
+    "design": {
+      "title": "UI/UX Design",
+      "description": "Figma, Responsive Design"
+    },
+    "performance": {
+      "title": "Performance",
+      "description": "60% faster queries, 40% load time"
+    },
+    "userCentered": {
+      "title": "User-Centered",
+      "description": "Accessible, intuitive interfaces"
+    }
+  },
+  "footer": {
+    "builtWith": "Built with Next.js, Redux Toolkit, Tailwind CSS & Framer Motion"
+  }
+}

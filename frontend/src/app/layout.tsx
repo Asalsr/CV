@@ -3,6 +3,8 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/lib/redux/StoreProvider";
 import ThemeProvider from "@/components/theme/ThemeProvider";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,21 +23,25 @@ export const metadata: Metadata = {
   description: "Portfolio of Saeedeh Sarmadi - Agentic Developer, Full-Stack Software Engineer, Front-End Specialist & UI/UX Enthusiast",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const messages = await getMessages();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <StoreProvider>
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
-        </StoreProvider>
+        <NextIntlClientProvider messages={messages}>
+          <StoreProvider>
+            <ThemeProvider>
+              {children}
+            </ThemeProvider>
+          </StoreProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

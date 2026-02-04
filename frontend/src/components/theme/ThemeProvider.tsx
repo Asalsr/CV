@@ -1,11 +1,21 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useAppSelector } from '@/lib/redux/hooks';
+import { useAppSelector, useAppDispatch } from '@/lib/redux/hooks';
 import { getThemeColors, generateCSSVariables } from '@/config/themes';
+import { hydrateTheme, loadPersistedTheme } from '@/lib/redux/themeSlice';
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const { colorScheme, mode } = useAppSelector((state) => state.theme);
+  const dispatch = useAppDispatch();
+  const { colorScheme, mode, isHydrated } = useAppSelector((state) => state.theme);
+
+  // Hydrate theme from localStorage on mount
+  useEffect(() => {
+    if (!isHydrated) {
+      const persisted = loadPersistedTheme();
+      dispatch(hydrateTheme(persisted));
+    }
+  }, [dispatch, isHydrated]);
 
   useEffect(() => {
     const themeColors = getThemeColors(colorScheme, mode);
