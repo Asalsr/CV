@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 interface ThumbnailStripProps {
   images: string[];
@@ -45,7 +45,7 @@ export default function ThumbnailStrip({
       ref={containerRef}
       className="flex justify-center gap-2 overflow-x-auto pb-2 px-4 scrollbar-thin"
       style={{
-        scrollbarColor: 'var(--color-primary-500) transparent',
+        scrollbarColor: '#5B8DEF transparent',
       }}
     >
       {images.map((img, idx) => (
@@ -65,7 +65,7 @@ export default function ThumbnailStrip({
           aria-label={`View image ${idx + 1} of ${images.length}`}
           aria-current={idx === currentIndex ? 'true' : undefined}
         >
-          <Image
+          <ImageWithFallback
             src={img}
             alt={`${title} - Thumbnail ${idx + 1}`}
             fill

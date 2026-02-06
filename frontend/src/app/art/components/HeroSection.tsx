@@ -30,7 +30,6 @@ export default function HeroSection({
     const minYear = parseInt(sortedYears[0]);
     const maxYear = parseInt(sortedYears[sortedYears.length - 1]);
 
-    // Filter CATEGORIES to only include 'All' + categories that have artworks
     const filteredCategories = CATEGORIES.filter(
       (cat) => cat === 'All' || categoriesInUse.has(cat as ArtworkCategory)
     );
@@ -73,27 +72,18 @@ export default function HeroSection({
             variants={itemVariants}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
           >
-            <span style={{ color: 'var(--color-text-primary)' }}>
+            <span className="text-white">
               My Artistic
             </span>
-            <span
-              style={{
-                background: 'linear-gradient(135deg, var(--color-primary-500), var(--color-accent-500))',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              {' '}
-              Journey
+            <span className="bg-gradient-to-r from-[#5B8DEF] to-[#FFC947] bg-clip-text text-transparent">
+              {' '}Journey
             </span>
           </motion.h2>
 
           {/* Subtitle */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
-            style={{ color: 'var(--color-text-secondary)' }}
+            className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-300"
           >
             Exploring creativity through photography, painting, digital art, and
             design
@@ -105,15 +95,9 @@ export default function HeroSection({
             className="flex justify-center items-center gap-6 md:gap-12 mb-10"
           >
             <StatItem value={stats.projectCount} label="Projects" />
-            <div
-              className="w-px h-8"
-              style={{ backgroundColor: 'var(--color-border)' }}
-            />
+            <div className="w-px h-8 bg-white/20" />
             <StatItem value={stats.yearsActive} label="Years" />
-            <div
-              className="w-px h-8"
-              style={{ backgroundColor: 'var(--color-border)' }}
-            />
+            <div className="w-px h-8 bg-white/20" />
             <StatItem value={stats.categoryCount} label="Mediums" />
           </motion.div>
 
@@ -138,15 +122,11 @@ function StatItem({ value, label }: { value: number; label: string }) {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-        className="text-3xl md:text-4xl font-bold"
-        style={{ color: 'var(--color-primary-500)' }}
+        className="text-3xl md:text-4xl font-bold text-[#5B8DEF]"
       >
         {value}
       </motion.div>
-      <div
-        className="text-sm md:text-base"
-        style={{ color: 'var(--color-text-secondary)' }}
-      >
+      <div className="text-sm md:text-base text-gray-400">
         {label}
       </div>
     </div>

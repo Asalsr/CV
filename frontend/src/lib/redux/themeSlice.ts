@@ -10,7 +10,7 @@ export interface ThemeState {
 
 // Use consistent initial state for SSR - will be updated on client after hydration
 const initialState: ThemeState = {
-  colorScheme: 'purple-gold',
+  colorScheme: 'persian-blue-yellow',
   mode: 'light',
   isHydrated: false,
 };
@@ -23,11 +23,11 @@ export const loadPersistedTheme = (): { colorScheme: ColorScheme; mode: ThemeMod
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     return {
-      colorScheme: savedColorScheme || 'purple-gold',
+      colorScheme: savedColorScheme || 'persian-blue-yellow',
       mode: savedMode || (systemPrefersDark ? 'dark' : 'light'),
     };
   } catch {
-    return { colorScheme: 'purple-gold', mode: 'light' };
+    return { colorScheme: 'persian-blue-yellow', mode: 'light' };
   }
 };
 

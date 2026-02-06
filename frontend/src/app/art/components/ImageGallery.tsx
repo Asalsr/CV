@@ -1,8 +1,8 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import ImageWithFallback from '@/components/figma/ImageWithFallback';
 import ThumbnailStrip from './ThumbnailStrip';
 
 interface ImageGalleryProps {
@@ -64,7 +64,7 @@ export default function ImageGallery({
             transition={{ duration: 0.2 }}
             className="relative w-full h-[50vh] md:h-[60vh]"
           >
-            <Image
+            <ImageWithFallback
               src={images[currentIndex]}
               alt={`${title} - Image ${currentIndex + 1}`}
               fill
