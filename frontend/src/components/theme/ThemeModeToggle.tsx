@@ -12,7 +12,14 @@ export default function ThemeModeToggle() {
   // Don't render until hydrated to avoid mismatch
   if (!isHydrated) {
     return (
-      <div className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#0F1729]/80 border border-white/10" />
+      <div
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full"
+        style={{
+          backgroundColor: 'var(--color-surface)',
+          border: '1px solid var(--color-glass-border)',
+          opacity: 0.8,
+        }}
+      />
     );
   }
 
@@ -25,17 +32,11 @@ export default function ThemeModeToggle() {
   return (
     <motion.button
       onClick={handleToggle}
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm border transition-all duration-300 group"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full backdrop-blur-sm transition-all duration-300 group"
       style={{
-        backgroundColor: isDark
-          ? 'rgba(15, 23, 41, 0.9)'
-          : 'rgba(255, 255, 255, 0.9)',
-        borderColor: isDark
-          ? 'rgba(91, 141, 239, 0.3)'
-          : 'rgba(28, 57, 187, 0.2)',
-        boxShadow: isDark
-          ? '0 8px 32px rgba(91, 141, 239, 0.2)'
-          : '0 8px 32px rgba(28, 57, 187, 0.15)',
+        backgroundColor: 'color-mix(in srgb, var(--color-surface) 90%, transparent)',
+        border: '1px solid var(--color-glass-border)',
+        boxShadow: `0 8px 32px var(--color-card-hover-shadow)`,
       }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
@@ -50,7 +51,7 @@ export default function ThemeModeToggle() {
         transition={{ duration: 0.4, ease: 'easeInOut' }}
         className="absolute"
       >
-        <Sun className="w-6 h-6 text-[#FFB800]" />
+        <Sun className="w-6 h-6" style={{ color: 'var(--color-accent-500)' }} />
       </motion.div>
 
       <motion.div
@@ -62,19 +63,17 @@ export default function ThemeModeToggle() {
         transition={{ duration: 0.4, ease: 'easeInOut' }}
         className="absolute"
       >
-        <Moon className="w-6 h-6 text-[#FFC947]" />
+        <Moon className="w-6 h-6" style={{ color: 'var(--color-accent-400)' }} />
       </motion.div>
 
       {/* Tooltip */}
       <span
         className="absolute right-full mr-3 px-3 py-1.5 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none"
         style={{
-          backgroundColor: isDark ? '#1A2332' : '#ffffff',
-          color: isDark ? '#F0F4F8' : '#0F1729',
+          backgroundColor: 'var(--color-surface)',
+          color: 'var(--color-text-primary)',
           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-          border: isDark
-            ? '1px solid rgba(91, 141, 239, 0.2)'
-            : '1px solid rgba(28, 57, 187, 0.1)',
+          border: '1px solid var(--color-glass-border)',
         }}
       >
         {isDark ? 'Light mode' : 'Dark mode'}

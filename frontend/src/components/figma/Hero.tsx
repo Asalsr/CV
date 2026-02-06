@@ -9,30 +9,16 @@ export function Hero() {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute w-96 h-96 bg-[#5B8DEF]/10 dark:bg-[#5B8DEF]/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          style={{ top: '10%', left: '10%' }}
+          className="absolute w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: 'var(--color-primary-500)', opacity: 0.15, top: '10%', left: '10%' }}
+          animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
         <motion.div
-          className="absolute w-96 h-96 bg-[#FFB800]/10 dark:bg-[#FFC947]/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          style={{ bottom: '10%', right: '10%' }}
+          className="absolute w-96 h-96 rounded-full blur-3xl"
+          style={{ backgroundColor: 'var(--color-accent-500)', opacity: 0.15, bottom: '10%', right: '10%' }}
+          animate={{ x: [0, -100, 0], y: [0, 100, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         />
       </div>
 
@@ -49,27 +35,30 @@ export function Hero() {
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
             >
-              <Code className="w-12 h-12 text-[#5B8DEF] dark:text-[#7BA8F5]" />
+              <Code className="w-12 h-12" style={{ color: 'var(--color-primary-400)' }} />
             </motion.div>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
             >
-              <Sparkles className="w-12 h-12 text-[#FFB800] dark:text-[#FFC947]" />
+              <Sparkles className="w-12 h-12" style={{ color: 'var(--color-accent-500)' }} />
             </motion.div>
             <motion.div
               animate={{ rotate: [0, -10, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
             >
-              <Palette className="w-12 h-12 text-[#FF6B35] dark:text-[#FF8B66]" />
+              <Palette className="w-12 h-12" style={{ color: 'var(--sunset-orange)' }} />
             </motion.div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-[#1C39BB] via-[#FFB800] to-[#0EA5E9] dark:from-[#5B8DEF] dark:via-[#FFC947] dark:to-[#2e9ac9] bg-clip-text text-transparent">
+          <h1
+            className="text-5xl md:text-7xl mb-6 bg-clip-text text-transparent"
+            style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500), var(--teal))' }}
+          >
             Saeedeh Sarmadi
           </h1>
           <div className="relative inline-block mb-6">
-            <p className="text-2xl md:text-3xl text-gray-100 dark:text-gray-200">
+            <p className="text-2xl md:text-3xl" style={{ color: 'var(--color-text-primary)' }}>
               Agentic Developer | Full-Stack Engineer | UI/UX Enthusiast
             </p>
             {/* Hand-drawn underline sketch */}
@@ -89,9 +78,9 @@ export function Hero() {
               />
               <defs>
                 <linearGradient id="hero-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#5B8DEF" />
-                  <stop offset="50%" stopColor="#FFB800" />
-                  <stop offset="100%" stopColor="#0EA5E9" />
+                  <stop offset="0%" stopColor="var(--color-primary-500)" />
+                  <stop offset="50%" stopColor="var(--color-accent-500)" />
+                  <stop offset="100%" stopColor="var(--teal)" />
                 </linearGradient>
               </defs>
             </svg>
@@ -102,7 +91,8 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-200 dark:text-gray-300 mb-12"
+          className="text-xl md:text-2xl mb-12"
+          style={{ color: 'var(--color-text-secondary)' }}
         >
           Fine Arts meets Computer Science — Crafting beautiful digital experiences from Gothenburg, Sweden
         </motion.p>
@@ -115,13 +105,22 @@ export function Hero() {
         >
           <a
             href="#roadmap"
-            className="px-8 py-3 bg-gradient-to-r from-[#1C39BB] to-[#5B8DEF] dark:from-[#5B8DEF] dark:to-[#3D6FD9] rounded-full text-white hover:shadow-lg hover:shadow-[#5B8DEF]/50 transition-all"
+            className="px-8 py-3 rounded-full text-white hover:shadow-lg transition-all"
+            style={{
+              backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-primary-400))',
+              boxShadow: undefined,
+            }}
           >
             Explore My Journey
           </a>
           <a
             href="#skills"
-            className="px-8 py-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full text-white border border-white/20 hover:bg-white/20 dark:hover:bg-white/10 transition-all"
+            className="px-8 py-3 backdrop-blur-sm rounded-full transition-all"
+            style={{
+              backgroundColor: 'var(--color-glass-bg)',
+              color: 'var(--color-text-primary)',
+              border: '1px solid var(--color-glass-border)',
+            }}
           >
             View Skills
           </a>

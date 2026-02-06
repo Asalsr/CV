@@ -27,13 +27,13 @@ export default function CategoryFilter({
             className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
             style={{
               backgroundColor: isSelected
-                ? '#5B8DEF'
-                : 'rgba(255, 255, 255, 0.05)',
-              color: isSelected ? '#ffffff' : '#94A3B8',
+                ? 'var(--color-primary-500)'
+                : 'var(--color-glass-bg)',
+              color: isSelected ? '#ffffff' : 'var(--color-text-secondary)',
               border: `1px solid ${
                 isSelected
-                  ? '#5B8DEF'
-                  : 'rgba(255, 255, 255, 0.1)'
+                  ? 'var(--color-primary-500)'
+                  : 'var(--color-glass-border)'
               }`,
               backdropFilter: isSelected ? 'none' : 'blur(4px)',
             }}

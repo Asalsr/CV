@@ -49,24 +49,39 @@ export default function ArtPortfolio() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0F1729] via-[#0A0E1A] to-[#0F1729]">
+    <div
+      className="min-h-screen"
+      style={{
+        background: 'linear-gradient(to bottom, var(--color-page-from), var(--color-page-via), var(--color-page-to))',
+      }}
+    >
       {/* Header */}
-      <header className="sticky top-0 z-30 border-b border-white/10 backdrop-blur-sm bg-[#0F1729]/80">
+      <header
+        className="sticky top-0 z-30 backdrop-blur-sm"
+        style={{
+          borderBottom: '1px solid var(--color-glass-border)',
+          backgroundColor: 'color-mix(in srgb, var(--color-surface) 80%, transparent)',
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 href="/"
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm transition-colors"
+                style={{ color: 'var(--color-text-secondary)' }}
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back
               </Link>
               <div>
-                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#5B8DEF] to-[#FFC947] bg-clip-text text-transparent">
+                <h1
+                  className="text-xl md:text-2xl font-bold bg-clip-text text-transparent"
+                  style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500))' }}
+                >
                   Art Portfolio
                 </h1>
-                <p className="text-sm mt-0.5 text-gray-400">
+                <p className="text-sm mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>
                   Saeedeh Sarmadi
                 </p>
               </div>
@@ -79,14 +94,12 @@ export default function ArtPortfolio() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <HeroSection
         artworks={artworks}
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
       />
 
-      {/* Project Grid */}
       <ProjectGrid
         artworks={artworks}
         categoryFilter={selectedCategory}
@@ -94,17 +107,15 @@ export default function ArtPortfolio() {
         onProjectClick={openProject}
       />
 
-      {/* Interactive Timeline */}
       <InteractiveTimeline
         artworks={artworks}
         selectedYear={selectedYear}
         onYearSelect={handleYearSelect}
       />
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8 bg-[#0F1729]/50">
+      <footer className="py-8" style={{ borderTop: '1px solid var(--color-glass-border)', backgroundColor: 'color-mix(in srgb, var(--color-surface) 50%, transparent)' }}>
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-400">
+          <p style={{ color: 'var(--color-text-secondary)' }}>
             &copy; {new Date().getFullYear()} Saeedeh Sarmadi. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center gap-4">
@@ -112,14 +123,16 @@ export default function ArtPortfolio() {
               href="https://www.behance.net/asalsr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#5B8DEF] hover:text-[#7BA8F5] transition-colors hover:underline"
+              className="text-sm transition-colors hover:underline"
+              style={{ color: 'var(--color-primary-500)' }}
             >
               Behance
             </a>
-            <span className="text-white/20">&bull;</span>
+            <span style={{ color: 'var(--color-glass-border)' }}>&bull;</span>
             <Link
               href="/"
-              className="text-sm text-[#5B8DEF] hover:text-[#7BA8F5] transition-colors hover:underline"
+              className="text-sm transition-colors hover:underline"
+              style={{ color: 'var(--color-primary-500)' }}
             >
               Developer Portfolio
             </Link>
@@ -127,10 +140,8 @@ export default function ArtPortfolio() {
         </div>
       </footer>
 
-      {/* Floating Theme Toggle */}
       <ThemeModeToggle />
 
-      {/* Project Modal */}
       <ProjectModal
         isOpen={isOpen}
         project={currentProject}
