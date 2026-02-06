@@ -45,7 +45,7 @@ export default function ThumbnailStrip({
       ref={containerRef}
       className="flex justify-center gap-2 overflow-x-auto pb-2 px-4 scrollbar-thin"
       style={{
-        scrollbarColor: '#5B8DEF transparent',
+        scrollbarColor: 'var(--color-primary-500) transparent',
       }}
     >
       {images.map((img, idx) => (

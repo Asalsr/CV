@@ -8,35 +8,35 @@ interface Skill {
   name: string;
   level: number;
   icon: typeof Palette;
-  color: string;
+  cssColor: string; // CSS variable string
 }
 
 const uxuiSkills: Skill[] = [
-  { name: 'Figma', level: 95, icon: Figma, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
-  { name: 'UI/UX Design', level: 92, icon: Palette, color: 'bg-[#FF6B35] dark:bg-[#FF8B66]' },
-  { name: 'Photoshop & Illustrator', level: 98, icon: Palette, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
-  { name: 'InDesign', level: 90, icon: Palette, color: 'bg-[#FFB800] dark:bg-[#FFC947]' }
+  { name: 'Figma', level: 95, icon: Figma, cssColor: 'var(--color-primary-500)' },
+  { name: 'UI/UX Design', level: 92, icon: Palette, cssColor: 'var(--sunset-orange)' },
+  { name: 'Photoshop & Illustrator', level: 98, icon: Palette, cssColor: 'var(--teal)' },
+  { name: 'InDesign', level: 90, icon: Palette, cssColor: 'var(--golden-yellow)' }
 ];
 
 const frontendSkills: Skill[] = [
-  { name: 'React (JS/TS)', level: 95, icon: Code2, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
-  { name: 'Redux & React Query', level: 90, icon: Code2, color: 'bg-[#4A90E2] dark:bg-[#7BA8F5]' },
-  { name: 'AG Grid & Material UI', level: 88, icon: Code2, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
-  { name: 'HTML5/CSS3', level: 96, icon: Code2, color: 'bg-[#FF6B35] dark:bg-[#FF8B66]' }
+  { name: 'React (JS/TS)', level: 95, icon: Code2, cssColor: 'var(--color-primary-500)' },
+  { name: 'Redux & React Query', level: 90, icon: Code2, cssColor: 'var(--persian-blue-light)' },
+  { name: 'AG Grid & Material UI', level: 88, icon: Code2, cssColor: 'var(--teal)' },
+  { name: 'HTML5/CSS3', level: 96, icon: Code2, cssColor: 'var(--sunset-orange)' }
 ];
 
 const backendSkills: Skill[] = [
-  { name: '.NET Core (C#)', level: 88, icon: Database, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
-  { name: 'RESTful APIs & GraphQL', level: 85, icon: Database, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
-  { name: 'SQL/PL-SQL & MongoDB', level: 87, icon: Database, color: 'bg-[#4A90E2] dark:bg-[#7BA8F5]' },
-  { name: 'Microservices', level: 82, icon: Cpu, color: 'bg-[#FFB800] dark:bg-[#FFC947]' }
+  { name: '.NET Core (C#)', level: 88, icon: Database, cssColor: 'var(--teal)' },
+  { name: 'RESTful APIs & GraphQL', level: 85, icon: Database, cssColor: 'var(--color-primary-500)' },
+  { name: 'SQL/PL-SQL & MongoDB', level: 87, icon: Database, cssColor: 'var(--persian-blue-light)' },
+  { name: 'Microservices', level: 82, icon: Cpu, cssColor: 'var(--golden-yellow)' }
 ];
 
 const devopsSkills: Skill[] = [
-  { name: 'Docker & Kubernetes', level: 80, icon: Cloud, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
-  { name: 'AWS & Azure', level: 78, icon: Cloud, color: 'bg-[#FF6B35] dark:bg-[#FF8B66]' },
-  { name: 'CI/CD & GitHub Actions', level: 85, icon: Cloud, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
-  { name: 'Git & Bash', level: 92, icon: Code2, color: 'bg-[#4A90E2] dark:bg-[#7BA8F5]' }
+  { name: 'Docker & Kubernetes', level: 80, icon: Cloud, cssColor: 'var(--color-primary-500)' },
+  { name: 'AWS & Azure', level: 78, icon: Cloud, cssColor: 'var(--sunset-orange)' },
+  { name: 'CI/CD & GitHub Actions', level: 85, icon: Cloud, cssColor: 'var(--teal)' },
+  { name: 'Git & Bash', level: 92, icon: Code2, cssColor: 'var(--persian-blue-light)' }
 ];
 
 function SkillBar({ skill, index }: { skill: Skill; index: number }) {
@@ -54,19 +54,20 @@ function SkillBar({ skill, index }: { skill: Skill; index: number }) {
     >
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-lg ${skill.color} relative`}>
+          <div className="p-2 rounded-lg relative" style={{ backgroundColor: skill.cssColor }}>
             <Icon className="w-4 h-4 text-white" />
           </div>
-          <span className="text-white">{skill.name}</span>
+          <span style={{ color: 'var(--color-text-primary)' }}>{skill.name}</span>
         </div>
-        <span className="text-gray-300 dark:text-gray-400">{skill.level}%</span>
+        <span style={{ color: 'var(--color-text-secondary)' }}>{skill.level}%</span>
       </div>
-      <div className="h-2 bg-white/5 dark:bg-white/10 rounded-full overflow-hidden relative">
+      <div className="h-2 rounded-full overflow-hidden relative" style={{ backgroundColor: 'var(--color-glass-bg)' }}>
         <motion.div
           initial={{ width: 0 }}
           animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
           transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: "easeOut" }}
-          className={`h-full ${skill.color} rounded-full relative`}
+          className="h-full rounded-full relative"
+          style={{ backgroundColor: skill.cssColor }}
         />
       </div>
     </motion.div>
@@ -90,20 +91,25 @@ function SkillSection({ title, skills, icon: Icon, gradient, index }: {
       initial={{ opacity: 0, x: isEven ? -50 : 50 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? -50 : 50 }}
       transition={{ duration: 0.6 }}
-      className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-8 relative overflow-hidden"
+      className="backdrop-blur-sm rounded-2xl p-8 relative overflow-hidden"
+      style={{
+        backgroundColor: 'var(--color-glass-bg)',
+        border: '1px solid var(--color-glass-border)',
+      }}
     >
       <div className="flex items-center gap-3 mb-8">
-        <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient} relative`}>
+        <div className="p-3 rounded-xl relative" style={{ background: gradient }}>
           <Icon className="w-6 h-6 text-white" />
         </div>
-        <h3 className="text-2xl text-white relative">
+        <h3 className="text-2xl relative" style={{ color: 'var(--color-text-primary)' }}>
           {title}
           {/* Hand-drawn underline */}
           <svg className="absolute -bottom-1 left-0 w-full h-2" preserveAspectRatio="none">
             <motion.path
               d="M 0,1 Q 50,3 100,1"
-              stroke="rgba(255,184,0,0.5)"
+              stroke="var(--color-accent-500)"
               strokeWidth="1.5"
+              strokeOpacity="0.5"
               fill="none"
               initial={{ pathLength: 0 }}
               animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
@@ -130,10 +136,13 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[#0EA5E9] to-[#FFB800] dark:from-[#38BDF8] dark:to-[#FFC947] bg-clip-text text-transparent">
+          <h2
+            className="text-4xl md:text-5xl mb-4 bg-clip-text text-transparent"
+            style={{ backgroundImage: 'linear-gradient(to right, var(--teal), var(--color-accent-500))' }}
+          >
             Skills &amp; Expertise
           </h2>
-          <p className="text-gray-300 dark:text-gray-400 text-xl">Where creativity meets technology</p>
+          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">Where creativity meets technology</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
@@ -141,28 +150,28 @@ export function Skills() {
             title="UI/UX Design"
             skills={uxuiSkills}
             icon={Palette}
-            gradient="from-[#1C39BB] to-[#FF6B35] dark:from-[#5B8DEF] dark:to-[#FF8B66]"
+            gradient="linear-gradient(135deg, var(--color-primary-500), var(--sunset-orange))"
             index={0}
           />
           <SkillSection
             title="Front-End"
             skills={frontendSkills}
             icon={Code2}
-            gradient="from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#38BDF8]"
+            gradient="linear-gradient(135deg, var(--color-primary-500), var(--teal))"
             index={1}
           />
           <SkillSection
             title="Back-End & Database"
             skills={backendSkills}
             icon={Database}
-            gradient="from-[#0EA5E9] to-[#FFB800] dark:from-[#38BDF8] dark:to-[#FFC947]"
+            gradient="linear-gradient(135deg, var(--teal), var(--color-accent-500))"
             index={2}
           />
           <SkillSection
             title="DevOps & Cloud"
             skills={devopsSkills}
             icon={Cloud}
-            gradient="from-[#FF6B35] to-[#1C39BB] dark:from-[#FF8B66] dark:to-[#5B8DEF]"
+            gradient="linear-gradient(135deg, var(--sunset-orange), var(--color-primary-500))"
             index={3}
           />
         </div>
@@ -175,12 +184,12 @@ export function Skills() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16"
         >
-          <h3 className="text-2xl text-center text-white mb-8 relative inline-block left-1/2 -translate-x-1/2">
+          <h3 className="text-2xl text-center mb-8 relative inline-block left-1/2 -translate-x-1/2" style={{ color: 'var(--color-text-primary)' }}>
             Special Focus
             <svg className="absolute -bottom-2 left-0 w-full h-2" preserveAspectRatio="none">
               <motion.path
                 d="M 0,1 Q 50,4 100,1"
-                stroke="#0EA5E9"
+                stroke="var(--teal)"
                 strokeWidth="2"
                 fill="none"
                 initial={{ pathLength: 0 }}
@@ -191,26 +200,25 @@ export function Skills() {
             </svg>
           </h3>
           <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-gradient-to-br from-[#1C39BB]/10 to-[#5B8DEF]/10 dark:from-[#5B8DEF]/10 dark:to-[#7BA8F5]/10 border border-[#1C39BB]/20 dark:border-[#5B8DEF]/30 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-2">🤖</div>
-              <h4 className="text-white mb-2">AI &amp; LLM Apps</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">Building intelligent applications with OpenAI APIs</p>
-            </div>
-            <div className="bg-gradient-to-br from-[#FFB800]/10 to-[#FFC947]/10 dark:from-[#FFC947]/10 dark:to-[#FFD76E]/10 border border-[#FFB800]/20 dark:border-[#FFC947]/30 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-2">⚡</div>
-              <h4 className="text-white mb-2">Performance</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">Optimized queries 60% faster, reduced load time 40%</p>
-            </div>
-            <div className="bg-gradient-to-br from-[#0EA5E9]/10 to-[#38BDF8]/10 dark:from-[#38BDF8]/10 dark:to-[#0EA5E9]/10 border border-[#0EA5E9]/20 dark:border-[#38BDF8]/30 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-2">☁️</div>
-              <h4 className="text-white mb-2">Serverless</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">AWS Lambda &amp; microservices architecture</p>
-            </div>
-            <div className="bg-gradient-to-br from-[#FF6B35]/10 to-[#FF8B66]/10 dark:from-[#FF8B66]/10 dark:to-[#FF9980]/10 border border-[#FF6B35]/20 dark:border-[#FF8B66]/30 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-2">🎨</div>
-              <h4 className="text-white mb-2">Design Systems</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">Creating scalable, accessible UI frameworks</p>
-            </div>
+            {[
+              { emoji: '🤖', title: 'AI & LLM Apps', desc: 'Building intelligent applications with OpenAI APIs', color: 'var(--color-primary-500)' },
+              { emoji: '⚡', title: 'Performance', desc: 'Optimized queries 60% faster, reduced load time 40%', color: 'var(--golden-yellow)' },
+              { emoji: '☁️', title: 'Serverless', desc: 'AWS Lambda & microservices architecture', color: 'var(--teal)' },
+              { emoji: '🎨', title: 'Design Systems', desc: 'Creating scalable, accessible UI frameworks', color: 'var(--sunset-orange)' },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl p-6 text-center"
+                style={{
+                  background: `linear-gradient(135deg, color-mix(in srgb, ${item.color} 10%, transparent), color-mix(in srgb, ${item.color} 5%, transparent))`,
+                  border: `1px solid color-mix(in srgb, ${item.color} 20%, transparent)`,
+                }}
+              >
+                <div className="text-4xl mb-2">{item.emoji}</div>
+                <h4 className="mb-2" style={{ color: 'var(--color-text-primary)' }}>{item.title}</h4>
+                <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

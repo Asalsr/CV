@@ -45,8 +45,18 @@
   --amber: #FFC947;
   --sunset-orange: #FF6B35;
   --warm-coral: #FF8066;
-  --teal: #0EA5E9;
+  --teal: #2e9ac9;
   --navy: #0F1729;
+
+  /* Glass / card effects */
+  --color-glass-bg: rgba(28, 57, 187, 0.04);
+  --color-glass-border: rgba(28, 57, 187, 0.1);
+  --color-card-hover-shadow: rgba(28, 57, 187, 0.12);
+
+  /* Page gradient stops */
+  --color-page-from: #F8FAFC;
+  --color-page-via: #ffffff;
+  --color-page-to: #F8FAFC;
 }
 
 .dark {
@@ -74,7 +84,7 @@
   --color-accent-50: #FFF8E1;
   --color-accent-100: #FFF0B8;
   --color-accent-200: #FFE68A;
-  --color-accent-300: #FFD76E;
+  --color-accent-300: #e3bd59;
   --color-accent-400: #FFC947;
   --color-accent-500: #FFC947;
   --color-accent-600: #E0A200;
@@ -87,11 +97,21 @@
   --persian-blue-light: #7BA8F5;
   --persian-blue-dark: #3D6FD9;
   --golden-yellow: #FFC947;
-  --amber: #FFD76E;
+  --amber: #e3bd59;
   --sunset-orange: #FF8B66;
   --warm-coral: #FF9980;
-  --teal: #38BDF8;
+  --teal: #2e9ac9;
   --navy: #0A0E1A;
+
+  /* Glass / card effects */
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-card-hover-shadow: rgba(91, 141, 239, 0.15);
+
+  /* Page gradient stops */
+  --color-page-from: #0F1729;
+  --color-page-via: #0A0E1A;
+  --color-page-to: #0F1729;
 }
 
 @theme inline {
