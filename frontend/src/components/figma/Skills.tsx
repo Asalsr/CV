@@ -14,19 +14,19 @@ interface Skill {
 const uxuiSkills: Skill[] = [
   { name: 'Figma', level: 95, icon: Figma, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
   { name: 'UI/UX Design', level: 92, icon: Palette, color: 'bg-[#FF6B35] dark:bg-[#FF8B66]' },
-  { name: 'Photoshop & Illustrator', level: 98, icon: Palette, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
+  { name: 'Photoshop & Illustrator', level: 98, icon: Palette, color: 'bg-[#0EA5E9] dark:bg-[#2e9ac9]' },
   { name: 'InDesign', level: 90, icon: Palette, color: 'bg-[#FFB800] dark:bg-[#FFC947]' }
 ];
 
 const frontendSkills: Skill[] = [
   { name: 'React (JS/TS)', level: 95, icon: Code2, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
   { name: 'Redux & React Query', level: 90, icon: Code2, color: 'bg-[#4A90E2] dark:bg-[#7BA8F5]' },
-  { name: 'AG Grid & Material UI', level: 88, icon: Code2, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
+  { name: 'AG Grid & Material UI', level: 88, icon: Code2, color: 'bg-[#0EA5E9] dark:bg-[#2e9ac9]' },
   { name: 'HTML5/CSS3', level: 96, icon: Code2, color: 'bg-[#FF6B35] dark:bg-[#FF8B66]' }
 ];
 
 const backendSkills: Skill[] = [
-  { name: '.NET Core (C#)', level: 88, icon: Database, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
+  { name: '.NET Core (C#)', level: 88, icon: Database, color: 'bg-[#0EA5E9] dark:bg-[#2e9ac9]' },
   { name: 'RESTful APIs & GraphQL', level: 85, icon: Database, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
   { name: 'SQL/PL-SQL & MongoDB', level: 87, icon: Database, color: 'bg-[#4A90E2] dark:bg-[#7BA8F5]' },
   { name: 'Microservices', level: 82, icon: Cpu, color: 'bg-[#FFB800] dark:bg-[#FFC947]' }
@@ -35,7 +35,7 @@ const backendSkills: Skill[] = [
 const devopsSkills: Skill[] = [
   { name: 'Docker & Kubernetes', level: 80, icon: Cloud, color: 'bg-[#1C39BB] dark:bg-[#5B8DEF]' },
   { name: 'AWS & Azure', level: 78, icon: Cloud, color: 'bg-[#FF6B35] dark:bg-[#FF8B66]' },
-  { name: 'CI/CD & GitHub Actions', level: 85, icon: Cloud, color: 'bg-[#0EA5E9] dark:bg-[#38BDF8]' },
+  { name: 'CI/CD & GitHub Actions', level: 85, icon: Cloud, color: 'bg-[#0EA5E9] dark:bg-[#2e9ac9]' },
   { name: 'Git & Bash', level: 92, icon: Code2, color: 'bg-[#4A90E2] dark:bg-[#7BA8F5]' }
 ];
 
@@ -130,7 +130,7 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[#0EA5E9] to-[#FFB800] dark:from-[#38BDF8] dark:to-[#FFC947] bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[#0EA5E9] to-[#FFB800] dark:from-[#2e9ac9] dark:to-[#FFC947] bg-clip-text text-transparent">
             Skills &amp; Expertise
           </h2>
           <p className="text-gray-300 dark:text-gray-400 text-xl">Where creativity meets technology</p>
@@ -148,14 +148,14 @@ export function Skills() {
             title="Front-End"
             skills={frontendSkills}
             icon={Code2}
-            gradient="from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#38BDF8]"
+            gradient="from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#2e9ac9]"
             index={1}
           />
           <SkillSection
             title="Back-End & Database"
             skills={backendSkills}
             icon={Database}
-            gradient="from-[#0EA5E9] to-[#FFB800] dark:from-[#38BDF8] dark:to-[#FFC947]"
+            gradient="from-[#0EA5E9] to-[#FFB800] dark:from-[#2e9ac9] dark:to-[#FFC947]"
             index={2}
           />
           <SkillSection
@@ -196,12 +196,12 @@ export function Skills() {
               <h4 className="text-white mb-2">AI &amp; LLM Apps</h4>
               <p className="text-gray-300 dark:text-gray-400 text-sm">Building intelligent applications with OpenAI APIs</p>
             </div>
-            <div className="bg-gradient-to-br from-[#FFB800]/10 to-[#FFC947]/10 dark:from-[#FFC947]/10 dark:to-[#FFD76E]/10 border border-[#FFB800]/20 dark:border-[#FFC947]/30 rounded-xl p-6 text-center">
+            <div className="bg-gradient-to-br from-[#FFB800]/10 to-[#FFC947]/10 dark:from-[#FFC947]/10 dark:to-[#e3bd59]/10 border border-[#FFB800]/20 dark:border-[#FFC947]/30 rounded-xl p-6 text-center">
               <div className="text-4xl mb-2">⚡</div>
               <h4 className="text-white mb-2">Performance</h4>
               <p className="text-gray-300 dark:text-gray-400 text-sm">Optimized queries 60% faster, reduced load time 40%</p>
             </div>
-            <div className="bg-gradient-to-br from-[#0EA5E9]/10 to-[#38BDF8]/10 dark:from-[#38BDF8]/10 dark:to-[#0EA5E9]/10 border border-[#0EA5E9]/20 dark:border-[#38BDF8]/30 rounded-xl p-6 text-center">
+            <div className="bg-gradient-to-br from-[#0EA5E9]/10 to-[#2e9ac9]/10 dark:from-[#2e9ac9]/10 dark:to-[#0EA5E9]/10 border border-[#0EA5E9]/20 dark:border-[#2e9ac9]/30 rounded-xl p-6 text-center">
               <div className="text-4xl mb-2">☁️</div>
               <h4 className="text-white mb-2">Serverless</h4>
               <p className="text-gray-300 dark:text-gray-400 text-sm">AWS Lambda &amp; microservices architecture</p>

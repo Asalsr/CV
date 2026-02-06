@@ -95,7 +95,7 @@ export const colorSchemes: Record<ColorScheme, ColorSchemeConfig> = {
         50: '#FFF8E1',
         100: '#FFF0B8',
         200: '#FFE68A',
-        300: '#FFD76E',
+        300: '#e3bd59',
         400: '#FFC947',
         500: '#FFC947',
         600: '#E0A200',

@@ -11,7 +11,7 @@ const projects = [
     location: 'Rome',
     description: 'Painting series and artistic studies exploring the impact of plastic pollution on nature and human life.',
     icon: Palette,
-    color: 'from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#38BDF8]',
+    color: 'from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#2e9ac9]',
     sketch: 'wave' as const,
   },
   {
@@ -53,7 +53,7 @@ function SketchWave() {
         stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        className="text-[#0EA5E9] dark:text-[#38BDF8]"
+        className="text-[#0EA5E9] dark:text-[#2e9ac9]"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true }}

@@ -40,7 +40,7 @@ const roadmapData: RoadmapItem[] = [
       'AWS Lambda serverless workflows'
     ],
     icon: Code2,
-    color: 'from-[#0EA5E9] to-[#38BDF8] dark:from-[#38BDF8] dark:to-[#0EA5E9]'
+    color: 'from-[#0EA5E9] to-[#2e9ac9] dark:from-[#2e9ac9] dark:to-[#0EA5E9]'
   },
   {
     year: 'Sep 2023 - May 2024',
@@ -48,7 +48,7 @@ const roadmapData: RoadmapItem[] = [
     company: 'Liquido Studio, Turin',
     description: 'Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices.',
     icon: Briefcase,
-    color: 'from-[#FFB800] to-[#FFC947] dark:from-[#FFC947] dark:to-[#FFD76E]'
+    color: 'from-[#FFB800] to-[#FFC947] dark:from-[#FFC947] dark:to-[#e3bd59]'
   },
   {
     year: '2009 - 2018',
@@ -163,7 +163,7 @@ export function Roadmap() {
         </motion.div>
 
         {/* Vertical line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-[#5B8DEF]/50 via-[#FFB800]/50 to-[#0EA5E9]/50 dark:from-[#7BA8F5]/50 dark:via-[#FFC947]/50 dark:to-[#38BDF8]/50 h-full top-0" />
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gradient-to-b from-[#5B8DEF]/50 via-[#FFB800]/50 to-[#0EA5E9]/50 dark:from-[#7BA8F5]/50 dark:via-[#FFC947]/50 dark:to-[#2e9ac9]/50 h-full top-0" />
 
         {/* Roadmap items */}
         <div className="relative">

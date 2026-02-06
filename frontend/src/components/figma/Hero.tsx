@@ -65,7 +65,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-[#1C39BB] via-[#FFB800] to-[#0EA5E9] dark:from-[#5B8DEF] dark:via-[#FFC947] dark:to-[#38BDF8] bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-[#1C39BB] via-[#FFB800] to-[#0EA5E9] dark:from-[#5B8DEF] dark:via-[#FFC947] dark:to-[#2e9ac9] bg-clip-text text-transparent">
             Saeedeh Sarmadi
           </h1>
           <div className="relative inline-block mb-6">

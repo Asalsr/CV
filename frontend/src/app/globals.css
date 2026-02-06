@@ -74,7 +74,7 @@
   --color-accent-50: #FFF8E1;
   --color-accent-100: #FFF0B8;
   --color-accent-200: #FFE68A;
-  --color-accent-300: #FFD76E;
+  --color-accent-300: #e3bd59;
   --color-accent-400: #FFC947;
   --color-accent-500: #FFC947;
   --color-accent-600: #E0A200;
@@ -87,10 +87,10 @@
   --persian-blue-light: #7BA8F5;
   --persian-blue-dark: #3D6FD9;
   --golden-yellow: #FFC947;
-  --amber: #FFD76E;
+  --amber: #e3bd59;
   --sunset-orange: #FF8B66;
   --warm-coral: #FF9980;
-  --teal: #38BDF8;
+  --teal: #2e9ac9;
   --navy: #0A0E1A;
 }
 
