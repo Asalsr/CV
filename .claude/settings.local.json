@@ -50,7 +50,10 @@
       "Bash(timeout:*)",
       "Bash(tasklist:*)",
       "Bash(start http://localhost:3000)",
-      "Skill(art)"
+      "Skill(art)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd art portfolio with category management and image optimization\n\nFeatures:\n- Art portfolio page with gallery grid, modal viewer, and timeline\n- Category filter that auto-hides empty categories\n- Project cards that hide when images fail to load\n- Image optimization script \\(JPG/PNG to WebP conversion\\)\n- Responsive design with Framer Motion animations\n\nArtwork categories:\n- Photography, Painting, Workshop/Illustration\n- Illustration, Graphic Design, Mural Art, Video\n\nProjects included:\n- HATCH, War, Paintings Collection, Liberi di Crescere\n- Commercial Photography, Woman Life Liberty, Plastic Blue\n- Craftswomenship, Podcast Cover Design, Mural Painting\n- Where Heart Goes, Poster and Cover Design\n- Mid Night Sun 2020, Just Run, The Savior of the Persian\n- Women Life Freedom Workshop\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(cmd /c \"taskkill /PID 8700 /F\")",
+      "Bash(Remove-Item -Path \"D:\\\\my-prj\\\\frontend\\\\.next\\\\dev\\\\lock\" -Force -ErrorAction SilentlyContinue)"
     ]
   }
 }
