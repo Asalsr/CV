@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { useTranslations } from 'next-intl';
 import { Artwork } from '../types/artwork';
 import ImageGallery from './ImageGallery';
 import RelatedProjects from './RelatedProjects';
@@ -34,6 +35,7 @@ export default function ProjectModal({
   onSelectImage,
   onSelectProject,
 }: ProjectModalProps) {
+  const t = useTranslations('art.modal');
   if (!project) return null;
 
   return (
@@ -61,7 +63,7 @@ export default function ProjectModal({
               <button
                 onClick={onClose}
                 className="text-white/80 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10"
-                aria-label="Close modal"
+                aria-label={t('closeModal')}
               >
                 <X className="w-6 h-6" />
               </button>
@@ -71,17 +73,17 @@ export default function ProjectModal({
                 <button
                   onClick={onPrevProject}
                   className="text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 flex items-center gap-1 text-sm"
-                  aria-label="Previous project"
+                  aria-label={t('prevProject')}
                 >
                   <ChevronLeft className="w-4 h-4" />
-                  <span className="hidden md:inline">Prev</span>
+                  <span className="hidden md:inline">{t('prev')}</span>
                 </button>
                 <button
                   onClick={onNextProject}
                   className="text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 flex items-center gap-1 text-sm"
-                  aria-label="Next project"
+                  aria-label={t('nextProject')}
                 >
-                  <span className="hidden md:inline">Next</span>
+                  <span className="hidden md:inline">{t('next')}</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -130,7 +132,7 @@ export default function ProjectModal({
                     className="inline-flex items-center gap-2 mt-3 text-sm text-white/70 hover:text-white transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    View External Link
+                    {t('viewExternal')}
                   </a>
                 )}
               </div>
@@ -199,9 +201,9 @@ export default function ProjectModal({
 
               {/* Keyboard Hints */}
               <div className="hidden md:flex justify-center gap-6 text-white/40 text-xs mb-6">
-                <span>ESC to close</span>
-                <span>← → for images</span>
-                <span>Shift + ← → for projects</span>
+                <span>{t('escToClose')}</span>
+                <span>{t('arrowsForImages')}</span>
+                <span>{t('shiftArrowsForProjects')}</span>
               </div>
 
               {/* Related Projects */}

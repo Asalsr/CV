@@ -1,0 +1,164 @@
+{
+  "nav": {
+    "journey": "Resa",
+    "skills": "Kompetenser",
+    "art": "Konst",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "tagline": "Agentic Developer | Full-Stack-ingenjör | UI/UX-entusiast",
+    "subtitle": "Konst möter datavetenskap — Skapar vackra digitala upplevelser från Göteborg, Sverige",
+    "exploreJourney": "Utforska min resa",
+    "viewSkills": "Visa kompetenser"
+  },
+  "roadmap": {
+    "heading": "Min resa",
+    "subtitle": "En färdplan av tillväxt och innovation",
+    "job1": {
+      "year": "Dec 2025 - Nuvarande",
+      "title": "Agentic Developer-praktikant",
+      "company": "Sweden Startup Nation (SSN) - SISP, Sverige",
+      "description": "Samarbetar med AI-agenter inom kodning, testning och driftsättning av plattformsfunktioner för Swedish Startup Nation Data Platform.",
+      "h1": "Agent-First-utveckling med AI",
+      "h2": "Bidrag till Data-Web-plattformen",
+      "h3": "Dashboards och adminverktyg"
+    },
+    "job2": {
+      "year": "Jun 2024 - Okt 2025",
+      "title": "Full-Stack-utvecklare & systemanalytiker",
+      "company": "RADA Computing Solutions, Turin",
+      "description": "Ledde migrering från äldre system (2008) till modern React-plattform. Byggde REST-API:er, optimerade Oracle DB-frågor (60 % snabbare) och skapade AI-chattbot.",
+      "h1": "React-migrering (20+ moduler)",
+      "h2": "AG Grid-implementation (150k+ rader)",
+      "h3": "GraphQL POC (30 % mindre payload)",
+      "h4": "AWS Lambda serverlösa arbetsflöden"
+    },
+    "job3": {
+      "year": "Sep 2023 - Maj 2024",
+      "title": "Front-End-utvecklarpraktikant",
+      "company": "Liquido Studio, Turin",
+      "description": "Utvecklade responsiva webbplatser med HTML, CSS, WordPress och JavaScript. Anpassade teman och implementerade UI/UX-best practices."
+    },
+    "job4": {
+      "year": "2009 - 2018",
+      "title": "Mjukvaruingenjör & kreativ designer",
+      "company": "DYS Company & Tanvarz - Teheran",
+      "description": "Medutvecklade interna sociala plattformar, designade flerkanaliga kataloger och skapade kulturellt anpassat innehåll som ökade engagemanget."
+    },
+    "job5": {
+      "year": "Utbildning",
+      "title": "B.A. Konst (GPA 4.0) & B.Sc. Datavetenskap",
+      "company": "Konstakademin i Rom & Abrar University of Tehran",
+      "description": "Unik kombination av konstnärlig kreativitet och teknisk expertis inom datavetenskap."
+    }
+  },
+  "skills": {
+    "heading": "Kompetenser & expertis",
+    "subtitle": "Där kreativitet möter teknik",
+    "uiux": "UI/UX-design",
+    "frontend": "Front-End",
+    "backend": "Back-End & databas",
+    "devops": "DevOps & moln",
+    "specialFocus": "Specialfokus",
+    "aiTitle": "AI & LLM-appar",
+    "aiDesc": "Bygger intelligenta applikationer med OpenAI API:er",
+    "perfTitle": "Prestanda",
+    "perfDesc": "Optimerade frågor 60 % snabbare, minskade laddningstid 40 %",
+    "serverlessTitle": "Serverlöst",
+    "serverlessDesc": "AWS Lambda & mikrotjänstarkitektur",
+    "designTitle": "Designsystem",
+    "designDesc": "Skapar skalbara, tillgängliga UI-ramverk"
+  },
+  "artProjects": {
+    "heading": "Konstnärliga projekt",
+    "subtitle": "Där konst möter aktivism och social påverkan",
+    "plasticBlue": {
+      "title": "Plastic Blue",
+      "description": "Målningsserie och konstnärliga studier som utforskar plastföroreningarnas påverkan på natur och människoliv."
+    },
+    "womenLifeFreedom": {
+      "title": "Women Life Freedom",
+      "description": "Ledde workshops och utbildningsaktiviteter på flera skolor och engagerade elever i diskussioner om kvinnors rättigheter och frihet."
+    },
+    "illustrationWorkshops": {
+      "title": "Illustrationsworkshops",
+      "description": "Ledde visuell identitet, marknadsföringsmaterial och facilitering på plats för Liberi di Crescere-föreningens evenemang för barns rättigheter."
+    }
+  },
+  "footer": {
+    "artCtaTitle": "Utforska min konstnärliga sida",
+    "artCtaDescription": "Bortom kod och pixlar skapar jag konst. Utexaminerad från Konstakademin, utforskar plastföroreningar (Plastic Blue-serien), leder workshops för barns rättigheter (Women Life Freedom) och illustration för sociala ändamål.",
+    "viewPortfolio": "Visa konstnärlig portfolio",
+    "connectTitle": "Kontakta mig",
+    "connectSubtitle": "Öppen för nya möjligheter och samarbeten",
+    "copyright": "Designad & byggd med <heart></heart> av Saeedeh Sarmadi © 2026",
+    "location": "Göteborg, Sverige"
+  },
+  "art": {
+    "page": {
+      "back": "Tillbaka",
+      "title": "Konstportfolio",
+      "copyright": "\u00a9 {year} Saeedeh Sarmadi. Alla rättigheter förbehållna.",
+      "devPortfolio": "Utvecklarportfolio"
+    },
+    "hero": {
+      "headingWhite": "Min konstnärliga",
+      "headingGradient": " resa",
+      "subtitle": "Utforskar kreativitet genom fotografi, målning, digital konst och design",
+      "projects": "Projekt",
+      "years": "År",
+      "mediums": "Medium"
+    },
+    "timeline": {
+      "heading": "Tidslinje",
+      "instruction": "Klicka på ett år för att filtrera projekt",
+      "clearFilter": "(Rensa filter)",
+      "projectCount": "{count, plural, one {# projekt} other {# projekt}}"
+    },
+    "categories": {
+      "All": "Alla",
+      "Photography": "Fotografi",
+      "Painting": "Målning",
+      "Workshop/Illustration": "Workshop/Illustration",
+      "Illustration": "Illustration",
+      "Graphic Design": "Grafisk design",
+      "Mural Art": "Muralmålning",
+      "Video": "Video"
+    },
+    "projectCard": {
+      "images": "{count} bilder"
+    },
+    "projectGrid": {
+      "noResults": "Inga projekt hittades för de valda filtren."
+    },
+    "modal": {
+      "closeModal": "Stäng",
+      "prevProject": "Föregående projekt",
+      "nextProject": "Nästa projekt",
+      "prev": "Föreg",
+      "next": "Nästa",
+      "viewExternal": "Visa extern länk",
+      "escToClose": "ESC för att stänga",
+      "arrowsForImages": "\u2190 \u2192 för bilder",
+      "shiftArrowsForProjects": "Shift + \u2190 \u2192 för projekt"
+    },
+    "related": {
+      "heading": "Relaterade projekt"
+    },
+    "thumbnailStrip": {
+      "viewImage": "Visa bild {current} av {total}",
+      "thumbnail": "{title} - Miniatyr {index}"
+    },
+    "imageGallery": {
+      "prevImage": "Föregående bild",
+      "nextImage": "Nästa bild",
+      "imageAlt": "{title} - Bild {index}"
+    }
+  },
+  "theme": {
+    "switchToLight": "Byt till ljust läge",
+    "switchToDark": "Byt till mörkt läge",
+    "lightMode": "Ljust läge",
+    "darkMode": "Mörkt läge"
+  }
+}

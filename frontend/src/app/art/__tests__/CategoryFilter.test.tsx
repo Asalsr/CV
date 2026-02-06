@@ -2,6 +2,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import CategoryFilter from '../components/CategoryFilter';
 import { ArtworkCategory } from '../types/artwork';
 
+// Mock next-intl (handled by jest.config moduleNameMapper)
+
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {
@@ -48,7 +50,7 @@ describe('CategoryFilter', () => {
     );
 
     mockCategories.forEach((category) => {
-      expect(screen.getByText(category)).toBeInTheDocument();
+      expect(screen.getByText(`art.categories.${category}`)).toBeInTheDocument();
     });
   });
 
@@ -61,7 +63,7 @@ describe('CategoryFilter', () => {
       />
     );
 
-    fireEvent.click(screen.getByText('Photography'));
+    fireEvent.click(screen.getByText('art.categories.Photography'));
     expect(mockOnSelect).toHaveBeenCalledWith('Photography');
   });
 
@@ -74,7 +76,7 @@ describe('CategoryFilter', () => {
       />
     );
 
-    fireEvent.click(screen.getByText('All'));
+    fireEvent.click(screen.getByText('art.categories.All'));
     expect(mockOnSelect).toHaveBeenCalledWith('All');
   });
 
@@ -87,15 +89,15 @@ describe('CategoryFilter', () => {
       />
     );
 
-    const selectedButton = screen.getByText('Photography');
-    const unselectedButton = screen.getByText('All');
+    const selectedButton = screen.getByText('art.categories.Photography');
+    const unselectedButton = screen.getByText('art.categories.All');
 
     // Check that selected button has different background color
     expect(selectedButton).toHaveStyle({
-      backgroundColor: '#5B8DEF',
+      backgroundColor: 'var(--color-primary-500)',
     });
     expect(unselectedButton).toHaveStyle({
-      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+      backgroundColor: 'var(--color-glass-bg)',
     });
   });
 

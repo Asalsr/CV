@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 interface ThumbnailStripProps {
@@ -17,6 +18,7 @@ export default function ThumbnailStrip({
   onSelect,
   title,
 }: ThumbnailStripProps) {
+  const t = useTranslations('art.thumbnailStrip');
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Scroll active thumbnail into view
@@ -62,12 +64,12 @@ export default function ThumbnailStrip({
             opacity: idx === currentIndex ? 1 : 0.6,
             transform: idx === currentIndex ? 'scale(1.1)' : 'scale(1)',
           }}
-          aria-label={`View image ${idx + 1} of ${images.length}`}
+          aria-label={t('viewImage', { current: idx + 1, total: images.length })}
           aria-current={idx === currentIndex ? 'true' : undefined}
         >
           <ImageWithFallback
             src={img}
-            alt={`${title} - Thumbnail ${idx + 1}`}
+            alt={t('thumbnail', { title, index: idx + 1 })}
             fill
             className="object-cover"
             sizes="80px"

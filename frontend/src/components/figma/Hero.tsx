@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Code, Palette, Sparkles } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function Hero() {
+  const t = useTranslations('hero');
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
       {/* Animated background elements */}
@@ -59,7 +61,7 @@ export function Hero() {
           </h1>
           <div className="relative inline-block mb-6">
             <p className="text-2xl md:text-3xl" style={{ color: 'var(--color-text-primary)' }}>
-              Agentic Developer | Full-Stack Engineer | UI/UX Enthusiast
+              {t('tagline')}
             </p>
             {/* Hand-drawn underline sketch */}
             <svg
@@ -94,7 +96,7 @@ export function Hero() {
           className="text-xl md:text-2xl mb-12"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          Fine Arts meets Computer Science — Crafting beautiful digital experiences from Gothenburg, Sweden
+          {t('subtitle')}
         </motion.p>
 
         <motion.div
@@ -111,7 +113,7 @@ export function Hero() {
               boxShadow: undefined,
             }}
           >
-            Explore My Journey
+            {t('exploreJourney')}
           </a>
           <a
             href="#skills"
@@ -122,7 +124,7 @@ export function Hero() {
               border: '1px solid var(--color-glass-border)',
             }}
           >
-            View Skills
+            {t('viewSkills')}
           </a>
         </motion.div>
       </div>

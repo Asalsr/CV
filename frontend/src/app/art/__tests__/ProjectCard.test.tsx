@@ -88,12 +88,12 @@ describe('ProjectCard', () => {
 
   it('should show image count badge for multi-image projects', () => {
     render(<ProjectCard artwork={mockImageArtwork} onClick={mockOnClick} index={0} />);
-    expect(screen.getByText('3 images')).toBeInTheDocument();
+    expect(screen.getByText('art.projectCard.images')).toBeInTheDocument();
   });
 
   it('should not show image count badge for single image projects', () => {
     render(<ProjectCard artwork={mockSingleImageArtwork} onClick={mockOnClick} index={0} />);
-    expect(screen.queryByText(/images/)).not.toBeInTheDocument();
+    expect(screen.queryByText('art.projectCard.images')).not.toBeInTheDocument();
   });
 
   it('should show play icon for video projects', () => {

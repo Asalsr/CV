@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Artwork, ArtworkCategory } from '../types/artwork';
 import ProjectCard from './ProjectCard';
 
@@ -17,6 +18,7 @@ export default function ProjectGrid({
   yearFilter,
   onProjectClick,
 }: ProjectGridProps) {
+  const t = useTranslations('art.projectGrid');
   const filteredArtworks = artworks.filter((artwork) => {
     const categoryMatch =
       categoryFilter === 'All' || artwork.category === categoryFilter;
@@ -51,7 +53,7 @@ export default function ProjectGrid({
             className="text-center py-16"
           >
             <p className="text-gray-400">
-              No projects found for the selected filters.
+              {t('noResults')}
             </p>
           </motion.div>
         )}

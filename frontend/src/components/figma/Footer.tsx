@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ExternalLink, Heart } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function Footer() {
+  const t = useTranslations('footer');
   return (
     <footer id="contact" className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
       <div className="max-w-6xl mx-auto">
@@ -26,10 +28,10 @@ export function Footer() {
               className="text-3xl md:text-4xl mb-4 bg-clip-text text-transparent"
               style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500), var(--sunset-orange))' }}
             >
-              Explore My Artistic Side
+              {t('artCtaTitle')}
             </h3>
             <p className="mb-6 max-w-2xl mx-auto" style={{ color: 'var(--color-text-secondary)' }}>
-              Beyond code and pixels, I create art. Fine Arts Academy graduate exploring plastic pollution (Plastic Blue series), leading children&apos;s rights workshops (Women Life Freedom), and illustration for social causes.
+              {t('artCtaDescription')}
             </p>
             <motion.a
               href="/art"
@@ -38,7 +40,7 @@ export function Footer() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white hover:shadow-lg transition-all"
               style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500), var(--sunset-orange))' }}
             >
-              View Artistic Portfolio
+              {t('viewPortfolio')}
               <ExternalLink className="w-5 h-5" />
             </motion.a>
           </div>
@@ -47,8 +49,8 @@ export function Footer() {
         {/* Social Links & Contact */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
-            <h4 className="text-xl mb-2" style={{ color: 'var(--color-text-primary)' }}>Let&apos;s Connect</h4>
-            <p className="mb-2" style={{ color: 'var(--color-text-secondary)' }}>Open to new opportunities and collaborations</p>
+            <h4 className="text-xl mb-2" style={{ color: 'var(--color-text-primary)' }}>{t('connectTitle')}</h4>
+            <p className="mb-2" style={{ color: 'var(--color-text-secondary)' }}>{t('connectSubtitle')}</p>
             <a
               href="mailto:Saeedeh.sarmadi89@gmail.com"
               style={{ color: 'var(--color-primary-500)' }}
@@ -85,9 +87,11 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 text-center" style={{ borderTop: '1px solid var(--color-glass-border)', color: 'var(--color-text-secondary)' }}>
           <p className="flex items-center justify-center gap-2">
-            Designed &amp; Built with <Heart className="w-4 h-4" style={{ color: 'var(--sunset-orange)' }} fill="currentColor" /> by Saeedeh Sarmadi &copy; 2026
+            {t.rich('copyright', {
+              heart: () => <Heart className="w-4 h-4" style={{ color: 'var(--sunset-orange)' }} fill="currentColor" />
+            })}
           </p>
-          <p className="text-sm mt-2">Gothenburg, Sweden</p>
+          <p className="text-sm mt-2">{t('location')}</p>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import ThemeModeToggle from '@/components/theme/ThemeModeToggle';
 import LanguageSelector from '@/components/LanguageSelector';
 import { Hero } from '@/components/figma/Hero';
@@ -9,6 +10,15 @@ import { ArtProjects } from '@/components/figma/ArtProjects';
 import { Footer } from '@/components/figma/Footer';
 
 export default function Home() {
+  const t = useTranslations('nav');
+
+  const navItems = [
+    { key: 'journey' as const, href: '#roadmap' },
+    { key: 'skills' as const, href: '#skills' },
+    { key: 'art' as const, href: '#art-projects' },
+    { key: 'contact' as const, href: '#contact' },
+  ];
+
   return (
     <div
       className="min-h-screen"
@@ -35,14 +45,14 @@ export default function Home() {
             </a>
 
             <div className="hidden md:flex items-center gap-8">
-              {['Journey', 'Skills', 'Art', 'Contact'].map((label) => (
+              {navItems.map((item) => (
                 <a
-                  key={label}
-                  href={`#${label === 'Journey' ? 'roadmap' : label === 'Contact' ? 'contact' : label === 'Art' ? 'art-projects' : label.toLowerCase()}`}
+                  key={item.key}
+                  href={item.href}
                   className="text-sm transition-colors"
                   style={{ color: 'var(--color-text-secondary)' }}
                 >
-                  {label}
+                  {t(item.key)}
                 </a>
               ))}
             </div>

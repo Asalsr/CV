@@ -4,7 +4,8 @@ import "./globals.css";
 import StoreProvider from "@/lib/redux/StoreProvider";
 import ThemeProvider from "@/components/theme/ThemeProvider";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
+import { isRtl } from "@/i18n/config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,10 +29,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   const messages = await getMessages();
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} dir={isRtl(locale) ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >

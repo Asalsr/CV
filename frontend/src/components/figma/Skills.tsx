@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Palette, Code2, Figma, Database, Cloud, Cpu } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface Skill {
   name: string;
@@ -126,6 +127,8 @@ function SkillSection({ title, skills, icon: Icon, gradient, index }: {
 }
 
 export function Skills() {
+  const t = useTranslations('skills');
+
   return (
     <section id="skills" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -140,35 +143,35 @@ export function Skills() {
             className="text-4xl md:text-5xl mb-4 bg-clip-text text-transparent"
             style={{ backgroundImage: 'linear-gradient(to right, var(--teal), var(--color-accent-500))' }}
           >
-            Skills &amp; Expertise
+            {t('heading')}
           </h2>
-          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">Where creativity meets technology</p>
+          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">{t('subtitle')}</p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           <SkillSection
-            title="UI/UX Design"
+            title={t('uiux')}
             skills={uxuiSkills}
             icon={Palette}
             gradient="linear-gradient(135deg, var(--color-primary-500), var(--sunset-orange))"
             index={0}
           />
           <SkillSection
-            title="Front-End"
+            title={t('frontend')}
             skills={frontendSkills}
             icon={Code2}
             gradient="linear-gradient(135deg, var(--color-primary-500), var(--teal))"
             index={1}
           />
           <SkillSection
-            title="Back-End & Database"
+            title={t('backend')}
             skills={backendSkills}
             icon={Database}
             gradient="linear-gradient(135deg, var(--teal), var(--color-accent-500))"
             index={2}
           />
           <SkillSection
-            title="DevOps & Cloud"
+            title={t('devops')}
             skills={devopsSkills}
             icon={Cloud}
             gradient="linear-gradient(135deg, var(--sunset-orange), var(--color-primary-500))"
@@ -185,7 +188,7 @@ export function Skills() {
           className="mt-16"
         >
           <h3 className="text-2xl text-center mb-8 relative inline-block left-1/2 -translate-x-1/2" style={{ color: 'var(--color-text-primary)' }}>
-            Special Focus
+            {t('specialFocus')}
             <svg className="absolute -bottom-2 left-0 w-full h-2" preserveAspectRatio="none">
               <motion.path
                 d="M 0,1 Q 50,4 100,1"
@@ -201,10 +204,10 @@ export function Skills() {
           </h3>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { emoji: '🤖', title: 'AI & LLM Apps', desc: 'Building intelligent applications with OpenAI APIs', color: 'var(--color-primary-500)' },
-              { emoji: '⚡', title: 'Performance', desc: 'Optimized queries 60% faster, reduced load time 40%', color: 'var(--golden-yellow)' },
-              { emoji: '☁️', title: 'Serverless', desc: 'AWS Lambda & microservices architecture', color: 'var(--teal)' },
-              { emoji: '🎨', title: 'Design Systems', desc: 'Creating scalable, accessible UI frameworks', color: 'var(--sunset-orange)' },
+              { emoji: '🤖', title: t('aiTitle'), desc: t('aiDesc'), color: 'var(--color-primary-500)' },
+              { emoji: '⚡', title: t('perfTitle'), desc: t('perfDesc'), color: 'var(--golden-yellow)' },
+              { emoji: '☁️', title: t('serverlessTitle'), desc: t('serverlessDesc'), color: 'var(--teal)' },
+              { emoji: '🎨', title: t('designTitle'), desc: t('designDesc'), color: 'var(--sunset-orange)' },
             ].map((item) => (
               <div
                 key={item.title}

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import { useAppSelector } from '@/lib/redux/hooks';
 import ThemeModeToggle from '@/components/theme/ThemeModeToggle';
@@ -17,6 +18,7 @@ import InteractiveTimeline from './components/InteractiveTimeline';
 import { useProjectModal } from './hooks/useProjectModal';
 
 export default function ArtPortfolio() {
+  const t = useTranslations('art.page');
   useAppSelector((state) => state.theme);
   const [selectedCategory, setSelectedCategory] = useState<ArtworkCategory | 'All'>('All');
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
@@ -72,14 +74,14 @@ export default function ArtPortfolio() {
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 <ArrowLeft className="w-4 h-4" />
-                Back
+                {t('back')}
               </Link>
               <div>
                 <h1
                   className="text-xl md:text-2xl font-bold bg-clip-text text-transparent"
                   style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500))' }}
                 >
-                  Art Portfolio
+                  {t('title')}
                 </h1>
                 <p className="text-sm mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>
                   Saeedeh Sarmadi
@@ -116,7 +118,7 @@ export default function ArtPortfolio() {
       <footer className="py-8" style={{ borderTop: '1px solid var(--color-glass-border)', backgroundColor: 'color-mix(in srgb, var(--color-surface) 50%, transparent)' }}>
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p style={{ color: 'var(--color-text-secondary)' }}>
-            &copy; {new Date().getFullYear()} Saeedeh Sarmadi. All rights reserved.
+            {t('copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="mt-4 flex justify-center gap-4">
             <a
@@ -134,7 +136,7 @@ export default function ArtPortfolio() {
               className="text-sm transition-colors hover:underline"
               style={{ color: 'var(--color-primary-500)' }}
             >
-              Developer Portfolio
+              {t('devPortfolio')}
             </Link>
           </div>
         </div>

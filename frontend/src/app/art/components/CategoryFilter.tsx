@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { ArtworkCategory } from '../types/artwork';
 
 interface CategoryFilterProps {
@@ -14,6 +15,8 @@ export default function CategoryFilter({
   selected,
   onSelect,
 }: CategoryFilterProps) {
+  const t = useTranslations('art.categories');
+
   return (
     <div className="flex flex-wrap justify-center gap-2">
       {categories.map((category) => {
@@ -38,7 +41,7 @@ export default function CategoryFilter({
               backdropFilter: isSelected ? 'none' : 'blur(4px)',
             }}
           >
-            {category}
+            {t(category)}
           </motion.button>
         );
       })}

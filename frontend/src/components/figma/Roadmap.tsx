@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase, GraduationCap, Rocket, Palette, Code2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface RoadmapItem {
   year: string;
@@ -13,60 +14,6 @@ interface RoadmapItem {
   gradient: string;
   highlights?: string[];
 }
-
-const roadmapData: RoadmapItem[] = [
-  {
-    year: 'Dec 2025 - Present',
-    title: 'Agentic Developer Intern',
-    company: 'Sweden Startup Nation (SSN) - SISP, Sweden',
-    description: 'Collaborating with AI agents in coding, testing, and deploying platform features for the Swedish Startup Nation Data Platform.',
-    highlights: [
-      'Agent-First Development with AI',
-      'Data-Web Platform contribution',
-      'Dashboards and Admin Tools'
-    ],
-    icon: Rocket,
-    gradient: 'linear-gradient(135deg, var(--color-primary-500), var(--color-primary-400))'
-  },
-  {
-    year: 'Jun 2024 - Oct 2025',
-    title: 'Full-Stack Developer & Systems Analyst',
-    company: 'RADA Computing Solutions, Turin',
-    description: 'Led migration from 2008 legacy system to modern React platform. Built REST APIs, optimized Oracle DB queries (60% faster), and created AI chatbot.',
-    highlights: [
-      'React migration (20+ modules)',
-      'AG Grid implementation (150k+ rows)',
-      'GraphQL POC (30% payload reduction)',
-      'AWS Lambda serverless workflows'
-    ],
-    icon: Code2,
-    gradient: 'linear-gradient(135deg, var(--teal), var(--persian-blue-light))'
-  },
-  {
-    year: 'Sep 2023 - May 2024',
-    title: 'Front-End Development Intern',
-    company: 'Liquido Studio, Turin',
-    description: 'Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices.',
-    icon: Briefcase,
-    gradient: 'linear-gradient(135deg, var(--golden-yellow), var(--amber))'
-  },
-  {
-    year: '2009 - 2018',
-    title: 'Software Engineer & Creative Designer',
-    company: 'DYS Company & Tanvarz - Tehran',
-    description: 'Co-developed internal social platforms, designed multi-channel catalogs, and created culturally localized content that boosted engagement.',
-    icon: Palette,
-    gradient: 'linear-gradient(135deg, var(--sunset-orange), var(--warm-coral))'
-  },
-  {
-    year: 'Education',
-    title: 'B.A. Fine Arts (GPA 4.0) & B.Sc. Computer Science',
-    company: 'Fine Arts Academy of Rome & Abrar University of Tehran',
-    description: 'Unique combination of artistic creativity and technical expertise in computer science.',
-    icon: GraduationCap,
-    gradient: 'linear-gradient(135deg, var(--persian-blue-light), var(--color-primary-500))'
-  }
-];
 
 function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
   const ref = useRef(null);
@@ -138,6 +85,53 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
 }
 
 export function Roadmap() {
+  const t = useTranslations('roadmap');
+
+  const roadmapData: RoadmapItem[] = [
+    {
+      year: t('job1.year'),
+      title: t('job1.title'),
+      company: t('job1.company'),
+      description: t('job1.description'),
+      highlights: [t('job1.h1'), t('job1.h2'), t('job1.h3')],
+      icon: Rocket,
+      gradient: 'linear-gradient(135deg, var(--color-primary-500), var(--color-primary-400))'
+    },
+    {
+      year: t('job2.year'),
+      title: t('job2.title'),
+      company: t('job2.company'),
+      description: t('job2.description'),
+      highlights: [t('job2.h1'), t('job2.h2'), t('job2.h3'), t('job2.h4')],
+      icon: Code2,
+      gradient: 'linear-gradient(135deg, var(--teal), var(--persian-blue-light))'
+    },
+    {
+      year: t('job3.year'),
+      title: t('job3.title'),
+      company: t('job3.company'),
+      description: t('job3.description'),
+      icon: Briefcase,
+      gradient: 'linear-gradient(135deg, var(--golden-yellow), var(--amber))'
+    },
+    {
+      year: t('job4.year'),
+      title: t('job4.title'),
+      company: t('job4.company'),
+      description: t('job4.description'),
+      icon: Palette,
+      gradient: 'linear-gradient(135deg, var(--sunset-orange), var(--warm-coral))'
+    },
+    {
+      year: t('job5.year'),
+      title: t('job5.title'),
+      company: t('job5.company'),
+      description: t('job5.description'),
+      icon: GraduationCap,
+      gradient: 'linear-gradient(135deg, var(--persian-blue-light), var(--color-primary-500))'
+    }
+  ];
+
   return (
     <section id="roadmap" className="py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -153,7 +147,7 @@ export function Roadmap() {
               className="text-4xl md:text-5xl mb-4 bg-clip-text text-transparent"
               style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500))' }}
             >
-              My Journey
+              {t('heading')}
             </h2>
             {/* Hand-drawn arrow sketch */}
             <svg className="absolute -right-16 top-1/2 -translate-y-1/2 w-12 h-12 hidden md:block" viewBox="0 0 48 48">
@@ -170,7 +164,7 @@ export function Roadmap() {
               />
             </svg>
           </div>
-          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">A roadmap of growth and innovation</p>
+          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">{t('subtitle')}</p>
         </motion.div>
 
         {/* Vertical line */}

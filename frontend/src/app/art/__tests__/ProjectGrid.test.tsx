@@ -168,7 +168,7 @@ describe('ProjectGrid', () => {
       );
 
       expect(
-        screen.getByText('No projects found for the selected filters.')
+        screen.getByText('art.projectGrid.noResults')
       ).toBeInTheDocument();
     });
   });

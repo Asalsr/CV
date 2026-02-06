@@ -129,13 +129,13 @@ jest.mock('@/components/LanguageSelector', () => ({
 describe('ArtPortfolio Page', () => {
   it('should render the page header', () => {
     render(<ArtPortfolio />);
-    expect(screen.getByText('Art Portfolio')).toBeInTheDocument();
+    expect(screen.getByText('art.page.title')).toBeInTheDocument();
     expect(screen.getByText('Saeedeh Sarmadi')).toBeInTheDocument();
   });
 
   it('should render back link to home', () => {
     render(<ArtPortfolio />);
-    const backLink = screen.getByText('Back').closest('a');
+    const backLink = screen.getByText('art.page.back').closest('a');
     expect(backLink).toHaveAttribute('href', '/');
   });
 
@@ -155,12 +155,12 @@ describe('ArtPortfolio Page', () => {
 
   it('should render footer with copyright and links', () => {
     render(<ArtPortfolio />);
-    expect(screen.getByText(/Saeedeh Sarmadi. All rights reserved/)).toBeInTheDocument();
+    expect(screen.getByText(/art\.page\.copyright/)).toBeInTheDocument();
     expect(screen.getByText('Behance')).toHaveAttribute(
       'href',
       'https://www.behance.net/asalsr'
     );
-    expect(screen.getByText('Developer Portfolio')).toHaveAttribute('href', '/');
+    expect(screen.getByText('art.page.devPortfolio')).toHaveAttribute('href', '/');
   });
 
   describe('category filtering', () => {

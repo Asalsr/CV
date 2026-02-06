@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import { Artwork, ArtworkCategory, CATEGORIES } from '../types/artwork';
 import CategoryFilter from './CategoryFilter';
 
@@ -16,6 +17,7 @@ export default function HeroSection({
   selectedCategory,
   onCategorySelect,
 }: HeroSectionProps) {
+  const t = useTranslations('art.hero');
   const { stats, availableCategories } = useMemo(() => {
     const years = new Set<string>();
     const categoriesInUse = new Set<ArtworkCategory>();
@@ -59,22 +61,22 @@ export default function HeroSection({
       <div className="max-w-7xl mx-auto text-center">
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
           <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span style={{ color: 'var(--color-text-primary)' }}>My Artistic</span>
+            <span style={{ color: 'var(--color-text-primary)' }}>{t('headingWhite')}</span>
             <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500))' }}>
-              {' '}Journey
+              {t('headingGradient')}
             </span>
           </motion.h2>
 
           <motion.p variants={itemVariants} className="text-lg md:text-xl max-w-2xl mx-auto mb-8" style={{ color: 'var(--color-text-secondary)' }}>
-            Exploring creativity through photography, painting, digital art, and design
+            {t('subtitle')}
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex justify-center items-center gap-6 md:gap-12 mb-10">
-            <StatItem value={stats.projectCount} label="Projects" />
+            <StatItem value={stats.projectCount} label={t('projects')} />
             <div className="w-px h-8" style={{ backgroundColor: 'var(--color-glass-border)' }} />
-            <StatItem value={stats.yearsActive} label="Years" />
+            <StatItem value={stats.yearsActive} label={t('years')} />
             <div className="w-px h-8" style={{ backgroundColor: 'var(--color-glass-border)' }} />
-            <StatItem value={stats.categoryCount} label="Mediums" />
+            <StatItem value={stats.categoryCount} label={t('mediums')} />
           </motion.div>
 
           <motion.div variants={itemVariants}>

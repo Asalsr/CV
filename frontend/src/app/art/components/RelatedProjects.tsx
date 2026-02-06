@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Artwork } from '../types/artwork';
 import { getRelatedProjects } from '../data/artworks';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
@@ -17,6 +18,7 @@ export default function RelatedProjects({
   allArtworks,
   onProjectClick,
 }: RelatedProjectsProps) {
+  const t = useTranslations('art.related');
   const related = getRelatedProjects(currentArtwork, allArtworks);
 
   if (related.length === 0) return null;
@@ -24,7 +26,7 @@ export default function RelatedProjects({
   return (
     <div className="mt-8 pt-6 border-t border-white/20">
       <h4 className="text-white/80 text-sm font-medium mb-4 text-center">
-        Related Projects
+        {t('heading')}
       </h4>
       <div className="flex justify-center gap-4 overflow-x-auto pb-2">
         {related.map((artwork) => (

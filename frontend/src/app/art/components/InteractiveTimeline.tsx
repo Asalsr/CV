@@ -2,6 +2,7 @@
 
 import { useMemo, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 import { Artwork } from '../types/artwork';
 
 interface InteractiveTimelineProps {
@@ -20,6 +21,7 @@ export default function InteractiveTimeline({
   selectedYear,
   onYearSelect,
 }: InteractiveTimelineProps) {
+  const t = useTranslations('art.timeline');
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
@@ -51,17 +53,17 @@ export default function InteractiveTimeline({
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-4" style={{ color: 'var(--color-text-primary)' }}>
-            Timeline
+            {t('heading')}
           </h3>
           <p className="text-center text-sm mb-10" style={{ color: 'var(--color-text-secondary)' }}>
-            Click a year to filter projects
+            {t('instruction')}
             {selectedYear && (
               <button
                 onClick={() => onYearSelect(null)}
                 className="ml-2 underline hover:no-underline"
                 style={{ color: 'var(--color-primary-500)' }}
               >
-                (Clear filter)
+                {t('clearFilter')}
               </button>
             )}
           </p>
@@ -88,6 +90,7 @@ export default function InteractiveTimeline({
                     onClick={() => handleYearClick(data.year)}
                     isInView={isInView}
                     totalYears={yearData.length}
+                    projectCountLabel={t('projectCount', { count: data.count })}
                   />
                 ))}
               </div>
@@ -106,9 +109,10 @@ interface YearMarkerProps {
   onClick: () => void;
   isInView: boolean;
   totalYears: number;
+  projectCountLabel: string;
 }
 
-function YearMarker({ data, index, isSelected, onClick, isInView, totalYears }: YearMarkerProps) {
+function YearMarker({ data, index, isSelected, onClick, isInView, totalYears, projectCountLabel }: YearMarkerProps) {
   return (
     <motion.button
       initial={{ opacity: 0, y: 20 }}
@@ -139,7 +143,7 @@ function YearMarker({ data, index, isSelected, onClick, isInView, totalYears }: 
         className="text-xs md:text-sm transition-colors"
         style={{ color: isSelected ? 'var(--color-primary-400)' : 'var(--color-text-secondary)' }}
       >
-        {data.count} {data.count === 1 ? 'project' : 'projects'}
+        {projectCountLabel}
       </span>
 
       <div

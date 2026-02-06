@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Artwork } from '../types/artwork';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
@@ -12,6 +13,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ artwork, onClick, index }: ProjectCardProps) {
+  const t = useTranslations('art.projectCard');
   return (
     <motion.div
       layout
@@ -49,7 +51,7 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
 
           {artwork.images.length > 1 && (
             <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
-              {artwork.images.length} images
+              {t('images', { count: artwork.images.length })}
             </div>
           )}
 

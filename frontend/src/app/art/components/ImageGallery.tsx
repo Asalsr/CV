@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 import ThumbnailStrip from './ThumbnailStrip';
 
@@ -22,6 +23,7 @@ export default function ImageGallery({
   onNext,
   onSelectIndex,
 }: ImageGalleryProps) {
+  const t = useTranslations('art.imageGallery');
   const hasMultipleImages = images.length > 1;
 
   return (
@@ -37,7 +39,7 @@ export default function ImageGallery({
                 onPrev();
               }}
               className="absolute left-2 md:left-4 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
-              aria-label="Previous image"
+              aria-label={t('prevImage')}
             >
               <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
             </button>
@@ -47,7 +49,7 @@ export default function ImageGallery({
                 onNext();
               }}
               className="absolute right-2 md:right-4 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
-              aria-label="Next image"
+              aria-label={t('nextImage')}
             >
               <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
             </button>
@@ -66,7 +68,7 @@ export default function ImageGallery({
           >
             <ImageWithFallback
               src={images[currentIndex]}
-              alt={`${title} - Image ${currentIndex + 1}`}
+              alt={t('imageAlt', { title, index: currentIndex + 1 })}
               fill
               className="object-contain"
               sizes="100vw"

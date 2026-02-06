@@ -4,8 +4,10 @@ import { Moon, Sun } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '@/lib/redux/hooks';
 import { toggleThemeMode } from '@/lib/redux/themeSlice';
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 export default function ThemeModeToggle() {
+  const t = useTranslations('theme');
   const dispatch = useAppDispatch();
   const { mode, isHydrated } = useAppSelector((state) => state.theme);
 
@@ -40,7 +42,7 @@ export default function ThemeModeToggle() {
       }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+      aria-label={isDark ? t('switchToLight') : t('switchToDark')}
     >
       <motion.div
         initial={false}
@@ -76,7 +78,7 @@ export default function ThemeModeToggle() {
           border: '1px solid var(--color-glass-border)',
         }}
       >
-        {isDark ? 'Light mode' : 'Dark mode'}
+        {isDark ? t('lightMode') : t('darkMode')}
       </span>
     </motion.button>
   );

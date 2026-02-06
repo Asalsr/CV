@@ -1,10 +1,13 @@
 import { getRequestConfig } from 'next-intl/server';
 import { cookies } from 'next/headers';
+import { locales, defaultLocale } from './config';
 
 export default getRequestConfig(async () => {
-  // Try to get locale from cookie, fallback to 'en'
   const cookieStore = await cookies();
-  const locale = cookieStore.get('locale')?.value || 'en';
+  const raw = cookieStore.get('locale')?.value;
+  const locale = locales.includes(raw as typeof locales[number])
+    ? (raw as typeof locales[number])
+    : defaultLocale;
 
   return {
     locale,

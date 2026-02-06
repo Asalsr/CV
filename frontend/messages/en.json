@@ -1,37 +1,164 @@
 {
-  "common": {
-    "viewProjects": "View Projects",
-    "downloadCV": "Download CV"
-  },
-  "header": {
-    "title": "Saeedeh's Portfolio",
-    "subtitle": "Full-Stack Developer"
+  "nav": {
+    "journey": "Journey",
+    "skills": "Skills",
+    "art": "Art",
+    "contact": "Contact"
   },
   "hero": {
-    "title": "Full-Stack Developer",
-    "titleHighlight": "Creative Engineer",
-    "description": "Building at the intersection of code and creativity"
+    "tagline": "Agentic Developer | Full-Stack Engineer | UI/UX Enthusiast",
+    "subtitle": "Fine Arts meets Computer Science — Crafting beautiful digital experiences from Gothenburg, Sweden",
+    "exploreJourney": "Explore My Journey",
+    "viewSkills": "View Skills"
   },
-  "features": {
-    "title": "What I Do",
-    "fullstack": {
-      "title": "Full-Stack Development",
-      "description": "React, .NET Core, Node.js"
+  "roadmap": {
+    "heading": "My Journey",
+    "subtitle": "A roadmap of growth and innovation",
+    "job1": {
+      "year": "Dec 2025 - Present",
+      "title": "Agentic Developer Intern",
+      "company": "Sweden Startup Nation (SSN) - SISP, Sweden",
+      "description": "Collaborating with AI agents in coding, testing, and deploying platform features for the Swedish Startup Nation Data Platform.",
+      "h1": "Agent-First Development with AI",
+      "h2": "Data-Web Platform contribution",
+      "h3": "Dashboards and Admin Tools"
     },
-    "design": {
-      "title": "UI/UX Design",
-      "description": "Figma, Responsive Design"
+    "job2": {
+      "year": "Jun 2024 - Oct 2025",
+      "title": "Full-Stack Developer & Systems Analyst",
+      "company": "RADA Computing Solutions, Turin",
+      "description": "Led migration from 2008 legacy system to modern React platform. Built REST APIs, optimized Oracle DB queries (60% faster), and created AI chatbot.",
+      "h1": "React migration (20+ modules)",
+      "h2": "AG Grid implementation (150k+ rows)",
+      "h3": "GraphQL POC (30% payload reduction)",
+      "h4": "AWS Lambda serverless workflows"
     },
-    "performance": {
-      "title": "Performance",
-      "description": "60% faster queries, 40% load time"
+    "job3": {
+      "year": "Sep 2023 - May 2024",
+      "title": "Front-End Development Intern",
+      "company": "Liquido Studio, Turin",
+      "description": "Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices."
     },
-    "userCentered": {
-      "title": "User-Centered",
-      "description": "Accessible, intuitive interfaces"
+    "job4": {
+      "year": "2009 - 2018",
+      "title": "Software Engineer & Creative Designer",
+      "company": "DYS Company & Tanvarz - Tehran",
+      "description": "Co-developed internal social platforms, designed multi-channel catalogs, and created culturally localized content that boosted engagement."
+    },
+    "job5": {
+      "year": "Education",
+      "title": "B.A. Fine Arts (GPA 4.0) & B.Sc. Computer Science",
+      "company": "Fine Arts Academy of Rome & Abrar University of Tehran",
+      "description": "Unique combination of artistic creativity and technical expertise in computer science."
+    }
+  },
+  "skills": {
+    "heading": "Skills & Expertise",
+    "subtitle": "Where creativity meets technology",
+    "uiux": "UI/UX Design",
+    "frontend": "Front-End",
+    "backend": "Back-End & Database",
+    "devops": "DevOps & Cloud",
+    "specialFocus": "Special Focus",
+    "aiTitle": "AI & LLM Apps",
+    "aiDesc": "Building intelligent applications with OpenAI APIs",
+    "perfTitle": "Performance",
+    "perfDesc": "Optimized queries 60% faster, reduced load time 40%",
+    "serverlessTitle": "Serverless",
+    "serverlessDesc": "AWS Lambda & microservices architecture",
+    "designTitle": "Design Systems",
+    "designDesc": "Creating scalable, accessible UI frameworks"
+  },
+  "artProjects": {
+    "heading": "Artistic Projects",
+    "subtitle": "Where art meets activism and social impact",
+    "plasticBlue": {
+      "title": "Plastic Blue",
+      "description": "Painting series and artistic studies exploring the impact of plastic pollution on nature and human life."
+    },
+    "womenLifeFreedom": {
+      "title": "Women Life Freedom",
+      "description": "Led workshops and educational activities across multiple schools, engaging students in discussions on women's rights and freedom."
+    },
+    "illustrationWorkshops": {
+      "title": "Illustration Workshops",
+      "description": "Led visual identity, promotional assets and on-site facilitation for Liberi di Crescere Association children's-rights non-profit event."
     }
   },
   "footer": {
-    "builtWith": "Built with Next.js, Redux Toolkit, Tailwind CSS & Framer Motion"
+    "artCtaTitle": "Explore My Artistic Side",
+    "artCtaDescription": "Beyond code and pixels, I create art. Fine Arts Academy graduate exploring plastic pollution (Plastic Blue series), leading children's rights workshops (Women Life Freedom), and illustration for social causes.",
+    "viewPortfolio": "View Artistic Portfolio",
+    "connectTitle": "Let's Connect",
+    "connectSubtitle": "Open to new opportunities and collaborations",
+    "copyright": "Designed & Built with <heart></heart> by Saeedeh Sarmadi © 2026",
+    "location": "Gothenburg, Sweden"
+  },
+  "art": {
+    "page": {
+      "back": "Back",
+      "title": "Art Portfolio",
+      "copyright": "\u00a9 {year} Saeedeh Sarmadi. All rights reserved.",
+      "devPortfolio": "Developer Portfolio"
+    },
+    "hero": {
+      "headingWhite": "My Artistic",
+      "headingGradient": " Journey",
+      "subtitle": "Exploring creativity through photography, painting, digital art, and design",
+      "projects": "Projects",
+      "years": "Years",
+      "mediums": "Mediums"
+    },
+    "timeline": {
+      "heading": "Timeline",
+      "instruction": "Click a year to filter projects",
+      "clearFilter": "(Clear filter)",
+      "projectCount": "{count, plural, one {# project} other {# projects}}"
+    },
+    "categories": {
+      "All": "All",
+      "Photography": "Photography",
+      "Painting": "Painting",
+      "Workshop/Illustration": "Workshop/Illustration",
+      "Illustration": "Illustration",
+      "Graphic Design": "Graphic Design",
+      "Mural Art": "Mural Art",
+      "Video": "Video"
+    },
+    "projectCard": {
+      "images": "{count} images"
+    },
+    "projectGrid": {
+      "noResults": "No projects found for the selected filters."
+    },
+    "modal": {
+      "closeModal": "Close modal",
+      "prevProject": "Previous project",
+      "nextProject": "Next project",
+      "prev": "Prev",
+      "next": "Next",
+      "viewExternal": "View External Link",
+      "escToClose": "ESC to close",
+      "arrowsForImages": "\u2190 \u2192 for images",
+      "shiftArrowsForProjects": "Shift + \u2190 \u2192 for projects"
+    },
+    "related": {
+      "heading": "Related Projects"
+    },
+    "thumbnailStrip": {
+      "viewImage": "View image {current} of {total}",
+      "thumbnail": "{title} - Thumbnail {index}"
+    },
+    "imageGallery": {
+      "prevImage": "Previous image",
+      "nextImage": "Next image",
+      "imageAlt": "{title} - Image {index}"
+    }
+  },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
   }
 }

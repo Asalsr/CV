@@ -121,7 +121,7 @@ git push
 When implementing:
 - Use CSS variables for theme colors: `var(--color-primary-500)`
 - Follow existing component patterns
-- Add i18n keys to `messages/en.json` and `messages/fa.json`
+- Add i18n keys to **all** language files: `messages/en.json`, `messages/sv.json`, and `messages/fa.json`
 - Use Framer Motion for animations
 - Ensure responsive design
 

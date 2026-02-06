@@ -1,37 +1,164 @@
 {
-  "common": {
-    "viewProjects": "مشاهده پروژه‌ها",
-    "downloadCV": "دانلود رزومه"
-  },
-  "header": {
-    "title": "پورتفولیو سعیده",
-    "subtitle": "توسعه‌دهنده فول‌استک"
+  "nav": {
+    "journey": "مسیر",
+    "skills": "مهارت‌ها",
+    "art": "هنر",
+    "contact": "تماس"
   },
   "hero": {
-    "title": "توسعه‌دهنده فول‌استک",
-    "titleHighlight": "مهندس خلاق",
-    "description": "ساختن در تقاطع کد و خلاقیت"
+    "tagline": "توسعه‌دهنده عامل‌محور | مهندس فول‌استک | علاقه‌مند به UI/UX",
+    "subtitle": "هنرهای زیبا در کنار علوم کامپیوتر — خلق تجربه‌های دیجیتال زیبا از یوتبری، سوئد",
+    "exploreJourney": "مسیر من را کاوش کنید",
+    "viewSkills": "مشاهده مهارت‌ها"
   },
-  "features": {
-    "title": "کارهای من",
-    "fullstack": {
-      "title": "توسعه فول‌استک",
-      "description": "React، .NET Core، Node.js"
+  "roadmap": {
+    "heading": "مسیر من",
+    "subtitle": "نقشه راهی از رشد و نوآوری",
+    "job1": {
+      "year": "دسامبر ۲۰۲۵ - اکنون",
+      "title": "کارآموز توسعه‌دهنده عامل‌محور",
+      "company": "Sweden Startup Nation (SSN) - SISP, سوئد",
+      "description": "همکاری با عامل‌های هوش مصنوعی در کدنویسی، تست و استقرار ویژگی‌های پلتفرم برای پلتفرم داده Swedish Startup Nation.",
+      "h1": "توسعه Agent-First با هوش مصنوعی",
+      "h2": "مشارکت در پلتفرم Data-Web",
+      "h3": "داشبوردها و ابزارهای مدیریتی"
     },
-    "design": {
-      "title": "طراحی UI/UX",
-      "description": "Figma، طراحی واکنش‌گرا"
+    "job2": {
+      "year": "ژوئن ۲۰۲۴ - اکتبر ۲۰۲۵",
+      "title": "توسعه‌دهنده فول‌استک و تحلیل‌گر سیستم",
+      "company": "RADA Computing Solutions, تورین",
+      "description": "رهبری مهاجرت از سیستم قدیمی ۲۰۰۸ به پلتفرم مدرن React. ساخت REST API، بهینه‌سازی کوئری‌های Oracle DB (۶۰٪ سریع‌تر) و ایجاد چت‌بات هوشمند.",
+      "h1": "مهاجرت React (بیش از ۲۰ ماژول)",
+      "h2": "پیاده‌سازی AG Grid (بیش از ۱۵۰ هزار ردیف)",
+      "h3": "اثبات مفهوم GraphQL (۳۰٪ کاهش حجم داده)",
+      "h4": "گردش‌کارهای بدون سرور AWS Lambda"
     },
-    "performance": {
-      "title": "عملکرد",
-      "description": "۶۰٪ کوئری سریع‌تر، ۴۰٪ زمان بارگذاری"
+    "job3": {
+      "year": "سپتامبر ۲۰۲۳ - مه ۲۰۲۴",
+      "title": "کارآموز توسعه فرانت‌اند",
+      "company": "Liquido Studio, تورین",
+      "description": "توسعه وب‌سایت‌های واکنش‌گرا با HTML، CSS، WordPress و JavaScript. سفارشی‌سازی قالب‌ها و پیاده‌سازی بهترین شیوه‌های UI/UX."
     },
-    "userCentered": {
-      "title": "کاربرمحور",
-      "description": "رابط‌های دسترس‌پذیر و بصری"
+    "job4": {
+      "year": "۲۰۰۹ - ۲۰۱۸",
+      "title": "مهندس نرم‌افزار و طراح خلاق",
+      "company": "شرکت DYS و Tanvarz - تهران",
+      "description": "توسعه مشترک پلتفرم‌های اجتماعی داخلی، طراحی کاتالوگ‌های چندکاناله و ایجاد محتوای بومی‌سازی شده فرهنگی که تعامل را افزایش داد."
+    },
+    "job5": {
+      "year": "تحصیلات",
+      "title": "کارشناسی هنرهای زیبا (معدل ۴.۰) و کارشناسی علوم کامپیوتر",
+      "company": "آکادمی هنرهای زیبای رم و دانشگاه ابرار تهران",
+      "description": "ترکیب منحصر به فرد خلاقیت هنری و تخصص فنی در علوم کامپیوتر."
+    }
+  },
+  "skills": {
+    "heading": "مهارت‌ها و تخصص",
+    "subtitle": "جایی که خلاقیت با فناوری تلاقی می‌کند",
+    "uiux": "طراحی UI/UX",
+    "frontend": "فرانت‌اند",
+    "backend": "بک‌اند و پایگاه داده",
+    "devops": "DevOps و ابری",
+    "specialFocus": "تمرکز ویژه",
+    "aiTitle": "اپلیکیشن‌های AI و LLM",
+    "aiDesc": "ساخت اپلیکیشن‌های هوشمند با API‌های OpenAI",
+    "perfTitle": "عملکرد",
+    "perfDesc": "بهینه‌سازی کوئری‌ها ۶۰٪ سریع‌تر، کاهش زمان بارگذاری ۴۰٪",
+    "serverlessTitle": "بدون سرور",
+    "serverlessDesc": "معماری AWS Lambda و میکروسرویس",
+    "designTitle": "سیستم‌های طراحی",
+    "designDesc": "ایجاد فریم‌ورک‌های UI مقیاس‌پذیر و دسترس‌پذیر"
+  },
+  "artProjects": {
+    "heading": "پروژه‌های هنری",
+    "subtitle": "جایی که هنر با فعالیت اجتماعی تلاقی می‌کند",
+    "plasticBlue": {
+      "title": "Plastic Blue",
+      "description": "مجموعه نقاشی و مطالعات هنری که تأثیر آلودگی پلاستیکی بر طبیعت و زندگی انسان را بررسی می‌کند."
+    },
+    "womenLifeFreedom": {
+      "title": "زن زندگی آزادی",
+      "description": "برگزاری کارگاه‌ها و فعالیت‌های آموزشی در مدارس متعدد و مشارکت دانش‌آموزان در بحث درباره حقوق و آزادی زنان."
+    },
+    "illustrationWorkshops": {
+      "title": "کارگاه‌های تصویرسازی",
+      "description": "رهبری هویت بصری، دارایی‌های تبلیغاتی و تسهیل‌گری حضوری برای رویداد انجمن حقوق کودکان Liberi di Crescere."
     }
   },
   "footer": {
-    "builtWith": "ساخته شده با Next.js، Redux Toolkit، Tailwind CSS و Framer Motion"
+    "artCtaTitle": "جنبه هنری من را کاوش کنید",
+    "artCtaDescription": "فراتر از کد و پیکسل، هنر خلق می‌کنم. فارغ‌التحصیل آکادمی هنرهای زیبا، کاوش آلودگی پلاستیکی (مجموعه Plastic Blue)، رهبری کارگاه‌های حقوق کودکان (زن زندگی آزادی) و تصویرسازی برای اهداف اجتماعی.",
+    "viewPortfolio": "مشاهده پورتفولیوی هنری",
+    "connectTitle": "ارتباط با من",
+    "connectSubtitle": "آماده فرصت‌ها و همکاری‌های جدید",
+    "copyright": "طراحی و ساخت با <heart></heart> توسط سعیده سرمدی © ۲۰۲۶",
+    "location": "یوتبری، سوئد"
+  },
+  "art": {
+    "page": {
+      "back": "بازگشت",
+      "title": "پورتفولیوی هنری",
+      "copyright": "\u00a9 {year} سعیده سرمدی. تمامی حقوق محفوظ است.",
+      "devPortfolio": "پورتفولیوی توسعه‌دهنده"
+    },
+    "hero": {
+      "headingWhite": "سفر هنری",
+      "headingGradient": " من",
+      "subtitle": "کاوش خلاقیت از طریق عکاسی، نقاشی، هنر دیجیتال و طراحی",
+      "projects": "پروژه‌ها",
+      "years": "سال‌ها",
+      "mediums": "رسانه‌ها"
+    },
+    "timeline": {
+      "heading": "خط زمانی",
+      "instruction": "روی یک سال کلیک کنید تا پروژه‌ها فیلتر شوند",
+      "clearFilter": "(پاک کردن فیلتر)",
+      "projectCount": "{count, plural, one {# پروژه} other {# پروژه}}"
+    },
+    "categories": {
+      "All": "همه",
+      "Photography": "عکاسی",
+      "Painting": "نقاشی",
+      "Workshop/Illustration": "کارگاه/تصویرسازی",
+      "Illustration": "تصویرسازی",
+      "Graphic Design": "طراحی گرافیک",
+      "Mural Art": "نقاشی دیواری",
+      "Video": "ویدئو"
+    },
+    "projectCard": {
+      "images": "{count} تصویر"
+    },
+    "projectGrid": {
+      "noResults": "هیچ پروژه‌ای برای فیلترهای انتخاب شده یافت نشد."
+    },
+    "modal": {
+      "closeModal": "بستن",
+      "prevProject": "پروژه قبلی",
+      "nextProject": "پروژه بعدی",
+      "prev": "قبلی",
+      "next": "بعدی",
+      "viewExternal": "مشاهده لینک خارجی",
+      "escToClose": "ESC برای بستن",
+      "arrowsForImages": "\u2190 \u2192 برای تصاویر",
+      "shiftArrowsForProjects": "Shift + \u2190 \u2192 برای پروژه‌ها"
+    },
+    "related": {
+      "heading": "پروژه‌های مرتبط"
+    },
+    "thumbnailStrip": {
+      "viewImage": "مشاهده تصویر {current} از {total}",
+      "thumbnail": "{title} - بندانگشتی {index}"
+    },
+    "imageGallery": {
+      "prevImage": "تصویر قبلی",
+      "nextImage": "تصویر بعدی",
+      "imageAlt": "{title} - تصویر {index}"
+    }
+  },
+  "theme": {
+    "switchToLight": "تغییر به حالت روشن",
+    "switchToDark": "تغییر به حالت تاریک",
+    "lightMode": "حالت روشن",
+    "darkMode": "حالت تاریک"
   }
 }

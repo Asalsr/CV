@@ -3,36 +3,17 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Palette, Users, Sparkles } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
-const projects = [
-  {
-    title: 'Plastic Blue',
-    year: '2021-2022',
-    location: 'Rome',
-    description: 'Painting series and artistic studies exploring the impact of plastic pollution on nature and human life.',
-    icon: Palette,
-    gradient: 'linear-gradient(135deg, var(--color-primary-500), var(--teal))',
-    sketch: 'wave' as const,
-  },
-  {
-    title: 'Women Life Freedom',
-    year: '2022',
-    location: 'Turin',
-    description: "Led workshops and educational activities across multiple schools, engaging students in discussions on women's rights and freedom.",
-    icon: Users,
-    gradient: 'linear-gradient(135deg, var(--sunset-orange), var(--golden-yellow))',
-    sketch: 'heart' as const,
-  },
-  {
-    title: 'Illustration Workshops',
-    year: '2023',
-    location: 'Turin',
-    description: "Led visual identity, promotional assets and on-site facilitation for Liberi di Crescere Association children's-rights non-profit event.",
-    icon: Sparkles,
-    gradient: 'linear-gradient(135deg, var(--golden-yellow), var(--sunset-orange))',
-    sketch: 'star' as const,
-  }
-];
+interface ArtProject {
+  title: string;
+  year: string;
+  location: string;
+  description: string;
+  icon: typeof Palette;
+  gradient: string;
+  sketch: 'wave' | 'heart' | 'star';
+}
 
 function SketchWave() {
   return (
@@ -95,7 +76,7 @@ function SketchStar() {
   );
 }
 
-function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+function ProjectCard({ project, index }: { project: ArtProject; index: number }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = project.icon;
@@ -166,6 +147,38 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 }
 
 export function ArtProjects() {
+  const t = useTranslations('artProjects');
+
+  const projects = [
+    {
+      title: t('plasticBlue.title'),
+      year: '2021-2022',
+      location: 'Rome',
+      description: t('plasticBlue.description'),
+      icon: Palette,
+      gradient: 'linear-gradient(135deg, var(--color-primary-500), var(--teal))',
+      sketch: 'wave' as const,
+    },
+    {
+      title: t('womenLifeFreedom.title'),
+      year: '2022',
+      location: 'Turin',
+      description: t('womenLifeFreedom.description'),
+      icon: Users,
+      gradient: 'linear-gradient(135deg, var(--sunset-orange), var(--golden-yellow))',
+      sketch: 'heart' as const,
+    },
+    {
+      title: t('illustrationWorkshops.title'),
+      year: '2023',
+      location: 'Turin',
+      description: t('illustrationWorkshops.description'),
+      icon: Sparkles,
+      gradient: 'linear-gradient(135deg, var(--golden-yellow), var(--sunset-orange))',
+      sketch: 'star' as const,
+    }
+  ];
+
   return (
     <section id="art-projects" className="py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -180,9 +193,9 @@ export function ArtProjects() {
             className="text-4xl md:text-5xl mb-4 bg-clip-text text-transparent"
             style={{ backgroundImage: 'linear-gradient(to right, var(--sunset-orange), var(--color-accent-500), var(--color-primary-500))' }}
           >
-            Artistic Projects
+            {t('heading')}
           </h2>
-          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">Where art meets activism and social impact</p>
+          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">{t('subtitle')}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
