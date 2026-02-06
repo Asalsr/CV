@@ -3,8 +3,8 @@ import { Artwork } from '../types/artwork';
 
 describe('Artworks Data', () => {
   describe('artworks array', () => {
-    it('should have 15 artworks', () => {
-      expect(artworks).toHaveLength(15);
+    it('should have 16 artworks', () => {
+      expect(artworks).toHaveLength(16);
     });
 
     it('should have unique IDs for all artworks', () => {
