@@ -92,10 +92,10 @@ describe('CategoryFilter', () => {
 
     // Check that selected button has different background color
     expect(selectedButton).toHaveStyle({
-      backgroundColor: 'var(--color-primary-500)',
+      backgroundColor: '#5B8DEF',
     });
     expect(unselectedButton).toHaveStyle({
-      backgroundColor: 'var(--color-surface)',
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
     });
   });
 

@@ -117,7 +117,8 @@ export const getThemeColors = (
   colorScheme: ColorScheme,
   mode: ThemeMode
 ): ThemeColors => {
-  return colorSchemes[colorScheme][mode];
+  const scheme = colorSchemes[colorScheme] ?? colorSchemes['persian-blue-yellow'];
+  return scheme[mode];
 };
 
 // CSS custom properties generator

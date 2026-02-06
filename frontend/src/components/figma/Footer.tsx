@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, ExternalLink, Heart } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
+    <footer id="contact" className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
       <div className="max-w-6xl mx-auto">
         {/* Artistic Portfolio CTA */}
         <motion.div
