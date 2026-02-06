@@ -50,7 +50,7 @@ export default function ProjectGrid({
             animate={{ opacity: 1 }}
             className="text-center py-16"
           >
-            <p style={{ color: 'var(--color-text-secondary)' }}>
+            <p className="text-gray-400">
               No projects found for the selected filters.
             </p>
           </motion.div>

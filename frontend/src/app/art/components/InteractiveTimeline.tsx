@@ -36,7 +36,7 @@ export default function InteractiveTimeline({
 
   const handleYearClick = (year: string) => {
     if (selectedYear === year) {
-      onYearSelect(null); // Toggle off
+      onYearSelect(null);
     } else {
       onYearSelect(year);
     }
@@ -45,8 +45,7 @@ export default function InteractiveTimeline({
   return (
     <section
       ref={containerRef}
-      className="py-16 px-4"
-      style={{ backgroundColor: 'var(--color-surface)' }}
+      className="py-16 px-4 bg-white/5 backdrop-blur-sm"
     >
       <div className="max-w-5xl mx-auto">
         <motion.div
@@ -54,22 +53,15 @@ export default function InteractiveTimeline({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h3
-            className="text-2xl md:text-3xl font-bold text-center mb-4"
-            style={{ color: 'var(--color-text-primary)' }}
-          >
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 text-white">
             Timeline
           </h3>
-          <p
-            className="text-center text-sm mb-10"
-            style={{ color: 'var(--color-text-secondary)' }}
-          >
+          <p className="text-center text-sm mb-10 text-gray-400">
             Click a year to filter projects
             {selectedYear && (
               <button
                 onClick={() => onYearSelect(null)}
-                className="ml-2 underline hover:no-underline"
-                style={{ color: 'var(--color-primary-500)' }}
+                className="ml-2 underline hover:no-underline text-[#5B8DEF]"
               >
                 (Clear filter)
               </button>
@@ -84,8 +76,7 @@ export default function InteractiveTimeline({
                 initial={{ scaleX: 0 }}
                 animate={isInView ? { scaleX: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute left-8 right-8 top-4 h-0.5 origin-left"
-                style={{ backgroundColor: 'var(--color-primary-300)' }}
+                className="absolute left-8 right-8 top-4 h-0.5 origin-left bg-gradient-to-r from-[#5B8DEF]/50 via-[#FFC947]/50 to-[#5B8DEF]/50"
               />
 
               {/* Year Markers */}
@@ -142,11 +133,9 @@ function YearMarker({
         whileTap={{ scale: 0.9 }}
         className="w-4 h-4 rounded-full z-10 transition-all"
         style={{
-          backgroundColor: isSelected
-            ? 'var(--color-primary-500)'
-            : 'var(--color-primary-300)',
+          backgroundColor: isSelected ? '#5B8DEF' : '#7BA8F5',
           boxShadow: isSelected
-            ? '0 0 0 4px var(--color-primary-200)'
+            ? '0 0 0 4px rgba(91, 141, 239, 0.3)'
             : 'none',
         }}
       />
@@ -155,9 +144,7 @@ function YearMarker({
       <motion.span
         className="mt-3 font-bold text-base md:text-lg transition-colors"
         style={{
-          color: isSelected
-            ? 'var(--color-primary-500)'
-            : 'var(--color-text-primary)',
+          color: isSelected ? '#5B8DEF' : '#F0F4F8',
         }}
       >
         {data.year}
@@ -167,19 +154,14 @@ function YearMarker({
       <span
         className="text-xs md:text-sm transition-colors"
         style={{
-          color: isSelected
-            ? 'var(--color-primary-400)'
-            : 'var(--color-text-secondary)',
+          color: isSelected ? '#7BA8F5' : '#94A3B8',
         }}
       >
         {data.count} {data.count === 1 ? 'project' : 'projects'}
       </span>
 
       {/* Hover Indicator */}
-      <div
-        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300"
-        style={{ backgroundColor: 'var(--color-primary-500)' }}
-      />
+      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-[#5B8DEF]" />
     </motion.button>
   );
 }

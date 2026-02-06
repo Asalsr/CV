@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { Artwork } from '../types/artwork';
+import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 interface ProjectCardProps {
   artwork: Artwork;
@@ -13,13 +12,6 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ artwork, onClick, index }: ProjectCardProps) {
-  const [imageError, setImageError] = useState(false);
-
-  // Hide card if image failed to load
-  if (imageError) {
-    return null;
-  }
-
   return (
     <motion.div
       layout
@@ -31,18 +23,14 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
       className="group cursor-pointer"
       onClick={onClick}
     >
-      <div
-        className="relative rounded-xl overflow-hidden border transition-shadow duration-300 group-hover:shadow-xl"
-        style={{ borderColor: 'var(--color-border)' }}
-      >
+      <div className="relative rounded-xl overflow-hidden border border-white/10 hover:border-[#5B8DEF]/30 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-[#5B8DEF]/10">
         <div className="aspect-[4/3] relative">
-          <Image
+          <ImageWithFallback
             src={artwork.thumbnail}
             alt={artwork.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-            onError={() => setImageError(true)}
           />
 
           {/* Video Play Icon */}
@@ -75,7 +63,7 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
 
           {/* Category Badge on Hover */}
           <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/20 text-white backdrop-blur-sm">
+            <span className="px-3 py-1 text-xs font-medium rounded-full bg-[#5B8DEF]/30 text-white backdrop-blur-sm border border-[#5B8DEF]/20">
               {artwork.category}
             </span>
           </div>
@@ -90,14 +78,11 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
 
       {/* Mobile Info (always visible) */}
       <div className="mt-3 md:hidden">
-        <h3
-          className="font-semibold"
-          style={{ color: 'var(--color-text-primary)' }}
-        >
+        <h3 className="font-semibold text-white">
           {artwork.title}
         </h3>
-        <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-          {artwork.category} • {artwork.year}
+        <p className="text-sm text-gray-400">
+          {artwork.category} &bull; {artwork.year}
         </p>
       </div>
     </motion.div>

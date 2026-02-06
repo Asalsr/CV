@@ -1,10 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { Artwork } from '../types/artwork';
 import { getRelatedProjects } from '../data/artworks';
+import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 interface RelatedProjectsProps {
   currentArtwork: Artwork;
@@ -36,7 +36,7 @@ export default function RelatedProjects({
             className="flex-shrink-0 group"
           >
             <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-lg overflow-hidden">
-              <Image
+              <ImageWithFallback
                 src={artwork.thumbnail}
                 alt={artwork.title}
                 fill

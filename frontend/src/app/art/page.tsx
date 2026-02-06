@@ -36,7 +36,6 @@ export default function ArtPortfolio() {
 
   const handleCategorySelect = (category: ArtworkCategory | 'All') => {
     setSelectedCategory(category);
-    // Reset year filter when category changes
     if (category !== 'All') {
       setSelectedYear(null);
     }
@@ -44,44 +43,30 @@ export default function ArtPortfolio() {
 
   const handleYearSelect = (year: string | null) => {
     setSelectedYear(year);
-    // Reset category filter when year is selected
     if (year !== null) {
       setSelectedCategory('All');
     }
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
+    <div className="min-h-screen bg-gradient-to-b from-[#0F1729] via-[#0A0E1A] to-[#0F1729]">
       {/* Header */}
-      <header
-        className="sticky top-0 z-30 border-b backdrop-blur-sm"
-        style={{
-          backgroundColor: 'var(--color-surface)',
-          borderColor: 'var(--color-border)',
-        }}
-      >
+      <header className="sticky top-0 z-30 border-b border-white/10 backdrop-blur-sm bg-[#0F1729]/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 href="/"
-                className="flex items-center gap-2 text-sm transition-colors hover:opacity-80"
-                style={{ color: 'var(--color-text-secondary)' }}
+                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back
               </Link>
               <div>
-                <h1
-                  className="text-xl md:text-2xl font-bold"
-                  style={{ color: 'var(--color-text-primary)' }}
-                >
+                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#5B8DEF] to-[#FFC947] bg-clip-text text-transparent">
                   Art Portfolio
                 </h1>
-                <p
-                  className="text-sm mt-0.5"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
+                <p className="text-sm mt-0.5 text-gray-400">
                   Saeedeh Sarmadi
                 </p>
               </div>
@@ -89,7 +74,6 @@ export default function ArtPortfolio() {
 
             <div className="flex items-center gap-3">
               <LanguageSelector />
-              <ThemeModeToggle />
             </div>
           </div>
         </div>
@@ -118,15 +102,9 @@ export default function ArtPortfolio() {
       />
 
       {/* Footer */}
-      <footer
-        className="border-t py-8"
-        style={{
-          borderColor: 'var(--color-border)',
-          backgroundColor: 'var(--color-surface)',
-        }}
-      >
+      <footer className="border-t border-white/10 py-8 bg-[#0F1729]/50">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+          <p className="text-gray-400">
             &copy; {new Date().getFullYear()} Saeedeh Sarmadi. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center gap-4">
@@ -134,22 +112,23 @@ export default function ArtPortfolio() {
               href="https://www.behance.net/asalsr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm hover:underline"
-              style={{ color: 'var(--color-primary-500)' }}
+              className="text-sm text-[#5B8DEF] hover:text-[#7BA8F5] transition-colors hover:underline"
             >
               Behance
             </a>
-            <span style={{ color: 'var(--color-border)' }}>&bull;</span>
+            <span className="text-white/20">&bull;</span>
             <Link
               href="/"
-              className="text-sm hover:underline"
-              style={{ color: 'var(--color-primary-500)' }}
+              className="text-sm text-[#5B8DEF] hover:text-[#7BA8F5] transition-colors hover:underline"
             >
               Developer Portfolio
             </Link>
           </div>
         </div>
       </footer>
+
+      {/* Floating Theme Toggle */}
+      <ThemeModeToggle />
 
       {/* Project Modal */}
       <ProjectModal
