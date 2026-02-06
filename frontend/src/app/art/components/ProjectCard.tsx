@@ -28,13 +28,31 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
       whileHover={{ y: -8 }}
-      className="group cursor-pointer"
+      className="group cursor-pointer relative"
       onClick={onClick}
     >
       <div
-        className="relative rounded-xl overflow-hidden border transition-shadow duration-300 group-hover:shadow-xl"
-        style={{ borderColor: 'var(--color-border)' }}
+        className="relative rounded-xl overflow-hidden border transition-all duration-300 group-hover:shadow-xl"
+        style={{
+          borderColor: 'var(--color-border)',
+          boxShadow: '0 0 0 0 var(--color-persian-blue-light)',
+        }}
       >
+        {/* Hand-drawn sketch border */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <rect
+            x="4"
+            y="4"
+            width="calc(100% - 8px)"
+            height="calc(100% - 8px)"
+            fill="none"
+            stroke="var(--color-persian-blue)"
+            strokeWidth="2"
+            rx="12"
+            strokeDasharray="8,4"
+            opacity="0.3"
+          />
+        </svg>
         <div className="aspect-[4/3] relative">
           <Image
             src={artwork.thumbnail}
@@ -75,8 +93,26 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
 
           {/* Category Badge on Hover */}
           <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/20 text-white backdrop-blur-sm">
+            <span
+              className="px-3 py-1 text-xs font-medium rounded-full text-white backdrop-blur-sm relative"
+              style={{
+                background: 'linear-gradient(135deg, var(--color-persian-blue), var(--color-golden-yellow))',
+              }}
+            >
               {artwork.category}
+              {/* Sketch circle around badge */}
+              <svg className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none">
+                <ellipse
+                  cx="50%"
+                  cy="50%"
+                  rx="48%"
+                  ry="45%"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.3)"
+                  strokeWidth="1"
+                  strokeDasharray="2,2"
+                />
+              </svg>
             </span>
           </div>
 

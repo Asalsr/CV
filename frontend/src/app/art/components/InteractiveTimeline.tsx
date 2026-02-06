@@ -45,8 +45,7 @@ export default function InteractiveTimeline({
   return (
     <section
       ref={containerRef}
-      className="py-16 px-4"
-      style={{ backgroundColor: 'var(--color-surface)' }}
+      className="py-16 px-4 bg-white/5 dark:bg-white/5 backdrop-blur-sm"
     >
       <div className="max-w-5xl mx-auto">
         <motion.div
@@ -54,12 +53,31 @@ export default function InteractiveTimeline({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h3
-            className="text-2xl md:text-3xl font-bold text-center mb-4"
-            style={{ color: 'var(--color-text-primary)' }}
-          >
-            Timeline
-          </h3>
+          <div className="relative inline-block left-1/2 -translate-x-1/2 mb-4">
+            <h3
+              className="text-2xl md:text-3xl font-bold text-center"
+              style={{
+                background: 'linear-gradient(135deg, var(--color-persian-blue), var(--color-golden-yellow))',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Timeline
+            </h3>
+            {/* Hand-drawn underline */}
+            <svg className="absolute -bottom-2 left-0 w-full h-2" preserveAspectRatio="none">
+              <motion.path
+                d="M 0,1 Q 50,4 100,1"
+                stroke="var(--color-sunset-orange)"
+                strokeWidth="2"
+                fill="none"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 1.5 }}
+              />
+            </svg>
+          </div>
           <p
             className="text-center text-sm mb-10"
             style={{ color: 'var(--color-text-secondary)' }}
@@ -69,7 +87,7 @@ export default function InteractiveTimeline({
               <button
                 onClick={() => onYearSelect(null)}
                 className="ml-2 underline hover:no-underline"
-                style={{ color: 'var(--color-primary-500)' }}
+                style={{ color: 'var(--color-persian-blue)' }}
               >
                 (Clear filter)
               </button>
@@ -79,14 +97,31 @@ export default function InteractiveTimeline({
           {/* Timeline Container */}
           <div className="relative overflow-x-auto pb-4">
             <div className="min-w-max px-8">
-              {/* Timeline Line */}
+              {/* Timeline Line with gradient */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={isInView ? { scaleX: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute left-8 right-8 top-4 h-0.5 origin-left"
-                style={{ backgroundColor: 'var(--color-primary-300)' }}
+                className="absolute left-8 right-8 top-4 h-0.5 origin-left rounded-full"
+                style={{
+                  background: 'linear-gradient(90deg, var(--color-persian-blue), var(--color-golden-yellow), var(--color-sunset-orange))',
+                }}
               />
+              {/* Hand-drawn sketch line effect */}
+              <svg className="absolute left-8 right-8 top-4 h-1 w-full pointer-events-none">
+                <motion.path
+                  d="M 0,0 L 100,0"
+                  stroke="var(--color-persian-blue)"
+                  strokeWidth="0.5"
+                  strokeDasharray="4,2"
+                  opacity="0.2"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                  initial={{ pathLength: 0 }}
+                  animate={isInView ? { pathLength: 1 } : {}}
+                  transition={{ duration: 1, delay: 0.3 }}
+                />
+              </svg>
 
               {/* Year Markers */}
               <div className="relative flex justify-between items-start">
@@ -136,28 +171,50 @@ function YearMarker({
       className="relative flex flex-col items-center group px-4 md:px-6"
       style={{ minWidth: `${100 / totalYears}%` }}
     >
-      {/* Dot */}
+      {/* Dot with gradient */}
       <motion.div
         whileHover={{ scale: 1.2 }}
         whileTap={{ scale: 0.9 }}
-        className="w-4 h-4 rounded-full z-10 transition-all"
+        className="w-4 h-4 rounded-full z-10 transition-all relative"
         style={{
-          backgroundColor: isSelected
-            ? 'var(--color-primary-500)'
-            : 'var(--color-primary-300)',
+          background: isSelected
+            ? 'linear-gradient(135deg, var(--color-persian-blue), var(--color-golden-yellow))'
+            : 'var(--color-persian-blue-light)',
           boxShadow: isSelected
-            ? '0 0 0 4px var(--color-primary-200)'
+            ? '0 0 0 4px rgba(28, 57, 187, 0.2)'
             : 'none',
         }}
-      />
+      >
+        {/* Sketch circle around dot */}
+        {isSelected && (
+          <svg className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)] pointer-events-none">
+            <motion.circle
+              cx="50%"
+              cy="50%"
+              r="45%"
+              fill="none"
+              stroke="var(--color-golden-yellow)"
+              strokeWidth="1"
+              strokeDasharray="2,2"
+              initial={{ pathLength: 0, rotate: 0 }}
+              animate={{ pathLength: 1, rotate: 360 }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            />
+          </svg>
+        )}
+      </motion.div>
 
       {/* Year Label */}
       <motion.span
         className="mt-3 font-bold text-base md:text-lg transition-colors"
         style={{
-          color: isSelected
-            ? 'var(--color-primary-500)'
+          background: isSelected
+            ? 'linear-gradient(135deg, var(--color-persian-blue), var(--color-golden-yellow))'
             : 'var(--color-text-primary)',
+          WebkitBackgroundClip: isSelected ? 'text' : 'initial',
+          WebkitTextFillColor: isSelected ? 'transparent' : 'initial',
+          backgroundClip: isSelected ? 'text' : 'initial',
+          color: isSelected ? 'transparent' : 'var(--color-text-primary)',
         }}
       >
         {data.year}
@@ -168,7 +225,7 @@ function YearMarker({
         className="text-xs md:text-sm transition-colors"
         style={{
           color: isSelected
-            ? 'var(--color-primary-400)'
+            ? 'var(--color-sunset-orange)'
             : 'var(--color-text-secondary)',
         }}
       >
@@ -177,8 +234,10 @@ function YearMarker({
 
       {/* Hover Indicator */}
       <div
-        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300"
-        style={{ backgroundColor: 'var(--color-primary-500)' }}
+        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300 rounded-full"
+        style={{
+          background: 'linear-gradient(90deg, var(--color-persian-blue), var(--color-golden-yellow))',
+        }}
       />
     </motion.button>
   );

@@ -51,22 +51,19 @@ export default function ArtPortfolio() {
   };
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
+    <div
+      className="min-h-screen bg-gradient-to-br from-[#0A0E1A] via-[#0F1E5C] to-[#1C39BB] dark:from-[#0A0E1A] dark:via-[#0F1729] dark:to-[#1A2332]"
+    >
       {/* Header */}
       <header
-        className="sticky top-0 z-30 border-b backdrop-blur-sm"
-        style={{
-          backgroundColor: 'var(--color-surface)',
-          borderColor: 'var(--color-border)',
-        }}
+        className="sticky top-0 z-30 border-b border-white/10 dark:border-white/20 backdrop-blur-sm bg-white/5 dark:bg-white/5"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link
                 href="/"
-                className="flex items-center gap-2 text-sm transition-colors hover:opacity-80"
-                style={{ color: 'var(--color-text-secondary)' }}
+                className="flex items-center gap-2 text-sm transition-colors hover:opacity-80 text-gray-300 hover:text-white"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back
@@ -74,14 +71,16 @@ export default function ArtPortfolio() {
               <div>
                 <h1
                   className="text-xl md:text-2xl font-bold"
-                  style={{ color: 'var(--color-text-primary)' }}
+                  style={{
+                    background: 'linear-gradient(135deg, var(--color-persian-blue-light), var(--color-golden-yellow))',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
                 >
                   Art Portfolio
                 </h1>
-                <p
-                  className="text-sm mt-0.5"
-                  style={{ color: 'var(--color-text-secondary)' }}
-                >
+                <p className="text-sm mt-0.5 text-gray-300">
                   Saeedeh Sarmadi
                 </p>
               </div>
@@ -118,15 +117,9 @@ export default function ArtPortfolio() {
       />
 
       {/* Footer */}
-      <footer
-        className="border-t py-8"
-        style={{
-          borderColor: 'var(--color-border)',
-          backgroundColor: 'var(--color-surface)',
-        }}
-      >
+      <footer className="border-t border-white/10 dark:border-white/20 py-8 bg-white/5 dark:bg-white/5">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+          <p className="text-gray-300 dark:text-gray-400">
             &copy; {new Date().getFullYear()} Saeedeh Sarmadi. All rights reserved.
           </p>
           <div className="mt-4 flex justify-center gap-4">
@@ -135,15 +128,15 @@ export default function ArtPortfolio() {
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm hover:underline"
-              style={{ color: 'var(--color-primary-500)' }}
+              style={{ color: 'var(--color-persian-blue-light)' }}
             >
               Behance
             </a>
-            <span style={{ color: 'var(--color-border)' }}>&bull;</span>
+            <span className="text-gray-500">&bull;</span>
             <Link
               href="/"
               className="text-sm hover:underline"
-              style={{ color: 'var(--color-primary-500)' }}
+              style={{ color: 'var(--color-golden-yellow)' }}
             >
               Developer Portfolio
             </Link>
