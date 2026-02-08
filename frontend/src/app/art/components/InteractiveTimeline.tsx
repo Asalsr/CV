@@ -43,8 +43,7 @@ export default function InteractiveTimeline({
   return (
     <section
       ref={containerRef}
-      className="py-16 px-4 backdrop-blur-sm"
-      style={{ backgroundColor: 'var(--color-glass-bg)' }}
+      className="py-16 px-4 bg-white/5 dark:bg-white/5 backdrop-blur-sm"
     >
       <div className="max-w-5xl mx-auto">
         <motion.div
@@ -52,16 +51,15 @@ export default function InteractiveTimeline({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-4" style={{ color: 'var(--color-text-primary)' }}>
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-4 text-white">
             {t('heading')}
           </h3>
-          <p className="text-center text-sm mb-10" style={{ color: 'var(--color-text-secondary)' }}>
+          <p className="text-center text-sm mb-10 text-gray-300 dark:text-gray-400">
             {t('instruction')}
             {selectedYear && (
               <button
                 onClick={() => onYearSelect(null)}
-                className="ml-2 underline hover:no-underline"
-                style={{ color: 'var(--color-primary-500)' }}
+                className="ml-2 underline hover:no-underline text-[#5B8DEF] dark:text-[#7BA8F5]"
               >
                 {t('clearFilter')}
               </button>
@@ -70,13 +68,16 @@ export default function InteractiveTimeline({
 
           <div className="relative overflow-x-auto pb-4">
             <div className="min-w-max px-8">
+              {/* Paint-stroke timeline line with fading ends */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={isInView ? { scaleX: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="absolute left-8 right-8 top-4 h-0.5 origin-left"
+                className="absolute left-8 right-8 top-4 h-[3px] origin-left"
                 style={{
-                  backgroundImage: 'linear-gradient(to right, color-mix(in srgb, var(--color-primary-500) 50%, transparent), color-mix(in srgb, var(--color-accent-500) 50%, transparent), color-mix(in srgb, var(--color-primary-500) 50%, transparent))',
+                  background: 'linear-gradient(to right, #5B8DEF, #FFB800, #0EA5E9, #FF6B35, #5B8DEF)',
+                  maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
                 }}
               />
 
@@ -122,33 +123,37 @@ function YearMarker({ data, index, isSelected, onClick, isInView, totalYears, pr
       className="relative flex flex-col items-center group px-4 md:px-6"
       style={{ minWidth: `${100 / totalYears}%` }}
     >
+      {/* Dot — matches Roadmap timeline dots */}
       <motion.div
-        whileHover={{ scale: 1.2 }}
+        whileHover={{ scale: 1.3 }}
         whileTap={{ scale: 0.9 }}
-        className="w-4 h-4 rounded-full z-10 transition-all"
+        className="w-4 h-4 rounded-full z-10 transition-all border-2 border-white shadow-lg"
         style={{
-          backgroundColor: isSelected ? 'var(--color-primary-500)' : 'var(--color-primary-400)',
-          boxShadow: isSelected ? '0 0 0 4px color-mix(in srgb, var(--color-primary-500) 30%, transparent)' : 'none',
+          background: isSelected
+            ? 'linear-gradient(135deg, #FFB800, #5B8DEF)'
+            : 'linear-gradient(135deg, #5B8DEF, #7BA8F5)',
+          boxShadow: isSelected ? '0 0 12px rgba(255,184,0,0.5)' : '0 2px 8px rgba(0,0,0,0.3)',
         }}
       />
 
       <motion.span
-        className="mt-3 font-bold text-base md:text-lg transition-colors"
-        style={{ color: isSelected ? 'var(--color-primary-500)' : 'var(--color-text-primary)' }}
+        className={`mt-3 font-bold text-base md:text-lg transition-colors ${
+          isSelected ? 'text-[#FFB800] dark:text-[#FFC947]' : 'text-white'
+        }`}
       >
         {data.year}
       </motion.span>
 
       <span
-        className="text-xs md:text-sm transition-colors"
-        style={{ color: isSelected ? 'var(--color-primary-400)' : 'var(--color-text-secondary)' }}
+        className={`text-xs md:text-sm transition-colors ${
+          isSelected ? 'text-[#5B8DEF] dark:text-[#7BA8F5]' : 'text-gray-400 dark:text-gray-500'
+        }`}
       >
         {projectCountLabel}
       </span>
 
       <div
-        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300"
-        style={{ backgroundColor: 'var(--color-primary-500)' }}
+        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-[#FFB800]"
       />
     </motion.button>
   );

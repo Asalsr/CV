@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import { useAppSelector } from '@/lib/redux/hooks';
 import ThemeModeToggle from '@/components/theme/ThemeModeToggle';
 import LanguageSelector from '@/components/LanguageSelector';
+import { SectionDivider } from '@/components/figma/SectionDivider';
 
 import { artworks } from './data/artworks';
 import { ArtworkCategory } from './types/artwork';
@@ -51,13 +52,8 @@ export default function ArtPortfolio() {
   };
 
   return (
-    <div
-      className="min-h-screen"
-      style={{
-        background: 'linear-gradient(to bottom, var(--color-page-from), var(--color-page-via), var(--color-page-to))',
-      }}
-    >
-      {/* Header */}
+    <div className="min-h-screen bg-gradient-to-br from-[#0A0E1A] via-[#0F1E5C] to-[#1C39BB] dark:from-[#0A0E1A] dark:via-[#0F1729] dark:to-[#1A2332]">
+      {/* Header — matches home nav glass style */}
       <header
         className="sticky top-0 z-30 backdrop-blur-sm"
         style={{
@@ -70,20 +66,16 @@ export default function ArtPortfolio() {
             <div className="flex items-center gap-4">
               <Link
                 href="/"
-                className="flex items-center gap-2 text-sm transition-colors"
-                style={{ color: 'var(--color-text-secondary)' }}
+                className="flex items-center gap-2 text-sm text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
                 {t('back')}
               </Link>
               <div>
-                <h1
-                  className="text-xl md:text-2xl font-bold bg-clip-text text-transparent"
-                  style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500))' }}
-                >
+                <h1 className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1C39BB] to-[#FFB800] dark:from-[#5B8DEF] dark:to-[#FFC947]">
                   {t('title')}
                 </h1>
-                <p className="text-sm mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>
+                <p className="text-sm mt-0.5 text-gray-300 dark:text-gray-400">
                   Saeedeh Sarmadi
                 </p>
               </div>
@@ -102,6 +94,8 @@ export default function ArtPortfolio() {
         onCategorySelect={handleCategorySelect}
       />
 
+      <SectionDivider variant="wave" color1="#5B8DEF" color2="#FFB800" />
+
       <ProjectGrid
         artworks={artworks}
         categoryFilter={selectedCategory}
@@ -109,15 +103,17 @@ export default function ArtPortfolio() {
         onProjectClick={openProject}
       />
 
+      <SectionDivider variant="curve" color1="#0EA5E9" color2="#FF6B35" />
+
       <InteractiveTimeline
         artworks={artworks}
         selectedYear={selectedYear}
         onYearSelect={handleYearSelect}
       />
 
-      <footer className="py-8" style={{ borderTop: '1px solid var(--color-glass-border)', backgroundColor: 'color-mix(in srgb, var(--color-surface) 50%, transparent)' }}>
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+      <footer className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-300 dark:text-gray-400">
             {t('copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="mt-4 flex justify-center gap-4">
@@ -125,16 +121,14 @@ export default function ArtPortfolio() {
               href="https://www.behance.net/asalsr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm transition-colors hover:underline"
-              style={{ color: 'var(--color-primary-500)' }}
+              className="text-sm text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
             >
               Behance
             </a>
-            <span style={{ color: 'var(--color-glass-border)' }}>&bull;</span>
+            <span className="text-white/20">&bull;</span>
             <Link
               href="/"
-              className="text-sm transition-colors hover:underline"
-              style={{ color: 'var(--color-primary-500)' }}
+              className="text-sm text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
             >
               {t('devPortfolio')}
             </Link>

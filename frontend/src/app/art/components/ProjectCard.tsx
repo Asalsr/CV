@@ -25,10 +25,27 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
       className="group cursor-pointer"
       onClick={onClick}
     >
-      <div
-        className="relative rounded-xl overflow-hidden transition-all duration-300"
-        style={{ border: '1px solid var(--color-glass-border)' }}
-      >
+      <div className="relative rounded-2xl overflow-hidden bg-white/5 dark:bg-white/5 backdrop-blur-sm border-2 border-white/10 dark:border-white/20 hover:border-[#5B8DEF]/30 dark:hover:border-[#7BA8F5]/40 transition-all">
+        {/* Paint stroke border — matches home cards */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-10">
+          <rect
+            x="2" y="2"
+            width="calc(100% - 4px)" height="calc(100% - 4px)"
+            fill="none"
+            stroke="url(#art-card-paint)"
+            strokeWidth="2"
+            rx="16"
+            strokeDasharray="8,4"
+          />
+          <defs>
+            <linearGradient id="art-card-paint" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#5B8DEF" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="#FFB800" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#FF6B35" stopOpacity="0.3" />
+            </linearGradient>
+          </defs>
+        </svg>
+
         <div className="aspect-[4/3] relative">
           <ImageWithFallback
             src={artwork.thumbnail}
@@ -50,24 +67,15 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
           )}
 
           {artwork.images.length > 1 && (
-            <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
+            <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm z-10">
               {t('images', { count: artwork.images.length })}
             </div>
           )}
 
-          <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)' }}
-          />
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-          <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span
-              className="px-3 py-1 text-xs font-medium rounded-full text-white backdrop-blur-sm"
-              style={{
-                backgroundColor: 'color-mix(in srgb, var(--color-primary-500) 30%, transparent)',
-                border: '1px solid color-mix(in srgb, var(--color-primary-500) 20%, transparent)',
-              }}
-            >
+          <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+            <span className="px-3 py-1 text-xs font-medium rounded-full text-white backdrop-blur-sm bg-[#1C39BB]/30 dark:bg-[#5B8DEF]/30 border border-[#1C39BB]/20 dark:border-[#5B8DEF]/20">
               {artwork.category}
             </span>
           </div>
@@ -80,8 +88,8 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
       </div>
 
       <div className="mt-3 md:hidden">
-        <h3 className="font-semibold" style={{ color: 'var(--color-text-primary)' }}>{artwork.title}</h3>
-        <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>{artwork.category} &bull; {artwork.year}</p>
+        <h3 className="font-semibold text-white">{artwork.title}</h3>
+        <p className="text-sm text-gray-300 dark:text-gray-400">{artwork.category} &bull; {artwork.year}</p>
       </div>
     </motion.div>
   );

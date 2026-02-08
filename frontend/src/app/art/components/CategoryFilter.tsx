@@ -27,19 +27,11 @@ export default function CategoryFilter({
             onClick={() => onSelect(category)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-            style={{
-              backgroundColor: isSelected
-                ? 'var(--color-primary-500)'
-                : 'var(--color-glass-bg)',
-              color: isSelected ? '#ffffff' : 'var(--color-text-secondary)',
-              border: `1px solid ${
-                isSelected
-                  ? 'var(--color-primary-500)'
-                  : 'var(--color-glass-border)'
-              }`,
-              backdropFilter: isSelected ? 'none' : 'blur(4px)',
-            }}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 backdrop-blur-sm ${
+              isSelected
+                ? 'bg-gradient-to-r from-[#1C39BB] to-[#5B8DEF] dark:from-[#5B8DEF] dark:to-[#7BA8F5] text-white border border-white/20'
+                : 'bg-white/5 dark:bg-white/5 text-gray-300 dark:text-gray-400 border border-white/10 dark:border-white/20 hover:border-[#5B8DEF]/30'
+            }`}
           >
             {t(category)}
           </motion.button>
