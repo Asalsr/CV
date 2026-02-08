@@ -11,8 +11,8 @@ const projects = [
     location: 'Rome',
     description: 'Painting series and artistic studies exploring the impact of plastic pollution on nature and human life.',
     icon: Palette,
-    gradient: 'linear-gradient(135deg, var(--color-primary-500), var(--teal))',
-    sketch: 'wave' as const,
+    color: 'from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#38BDF8]',
+    sketch: 'wave' as const
   },
   {
     title: 'Women Life Freedom',
@@ -20,8 +20,8 @@ const projects = [
     location: 'Turin',
     description: "Led workshops and educational activities across multiple schools, engaging students in discussions on women's rights and freedom.",
     icon: Users,
-    gradient: 'linear-gradient(135deg, var(--sunset-orange), var(--golden-yellow))',
-    sketch: 'heart' as const,
+    color: 'from-[#FF6B35] to-[#FFB800] dark:from-[#FF8B66] dark:to-[#FFC947]',
+    sketch: 'heart' as const
   },
   {
     title: 'Illustration Workshops',
@@ -29,8 +29,8 @@ const projects = [
     location: 'Turin',
     description: "Led visual identity, promotional assets and on-site facilitation for Liberi di Crescere Association children's-rights non-profit event.",
     icon: Sparkles,
-    gradient: 'linear-gradient(135deg, var(--golden-yellow), var(--sunset-orange))',
-    sketch: 'star' as const,
+    color: 'from-[#FFB800] to-[#FF6B35] dark:from-[#FFC947] dark:to-[#FF8B66]',
+    sketch: 'star' as const
   }
 ];
 
@@ -39,9 +39,10 @@ function SketchWave() {
     <svg className="absolute -bottom-2 -right-2 w-24 h-24 opacity-20" viewBox="0 0 100 100">
       <motion.path
         d="M 10,50 Q 30,30 50,50 T 90,50"
+        stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        stroke="var(--color-primary-500)"
+        className="text-[#1C39BB] dark:text-[#5B8DEF]"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true }}
@@ -49,9 +50,10 @@ function SketchWave() {
       />
       <motion.path
         d="M 10,60 Q 30,40 50,60 T 90,60"
+        stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        stroke="var(--teal)"
+        className="text-[#0EA5E9] dark:text-[#38BDF8]"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true }}
@@ -66,9 +68,10 @@ function SketchHeart() {
     <svg className="absolute -bottom-2 -right-2 w-24 h-24 opacity-20" viewBox="0 0 100 100">
       <motion.path
         d="M 50,80 C 30,60 10,40 10,25 C 10,15 15,10 25,10 C 35,10 45,20 50,30 C 55,20 65,10 75,10 C 85,10 90,15 90,25 C 90,40 70,60 50,80 Z"
+        stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        stroke="var(--sunset-orange)"
+        className="text-[#FF6B35] dark:text-[#FF8B66]"
         initial={{ pathLength: 0, scale: 0.8 }}
         whileInView={{ pathLength: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -83,9 +86,10 @@ function SketchStar() {
     <svg className="absolute -bottom-2 -right-2 w-24 h-24 opacity-20" viewBox="0 0 100 100">
       <motion.path
         d="M 50,10 L 60,40 L 90,45 L 65,65 L 72,95 L 50,78 L 28,95 L 35,65 L 10,45 L 40,40 Z"
+        stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        stroke="var(--golden-yellow)"
+        className="text-[#FFB800] dark:text-[#FFC947]"
         initial={{ pathLength: 0, rotate: 0 }}
         whileInView={{ pathLength: 1, rotate: 360 }}
         viewport={{ once: true }}
@@ -100,7 +104,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = project.icon;
 
-  const SketchComponent =
+  const SketchComponent = 
     project.sketch === 'wave' ? SketchWave :
     project.sketch === 'heart' ? SketchHeart :
     SketchStar;
@@ -113,18 +117,27 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className="relative group"
     >
-      <div
-        className="backdrop-blur-sm rounded-2xl p-8 transition-all h-full relative overflow-hidden"
-        style={{
-          backgroundColor: 'var(--color-glass-bg)',
-          border: '1px solid var(--color-glass-border)',
-        }}
-      >
+      <div className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-8 hover:border-[#5B8DEF]/30 dark:hover:border-[#7BA8F5]/40 transition-all h-full relative overflow-hidden">
+        {/* Hand-drawn sketch border */}
+        <svg className="absolute inset-0 w-full h-full pointer-events-none">
+          <rect
+            x="4"
+            y="4"
+            width="calc(100% - 8px)"
+            height="calc(100% - 8px)"
+            fill="none"
+            stroke="rgba(255,255,255,0.05)"
+            strokeWidth="2"
+            rx="16"
+            strokeDasharray="8,4"
+          />
+        </svg>
+
         <div className="relative z-10">
-          <div className="inline-flex p-4 rounded-2xl mb-4 relative" style={{ background: project.gradient }}>
+          <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${project.color} mb-4 relative`}>
             <Icon className="w-8 h-8 text-white" />
             {/* Sketch circle around icon */}
-            <motion.svg
+            <motion.svg 
               className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)]"
               initial={{ rotate: 0 }}
               whileInView={{ rotate: 360 }}
@@ -136,7 +149,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 cy="50%"
                 r="48%"
                 fill="none"
-                stroke="var(--color-glass-border)"
+                stroke="rgba(255,255,255,0.2)"
                 strokeWidth="1"
                 strokeDasharray="3,3"
               />
@@ -144,16 +157,29 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           </div>
 
           <div className="flex items-center gap-2 mb-3">
-            <h3 className="text-2xl" style={{ color: 'var(--color-text-primary)' }}>{project.title}</h3>
+            <h3 className="text-2xl text-white">{project.title}</h3>
+            {/* Hand-drawn underline */}
+            <svg className="w-12 h-2" preserveAspectRatio="none">
+              <motion.path
+                d="M 0,1 L 48,1"
+                stroke="rgba(255,184,0,0.5)"
+                strokeWidth="2"
+                fill="none"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: index * 0.2 + 0.3 }}
+              />
+            </svg>
           </div>
 
           <div className="flex items-center gap-3 mb-4 text-sm">
-            <span style={{ color: 'var(--color-primary-400)' }}>{project.year}</span>
-            <span style={{ color: 'var(--color-text-secondary)' }}>&bull;</span>
-            <span style={{ color: 'var(--color-text-secondary)' }}>{project.location}</span>
+            <span className="text-[#5B8DEF] dark:text-[#7BA8F5]">{project.year}</span>
+            <span className="text-gray-500">&bull;</span>
+            <span className="text-gray-300 dark:text-gray-400">{project.location}</span>
           </div>
 
-          <p className="leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+          <p className="text-gray-200 dark:text-gray-300 leading-relaxed">
             {project.description}
           </p>
         </div>
@@ -176,13 +202,33 @@ export function ArtProjects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2
-            className="text-4xl md:text-5xl mb-4 bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(to right, var(--sunset-orange), var(--color-accent-500), var(--color-primary-500))' }}
-          >
-            Artistic Projects
-          </h2>
-          <p style={{ color: 'var(--color-text-secondary)' }} className="text-xl">Where art meets activism and social impact</p>
+          <div className="relative inline-block">
+            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[#FF6B35] via-[#FFB800] to-[#1C39BB] dark:from-[#FF8B66] dark:via-[#FFC947] dark:to-[#5B8DEF] bg-clip-text text-transparent">
+              Artistic Projects
+            </h2>
+            {/* Hand-drawn sketch decoration */}
+            <motion.svg 
+              className="absolute -right-16 top-0 w-16 h-16 hidden lg:block"
+              viewBox="0 0 64 64"
+              initial={{ opacity: 0, rotate: -45 }}
+              whileInView={{ opacity: 1, rotate: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+            >
+              <motion.path
+                d="M 10,32 Q 20,10 32,10 Q 44,10 54,32 Q 44,54 32,54 Q 20,54 10,32 Z"
+                fill="none"
+                stroke="#FFB800"
+                strokeWidth="2"
+                strokeDasharray="4,2"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 2, delay: 0.5 }}
+              />
+            </motion.svg>
+          </div>
+          <p className="text-gray-300 dark:text-gray-400 text-xl">Where art meets activism and social impact</p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -206,9 +252,9 @@ export function ArtProjects() {
             />
             <defs>
               <linearGradient id="art-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="var(--sunset-orange)" />
-                <stop offset="50%" stopColor="var(--color-accent-500)" />
-                <stop offset="100%" stopColor="var(--color-primary-500)" />
+                <stop offset="0%" stopColor="#FF6B35" />
+                <stop offset="50%" stopColor="#FFB800" />
+                <stop offset="100%" stopColor="#5B8DEF" />
               </linearGradient>
             </defs>
           </svg>

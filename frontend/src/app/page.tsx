@@ -7,15 +7,11 @@ import { Roadmap } from '@/components/figma/Roadmap';
 import { Skills } from '@/components/figma/Skills';
 import { ArtProjects } from '@/components/figma/ArtProjects';
 import { Footer } from '@/components/figma/Footer';
+import { SectionDivider } from '@/components/figma/SectionDivider';
 
 export default function Home() {
   return (
-    <div
-      className="min-h-screen"
-      style={{
-        background: 'linear-gradient(to bottom, var(--color-page-from), var(--color-page-via), var(--color-page-to))',
-      }}
-    >
+    <div className="min-h-screen bg-gradient-to-br from-[#0A0E1A] via-[#0F1E5C] to-[#1C39BB] dark:from-[#0A0E1A] dark:via-[#0F1729] dark:to-[#1A2332]">
       {/* Navigation Bar */}
       <nav
         className="fixed top-0 left-0 right-0 z-40 backdrop-blur-sm"
@@ -28,8 +24,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <a
               href="#"
-              className="text-xl font-bold bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500))' }}
+              className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1C39BB] to-[#FFB800] dark:from-[#5B8DEF] dark:to-[#FFC947]"
             >
               SS
             </a>
@@ -39,8 +34,7 @@ export default function Home() {
                 <a
                   key={label}
                   href={`#${label === 'Journey' ? 'roadmap' : label === 'Contact' ? 'contact' : label === 'Art' ? 'art-projects' : label.toLowerCase()}`}
-                  className="text-sm transition-colors"
-                  style={{ color: 'var(--color-text-secondary)' }}
+                  className="text-sm text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
                 >
                   {label}
                 </a>
@@ -56,8 +50,11 @@ export default function Home() {
 
       {/* Main Content */}
       <Hero />
+      <SectionDivider variant="wave" color1="#5B8DEF" color2="#FFB800" />
       <Roadmap />
+      <SectionDivider variant="curve" color1="#0EA5E9" color2="#FF6B35" />
       <Skills />
+      <SectionDivider variant="organic" color1="#FFB800" color2="#5B8DEF" />
       <ArtProjects />
       <Footer />
 
