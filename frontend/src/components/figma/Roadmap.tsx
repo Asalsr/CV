@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { Briefcase, GraduationCap, Rocket, Palette, Code2 } from 'lucide-react';
 
 interface RoadmapItem {
@@ -186,8 +186,73 @@ function TimelineDot({ index, isInView }: { index: number; isInView: boolean }) 
 }
 
 export function Roadmap() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [curvePath, setCurvePath] = useState('');
+  const [svgSize, setSvgSize] = useState({ w: 0, h: 0 });
+  const isInView = useInView(timelineRef, { once: true, margin: "-100px" });
+
+  // Measure dot positions and generate SVG S-curve through them
+  const updateCurve = useCallback(() => {
+    const container = timelineRef.current;
+    if (!container) return;
+
+    const rect = container.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+    setSvgSize({ w: rect.width, h: rect.height });
+
+    const dots = dotRefs.current
+      .map(el => {
+        if (!el) return null;
+        const r = el.getBoundingClientRect();
+        return {
+          x: r.left + r.width / 2 - rect.left,
+          y: r.top + r.height / 2 - rect.top,
+        };
+      })
+      .filter((p): p is { x: number; y: number } => p !== null);
+
+    if (dots.length < 2) return;
+
+    const swing = rect.width * 0.14;
+
+    // Start above first dot (fading-in region)
+    let d = `M ${dots[0].x},${Math.max(0, dots[0].y - 80)}`;
+    d += ` L ${dots[0].x},${dots[0].y}`;
+
+    // S-curve segments between consecutive dots
+    for (let i = 0; i < dots.length - 1; i++) {
+      const curr = dots[i];
+      const next = dots[i + 1];
+      const currDir = roadmapData[i].position === 'right' ? 1 : -1;
+      const nextDir = roadmapData[i + 1].position === 'right' ? 1 : -1;
+      const midY = (curr.y + next.y) / 2;
+
+      // Cubic bezier: swing toward current card side, then toward next card side
+      d += ` C ${curr.x + swing * currDir},${midY} ${next.x + swing * nextDir},${midY} ${next.x},${next.y}`;
+    }
+
+    // End below last dot (fading-out region)
+    const last = dots[dots.length - 1];
+    d += ` L ${last.x},${Math.min(rect.height, last.y + 80)}`;
+
+    setCurvePath(d);
+  }, []);
+
+  useEffect(() => {
+    // Wait for layout to settle before measuring
+    const raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => updateCurve());
+    });
+
+    const observer = new ResizeObserver(() => updateCurve());
+    if (timelineRef.current) observer.observe(timelineRef.current);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+    };
+  }, [updateCurve]);
 
   return (
     <section id="roadmap" className="py-20 px-4 relative">
@@ -220,53 +285,78 @@ export function Roadmap() {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative" ref={sectionRef}>
-          {/* SVG filter + gradient definitions (shared) */}
+        <div className="relative" ref={timelineRef}>
+          {/* Shared SVG filter + gradient defs */}
           <svg className="absolute w-0 h-0" aria-hidden="true">
             <defs>
               <filter id="roadmap-paint-texture">
                 <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise"/>
                 <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
               </filter>
+              <linearGradient id="roadmap-curve-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#5B8DEF" />
+                <stop offset="25%" stopColor="#FFB800" />
+                <stop offset="50%" stopColor="#0EA5E9" />
+                <stop offset="75%" stopColor="#FF6B35" />
+                <stop offset="100%" stopColor="#5B8DEF" />
+              </linearGradient>
+              <linearGradient id="roadmap-curve-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#1C39BB" />
+                <stop offset="50%" stopColor="#FFB800" />
+                <stop offset="100%" stopColor="#0EA5E9" />
+              </linearGradient>
               <linearGradient id="roadmap-card-paint" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#5B8DEF" stopOpacity="0.3" />
                 <stop offset="50%" stopColor="#FFB800" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="#FF6B35" stopOpacity="0.3" />
               </linearGradient>
+              <radialGradient id="roadmap-point-glow">
+                <stop offset="0%" stopColor="#FFB800" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#5B8DEF" stopOpacity="0" />
+              </radialGradient>
             </defs>
           </svg>
 
-          {/* Desktop: Vertical timeline line (centered) with fading ends */}
-          <motion.div
-            className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px] hidden md:block"
-            initial={{ scaleY: 0 }}
-            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            style={{
-              transformOrigin: 'top',
-              background: 'linear-gradient(to bottom, #5B8DEF, #FFB800, #0EA5E9, #FF6B35, #5B8DEF)',
-              maskImage: 'linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%)',
-              filter: 'url(#roadmap-paint-texture)',
-            }}
-          />
-          {/* Desktop: Secondary line for painted depth */}
-          <motion.div
-            className="absolute left-1/2 top-0 bottom-0 w-[6px] hidden md:block opacity-20"
-            initial={{ scaleY: 0 }}
-            animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-            transition={{ duration: 1.8, ease: "easeInOut", delay: 0.2 }}
-            style={{
-              transformOrigin: 'top',
-              marginLeft: '1px',
-              background: 'linear-gradient(to bottom, #1C39BB, #FFB800, #0EA5E9)',
-              maskImage: 'linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%)',
-              filter: 'url(#roadmap-paint-texture)',
-            }}
-          />
+          {/* Desktop: SVG curved S-path (passes through each dot) */}
+          {curvePath && svgSize.w > 0 && (
+            <svg
+              className="absolute inset-0 pointer-events-none hidden md:block"
+              width={svgSize.w}
+              height={svgSize.h}
+              style={{
+                maskImage: 'linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 3%, black 97%, transparent 100%)',
+              }}
+            >
+              {/* Secondary wider stroke for painted depth */}
+              <motion.path
+                d={curvePath}
+                stroke="url(#roadmap-curve-gradient-2)"
+                strokeWidth="6"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.25"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 2.5, ease: "easeInOut", delay: 0.2 }}
+                style={{ filter: 'url(#roadmap-paint-texture)' }}
+              />
+              {/* Main flowing curve */}
+              <motion.path
+                d={curvePath}
+                stroke="url(#roadmap-curve-gradient)"
+                strokeWidth="3"
+                fill="none"
+                strokeLinecap="round"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isInView ? { pathLength: 1, opacity: 0.6 } : { pathLength: 0, opacity: 0 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+                style={{ filter: 'url(#roadmap-paint-texture)' }}
+              />
+            </svg>
+          )}
 
-          {/* Mobile: Vertical timeline line (left side) with fading ends */}
+          {/* Mobile: straight vertical line (left side) with fading ends */}
           <motion.div
             className="absolute left-[19px] top-0 bottom-0 w-[3px] md:hidden"
             initial={{ scaleY: 0 }}
@@ -299,8 +389,11 @@ export function Roadmap() {
                       ) : null}
                     </div>
 
-                    {/* Center dot (sits on the timeline line) */}
-                    <div className="flex-shrink-0 relative z-10">
+                    {/* Center dot — the curve passes through here */}
+                    <div
+                      className="flex-shrink-0 relative z-10"
+                      ref={el => { dotRefs.current[index] = el; }}
+                    >
                       <TimelineDot index={index} isInView={isInView} />
                     </div>
 
@@ -333,25 +426,25 @@ export function Roadmap() {
             })}
           </div>
 
-          {/* Animated particles floating along the timeline — Desktop */}
-          {isInView && (
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 hidden md:block pointer-events-none overflow-hidden">
-              {[...Array(5)].map((_, i) => (
+          {/* Animated particles following the S-curve — Desktop */}
+          {curvePath && isInView && (
+            <div className="absolute inset-0 hidden md:block pointer-events-none overflow-hidden">
+              {[...Array(6)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-1.5 h-1.5 rounded-full"
+                  className="absolute w-2 h-2 rounded-full"
                   style={{
                     backgroundColor: i % 2 === 0 ? '#FFB800' : '#5B8DEF',
-                    left: '-2px',
+                    offsetPath: `path("${curvePath}")`,
                   }}
-                  initial={{ top: '-2%', opacity: 0 }}
+                  initial={{ offsetDistance: '0%', opacity: 0 }}
                   animate={{
-                    top: '102%',
+                    offsetDistance: '100%',
                     opacity: [0, 0.8, 0.8, 0],
                   }}
                   transition={{
-                    duration: 6,
-                    delay: i * 1.2,
+                    duration: 5,
+                    delay: i * 0.9,
                     repeat: Infinity,
                     ease: "linear",
                   }}
