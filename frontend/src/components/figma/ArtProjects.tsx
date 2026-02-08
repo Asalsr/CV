@@ -11,40 +11,11 @@ interface ArtProject {
   location: string;
   description: string;
   icon: typeof Palette;
-  color?: string;
-  gradient?: string;
+  color: string;
   sketch: 'wave' | 'heart' | 'star';
 }
 
-const projects: ArtProject[] = [
-  {
-    title: 'Plastic Blue',
-    year: '2021-2022',
-    location: 'Rome',
-    description: 'Painting series and artistic studies exploring the impact of plastic pollution on nature and human life.',
-    icon: Palette,
-    color: 'from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#38BDF8]',
-    sketch: 'wave' as const
-  },
-  {
-    title: 'Women Life Freedom',
-    year: '2022',
-    location: 'Turin',
-    description: "Led workshops and educational activities across multiple schools, engaging students in discussions on women's rights and freedom.",
-    icon: Users,
-    color: 'from-[#FF6B35] to-[#FFB800] dark:from-[#FF8B66] dark:to-[#FFC947]',
-    sketch: 'heart' as const
-  },
-  {
-    title: 'Illustration Workshops',
-    year: '2023',
-    location: 'Turin',
-    description: "Led visual identity, promotional assets and on-site facilitation for Liberi di Crescere Association children's-rights non-profit event.",
-    icon: Sparkles,
-    color: 'from-[#FFB800] to-[#FF6B35] dark:from-[#FFC947] dark:to-[#FF8B66]',
-    sketch: 'star' as const
-  }
-];
+// Project data is defined inside ArtProjects() with i18n translations
 
 function SketchWave() {
   return (
@@ -213,7 +184,7 @@ export function ArtProjects() {
       location: 'Rome',
       description: t('plasticBlue.description'),
       icon: Palette,
-      gradient: 'linear-gradient(135deg, var(--color-primary-500), var(--teal))',
+      color: 'from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#38BDF8]',
       sketch: 'wave' as const,
     },
     {
@@ -222,7 +193,7 @@ export function ArtProjects() {
       location: 'Turin',
       description: t('womenLifeFreedom.description'),
       icon: Users,
-      gradient: 'linear-gradient(135deg, var(--sunset-orange), var(--golden-yellow))',
+      color: 'from-[#FF6B35] to-[#FFB800] dark:from-[#FF8B66] dark:to-[#FFC947]',
       sketch: 'heart' as const,
     },
     {
@@ -231,7 +202,7 @@ export function ArtProjects() {
       location: 'Turin',
       description: t('illustrationWorkshops.description'),
       icon: Sparkles,
-      gradient: 'linear-gradient(135deg, var(--golden-yellow), var(--sunset-orange))',
+      color: 'from-[#FFB800] to-[#FF6B35] dark:from-[#FFC947] dark:to-[#FF8B66]',
       sketch: 'star' as const,
     }
   ];
