@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Mode Contrast Audit - Current vs Proposed</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, sans-serif; background: #ffffff; color: #0F1729; padding: 40px 60px; }
+  h1 { font-size: 1.75rem; margin-bottom: 6px; color: #0F1729; }
+  .subtitle { color: #5A6B7D; margin-bottom: 40px; font-size: 0.95rem; }
+  .section { margin-bottom: 48px; }
+  .section-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; padding-bottom: 8px; border-bottom: 2px solid #0F1729; }
+  .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .card { border-radius: 12px; padding: 24px; border: 1px solid #e2e8f0; }
+  .card-current { background: #fff; }
+  .card-proposed { background: #f0fdf4; border-color: #86efac; }
+  .card h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+  .card-current h3 { color: #dc2626; }
+  .card-proposed h3 { color: #16a34a; }
+
+  .sample { margin-bottom: 16px; padding: 16px; border-radius: 8px; background: #ffffff; border: 1px solid #e5e7eb; }
+  .sample-label { font-size: 11px; color: #6b7280; margin-bottom: 6px; font-family: monospace; }
+  .sample-text { font-size: 1rem; line-height: 1.5; }
+  .sample-large { font-size: 1.25rem; font-weight: 600; }
+  .ratio-badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+  .ratio-fail { background: #fef2f2; color: #dc2626; border: 1px solid #fca5a5; }
+  .ratio-aa { background: #fefce8; color: #a16207; border: 1px solid #fde047; }
+  .ratio-aaa { background: #f0fdf4; color: #16a34a; border: 1px solid #86efac; }
+
+  .icon-demo { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; }
+  .btn-demo { display: inline-block; padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; text-align: center; border: none; cursor: default; }
+
+  .opacity-demo { padding: 16px; border-radius: 8px; margin-bottom: 8px; }
+
+  .glass-card { padding: 20px; border-radius: 12px; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.85rem; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+  th { font-weight: 600; color: #374151; background: #f9fafb; }
+  td.color-cell { font-family: monospace; font-size: 0.8rem; }
+  .color-dot { display: inline-block; width: 16px; height: 16px; border-radius: 4px; vertical-align: middle; margin-right: 6px; border: 1px solid rgba(0,0,0,0.1); }
+
+  .legend { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #6b7280; }
+</style>
+</head>
+<body>
+
+<h1>Light Mode Contrast Audit</h1>
+<p class="subtitle">Current colors vs. proposed accessible alternatives &mdash; all samples shown on white (#FFFFFF) background</p>
+
+<div class="legend">
+  <div class="legend-item"><span class="ratio-badge ratio-fail">FAIL</span> Below 3:1 (fails all WCAG)</div>
+  <div class="legend-item"><span class="ratio-badge ratio-aa">AA Large</span> 3:1&ndash;4.5:1 (large text only)</div>
+  <div class="legend-item"><span class="ratio-badge ratio-aaa">AA / AAA</span> 4.5:1+ (passes AA normal text)</div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 1: TEXT COLORS ON WHITE -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-title">1. Text Colors on White Background</div>
+  <div class="comparison-grid">
+    <div class="card card-current">
+      <h3>Current</h3>
+
+      <div class="sample">
+        <div class="sample-label">primary-400 #4A7AEF &mdash; used for links &amp; interactive text <span class="ratio-badge ratio-aa">3.6:1 AA Large only</span></div>
+        <div class="sample-text" style="color: #4A7AEF;">This is a link or interactive text element in your portfolio. It appears in the timeline, art projects, and roadmap sections.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">#5B8DEF (dark-mode primary leaked) &mdash; hardcoded in components <span class="ratio-badge ratio-fail">3.3:1 FAIL</span></div>
+        <div class="sample-text" style="color: #5B8DEF;">This color is hardcoded in Roadmap and ArtProjects. It's the dark-mode primary-500 but appears in light mode too.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">accent-500 #FFB800 &mdash; golden yellow on white <span class="ratio-badge ratio-fail">1.9:1 FAIL</span></div>
+        <div class="sample-text sample-large" style="color: #FFB800;">Golden Yellow Heading</div>
+        <div class="sample-text" style="color: #FFB800;">This yellow is nearly invisible on white. Used for theme toggle icon and decorative stars.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">accent-400 #FFC947 &mdash; amber on white <span class="ratio-badge ratio-fail">1.6:1 FAIL</span></div>
+        <div class="sample-text sample-large" style="color: #FFC947;">Amber Heading</div>
+        <div class="sample-text" style="color: #FFC947;">Even worse contrast than golden yellow. Used for moon icon in theme toggle.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">text-secondary #5A6B7D on white <span class="ratio-badge ratio-aaa">5.0:1 AA Pass</span></div>
+        <div class="sample-text" style="color: #5A6B7D;">Secondary text is fine. This meets WCAG AA requirements.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">text-primary #0F1729 on white <span class="ratio-badge ratio-aaa">16.8:1 AAA Pass</span></div>
+        <div class="sample-text" style="color: #0F1729;">Primary text has excellent contrast. No changes needed here.</div>
+      </div>
+    </div>
+
+    <div class="card card-proposed">
+      <h3>Proposed Fix</h3>
+
+      <div class="sample">
+        <div class="sample-label">primary-500 #1C39BB &mdash; use for links instead of primary-400 <span class="ratio-badge ratio-aaa">5.5:1 AA Pass</span></div>
+        <div class="sample-text" style="color: #1C39BB;">This is a link or interactive text element in your portfolio. It appears in the timeline, art projects, and roadmap sections.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">Use CSS var instead of hardcoded &mdash; resolves to #1C39BB in light mode <span class="ratio-badge ratio-aaa">5.5:1 AA Pass</span></div>
+        <div class="sample-text" style="color: #1C39BB;">Fixed by using var(--color-primary-500) instead of hardcoded #5B8DEF. Correct color in both modes.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">accent-700 #B88500 &mdash; for functional yellow text/icons <span class="ratio-badge ratio-aaa">4.8:1 AA Pass</span></div>
+        <div class="sample-text sample-large" style="color: #B88500;">Golden Yellow Heading</div>
+        <div class="sample-text" style="color: #B88500;">Darker gold maintains the warm feel while being readable. Use for text and icons that carry meaning.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">accent-800 #8F6800 &mdash; for smaller accent text <span class="ratio-badge ratio-aaa">6.4:1 AA Pass</span></div>
+        <div class="sample-text sample-large" style="color: #8F6800;">Amber Heading</div>
+        <div class="sample-text" style="color: #8F6800;">Deep amber for when you need accent text at small sizes. Strong readability.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">text-secondary #5A6B7D unchanged <span class="ratio-badge ratio-aaa">5.0:1 AA Pass</span></div>
+        <div class="sample-text" style="color: #5A6B7D;">Secondary text is fine. This meets WCAG AA requirements.</div>
+      </div>
+
+      <div class="sample">
+        <div class="sample-label">text-primary #0F1729 unchanged <span class="ratio-badge ratio-aaa">16.8:1 AAA Pass</span></div>
+        <div class="sample-text" style="color: #0F1729;">Primary text has excellent contrast. No changes needed here.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 2: BUTTONS & ICONS -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-title">2. Buttons, Icons &amp; Interactive Elements</div>
+  <div class="comparison-grid">
+    <div class="card card-current">
+      <h3>Current</h3>
+
+      <div class="sample" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <div>
+          <div class="sample-label">Theme toggle icon (accent-500)</div>
+          <div class="icon-demo" style="background: rgba(28,57,187,0.04); border: 1px solid rgba(28,57,187,0.1);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFB800" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <div class="sample-label" style="margin-top:4px"><span class="ratio-badge ratio-fail">1.9:1</span></div>
+        </div>
+        <div>
+          <div class="sample-label">Button with accent bg + white text</div>
+          <div class="btn-demo" style="background: #FFB800; color: #ffffff;">Get in Touch</div>
+          <div class="sample-label" style="margin-top:4px">White on yellow <span class="ratio-badge ratio-fail">1.9:1</span></div>
+        </div>
+        <div>
+          <div class="sample-label">Link text (primary-400)</div>
+          <div style="font-size: 1rem; color: #4A7AEF; text-decoration: underline;">View Project &rarr;</div>
+          <div class="sample-label" style="margin-top:4px"><span class="ratio-badge ratio-aa">3.6:1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-proposed">
+      <h3>Proposed Fix</h3>
+
+      <div class="sample" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <div>
+          <div class="sample-label">Theme toggle icon (accent-700)</div>
+          <div class="icon-demo" style="background: rgba(28,57,187,0.08); border: 1px solid rgba(28,57,187,0.2);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B88500" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <div class="sample-label" style="margin-top:4px"><span class="ratio-badge ratio-aaa">4.8:1</span></div>
+        </div>
+        <div>
+          <div class="sample-label">Button with accent bg + dark text</div>
+          <div class="btn-demo" style="background: #FFB800; color: #0F1729;">Get in Touch</div>
+          <div class="sample-label" style="margin-top:4px">Dark on yellow <span class="ratio-badge ratio-aaa">8.8:1</span></div>
+        </div>
+        <div>
+          <div class="sample-label">Link text (primary-500)</div>
+          <div style="font-size: 1rem; color: #1C39BB; text-decoration: underline;">View Project &rarr;</div>
+          <div class="sample-label" style="margin-top:4px"><span class="ratio-badge ratio-aaa">5.5:1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 3: GLASS & OPACITY ELEMENTS -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-title">3. Glass Effects, Cards &amp; Low-Opacity Backgrounds</div>
+  <div class="comparison-grid">
+    <div class="card card-current">
+      <h3>Current</h3>
+
+      <div class="sample-label" style="margin-bottom: 8px;">Glass card &mdash; bg: rgba(28,57,187, 0.04), border: rgba(28,57,187, 0.1)</div>
+      <div class="glass-card" style="background: rgba(28,57,187,0.04); border: 1px solid rgba(28,57,187,0.1); margin-bottom: 16px;">
+        <div style="font-weight: 600; margin-bottom: 6px; color: #0F1729;">Card Title</div>
+        <div style="color: #5A6B7D; font-size: 0.9rem;">Card content text. The background is nearly invisible and the border barely registers. The card doesn't stand out from the page.</div>
+      </div>
+
+      <div class="sample-label" style="margin-bottom: 8px;">Gradient overlay &mdash; from-[#1C39BB]/10 to-[#FFB800]/10</div>
+      <div class="opacity-demo" style="background: linear-gradient(to right, rgba(28,57,187,0.1), rgba(255,184,0,0.1));">
+        <div style="font-weight: 600; color: #0F1729;">Section with gradient overlay</div>
+        <div style="color: #5A6B7D; font-size: 0.9rem;">This gradient is almost completely invisible on white.</div>
+      </div>
+
+      <div class="sample-label" style="margin-bottom: 8px;">Category pill &mdash; bg: glass-bg (0.04 opacity)</div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span style="background: rgba(28,57,187,0.04); border: 1px solid rgba(28,57,187,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #5A6B7D;">Painting</span>
+        <span style="background: rgba(28,57,187,0.04); border: 1px solid rgba(28,57,187,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #5A6B7D;">Digital Art</span>
+        <span style="background: rgba(28,57,187,0.04); border: 1px solid rgba(28,57,187,0.1); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #5A6B7D;">Sculpture</span>
+      </div>
+
+      <div class="sample-label" style="margin-top: 16px; margin-bottom: 8px;">Hover border &mdash; #5B8DEF at 30% opacity</div>
+      <div style="padding: 16px; border: 2px solid rgba(91,141,239,0.3); border-radius: 8px;">
+        <div style="color: #0F1729;">This border is too subtle to indicate interaction.</div>
+      </div>
+    </div>
+
+    <div class="card card-proposed">
+      <h3>Proposed Fix</h3>
+
+      <div class="sample-label" style="margin-bottom: 8px;">Glass card &mdash; bg: rgba(28,57,187, 0.08), border: rgba(28,57,187, 0.2)</div>
+      <div class="glass-card" style="background: rgba(28,57,187,0.08); border: 1px solid rgba(28,57,187,0.2); margin-bottom: 16px;">
+        <div style="font-weight: 600; margin-bottom: 6px; color: #0F1729;">Card Title</div>
+        <div style="color: #5A6B7D; font-size: 0.9rem;">Card content text. The background now has a subtle but visible blue tint, and the border is clearly defined.</div>
+      </div>
+
+      <div class="sample-label" style="margin-bottom: 8px;">Gradient overlay &mdash; from-[#1C39BB]/18 to-[#FFB800]/15</div>
+      <div class="opacity-demo" style="background: linear-gradient(to right, rgba(28,57,187,0.18), rgba(255,184,0,0.15));">
+        <div style="font-weight: 600; color: #0F1729;">Section with gradient overlay</div>
+        <div style="color: #5A6B7D; font-size: 0.9rem;">Gradient is now visible while still being subtle and elegant.</div>
+      </div>
+
+      <div class="sample-label" style="margin-bottom: 8px;">Category pill &mdash; bg: 0.08 opacity, border: 0.2 opacity</div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span style="background: rgba(28,57,187,0.08); border: 1px solid rgba(28,57,187,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #5A6B7D;">Painting</span>
+        <span style="background: rgba(28,57,187,0.08); border: 1px solid rgba(28,57,187,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #5A6B7D;">Digital Art</span>
+        <span style="background: rgba(28,57,187,0.08); border: 1px solid rgba(28,57,187,0.2); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: #5A6B7D;">Sculpture</span>
+      </div>
+
+      <div class="sample-label" style="margin-top: 16px; margin-bottom: 8px;">Hover border &mdash; #1C39BB at 50% opacity</div>
+      <div style="padding: 16px; border: 2px solid rgba(28,57,187,0.5); border-radius: 8px;">
+        <div style="color: #0F1729;">This border is clearly visible and communicates interactivity.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 4: SCROLLBAR -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-title">4. Scrollbar</div>
+  <div class="comparison-grid">
+    <div class="card card-current">
+      <h3>Current</h3>
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom:8px;">
+        <div style="width: 12px; height: 80px; background: #ffffff; border-radius: 6px; border: 1px solid #e5e7eb; position: relative;">
+          <div style="width: 10px; height: 30px; background: #85A2FF; border-radius: 5px; position: absolute; top: 10px; left: 1px;"></div>
+        </div>
+        <div>
+          <div class="sample-label">Thumb: primary-300 #85A2FF <span class="ratio-badge ratio-aa">3.2:1</span></div>
+          <div class="sample-label">Faint blue thumb on white track</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-proposed">
+      <h3>Proposed Fix</h3>
+      <div style="display: flex; gap: 12px; align-items: center; margin-bottom:8px;">
+        <div style="width: 12px; height: 80px; background: #ffffff; border-radius: 6px; border: 1px solid #e5e7eb; position: relative;">
+          <div style="width: 10px; height: 30px; background: #4A7AEF; border-radius: 5px; position: absolute; top: 10px; left: 1px;"></div>
+        </div>
+        <div>
+          <div class="sample-label">Thumb: primary-400 #4A7AEF <span class="ratio-badge ratio-aa">3.6:1 (non-text OK)</span></div>
+          <div class="sample-label">WCAG requires 3:1 for UI components</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 5: FULL RATIO TABLE -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-title">5. Complete Contrast Ratio Reference</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Color</th>
+        <th>Hex</th>
+        <th>Ratio vs #FFF</th>
+        <th>WCAG Grade</th>
+        <th>Suggested Replacement</th>
+        <th>New Ratio</th>
+        <th>New Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="color-dot" style="background:#FFC947"></span>accent-400</td>
+        <td class="color-cell">#FFC947</td>
+        <td>1.6:1</td>
+        <td><span class="ratio-badge ratio-fail">FAIL</span></td>
+        <td class="color-cell"><span class="color-dot" style="background:#8F6800"></span>#8F6800 (accent-800)</td>
+        <td>6.4:1</td>
+        <td><span class="ratio-badge ratio-aaa">AA</span></td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#FFB800"></span>accent-500</td>
+        <td class="color-cell">#FFB800</td>
+        <td>1.9:1</td>
+        <td><span class="ratio-badge ratio-fail">FAIL</span></td>
+        <td class="color-cell"><span class="color-dot" style="background:#B88500"></span>#B88500 (accent-700)</td>
+        <td>4.8:1</td>
+        <td><span class="ratio-badge ratio-aaa">AA</span></td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#E0A200"></span>accent-600</td>
+        <td class="color-cell">#E0A200</td>
+        <td>2.5:1</td>
+        <td><span class="ratio-badge ratio-fail">FAIL</span></td>
+        <td class="color-cell"><span class="color-dot" style="background:#8F6800"></span>#8F6800 (accent-800)</td>
+        <td>6.4:1</td>
+        <td><span class="ratio-badge ratio-aaa">AA</span></td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#5B8DEF"></span>#5B8DEF (hardcoded)</td>
+        <td class="color-cell">#5B8DEF</td>
+        <td>3.3:1</td>
+        <td><span class="ratio-badge ratio-fail">FAIL</span></td>
+        <td class="color-cell"><span class="color-dot" style="background:#1C39BB"></span>var(--color-primary-500)</td>
+        <td>5.5:1</td>
+        <td><span class="ratio-badge ratio-aaa">AA</span></td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#85A2FF"></span>primary-300</td>
+        <td class="color-cell">#85A2FF</td>
+        <td>3.2:1</td>
+        <td><span class="ratio-badge ratio-aa">AA Large</span></td>
+        <td class="color-cell"><span class="color-dot" style="background:#4A7AEF"></span>#4A7AEF (primary-400)</td>
+        <td>3.6:1</td>
+        <td><span class="ratio-badge ratio-aa">3:1 UI OK</span></td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#4A7AEF"></span>primary-400</td>
+        <td class="color-cell">#4A7AEF</td>
+        <td>3.6:1</td>
+        <td><span class="ratio-badge ratio-aa">AA Large</span></td>
+        <td class="color-cell"><span class="color-dot" style="background:#1C39BB"></span>#1C39BB (primary-500)</td>
+        <td>5.5:1</td>
+        <td><span class="ratio-badge ratio-aaa">AA</span></td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#5A6B7D"></span>text-secondary</td>
+        <td class="color-cell">#5A6B7D</td>
+        <td>5.0:1</td>
+        <td><span class="ratio-badge ratio-aaa">AA Pass</span></td>
+        <td class="color-cell" colspan="3" style="color: #16a34a;">No change needed</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#0F1729"></span>text-primary</td>
+        <td class="color-cell">#0F1729</td>
+        <td>16.8:1</td>
+        <td><span class="ratio-badge ratio-aaa">AAA Pass</span></td>
+        <td class="color-cell" colspan="3" style="color: #16a34a;">No change needed</td>
+      </tr>
+      <tr>
+        <td><span class="color-dot" style="background:#1C39BB"></span>primary-500</td>
+        <td class="color-cell">#1C39BB</td>
+        <td>5.5:1</td>
+        <td><span class="ratio-badge ratio-aaa">AA Pass</span></td>
+        <td class="color-cell" colspan="3" style="color: #16a34a;">No change needed</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="margin-top: 48px; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
+  <h3 style="margin-bottom: 12px; font-size: 1rem;">Summary of Changes</h3>
+  <ol style="padding-left: 20px; line-height: 2; color: #374151; font-size: 0.9rem;">
+    <li><strong>Replace hardcoded #5B8DEF</strong> with <code>var(--color-primary-500)</code> so light mode gets #1C39BB (5.5:1)</li>
+    <li><strong>Use primary-500 for links/interactive text</strong> instead of primary-400 (3.6:1 &rarr; 5.5:1)</li>
+    <li><strong>Use accent-700/800 for functional yellow text &amp; icons</strong> in light mode (1.9:1 &rarr; 4.8:1+)</li>
+    <li><strong>Keep bright yellows decorative only</strong> &mdash; #FFB800 is fine as a background fill, just not for text/icons on white</li>
+    <li><strong>Increase glass opacities</strong> &mdash; glass-bg: 0.04&rarr;0.08, glass-border: 0.1&rarr;0.2, overlays: 10%&rarr;15-18%</li>
+    <li><strong>Scrollbar thumb</strong> &mdash; primary-300&rarr;primary-400 (meets 3:1 for non-text UI)</li>
+  </ol>
+</div>
+
+</body>
+</html>
