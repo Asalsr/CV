@@ -1,6 +1,6 @@
 // Redux Slice for Theme Management
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { ColorScheme, ThemeMode } from '@/config/themes';
+import { colorSchemes, type ColorScheme, type ThemeMode } from '@/config/themes';
 
 export interface ThemeState {
   colorScheme: ColorScheme;
@@ -18,13 +18,20 @@ const initialState: ThemeState = {
 // Helper to load persisted state (call only on client after mount)
 export const loadPersistedTheme = (): { colorScheme: ColorScheme; mode: ThemeMode } => {
   try {
-    const savedColorScheme = localStorage.getItem('colorScheme') as ColorScheme;
-    const savedMode = localStorage.getItem('themeMode') as ThemeMode;
+    const savedColorScheme = localStorage.getItem('colorScheme');
+    const savedMode = localStorage.getItem('themeMode');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+    const validScheme = savedColorScheme && savedColorScheme in colorSchemes
+      ? (savedColorScheme as ColorScheme)
+      : 'persian-blue-yellow';
+    const validMode = savedMode === 'light' || savedMode === 'dark'
+      ? savedMode
+      : (systemPrefersDark ? 'dark' : 'light');
+
     return {
-      colorScheme: savedColorScheme || 'persian-blue-yellow',
-      mode: savedMode || (systemPrefersDark ? 'dark' : 'light'),
+      colorScheme: validScheme,
+      mode: validMode,
     };
   } catch {
     return { colorScheme: 'persian-blue-yellow', mode: 'light' };
