@@ -60,22 +60,50 @@ export default function HeroSection({
     <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto text-center">
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span style={{ color: 'var(--color-text-primary)' }}>{t('headingWhite')}</span>
-            <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, var(--color-primary-500), var(--color-accent-500))' }}>
-              {t('headingGradient')}
-            </span>
-          </motion.h2>
+          <motion.div variants={itemVariants} className="relative inline-block">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              <span className="text-white">{t('headingWhite')}</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6B35] via-[#FFB800] to-[#1C39BB] dark:from-[#FF8B66] dark:via-[#FFC947] dark:to-[#5B8DEF]">
+                {t('headingGradient')}
+              </span>
+            </h2>
+            {/* Paint brush decoration — matches home headings */}
+            <svg className="absolute -right-16 top-0 w-16 h-16 hidden lg:block" viewBox="0 0 64 64">
+              <motion.path
+                d="M 10,32 Q 20,10 32,10 Q 44,10 54,32 Q 44,54 32,54 Q 20,54 10,32 Z"
+                fill="none"
+                stroke="#FFB800"
+                strokeWidth="2"
+                strokeDasharray="4,2"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 2, delay: 0.5 }}
+              />
+            </svg>
+            {/* Paint stroke underline */}
+            <svg className="absolute -bottom-2 left-1/4 w-1/2 h-3" preserveAspectRatio="none">
+              <motion.path
+                d="M 0,1 Q 25,5 50,1 T 100,1"
+                stroke="#FFB800"
+                strokeWidth="3"
+                fill="none"
+                opacity="0.4"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1.5, delay: 0.3 }}
+              />
+            </svg>
+          </motion.div>
 
-          <motion.p variants={itemVariants} className="text-lg md:text-xl max-w-2xl mx-auto mb-8" style={{ color: 'var(--color-text-secondary)' }}>
+          <motion.p variants={itemVariants} className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-200 dark:text-gray-300">
             {t('subtitle')}
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex justify-center items-center gap-6 md:gap-12 mb-10">
             <StatItem value={stats.projectCount} label={t('projects')} />
-            <div className="w-px h-8" style={{ backgroundColor: 'var(--color-glass-border)' }} />
+            <div className="w-px h-8 bg-white/10 dark:bg-white/20" />
             <StatItem value={stats.yearsActive} label={t('years')} />
-            <div className="w-px h-8" style={{ backgroundColor: 'var(--color-glass-border)' }} />
+            <div className="w-px h-8 bg-white/10 dark:bg-white/20" />
             <StatItem value={stats.categoryCount} label={t('mediums')} />
           </motion.div>
 
@@ -95,12 +123,11 @@ function StatItem({ value, label }: { value: number; label: string }) {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-        className="text-3xl md:text-4xl font-bold"
-        style={{ color: 'var(--color-primary-500)' }}
+        className="text-3xl md:text-4xl font-bold text-[#5B8DEF] dark:text-[#7BA8F5]"
       >
         {value}
       </motion.div>
-      <div className="text-sm md:text-base" style={{ color: 'var(--color-text-secondary)' }}>{label}</div>
+      <div className="text-sm md:text-base text-gray-300 dark:text-gray-400">{label}</div>
     </div>
   );
 }
