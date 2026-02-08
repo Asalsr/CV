@@ -42,8 +42,8 @@ export default function Home() {
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
                 <a
-                  key={label}
-                  href={`#${label === 'Journey' ? 'roadmap' : label === 'Contact' ? 'contact' : label === 'Art' ? 'art-projects' : label.toLowerCase()}`}
+                  key={item.key}
+                  href={item.href}
                   className="text-sm text-gray-300 dark:text-gray-400 hover:text-white transition-colors"
                 >
                   {t(item.key)}

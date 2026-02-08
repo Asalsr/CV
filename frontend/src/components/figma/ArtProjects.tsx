@@ -5,7 +5,18 @@ import { useRef } from 'react';
 import { Palette, Users, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-const projects = [
+interface ArtProject {
+  title: string;
+  year: string;
+  location: string;
+  description: string;
+  icon: typeof Palette;
+  color?: string;
+  gradient?: string;
+  sketch: 'wave' | 'heart' | 'star';
+}
+
+const projects: ArtProject[] = [
   {
     title: 'Plastic Blue',
     year: '2021-2022',

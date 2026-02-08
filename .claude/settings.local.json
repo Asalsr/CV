@@ -60,7 +60,17 @@
       "Bash(npx jest --no-coverage)",
       "Bash(npx next build:*)",
       "Bash(npx tsc:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd full i18n support for English, Swedish, and Persian\n\nWire up next-intl across all 16+ components, replacing hardcoded\nstrings with translation keys. Add Swedish locale, RTL support for\nPersian, dynamic html lang/dir attributes, and comprehensive message\nfiles \\(~130 keys each\\). Update tests with next-intl mock.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git checkout:*)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)",
+      "Bash(git -C \"D:\\\\my-prj\" status)",
+      "Bash(git -C \"D:\\\\my-prj\" diff --cached -- frontend/src/app/page.tsx frontend/src/components/figma/ArtProjects.tsx frontend/package-lock.json)",
+      "Bash(git -C \"D:\\\\my-prj\" log --oneline -5)",
+      "Bash(git -C \"D:\\\\my-prj\" add .claude/settings.local.json frontend/package-lock.json frontend/public/images/hero-bg.png frontend/src/app/page.tsx frontend/src/components/figma/ArtProjects.tsx)",
+      "Bash(git -C \"D:\\\\my-prj\" commit -m \"$\\(cat <<''EOF''\nFix build errors: nav references, ArtProject type, missing deps\n\n- Fix undefined `label` references in page.tsx nav items\n- Add ArtProject interface in ArtProjects.tsx\n- Install missing clsx and tailwind-merge packages\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"D:\\\\my-prj\" push)"
     ]
   }
 }
