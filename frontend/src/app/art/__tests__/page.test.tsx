@@ -18,8 +18,15 @@ jest.mock('framer-motion', () => ({
         {children}
       </button>
     ),
+    path: (props: React.SVGAttributes<SVGPathElement>) => <path {...props} />,
+    circle: (props: React.SVGAttributes<SVGCircleElement>) => <circle {...props} />,
   },
   AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+}));
+
+// Mock lucide-react
+jest.mock('lucide-react', () => ({
+  ArrowLeft: () => <span data-testid="icon-arrow-left">ArrowLeft</span>,
 }));
 
 // Mock next/link
@@ -45,8 +52,16 @@ jest.mock('next/image', () => ({
 
 // Mock Redux hooks
 jest.mock('@/lib/redux/hooks', () => ({
-  useAppSelector: jest.fn(() => ({ mode: 'light', scheme: 'default' })),
+  useAppSelector: jest.fn((selector: (state: { theme: { mode: string; isHydrated: boolean; colorScheme: string } }) => unknown) =>
+    selector({ theme: { mode: 'light', isHydrated: true, colorScheme: 'persian-blue-yellow' } })
+  ),
   useAppDispatch: jest.fn(() => jest.fn()),
+}));
+
+jest.mock('@/lib/redux/themeSlice', () => ({
+  toggleThemeMode: jest.fn(),
+  __esModule: true,
+  default: jest.fn(),
 }));
 
 // Mock child components

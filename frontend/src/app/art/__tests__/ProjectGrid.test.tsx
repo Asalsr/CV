@@ -64,7 +64,7 @@ const mockArtworks: Artwork[] = [
   {
     id: 4,
     title: 'Range Year Project',
-    category: 'Digital Art',
+    category: 'Graphic Design',
     year: '2020-2021',
     thumbnail: '/thumb4.jpg',
     images: ['/img4.jpg'],

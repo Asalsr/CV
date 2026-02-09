@@ -30,7 +30,7 @@ const mockCategories: readonly (ArtworkCategory | 'All')[] = [
   'Photography',
   'Painting',
   'Video',
-  'Digital Art',
+  'Graphic Design',
 ];
 
 describe('CategoryFilter', () => {
@@ -92,13 +92,10 @@ describe('CategoryFilter', () => {
     const selectedButton = screen.getByText('art.categories.Photography');
     const unselectedButton = screen.getByText('art.categories.All');
 
-    // Check that selected button has different background color
-    expect(selectedButton).toHaveStyle({
-      backgroundColor: 'var(--color-primary-500)',
-    });
-    expect(unselectedButton).toHaveStyle({
-      backgroundColor: 'var(--color-glass-bg)',
-    });
+    // Selected button uses gradient bg + text-white
+    expect(selectedButton).toHaveClass('text-white');
+    // Unselected button uses text-gray-300
+    expect(unselectedButton).toHaveClass('text-gray-300');
   });
 
   it('should render with correct number of buttons', () => {
