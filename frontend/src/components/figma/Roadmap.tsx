@@ -26,7 +26,7 @@ const roadmapData: RoadmapItem[] = [
       'Dashboards and Admin Tools'
     ],
     icon: Rocket,
-    color: 'from-[#1C39BB] to-[#5B8DEF] dark:from-[#5B8DEF] dark:to-[#7BA8F5]',
+    color: 'from-[var(--persian-blue)] to-[var(--persian-blue-light)]',
     position: 'right'
   },
   {
@@ -41,7 +41,7 @@ const roadmapData: RoadmapItem[] = [
       'AWS Lambda serverless workflows'
     ],
     icon: Code2,
-    color: 'from-[#0EA5E9] to-[#38BDF8] dark:from-[#38BDF8] dark:to-[#0EA5E9]',
+    color: 'from-[var(--teal)] to-[var(--teal-light)]',
     position: 'left'
   },
   {
@@ -50,7 +50,7 @@ const roadmapData: RoadmapItem[] = [
     company: 'Liquido Studio, Turin',
     description: 'Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices.',
     icon: Briefcase,
-    color: 'from-[#FFB800] to-[#FFC947] dark:from-[#FFC947] dark:to-[#FFD76E]',
+    color: 'from-[var(--golden-yellow)] to-[var(--amber)]',
     position: 'right'
   },
   {
@@ -59,7 +59,7 @@ const roadmapData: RoadmapItem[] = [
     company: 'DYS Company & Tanvarz - Tehran',
     description: 'Co-developed internal social platforms, designed multi-channel catalogs, and created culturally localized content that boosted engagement.',
     icon: Palette,
-    color: 'from-[#FF6B35] to-[#FF8B66] dark:from-[#FF8B66] dark:to-[#FF9980]',
+    color: 'from-[var(--sunset-orange)] to-[var(--warm-coral)]',
     position: 'left'
   },
   {
@@ -68,7 +68,7 @@ const roadmapData: RoadmapItem[] = [
     company: 'Fine Arts Academy of Rome & Abrar University of Tehran',
     description: 'Unique combination of artistic creativity and technical expertise in computer science.',
     icon: GraduationCap,
-    color: 'from-[#4A90E2] to-[#1C39BB] dark:from-[#7BA8F5] dark:to-[#5B8DEF]',
+    color: 'from-[var(--persian-blue-light)] to-[var(--persian-blue)]',
     position: 'right'
   }
 ];
@@ -93,7 +93,7 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
     >
       <motion.div
         whileHover={{ scale: 1.02, y: -5 }}
-        className="relative bg-white/5 dark:bg-white/5 backdrop-blur-sm border-2 border-white/10 dark:border-white/20 rounded-2xl p-6 hover:border-[#5B8DEF]/30 dark:hover:border-[#7BA8F5]/40 transition-all overflow-hidden"
+        className="relative bg-white/5 dark:bg-white/5 backdrop-blur-sm border-2 border-white/10 dark:border-white/20 rounded-2xl p-6 hover:border-[var(--persian-blue)]/30 transition-all overflow-hidden"
         style={{ borderStyle: 'solid' }}
       >
         {/* Paint stroke border effect */}
@@ -111,9 +111,9 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
           />
           <defs>
             <linearGradient id="card-paint" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#5B8DEF" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#FFB800" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#FF6B35" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="var(--persian-blue)" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="var(--golden-yellow)" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="var(--sunset-orange)" stopOpacity="0.3" />
             </linearGradient>
           </defs>
         </svg>
@@ -130,7 +130,7 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
               </svg>
             </div>
             <div className="flex-1">
-              <div className="text-sm text-[#5B8DEF] dark:text-[#7BA8F5] mb-1">{item.year}</div>
+              <div className="text-sm text-[var(--persian-blue)] mb-1">{item.year}</div>
               <h3 className="text-xl text-white mb-1 relative inline-block">
                 {item.title}
                 {/* Paint stroke underline */}
@@ -156,7 +156,7 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
             <ul className="space-y-1">
               {item.highlights.map((highlight, i) => (
                 <li key={i} className="text-sm text-gray-300 dark:text-gray-400 flex items-start gap-2">
-                  <span className="text-[#FFB800] dark:text-[#FFC947] mt-1">→</span>
+                  <span className="text-[var(--golden-yellow)] mt-1">→</span>
                   <span>{highlight}</span>
                 </li>
               ))}
@@ -183,7 +183,7 @@ export function Roadmap() {
           className="text-center mb-20"
         >
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[#1C39BB] to-[#FFB800] dark:from-[#5B8DEF] dark:to-[#FFC947] bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
               My Journey
             </h2>
             {/* Paint brush decoration */}
@@ -193,7 +193,7 @@ export function Roadmap() {
                 cy="32"
                 r="20"
                 fill="none"
-                stroke="#FFB800"
+                stroke="var(--golden-yellow)"
                 strokeWidth="3"
                 opacity="0.4"
                 initial={{ scale: 0, rotate: 0 }}
@@ -201,7 +201,7 @@ export function Roadmap() {
                 transition={{ duration: 2, delay: 0.5 }}
                 style={{ filter: 'url(#paint-texture)' }}
               />
-              <circle cx="32" cy="32" r="6" fill="#FFB800" opacity="0.6" />
+              <circle cx="32" cy="32" r="6" fill="var(--golden-yellow)" opacity="0.6" />
             </svg>
           </div>
           <p className="text-gray-300 dark:text-gray-400 text-xl">A roadmap of growth and innovation</p>
@@ -251,7 +251,7 @@ export function Roadmap() {
               <motion.circle
                 key={i}
                 r="3"
-                fill={i % 2 === 0 ? "#FFB800" : "#5B8DEF"}
+                fill={i % 2 === 0 ? "var(--golden-yellow)" : "var(--persian-blue)"}
                 opacity="0.6"
                 initial={{ offsetDistance: "0%", opacity: 0 }}
                 animate={isInView ? {
@@ -316,7 +316,7 @@ export function Roadmap() {
                       cx={xPos + (Math.random() - 0.5) * 40}
                       cy={yPos + (Math.random() - 0.5) * 40}
                       r={Math.random() * 3 + 2}
-                      fill={i % 2 === 0 ? "#FFB800" : "#5B8DEF"}
+                      fill={i % 2 === 0 ? "var(--golden-yellow)" : "var(--persian-blue)"}
                       opacity="0.3"
                       initial={{ scale: 0 }}
                       animate={isInView ? { scale: 1 } : { scale: 0 }}
@@ -329,24 +329,24 @@ export function Roadmap() {
 
             <defs>
               <linearGradient id="curve-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#5B8DEF" />
-                <stop offset="25%" stopColor="#FFB800" />
-                <stop offset="50%" stopColor="#0EA5E9" />
-                <stop offset="75%" stopColor="#FF6B35" />
-                <stop offset="100%" stopColor="#5B8DEF" />
+                <stop offset="0%" stopColor="var(--persian-blue)" />
+                <stop offset="25%" stopColor="var(--golden-yellow)" />
+                <stop offset="50%" stopColor="var(--teal)" />
+                <stop offset="75%" stopColor="var(--sunset-orange)" />
+                <stop offset="100%" stopColor="var(--persian-blue)" />
               </linearGradient>
               <linearGradient id="curve-gradient-2" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#1C39BB" />
-                <stop offset="50%" stopColor="#FFB800" />
-                <stop offset="100%" stopColor="#0EA5E9" />
+                <stop offset="0%" stopColor="var(--persian-blue)" />
+                <stop offset="50%" stopColor="var(--golden-yellow)" />
+                <stop offset="100%" stopColor="var(--teal)" />
               </linearGradient>
               <radialGradient id="point-gradient">
-                <stop offset="0%" stopColor="#FFB800" />
-                <stop offset="100%" stopColor="#5B8DEF" />
+                <stop offset="0%" stopColor="var(--golden-yellow)" />
+                <stop offset="100%" stopColor="var(--persian-blue)" />
               </radialGradient>
               <radialGradient id="point-glow">
-                <stop offset="0%" stopColor="#FFB800" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#5B8DEF" stopOpacity="0" />
+                <stop offset="0%" stopColor="var(--golden-yellow)" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="var(--persian-blue)" stopOpacity="0" />
               </radialGradient>
               <filter id="paint-texture">
                 <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise"/>

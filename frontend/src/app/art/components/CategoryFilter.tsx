@@ -29,8 +29,8 @@ export default function CategoryFilter({
             whileTap={{ scale: 0.95 }}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 backdrop-blur-sm ${
               isSelected
-                ? 'bg-gradient-to-r from-[#1C39BB] to-[#5B8DEF] dark:from-[#5B8DEF] dark:to-[#7BA8F5] text-white border border-white/20'
-                : 'bg-white/5 dark:bg-white/5 text-gray-300 dark:text-gray-400 border border-white/10 dark:border-white/20 hover:border-[#5B8DEF]/30'
+                ? 'bg-gradient-to-r from-[var(--persian-blue)] to-[var(--persian-blue-light)] text-white border border-white/20'
+                : 'bg-white/5 dark:bg-white/5 text-gray-300 dark:text-gray-400 border border-white/10 dark:border-white/20 hover:border-[var(--persian-blue)]/30'
             }`}
           >
             {t(category)}

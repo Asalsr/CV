@@ -25,7 +25,7 @@ function SketchWave() {
         stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        className="text-[#1C39BB] dark:text-[#5B8DEF]"
+        className="text-[var(--persian-blue)]"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true }}
@@ -36,7 +36,7 @@ function SketchWave() {
         stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        className="text-[#0EA5E9] dark:text-[#38BDF8]"
+        className="text-[var(--teal)]"
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
         viewport={{ once: true }}
@@ -54,7 +54,7 @@ function SketchHeart() {
         stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        className="text-[#FF6B35] dark:text-[#FF8B66]"
+        className="text-[var(--sunset-orange)]"
         initial={{ pathLength: 0, scale: 0.8 }}
         whileInView={{ pathLength: 1, scale: 1 }}
         viewport={{ once: true }}
@@ -72,7 +72,7 @@ function SketchStar() {
         stroke="currentColor"
         strokeWidth="2"
         fill="none"
-        className="text-[#FFB800] dark:text-[#FFC947]"
+        className="text-[var(--golden-yellow)]"
         initial={{ pathLength: 0, rotate: 0 }}
         whileInView={{ pathLength: 1, rotate: 360 }}
         viewport={{ once: true }}
@@ -100,7 +100,7 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className="relative group"
     >
-      <div className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-8 hover:border-[#5B8DEF]/30 dark:hover:border-[#7BA8F5]/40 transition-all h-full relative overflow-hidden">
+      <div className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-8 hover:border-[var(--persian-blue)]/30 transition-all h-full relative overflow-hidden">
         {/* Hand-drawn sketch border */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none">
           <rect
@@ -157,7 +157,7 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
           </div>
 
           <div className="flex items-center gap-3 mb-4 text-sm">
-            <span className="text-[#5B8DEF] dark:text-[#7BA8F5]">{project.year}</span>
+            <span className="text-[var(--persian-blue)]">{project.year}</span>
             <span className="text-gray-500">&bull;</span>
             <span className="text-gray-300 dark:text-gray-400">{project.location}</span>
           </div>
@@ -184,7 +184,7 @@ export function ArtProjects() {
       location: 'Rome',
       description: t('plasticBlue.description'),
       icon: Palette,
-      color: 'from-[#1C39BB] to-[#0EA5E9] dark:from-[#5B8DEF] dark:to-[#38BDF8]',
+      color: 'from-[var(--persian-blue)] to-[var(--teal)]',
       sketch: 'wave' as const,
     },
     {
@@ -193,7 +193,7 @@ export function ArtProjects() {
       location: 'Turin',
       description: t('womenLifeFreedom.description'),
       icon: Users,
-      color: 'from-[#FF6B35] to-[#FFB800] dark:from-[#FF8B66] dark:to-[#FFC947]',
+      color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]',
       sketch: 'heart' as const,
     },
     {
@@ -202,7 +202,7 @@ export function ArtProjects() {
       location: 'Turin',
       description: t('illustrationWorkshops.description'),
       icon: Sparkles,
-      color: 'from-[#FFB800] to-[#FF6B35] dark:from-[#FFC947] dark:to-[#FF8B66]',
+      color: 'from-[var(--golden-yellow)] to-[var(--sunset-orange)]',
       sketch: 'star' as const,
     }
   ];
@@ -218,7 +218,7 @@ export function ArtProjects() {
           className="text-center mb-16"
         >
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[#FF6B35] via-[#FFB800] to-[#1C39BB] dark:from-[#FF8B66] dark:via-[#FFC947] dark:to-[#5B8DEF] bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[var(--sunset-orange)] via-[var(--golden-yellow)] to-[var(--persian-blue)] bg-clip-text text-transparent">
               Artistic Projects
             </h2>
             {/* Hand-drawn sketch decoration */}
@@ -233,7 +233,7 @@ export function ArtProjects() {
               <motion.path
                 d="M 10,32 Q 20,10 32,10 Q 44,10 54,32 Q 44,54 32,54 Q 20,54 10,32 Z"
                 fill="none"
-                stroke="#FFB800"
+                stroke="var(--golden-yellow)"
                 strokeWidth="2"
                 strokeDasharray="4,2"
                 initial={{ pathLength: 0 }}
@@ -267,9 +267,9 @@ export function ArtProjects() {
             />
             <defs>
               <linearGradient id="art-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#FF6B35" />
-                <stop offset="50%" stopColor="#FFB800" />
-                <stop offset="100%" stopColor="#5B8DEF" />
+                <stop offset="0%" stopColor="var(--sunset-orange)" />
+                <stop offset="50%" stopColor="var(--golden-yellow)" />
+                <stop offset="100%" stopColor="var(--persian-blue)" />
               </linearGradient>
             </defs>
           </svg>

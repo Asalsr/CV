@@ -34,6 +34,26 @@ export interface ThemeColors {
   textPrimary: string;
   textSecondary: string;
   border: string;
+  // Portfolio-specific semantic colors
+  portfolio: {
+    persianBlue: string;
+    persianBlueLight: string;
+    persianBlueDark: string;
+    goldenYellow: string;
+    amber: string;
+    sunsetOrange: string;
+    warmCoral: string;
+    teal: string;
+    tealLight: string;
+    navy: string;
+  };
+  // Glass/card effects
+  glass: {
+    background: string;
+    border: string;
+    cardHoverShadow: string;
+  };
+  overlay: string;
 }
 
 export interface ColorSchemeConfig {
@@ -72,11 +92,29 @@ export const colorSchemes: Record<ColorScheme, ColorSchemeConfig> = {
         800: '#8F6800',
         900: '#664A00',
       },
-      background: '#ffffff',
+      background: '#85A2FF',
       surface: '#ffffff',
       textPrimary: '#0F1729',
       textSecondary: '#5A6B7D',
       border: 'rgba(28, 57, 187, 0.15)',
+      portfolio: {
+        persianBlue: '#1C39BB',
+        persianBlueLight: '#4A90E2',
+        persianBlueDark: '#0F1E5C',
+        goldenYellow: '#FFB800',
+        amber: '#FFC947',
+        sunsetOrange: '#FF6B35',
+        warmCoral: '#FF8066',
+        teal: '#2e9ac9',
+        tealLight: '#38BDF8',
+        navy: '#0F1729',
+      },
+      glass: {
+        background: 'rgba(28, 57, 187, 0.04)',
+        border: 'rgba(28, 57, 187, 0.1)',
+        cardHoverShadow: 'rgba(28, 57, 187, 0.12)',
+      },
+      overlay: 'rgba(0, 0, 0, 0.95)',
     },
     dark: {
       primary: {
@@ -108,6 +146,24 @@ export const colorSchemes: Record<ColorScheme, ColorSchemeConfig> = {
       textPrimary: '#F0F4F8',
       textSecondary: '#94A3B8',
       border: 'rgba(91, 141, 239, 0.2)',
+      portfolio: {
+        persianBlue: '#5B8DEF',
+        persianBlueLight: '#7BA8F5',
+        persianBlueDark: '#3D6FD9',
+        goldenYellow: '#FFC947',
+        amber: '#e3bd59',
+        sunsetOrange: '#FF8B66',
+        warmCoral: '#FF9980',
+        teal: '#2e9ac9',
+        tealLight: '#38BDF8',
+        navy: '#0A0E1A',
+      },
+      glass: {
+        background: 'rgba(255, 255, 255, 0.05)',
+        border: 'rgba(255, 255, 255, 0.1)',
+        cardHoverShadow: 'rgba(91, 141, 239, 0.15)',
+      },
+      overlay: 'rgba(0, 0, 0, 0.95)',
     },
   },
 };
@@ -151,5 +207,21 @@ export const generateCSSVariables = (colors: ThemeColors): string => {
     --color-text-primary: ${colors.textPrimary};
     --color-text-secondary: ${colors.textSecondary};
     --color-border: ${colors.border};
+
+    --persian-blue: ${colors.portfolio.persianBlue};
+    --persian-blue-light: ${colors.portfolio.persianBlueLight};
+    --persian-blue-dark: ${colors.portfolio.persianBlueDark};
+    --golden-yellow: ${colors.portfolio.goldenYellow};
+    --amber: ${colors.portfolio.amber};
+    --sunset-orange: ${colors.portfolio.sunsetOrange};
+    --warm-coral: ${colors.portfolio.warmCoral};
+    --teal: ${colors.portfolio.teal};
+    --teal-light: ${colors.portfolio.tealLight};
+    --navy: ${colors.portfolio.navy};
+
+    --color-glass-bg: ${colors.glass.background};
+    --color-glass-border: ${colors.glass.border};
+    --color-card-hover-shadow: ${colors.glass.cardHoverShadow};
+    --color-overlay: ${colors.overlay};
   `;
 };

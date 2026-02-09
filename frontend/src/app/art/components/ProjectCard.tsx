@@ -25,7 +25,7 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
       className="group cursor-pointer"
       onClick={onClick}
     >
-      <div className="relative rounded-2xl overflow-hidden bg-white/5 dark:bg-white/5 backdrop-blur-sm border-2 border-white/10 dark:border-white/20 hover:border-[#5B8DEF]/30 dark:hover:border-[#7BA8F5]/40 transition-all">
+      <div className="relative rounded-2xl overflow-hidden bg-white/5 dark:bg-white/5 backdrop-blur-sm border-2 border-white/10 dark:border-white/20 hover:border-[var(--persian-blue)]/30 transition-all">
         {/* Paint stroke border — matches home cards */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-10">
           <rect
@@ -39,9 +39,9 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
           />
           <defs>
             <linearGradient id="art-card-paint" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#5B8DEF" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#FFB800" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#FF6B35" stopOpacity="0.3" />
+              <stop offset="0%" stopColor="var(--persian-blue)" stopOpacity="0.3" />
+              <stop offset="50%" stopColor="var(--golden-yellow)" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="var(--sunset-orange)" stopOpacity="0.3" />
             </linearGradient>
           </defs>
         </svg>
@@ -75,7 +75,7 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
           <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-            <span className="px-3 py-1 text-xs font-medium rounded-full text-white backdrop-blur-sm bg-[#1C39BB]/30 dark:bg-[#5B8DEF]/30 border border-[#1C39BB]/20 dark:border-[#5B8DEF]/20">
+            <span className="px-3 py-1 text-xs font-medium rounded-full text-white backdrop-blur-sm bg-[var(--persian-blue)]/30 border border-[var(--persian-blue)]/20">
               {artwork.category}
             </span>
           </div>

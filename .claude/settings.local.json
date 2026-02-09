@@ -70,7 +70,31 @@
       "Bash(git -C \"D:\\\\my-prj\" log --oneline -5)",
       "Bash(git -C \"D:\\\\my-prj\" add .claude/settings.local.json frontend/package-lock.json frontend/public/images/hero-bg.png frontend/src/app/page.tsx frontend/src/components/figma/ArtProjects.tsx)",
       "Bash(git -C \"D:\\\\my-prj\" commit -m \"$\\(cat <<''EOF''\nFix build errors: nav references, ArtProject type, missing deps\n\n- Fix undefined `label` references in page.tsx nav items\n- Add ArtProject interface in ArtProjects.tsx\n- Install missing clsx and tailwind-merge packages\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git -C \"D:\\\\my-prj\" push)"
+      "Bash(git -C \"D:\\\\my-prj\" push)",
+      "Bash(git -C \"D:\\\\my-prj\" fetch origin claude/add-error-image-handling-0wekB)",
+      "Bash(git -C \"D:\\\\my-prj\" log --oneline origin/claude/add-error-image-handling-0wekB ^master)",
+      "Bash(git -C \"D:\\\\my-prj\" merge FETCH_HEAD -X theirs -m \"Merge ArtProjects fix from claude/add-error-image-handling-0wekB\")",
+      "Bash(git -C \"D:\\\\my-prj\" show 9e639ae:frontend/src/components/figma/Roadmap.tsx)",
+      "Bash(npm ls:*)",
+      "Bash(git -C \"D:\\\\my-prj\" diff --stat)",
+      "Bash(git -C \"D:\\\\my-prj\" add frontend/package.json frontend/package-lock.json frontend/src/components/figma/Roadmap.tsx)",
+      "Bash(git -C \"D:\\\\my-prj\" commit -m \"$\\(cat <<''EOF''\nInstall motion package and clean up Roadmap.tsx imports\n\nSwitch from framer-motion to motion/react imports and install the motion\npackage. Remove duplicate commented-out code from Roadmap.tsx.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git -C \"D:\\\\my-prj\" push origin master)",
+      "Bash(git -C \"D:\\\\my-prj\" branch -r)",
+      "Bash(git -C \"D:\\\\my-prj\" log --oneline master..origin/claude/add-error-image-fallback-OabR4)",
+      "Bash(git -C \"D:\\\\my-prj\" log --oneline master..origin/claude/add-pdf-upload-jqGwa)",
+      "Bash(git -C \"D:\\\\my-prj\" log --oneline master..origin/claude/fix-light-mode-contrast-44jJc)",
+      "Bash(git -C \"D:\\\\my-prj\" log --oneline origin/claude/add-error-image-fallback-OabR4 --max-count=10)",
+      "Bash(git -C \"D:\\\\my-prj\" diff --stat master..origin/claude/add-error-image-fallback-OabR4)",
+      "Bash(git -C \"D:\\\\my-prj\" diff master..origin/claude/add-error-image-fallback-OabR4 -- frontend/src/app/art/components/HeroSection.tsx frontend/src/app/art/components/ProjectCard.tsx frontend/src/components/theme/ColorSchemeSelector.tsx frontend/src/config/themes.ts)",
+      "Bash(git -C \"D:\\\\my-prj\" log --format=\"%H %ai %s\" origin/claude/add-error-image-fallback-OabR4 --max-count=6)",
+      "Bash(git -C \"D:\\\\my-prj\" push origin --delete claude/add-error-image-fallback-OabR4)",
+      "Bash(git -C \"D:\\\\my-prj\" push origin --delete claude/add-pdf-upload-jqGwa claude/fix-light-mode-contrast-44jJc)",
+      "Skill(prd)",
+      "Bash(code:*)",
+      "Bash(copy:*)",
+      "Bash(pip show:*)",
+      "Bash(git -C \"D:\\\\my-prj\" fetch --prune)"
     ]
   }
 }

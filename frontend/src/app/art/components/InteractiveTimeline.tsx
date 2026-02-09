@@ -59,7 +59,7 @@ export default function InteractiveTimeline({
             {selectedYear && (
               <button
                 onClick={() => onYearSelect(null)}
-                className="ml-2 underline hover:no-underline text-[#5B8DEF] dark:text-[#7BA8F5]"
+                className="ml-2 underline hover:no-underline text-[var(--persian-blue)]"
               >
                 {t('clearFilter')}
               </button>
@@ -75,7 +75,7 @@ export default function InteractiveTimeline({
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="absolute left-8 right-8 top-4 h-[3px] origin-left"
                 style={{
-                  background: 'linear-gradient(to right, #5B8DEF, #FFB800, #0EA5E9, #FF6B35, #5B8DEF)',
+                  background: 'linear-gradient(to right, var(--persian-blue), var(--golden-yellow), var(--teal), var(--sunset-orange), var(--persian-blue))',
                   maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
                   WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
                 }}
@@ -130,15 +130,15 @@ function YearMarker({ data, index, isSelected, onClick, isInView, totalYears, pr
         className="w-4 h-4 rounded-full z-10 transition-all border-2 border-white shadow-lg"
         style={{
           background: isSelected
-            ? 'linear-gradient(135deg, #FFB800, #5B8DEF)'
-            : 'linear-gradient(135deg, #5B8DEF, #7BA8F5)',
+            ? 'linear-gradient(135deg, var(--golden-yellow), var(--persian-blue))'
+            : 'linear-gradient(135deg, var(--persian-blue), var(--persian-blue-light))',
           boxShadow: isSelected ? '0 0 12px rgba(255,184,0,0.5)' : '0 2px 8px rgba(0,0,0,0.3)',
         }}
       />
 
       <motion.span
         className={`mt-3 font-bold text-base md:text-lg transition-colors ${
-          isSelected ? 'text-[#FFB800] dark:text-[#FFC947]' : 'text-white'
+          isSelected ? 'text-[var(--golden-yellow)]' : 'text-white'
         }`}
       >
         {data.year}
@@ -146,14 +146,14 @@ function YearMarker({ data, index, isSelected, onClick, isInView, totalYears, pr
 
       <span
         className={`text-xs md:text-sm transition-colors ${
-          isSelected ? 'text-[#5B8DEF] dark:text-[#7BA8F5]' : 'text-gray-400 dark:text-gray-500'
+          isSelected ? 'text-[var(--persian-blue)]' : 'text-gray-400 dark:text-gray-500'
         }`}
       >
         {projectCountLabel}
       </span>
 
       <div
-        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-[#FFB800]"
+        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 group-hover:w-full transition-all duration-300 bg-[var(--golden-yellow)]"
       />
     </motion.button>
   );

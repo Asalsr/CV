@@ -17,8 +17,8 @@ export function Footer() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <div className="relative bg-gradient-to-r from-[#1C39BB]/10 via-[#FFB800]/10 to-[#FF6B35]/10 dark:from-[#5B8DEF]/10 dark:via-[#FFC947]/10 dark:to-[#FF8B66]/10 border border-white/10 dark:border-white/20 rounded-2xl p-8 md:p-12 text-center">
-            <h3 className="text-3xl md:text-4xl mb-4 bg-gradient-to-r from-[#1C39BB] via-[#FFB800] to-[#FF6B35] dark:from-[#5B8DEF] dark:via-[#FFC947] dark:to-[#FF8B66] bg-clip-text text-transparent">
+          <div className="relative bg-gradient-to-r from-[var(--persian-blue)]/10 via-[var(--golden-yellow)]/10 to-[var(--sunset-orange)]/10 border border-white/10 dark:border-white/20 rounded-2xl p-8 md:p-12 text-center">
+            <h3 className="text-3xl md:text-4xl mb-4 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--sunset-orange)] bg-clip-text text-transparent">
               Explore My Artistic Side
             </h3>
             <p className="text-gray-200 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
@@ -28,7 +28,7 @@ export function Footer() {
               href="/art"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#1C39BB] via-[#FFB800] to-[#FF6B35] dark:from-[#5B8DEF] dark:via-[#FFC947] dark:to-[#FF8B66] rounded-full text-white hover:shadow-lg hover:shadow-[#5B8DEF]/50 transition-all"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--sunset-orange)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all"
             >
               {t('viewPortfolio')}
               <ExternalLink className="w-5 h-5" />
@@ -43,7 +43,7 @@ export function Footer() {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className="text-[#5B8DEF]"
+                className="text-[var(--persian-blue)]"
                 initial={{ pathLength: 0, rotate: 0 }}
                 animate={{ pathLength: 1, rotate: 180 }}
                 transition={{ duration: 3, repeat: Infinity, repeatDelay: 2 }}
@@ -57,7 +57,7 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-white text-xl mb-2">Let&apos;s Connect</h4>
             <p className="text-gray-300 dark:text-gray-400 mb-2">Open to new opportunities and collaborations</p>
-            <a href="mailto:Saeedeh.sarmadi89@gmail.com" className="text-[#5B8DEF] dark:text-[#7BA8F5] hover:text-[#1C39BB] dark:hover:text-[#5B8DEF]">
+            <a href="mailto:Saeedeh.sarmadi89@gmail.com" className="text-[var(--persian-blue)] hover:text-[var(--persian-blue-dark)]">
               Saeedeh.sarmadi89@gmail.com
             </a>
           </div>
@@ -94,7 +94,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-white/10 dark:border-white/20 text-center text-gray-300 dark:text-gray-400">
           <p className="flex items-center justify-center gap-2">
-            Designed &amp; Built with <Heart className="w-4 h-4 text-[#FF6B35] dark:text-[#FF8B66]" fill="currentColor" /> by Saeedeh Sarmadi &copy; 2026
+            Designed &amp; Built with <Heart className="w-4 h-4 text-[var(--sunset-orange)]" fill="currentColor" /> by Saeedeh Sarmadi &copy; 2026
           </p>
           <p className="text-sm mt-2">{t('location')}</p>
         </div>

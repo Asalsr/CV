@@ -63,7 +63,7 @@ export default function HeroSection({
           <motion.div variants={itemVariants} className="relative inline-block">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               <span className="text-white">{t('headingWhite')}</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FF6B35] via-[#FFB800] to-[#1C39BB] dark:from-[#FF8B66] dark:via-[#FFC947] dark:to-[#5B8DEF]">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[var(--sunset-orange)] via-[var(--golden-yellow)] to-[var(--persian-blue)]">
                 {t('headingGradient')}
               </span>
             </h2>
@@ -72,7 +72,7 @@ export default function HeroSection({
               <motion.path
                 d="M 10,32 Q 20,10 32,10 Q 44,10 54,32 Q 44,54 32,54 Q 20,54 10,32 Z"
                 fill="none"
-                stroke="#FFB800"
+                stroke="var(--golden-yellow)"
                 strokeWidth="2"
                 strokeDasharray="4,2"
                 initial={{ pathLength: 0 }}
@@ -84,7 +84,7 @@ export default function HeroSection({
             <svg className="absolute -bottom-2 left-1/4 w-1/2 h-3" preserveAspectRatio="none">
               <motion.path
                 d="M 0,1 Q 25,5 50,1 T 100,1"
-                stroke="#FFB800"
+                stroke="var(--golden-yellow)"
                 strokeWidth="3"
                 fill="none"
                 opacity="0.4"
@@ -123,7 +123,7 @@ function StatItem({ value, label }: { value: number; label: string }) {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-        className="text-3xl md:text-4xl font-bold text-[#5B8DEF] dark:text-[#7BA8F5]"
+        className="text-3xl md:text-4xl font-bold text-[var(--persian-blue)]"
       >
         {value}
       </motion.div>

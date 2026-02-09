@@ -46,7 +46,7 @@ export default function ProjectModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto"
-          style={{ backgroundColor: 'rgba(0, 0, 0, 0.95)' }}
+          style={{ backgroundColor: 'var(--color-overlay)' }}
           onClick={onClose}
         >
           <motion.div

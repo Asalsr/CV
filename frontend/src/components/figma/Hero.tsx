@@ -34,7 +34,7 @@ export function Hero() {
         >
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#5B8DEF" strokeWidth="0.5"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--persian-blue)" strokeWidth="0.5"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -42,7 +42,7 @@ export function Hero() {
           {/* Animated grid lines dissolving to right */}
           <motion.line
             x1="0" y1="20%" x2="100%" y2="20%"
-            stroke="#5B8DEF"
+            stroke="var(--persian-blue)"
             strokeWidth="1"
             initial={{ pathLength: 1, opacity: 1 }}
             animate={{ pathLength: 0, opacity: 0 }}
@@ -50,7 +50,7 @@ export function Hero() {
           />
           <motion.line
             x1="0" y1="50%" x2="100%" y2="50%"
-            stroke="#FFB800"
+            stroke="var(--golden-yellow)"
             strokeWidth="1"
             initial={{ pathLength: 1, opacity: 1 }}
             animate={{ pathLength: 0, opacity: 0 }}
@@ -58,7 +58,7 @@ export function Hero() {
           />
           <motion.line
             x1="0" y1="80%" x2="100%" y2="80%"
-            stroke="#0EA5E9"
+            stroke="var(--teal)"
             strokeWidth="1"
             initial={{ pathLength: 1, opacity: 1 }}
             animate={{ pathLength: 0, opacity: 0 }}
@@ -76,10 +76,10 @@ export function Hero() {
                 width: Math.random() * 60 + 20,
                 height: Math.random() * 60 + 20,
                 background: i % 3 === 0
-                  ? 'radial-gradient(circle, rgba(91,141,239,0.6) 0%, rgba(91,141,239,0) 70%)'
+                  ? 'radial-gradient(circle, color-mix(in srgb, var(--persian-blue) 60%, transparent) 0%, transparent 70%)'
                   : i % 3 === 1
-                  ? 'radial-gradient(circle, rgba(255,184,0,0.6) 0%, rgba(255,184,0,0) 70%)'
-                  : 'radial-gradient(circle, rgba(255,107,53,0.6) 0%, rgba(255,107,53,0) 70%)',
+                  ? 'radial-gradient(circle, color-mix(in srgb, var(--golden-yellow) 60%, transparent) 0%, transparent 70%)'
+                  : 'radial-gradient(circle, color-mix(in srgb, var(--sunset-orange) 60%, transparent) 0%, transparent 70%)',
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 filter: 'blur(8px)',
@@ -101,7 +101,7 @@ export function Hero() {
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A0E1A]/60 via-[#0F1E5C]/40 to-[#1C39BB]/60 dark:from-[#0A0E1A]/80 dark:via-[#0F1729]/60 dark:to-[#1A2332]/80" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--navy)]/60 via-[var(--persian-blue-dark)]/40 to-[var(--persian-blue)]/60 dark:from-[var(--navy)]/80 dark:via-[var(--color-surface)]/60 dark:to-[var(--persian-blue-dark)]/80" />
       </div>
 
       {/* Content */}
@@ -124,11 +124,11 @@ export function Hero() {
               }}
               className="relative"
             >
-              <Code className="w-12 h-12 text-[#5B8DEF] dark:text-[#7BA8F5]" />
+              <Code className="w-12 h-12 text-[var(--persian-blue)]" />
               {/* Grid particles around icon */}
               <svg className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)]">
-                <rect x="0" y="0" width="8" height="8" fill="#5B8DEF" opacity="0.3" />
-                <rect x="calc(100% - 8px)" y="0" width="8" height="8" fill="#5B8DEF" opacity="0.3" />
+                <rect x="0" y="0" width="8" height="8" fill="var(--persian-blue)" opacity="0.3" />
+                <rect x="calc(100% - 8px)" y="0" width="8" height="8" fill="var(--persian-blue)" opacity="0.3" />
               </svg>
             </motion.div>
 
@@ -142,7 +142,7 @@ export function Hero() {
                 repeatDelay: 2
               }}
             >
-              <Sparkles className="w-12 h-12 text-[#FFB800] dark:text-[#FFC947]" />
+              <Sparkles className="w-12 h-12 text-[var(--golden-yellow)]" />
             </motion.div>
 
             <motion.div
@@ -156,17 +156,17 @@ export function Hero() {
               }}
               className="relative"
             >
-              <Palette className="w-12 h-12 text-[#FF6B35] dark:text-[#FF8B66]" />
+              <Palette className="w-12 h-12 text-[var(--sunset-orange)]" />
               {/* Paint splatter effect */}
               <svg className="absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)] pointer-events-none">
-                <circle cx="10%" cy="10%" r="3" fill="#FF6B35" opacity="0.4" />
-                <circle cx="90%" cy="20%" r="2" fill="#FFB800" opacity="0.4" />
-                <circle cx="80%" cy="90%" r="2.5" fill="#FF6B35" opacity="0.4" />
+                <circle cx="10%" cy="10%" r="3" fill="var(--sunset-orange)" opacity="0.4" />
+                <circle cx="90%" cy="20%" r="2" fill="var(--golden-yellow)" opacity="0.4" />
+                <circle cx="80%" cy="90%" r="2.5" fill="var(--sunset-orange)" opacity="0.4" />
               </svg>
             </motion.div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-[#1C39BB] via-[#FFB800] to-[#0EA5E9] dark:from-[#5B8DEF] dark:via-[#FFC947] dark:to-[#38BDF8] bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--teal)] bg-clip-text text-transparent">
             Saeedeh Sarmadi
           </h1>
 
@@ -208,9 +208,9 @@ export function Hero() {
               />
               <defs>
                 <linearGradient id="paint-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#5B8DEF" />
-                  <stop offset="50%" stopColor="#FFB800" />
-                  <stop offset="100%" stopColor="#0EA5E9" />
+                  <stop offset="0%" stopColor="var(--persian-blue)" />
+                  <stop offset="50%" stopColor="var(--golden-yellow)" />
+                  <stop offset="100%" stopColor="var(--teal)" />
                 </linearGradient>
                 <filter id="paint-texture">
                   <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
@@ -238,7 +238,7 @@ export function Hero() {
         >
           <a
             href="#roadmap"
-            className="px-8 py-3 bg-gradient-to-r from-[#1C39BB] to-[#5B8DEF] dark:from-[#5B8DEF] dark:to-[#3D6FD9] rounded-full text-white hover:shadow-lg hover:shadow-[#5B8DEF]/50 transition-all relative overflow-hidden group"
+            className="px-8 py-3 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--persian-blue-light)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all relative overflow-hidden group"
           >
             <span className="relative z-10">Explore My Journey</span>
             {/* Paint splatter on hover */}
@@ -247,8 +247,8 @@ export function Hero() {
               initial={false}
             >
               <svg className="w-full h-full">
-                <circle cx="20%" cy="50%" r="10" fill="#FFB800" />
-                <circle cx="80%" cy="50%" r="8" fill="#FF6B35" />
+                <circle cx="20%" cy="50%" r="10" fill="var(--golden-yellow)" />
+                <circle cx="80%" cy="50%" r="8" fill="var(--sunset-orange)" />
               </svg>
             </motion.div>
           </a>

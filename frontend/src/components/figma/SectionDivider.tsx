@@ -10,8 +10,8 @@ interface SectionDividerProps {
 
 export function SectionDivider({
   variant = 'wave',
-  color1 = '#5B8DEF',
-  color2 = '#FFB800'
+  color1 = 'var(--persian-blue)',
+  color2 = 'var(--golden-yellow)'
 }: SectionDividerProps) {
   if (variant === 'wave') {
     return (

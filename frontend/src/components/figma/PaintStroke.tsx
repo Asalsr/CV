@@ -10,7 +10,7 @@ interface PaintStrokeProps {
   className?: string;
 }
 
-export function PaintStrokeUnderline({ children, color = "#FFB800", delay = 0, className = "" }: PaintStrokeProps) {
+export function PaintStrokeUnderline({ children, color = "var(--golden-yellow)", delay = 0, className = "" }: PaintStrokeProps) {
   return (
     <span className={`relative inline-block ${className}`}>
       {children}
@@ -59,7 +59,7 @@ export function PaintStrokeUnderline({ children, color = "#FFB800", delay = 0, c
 
 export function PaintStrokeCircle({
   size = 60,
-  color = "#5B8DEF",
+  color = "var(--persian-blue)",
   delay = 0,
   className = ""
 }: {
@@ -111,7 +111,7 @@ export function PaintStrokeCircle({
 
 export function PaintSplatter({
   count = 5,
-  colors = ["#5B8DEF", "#FFB800", "#FF6B35"],
+  colors = ["var(--persian-blue)", "var(--golden-yellow)", "var(--sunset-orange)"],
   delay = 0,
   className = ""
 }: {
@@ -174,10 +174,10 @@ export function PaintStrokeButton({
       className={`
         px-8 py-3 rounded-full text-white relative overflow-hidden group
         ${variant === 'primary'
-          ? 'bg-gradient-to-r from-[#1C39BB] to-[#5B8DEF] dark:from-[#5B8DEF] dark:to-[#3D6FD9]'
+          ? 'bg-gradient-to-r from-[var(--persian-blue)] to-[var(--persian-blue-light)]'
           : 'bg-white/10 dark:bg-white/5 backdrop-blur-sm border-2 border-white/20'
         }
-        hover:shadow-lg hover:shadow-[#5B8DEF]/50 transition-all
+        hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all
         ${className}
       `}
     >
@@ -188,10 +188,10 @@ export function PaintStrokeButton({
         className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
         viewBox="0 0 200 80"
       >
-        <circle cx="40" cy="40" r="8" fill="#FFB800" opacity="0.3" />
-        <circle cx="160" cy="40" r="6" fill="#FF6B35" opacity="0.3" />
-        <circle cx="100" cy="20" r="4" fill="#0EA5E9" opacity="0.3" />
-        <circle cx="120" cy="60" r="5" fill="#FFB800" opacity="0.3" />
+        <circle cx="40" cy="40" r="8" fill="var(--golden-yellow)" opacity="0.3" />
+        <circle cx="160" cy="40" r="6" fill="var(--sunset-orange)" opacity="0.3" />
+        <circle cx="100" cy="20" r="4" fill="var(--teal)" opacity="0.3" />
+        <circle cx="120" cy="60" r="5" fill="var(--golden-yellow)" opacity="0.3" />
       </motion.svg>
 
       {/* Paint stroke border effect */}
@@ -247,7 +247,7 @@ export function GridToOrganic({
             y1="0"
             x2={i * 50}
             y2="200"
-            stroke="#5B8DEF"
+            stroke="var(--persian-blue)"
             strokeWidth="0.5"
             opacity="0.3"
             initial={{ pathLength: 1, opacity: 0.3 }}
@@ -260,7 +260,7 @@ export function GridToOrganic({
             y1={i * 50}
             x2="200"
             y2={i * 50}
-            stroke="#5B8DEF"
+            stroke="var(--persian-blue)"
             strokeWidth="0.5"
             opacity="0.3"
             initial={{ pathLength: 1, opacity: 0.3 }}
@@ -276,7 +276,7 @@ export function GridToOrganic({
         const x = Math.random() * 160 + 20;
         const y = Math.random() * 160 + 20;
         const r = Math.random() * 15 + 5;
-        const colors = ["#5B8DEF", "#FFB800", "#FF6B35", "#0EA5E9"];
+        const colors = ["var(--persian-blue)", "var(--golden-yellow)", "var(--sunset-orange)", "var(--teal)"];
 
         return (
           <motion.circle
