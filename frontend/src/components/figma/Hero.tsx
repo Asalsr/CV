@@ -9,7 +9,7 @@ const heroImage = '/images/hero-bg.png';
 export function Hero() {
   const t = useTranslations('hero');
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-20 md:py-0">
       {/* Wave/Grid Background Image */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -25,9 +25,9 @@ export function Hero() {
           }}
         />
 
-        {/* Technical Grid Overlay (left side) */}
+        {/* Technical Grid Overlay (hidden on mobile, left side on desktop) */}
         <motion.svg
-          className="absolute left-0 top-0 w-1/2 h-full opacity-20"
+          className="hidden md:block absolute left-0 top-0 w-1/2 h-full opacity-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.2 }}
           transition={{ duration: 2, delay: 0.5 }}
@@ -66,12 +66,12 @@ export function Hero() {
           />
         </motion.svg>
 
-        {/* Organic Paint Particles (right side) */}
-        <div className="absolute right-0 top-0 w-1/2 h-full">
+        {/* Organic Paint Particles (simplified on mobile, right side on desktop) */}
+        <div className="absolute right-0 top-0 w-full md:w-1/2 h-full">
           {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full"
+              className={`absolute rounded-full ${i > 7 ? 'hidden md:block' : ''}`}
               style={{
                 width: Math.random() * 60 + 20,
                 height: Math.random() * 60 + 20,
@@ -112,7 +112,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="mb-6"
         >
-          <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8">
             <motion.div
               animate={{
                 rotate: [0, 10, -10, 0],
@@ -124,9 +124,9 @@ export function Hero() {
               }}
               className="relative"
             >
-              <Code className="w-12 h-12 text-[var(--persian-blue)]" />
-              {/* Grid particles around icon */}
-              <svg className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)]">
+              <Code className="w-8 h-8 md:w-12 md:h-12 text-[var(--persian-blue)]" />
+              {/* Grid particles around icon - hidden on mobile */}
+              <svg className="hidden md:block absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)]">
                 <rect x="0" y="0" width="8" height="8" fill="var(--persian-blue)" opacity="0.3" />
                 <rect x="calc(100% - 8px)" y="0" width="8" height="8" fill="var(--persian-blue)" opacity="0.3" />
               </svg>
@@ -142,7 +142,7 @@ export function Hero() {
                 repeatDelay: 2
               }}
             >
-              <Sparkles className="w-12 h-12 text-[var(--golden-yellow)]" />
+              <Sparkles className="w-8 h-8 md:w-12 md:h-12 text-[var(--golden-yellow)]" />
             </motion.div>
 
             <motion.div
@@ -156,9 +156,9 @@ export function Hero() {
               }}
               className="relative"
             >
-              <Palette className="w-12 h-12 text-[var(--sunset-orange)]" />
-              {/* Paint splatter effect */}
-              <svg className="absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)] pointer-events-none">
+              <Palette className="w-8 h-8 md:w-12 md:h-12 text-[var(--sunset-orange)]" />
+              {/* Paint splatter effect - hidden on mobile */}
+              <svg className="hidden md:block absolute -inset-4 w-[calc(100%+32px)] h-[calc(100%+32px)] pointer-events-none">
                 <circle cx="10%" cy="10%" r="3" fill="var(--sunset-orange)" opacity="0.4" />
                 <circle cx="90%" cy="20%" r="2" fill="var(--golden-yellow)" opacity="0.4" />
                 <circle cx="80%" cy="90%" r="2.5" fill="var(--sunset-orange)" opacity="0.4" />
@@ -166,17 +166,17 @@ export function Hero() {
             </motion.div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--teal)] bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl mb-4 md:mb-6 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--teal)] bg-clip-text text-transparent px-4">
             Saeedeh Sarmadi
           </h1>
 
-          <div className="relative inline-block mb-6">
-            <p className="text-2xl md:text-3xl text-gray-100 dark:text-gray-200">
+          <div className="relative inline-block mb-4 md:mb-6 px-4">
+            <p className="text-lg sm:text-xl md:text-3xl text-gray-100 dark:text-gray-200">
               Agentic Developer | Full-Stack Engineer | UI/UX Enthusiast
             </p>
             {/* Paint brush stroke underline */}
             <svg
-              className="absolute -bottom-2 left-0 w-full h-4"
+              className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-3 md:h-4"
               viewBox="0 0 500 15"
               preserveAspectRatio="none"
             >
@@ -225,7 +225,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-200 dark:text-gray-300 mb-12"
+          className="text-base sm:text-lg md:text-2xl text-gray-200 dark:text-gray-300 mb-8 md:mb-12 px-4"
         >
           {t('subtitle')}
         </motion.p>
@@ -234,16 +234,16 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4"
         >
           <a
             href="#roadmap"
-            className="px-8 py-3 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--persian-blue-light)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all relative overflow-hidden group"
+            className="w-full sm:w-auto px-6 md:px-8 py-3 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--persian-blue-light)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all relative overflow-hidden group"
           >
             <span className="relative z-10">Explore My Journey</span>
-            {/* Paint splatter on hover */}
+            {/* Paint splatter on hover - hidden on mobile */}
             <motion.div
-              className="absolute inset-0 opacity-0 group-hover:opacity-20"
+              className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-20"
               initial={false}
             >
               <svg className="w-full h-full">
@@ -254,7 +254,7 @@ export function Hero() {
           </a>
           <a
             href="#skills"
-            className="px-8 py-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full text-white border-2 border-white/20 hover:bg-white/20 dark:hover:bg-white/10 transition-all relative overflow-hidden group"
+            className="w-full sm:w-auto px-6 md:px-8 py-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full text-white border-2 border-white/20 hover:bg-white/20 dark:hover:bg-white/10 transition-all relative overflow-hidden group"
             style={{ borderStyle: 'dashed' }}
           >
             <span className="relative z-10">View Skills</span>
