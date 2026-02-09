@@ -121,7 +121,7 @@ function SkillSection({ title, skills, icon: Icon, gradient, index }: {
       initial={{ opacity: 0, x: isEven ? -50 : 50 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: isEven ? -50 : 50 }}
       transition={{ duration: 0.6 }}
-      className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-8 relative overflow-hidden"
+      className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-4 md:p-6 relative overflow-hidden"
     >
       {/* Hand-drawn sketch background */}
       <svg className="absolute top-4 right-4 w-24 h-24 opacity-5 pointer-events-none">
@@ -139,9 +139,9 @@ function SkillSection({ title, skills, icon: Icon, gradient, index }: {
         />
       </svg>
 
-      <div className="flex items-center gap-3 mb-8">
-        <div className={`p-3 rounded-xl bg-gradient-to-br ${gradient} relative`}>
-          <Icon className="w-6 h-6 text-white" />
+      <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+        <div className={`p-2 md:p-3 rounded-xl bg-gradient-to-br ${gradient} relative`}>
+          <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
           {/* Sketch star decoration */}
           <motion.svg 
             className="absolute -top-2 -right-2 w-4 h-4"
@@ -155,7 +155,7 @@ function SkillSection({ title, skills, icon: Icon, gradient, index }: {
             />
           </motion.svg>
         </div>
-        <h3 className="text-2xl text-white relative">
+        <h3 className="text-xl md:text-2xl text-white relative">
           {title}
           {/* Hand-drawn underline */}
           <svg className="absolute -bottom-1 left-0 w-full h-2" preserveAspectRatio="none">
@@ -182,17 +182,17 @@ export function Skills() {
   const t = useTranslations('skills');
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="py-12 md:py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[var(--teal)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--teal)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
               Skills &amp; Expertise
             </h2>
             {/* Sketch doodle decoration */}
@@ -207,10 +207,10 @@ export function Skills() {
               <circle cx="32" cy="32" r="4" fill="var(--golden-yellow)" />
             </motion.svg>
           </div>
-          <p className="text-gray-300 dark:text-gray-400 text-xl">Where creativity meets technology</p>
+          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">Where creativity meets technology</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mb-12">
           <SkillSection 
             title="UI/UX Design" 
             skills={uxuiSkills} 

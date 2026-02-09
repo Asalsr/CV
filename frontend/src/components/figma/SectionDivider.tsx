@@ -16,7 +16,7 @@ export function SectionDivider({
 }: SectionDividerProps) {
   if (variant === 'wave') {
     return (
-      <div className="relative h-24 overflow-hidden">
+      <div className="relative h-16 md:h-24 overflow-hidden">
         <svg
           className="absolute inset-0 w-full h-full"
           viewBox="0 0 1200 100"

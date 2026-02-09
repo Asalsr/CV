@@ -100,7 +100,7 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className="relative group"
     >
-      <div className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-8 hover:border-[var(--persian-blue)]/30 transition-all h-full relative overflow-hidden">
+      <div className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-4 md:p-6 hover:border-[var(--persian-blue)]/30 transition-all h-full relative overflow-hidden">
         {/* Hand-drawn sketch border */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none">
           <rect
@@ -117,8 +117,8 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
         </svg>
 
         <div className="relative z-10">
-          <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${project.color} mb-4 relative`}>
-            <Icon className="w-8 h-8 text-white" />
+          <div className={`inline-flex p-3 md:p-4 rounded-2xl bg-gradient-to-br ${project.color} mb-3 md:mb-4 relative`}>
+            <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
             {/* Sketch circle around icon */}
             <motion.svg 
               className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)]"
@@ -139,8 +139,8 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
             </motion.svg>
           </div>
 
-          <div className="flex items-center gap-2 mb-3">
-            <h3 className="text-2xl text-white">{project.title}</h3>
+          <div className="flex items-center gap-2 mb-2 md:mb-3">
+            <h3 className="text-xl md:text-2xl text-white">{project.title}</h3>
             {/* Hand-drawn underline */}
             <svg className="w-12 h-2" preserveAspectRatio="none">
               <motion.path
@@ -156,13 +156,13 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
             </svg>
           </div>
 
-          <div className="flex items-center gap-3 mb-4 text-sm">
+          <div className="flex items-center gap-3 mb-3 md:mb-4 text-xs md:text-sm">
             <span className="text-[var(--persian-blue)]">{project.year}</span>
             <span className="text-gray-500">&bull;</span>
             <span className="text-gray-300 dark:text-gray-400">{project.location}</span>
           </div>
 
-          <p className="text-gray-200 dark:text-gray-300 leading-relaxed">
+          <p className="text-sm md:text-base text-gray-200 dark:text-gray-300 leading-relaxed">
             {project.description}
           </p>
         </div>
@@ -208,17 +208,17 @@ export function ArtProjects() {
   ];
 
   return (
-    <section id="art-projects" className="py-20 px-4 relative">
+    <section id="art-projects" className="py-12 md:py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[var(--sunset-orange)] via-[var(--golden-yellow)] to-[var(--persian-blue)] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--sunset-orange)] via-[var(--golden-yellow)] to-[var(--persian-blue)] bg-clip-text text-transparent">
               Artistic Projects
             </h2>
             {/* Hand-drawn sketch decoration */}
@@ -243,10 +243,10 @@ export function ArtProjects() {
               />
             </motion.svg>
           </div>
-          <p className="text-gray-300 dark:text-gray-400 text-xl">Where art meets activism and social impact</p>
+          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">Where art meets activism and social impact</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

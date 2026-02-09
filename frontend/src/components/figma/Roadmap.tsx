@@ -76,25 +76,20 @@ const roadmapData: RoadmapItem[] = [
 
 function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = item.icon;
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: item.position === 'left' ? -100 : 100 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: item.position === 'left' ? -100 : 100 }}
-      transition={{ duration: 0.8, delay: index * 0.2 }}
-      className={`absolute ${item.position === 'left' ? 'left-0 md:left-8' : 'right-0 md:right-8'}`}
-      style={{
-        top: `${index * 22}%`,
-        width: 'calc(50% - 60px)',
-        maxWidth: '500px',
-      }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
+      className="relative"
     >
       <motion.div
         whileHover={{ scale: 1.02, y: -5 }}
-        className="relative bg-white/5 dark:bg-white/5 backdrop-blur-sm border-2 border-white/10 dark:border-white/20 rounded-2xl p-6 hover:border-[var(--persian-blue)]/30 transition-all overflow-hidden"
+        className="relative bg-white/5 dark:bg-white/5 backdrop-blur-sm border-2 border-white/10 dark:border-white/20 rounded-2xl p-4 md:p-6 hover:border-[var(--persian-blue)]/30 transition-all overflow-hidden"
         style={{ borderStyle: 'solid' }}
       >
         {/* Paint stroke border effect */}
@@ -120,19 +115,19 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
         </svg>
 
         <div className="relative z-10">
-          <div className="flex items-start gap-4 mb-4">
-            <div className={`p-3 rounded-xl bg-gradient-to-br ${item.color} relative flex-shrink-0`}>
-              <Icon className="w-6 h-6 text-white" />
+          <div className="flex items-start gap-3 md:gap-4 mb-3 md:mb-4">
+            <div className={`p-2 md:p-3 rounded-xl bg-gradient-to-br ${item.color} relative flex-shrink-0`}>
+              <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
               {/* Paint splatter around icon */}
-              <svg className="absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none">
+              <svg className="hidden md:block absolute -inset-1 w-[calc(100%+8px)] h-[calc(100%+8px)] pointer-events-none">
                 <circle cx="10%" cy="10%" r="2" fill="rgba(255,255,255,0.3)" />
                 <circle cx="90%" cy="20%" r="1.5" fill="rgba(255,255,255,0.3)" />
                 <circle cx="85%" cy="85%" r="2" fill="rgba(255,255,255,0.3)" />
               </svg>
             </div>
-            <div className="flex-1">
-              <div className="text-sm text-[var(--persian-blue)] mb-1">{item.year}</div>
-              <h3 className="text-xl text-white mb-1 relative inline-block">
+            <div className="flex-1 min-w-0">
+              <div className="text-xs md:text-sm text-[var(--persian-blue)] mb-1">{item.year}</div>
+              <h3 className="text-lg md:text-xl text-white mb-1 relative inline-block">
                 {item.title}
                 {/* Paint stroke underline */}
                 <svg className="absolute -bottom-1 left-0 w-full h-2" preserveAspectRatio="none">
@@ -143,22 +138,22 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
                     fill="none"
                     initial={{ pathLength: 0 }}
                     animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-                    transition={{ duration: 1, delay: index * 0.2 + 0.5 }}
+                    transition={{ duration: 1, delay: index * 0.15 + 0.3 }}
                   />
                 </svg>
               </h3>
             </div>
           </div>
 
-          <div className="text-gray-300 dark:text-gray-400 mb-3 text-sm">{item.company}</div>
-          <p className="text-gray-200 dark:text-gray-300 leading-relaxed mb-3 text-sm">{item.description}</p>
+          <div className="text-gray-300 dark:text-gray-400 mb-2 md:mb-3 text-xs md:text-sm">{item.company}</div>
+          <p className="text-gray-200 dark:text-gray-300 leading-relaxed mb-2 md:mb-3 text-sm">{item.description}</p>
 
           {item.highlights && (
             <ul className="space-y-1">
               {item.highlights.map((highlight, i) => (
-                <li key={i} className="text-sm text-gray-300 dark:text-gray-400 flex items-start gap-2">
-                  <span className="text-[var(--golden-yellow)] mt-1">→</span>
-                  <span>{highlight}</span>
+                <li key={i} className="text-xs md:text-sm text-gray-300 dark:text-gray-400 flex items-start gap-2">
+                  <span className="text-[var(--golden-yellow)] mt-1 flex-shrink-0">→</span>
+                  <span className="flex-1">{highlight}</span>
                 </li>
               ))}
             </ul>
@@ -171,24 +166,24 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
 
 export function Roadmap() {
   const svgRef = useRef(null);
-  const isInView = useInView(svgRef, { once: true, margin: "-200px" });
+  const isInView = useInView(svgRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="roadmap" className="py-20 px-4 relative">
+    <section id="roadmap" className="py-12 md:py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <div className="relative inline-block">
-            <h2 className="text-4xl md:text-5xl mb-4 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
+            <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
               My Journey
             </h2>
-            {/* Paint brush decoration */}
-            <svg className="absolute -right-20 top-1/2 -translate-y-1/2 w-16 h-16 hidden md:block" viewBox="0 0 64 64">
+            {/* Paint brush decoration - hidden on mobile */}
+            <svg className="hidden md:block absolute -right-20 top-1/2 -translate-y-1/2 w-16 h-16" viewBox="0 0 64 64">
               <motion.circle
                 cx="32"
                 cy="32"
@@ -205,11 +200,31 @@ export function Roadmap() {
               <circle cx="32" cy="32" r="6" fill="var(--golden-yellow)" opacity="0.6" />
             </svg>
           </div>
-          <p className="text-gray-300 dark:text-gray-400 text-xl">A roadmap of growth and innovation</p>
+          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">A roadmap of growth and innovation</p>
         </motion.div>
 
-        {/* Flowing Curved Timeline inspired by road image */}
-        <div className="relative h-[1400px] md:h-[1200px]" ref={svgRef}>
+        {/* Mobile: Simple vertical timeline */}
+        <div className="md:hidden space-y-6 relative">
+          {/* Vertical line */}
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--sunset-orange)] opacity-30" />
+
+          {roadmapData.map((item, index) => (
+            <div key={index} className="relative pl-16">
+              {/* Timeline dot */}
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="absolute left-3 top-6 w-6 h-6 rounded-full bg-gradient-to-br from-[var(--golden-yellow)] to-[var(--persian-blue)] border-2 border-white/20"
+              />
+              <RoadmapCard item={item} index={index} />
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: Flowing Curved Timeline */}
+        <div className="hidden md:block relative h-[1200px]" ref={svgRef}>
           {/* SVG Curved Path */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid meet">
             {/* Main flowing curve path */}
@@ -358,7 +373,17 @@ export function Roadmap() {
 
           {/* Timeline cards positioned along the curve */}
           {roadmapData.map((item, index) => (
-            <RoadmapCard key={index} item={item} index={index} />
+            <div
+              key={index}
+              className={`absolute ${item.position === 'left' ? 'left-8' : 'right-8'}`}
+              style={{
+                top: `${index * 22}%`,
+                width: 'calc(50% - 60px)',
+                maxWidth: '500px',
+              }}
+            >
+              <RoadmapCard item={item} index={index} />
+            </div>
           ))}
         </div>
       </div>
