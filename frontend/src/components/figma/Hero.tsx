@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Code, Palette, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { seededRandom } from '@/lib/seededRandom';
 
 const heroImage = '/images/hero-bg.png';
 
@@ -73,28 +74,28 @@ export function Hero() {
               key={i}
               className="absolute rounded-full"
               style={{
-                width: Math.random() * 60 + 20,
-                height: Math.random() * 60 + 20,
+                width: seededRandom(i * 7 + 1) * 60 + 20,
+                height: seededRandom(i * 7 + 2) * 60 + 20,
                 background: i % 3 === 0
                   ? 'radial-gradient(circle, color-mix(in srgb, var(--persian-blue) 60%, transparent) 0%, transparent 70%)'
                   : i % 3 === 1
                   ? 'radial-gradient(circle, color-mix(in srgb, var(--golden-yellow) 60%, transparent) 0%, transparent 70%)'
                   : 'radial-gradient(circle, color-mix(in srgb, var(--sunset-orange) 60%, transparent) 0%, transparent 70%)',
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${seededRandom(i * 7 + 3) * 100}%`,
+                top: `${seededRandom(i * 7 + 4) * 100}%`,
                 filter: 'blur(8px)',
               }}
               animate={{
-                x: [0, Math.random() * 100 - 50],
-                y: [0, Math.random() * 100 - 50],
+                x: [0, seededRandom(i * 7 + 5) * 100 - 50],
+                y: [0, seededRandom(i * 7 + 6) * 100 - 50],
                 scale: [1, 1.2, 1],
                 opacity: [0.3, 0.6, 0.3],
               }}
               transition={{
-                duration: Math.random() * 10 + 10,
+                duration: seededRandom(i * 7 + 7) * 10 + 10,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: Math.random() * 2,
+                delay: seededRandom(i * 7 + 8) * 2,
               }}
             />
           ))}

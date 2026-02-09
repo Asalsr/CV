@@ -10,7 +10,7 @@ describe('Redux Store', () => {
   it('should have correct initial theme state', () => {
     const store = makeStore();
     const state = store.getState();
-    expect(state.theme.colorScheme).toBe('persian-blue-yellow');
+    expect(state.theme.colorScheme).toBe('palette-colors');
     expect(state.theme.mode).toBe('light');
     expect(state.theme.isHydrated).toBe(false);
   });

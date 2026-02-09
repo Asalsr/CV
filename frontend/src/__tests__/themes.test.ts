@@ -2,19 +2,19 @@ import { getThemeColors, generateCSSVariables, colorSchemes } from '@/config/the
 
 describe('Theme Configuration', () => {
   describe('colorSchemes', () => {
-    it('should have persian-blue-yellow scheme defined', () => {
-      expect(colorSchemes['persian-blue-yellow']).toBeDefined();
-      expect(colorSchemes['persian-blue-yellow'].name).toBe('Persian Blue & Golden Yellow');
+    it('should have palette-colors scheme defined', () => {
+      expect(colorSchemes['palette-colors']).toBeDefined();
+      expect(colorSchemes['palette-colors'].name).toBe('Persian Blue & Golden Yellow');
     });
 
     it('should have both light and dark modes', () => {
-      const scheme = colorSchemes['persian-blue-yellow'];
+      const scheme = colorSchemes['palette-colors'];
       expect(scheme.light).toBeDefined();
       expect(scheme.dark).toBeDefined();
     });
 
     it('should have all required color fields in light mode', () => {
-      const light = colorSchemes['persian-blue-yellow'].light;
+      const light = colorSchemes['palette-colors'].light;
       expect(light.primary).toBeDefined();
       expect(light.accent).toBeDefined();
       expect(light.background).toBeDefined();
@@ -28,7 +28,7 @@ describe('Theme Configuration', () => {
     });
 
     it('should have all required color fields in dark mode', () => {
-      const dark = colorSchemes['persian-blue-yellow'].dark;
+      const dark = colorSchemes['palette-colors'].dark;
       expect(dark.primary).toBeDefined();
       expect(dark.accent).toBeDefined();
       expect(dark.background).toBeDefined();
@@ -43,7 +43,7 @@ describe('Theme Configuration', () => {
 
     it('should have all primary color shades (50-900)', () => {
       const shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] as const;
-      const light = colorSchemes['persian-blue-yellow'].light;
+      const light = colorSchemes['palette-colors'].light;
       for (const shade of shades) {
         expect(light.primary[shade]).toBeDefined();
         expect(light.accent[shade]).toBeDefined();
@@ -51,7 +51,7 @@ describe('Theme Configuration', () => {
     });
 
     it('should have all portfolio semantic colors', () => {
-      const portfolio = colorSchemes['persian-blue-yellow'].light.portfolio;
+      const portfolio = colorSchemes['palette-colors'].light.portfolio;
       expect(portfolio.persianBlue).toBeDefined();
       expect(portfolio.persianBlueLight).toBeDefined();
       expect(portfolio.persianBlueDark).toBeDefined();
@@ -67,25 +67,25 @@ describe('Theme Configuration', () => {
 
   describe('getThemeColors', () => {
     it('should return light mode colors', () => {
-      const colors = getThemeColors('persian-blue-yellow', 'light');
-      expect(colors).toBe(colorSchemes['persian-blue-yellow'].light);
+      const colors = getThemeColors('palette-colors', 'light');
+      expect(colors).toBe(colorSchemes['palette-colors'].light);
     });
 
     it('should return dark mode colors', () => {
-      const colors = getThemeColors('persian-blue-yellow', 'dark');
-      expect(colors).toBe(colorSchemes['persian-blue-yellow'].dark);
+      const colors = getThemeColors('palette-colors', 'dark');
+      expect(colors).toBe(colorSchemes['palette-colors'].dark);
     });
 
     it('should have different background colors for light vs dark', () => {
-      const light = getThemeColors('persian-blue-yellow', 'light');
-      const dark = getThemeColors('persian-blue-yellow', 'dark');
+      const light = getThemeColors('palette-colors', 'light');
+      const dark = getThemeColors('palette-colors', 'dark');
       expect(light.background).not.toBe(dark.background);
     });
   });
 
   describe('generateCSSVariables', () => {
     it('should generate CSS variables string for light mode', () => {
-      const colors = getThemeColors('persian-blue-yellow', 'light');
+      const colors = getThemeColors('palette-colors', 'light');
       const css = generateCSSVariables(colors);
       expect(css).toContain('--color-primary-500');
       expect(css).toContain('--color-accent-500');
@@ -99,7 +99,7 @@ describe('Theme Configuration', () => {
     });
 
     it('should include the actual color values', () => {
-      const colors = getThemeColors('persian-blue-yellow', 'light');
+      const colors = getThemeColors('palette-colors', 'light');
       const css = generateCSSVariables(colors);
       expect(css).toContain(colors.primary[500]);
       expect(css).toContain(colors.portfolio.persianBlue);
@@ -107,7 +107,7 @@ describe('Theme Configuration', () => {
     });
 
     it('should generate CSS variables for dark mode', () => {
-      const colors = getThemeColors('persian-blue-yellow', 'dark');
+      const colors = getThemeColors('palette-colors', 'dark');
       const css = generateCSSVariables(colors);
       expect(css).toContain(colors.primary[500]);
       expect(css).toContain(colors.background);

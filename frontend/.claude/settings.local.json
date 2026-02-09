@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx jest:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx next lint:*)",
+      "Bash(npx eslint:*)",
+      "Bash(sort:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npx next build:*)",
+      "Bash(npx next dev)",
+      "Bash(curl:*)",
+      "Bash(powershell -Command \"try { $r = Invoke-WebRequest -Uri ''http://localhost:3001/'' -UseBasicParsing -TimeoutSec 15; $r.StatusCode } catch { $_Exception.Message }\")",
+      "Bash(powershell:*)",
+      "Bash(npx next dev:*)",
+      "Bash(fc:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { seededRandom } from '@/lib/seededRandom';
 
 interface SectionDividerProps {
   variant?: 'wave' | 'curve' | 'organic';
@@ -153,8 +154,8 @@ export function SectionDivider({
         {/* Paint splatters */}
         {[...Array(12)].map((_, i) => {
           const x = (i / 12) * 1200;
-          const y = 40 + Math.random() * 40;
-          const r = Math.random() * 8 + 4;
+          const y = 40 + seededRandom(i * 3 + 100) * 40;
+          const r = seededRandom(i * 3 + 101) * 8 + 4;
 
           return (
             <motion.circle

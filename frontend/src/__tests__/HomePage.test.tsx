@@ -33,7 +33,7 @@ jest.mock('motion/react', () => ({
 jest.mock('@/lib/redux/hooks', () => ({
   useAppDispatch: () => jest.fn(),
   useAppSelector: (selector: (state: { theme: { mode: string; isHydrated: boolean; colorScheme: string } }) => unknown) =>
-    selector({ theme: { mode: 'dark', isHydrated: true, colorScheme: 'persian-blue-yellow' } }),
+    selector({ theme: { mode: 'dark', isHydrated: true, colorScheme: 'palette-colors' } }),
 }));
 
 jest.mock('@/lib/redux/themeSlice', () => ({
