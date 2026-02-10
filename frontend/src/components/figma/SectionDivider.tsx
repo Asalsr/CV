@@ -2,6 +2,12 @@
 
 import { motion } from 'framer-motion';
 
+// Deterministic pseudo-random to avoid SSR hydration mismatch
+function seededRandom(seed: number) {
+  const x = Math.sin(seed + 1) * 10000;
+  return x - Math.floor(x);
+}
+
 interface SectionDividerProps {
   variant?: 'wave' | 'curve' | 'organic';
   color1?: string;
@@ -153,8 +159,8 @@ export function SectionDivider({
         {/* Paint splatters */}
         {[...Array(12)].map((_, i) => {
           const x = (i / 12) * 1200;
-          const y = 40 + Math.random() * 40;
-          const r = Math.random() * 8 + 4;
+          const y = 40 + seededRandom(i * 2) * 40;
+          const r = seededRandom(i * 2 + 1) * 8 + 4;
 
           return (
             <motion.circle

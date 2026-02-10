@@ -3,6 +3,12 @@
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 
+// Deterministic pseudo-random to avoid SSR hydration mismatch
+function seededRandom(seed: number) {
+  const x = Math.sin(seed + 1) * 10000;
+  return x - Math.floor(x);
+}
+
 interface PaintStrokeProps {
   children: ReactNode;
   color?: string;
@@ -123,9 +129,9 @@ export function PaintSplatter({
   return (
     <svg className={`${className} pointer-events-none`} width="100" height="100" viewBox="0 0 100 100">
       {[...Array(count)].map((_, i) => {
-        const x = Math.random() * 80 + 10;
-        const y = Math.random() * 80 + 10;
-        const r = Math.random() * 4 + 2;
+        const x = seededRandom(i * 3) * 80 + 10;
+        const y = seededRandom(i * 3 + 1) * 80 + 10;
+        const r = seededRandom(i * 3 + 2) * 4 + 2;
         const color = colors[i % colors.length];
 
         return (
@@ -273,9 +279,9 @@ export function GridToOrganic({
 
       {/* Organic shapes that appear */}
       {[...Array(8)].map((_, i) => {
-        const x = Math.random() * 160 + 20;
-        const y = Math.random() * 160 + 20;
-        const r = Math.random() * 15 + 5;
+        const x = seededRandom(i * 3 + 100) * 160 + 20;
+        const y = seededRandom(i * 3 + 101) * 160 + 20;
+        const r = seededRandom(i * 3 + 102) * 15 + 5;
         const colors = ["var(--persian-blue)", "var(--golden-yellow)", "var(--sunset-orange)", "var(--teal)"];
 
         return (
