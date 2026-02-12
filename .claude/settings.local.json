@@ -94,7 +94,8 @@
       "Bash(code:*)",
       "Bash(copy:*)",
       "Bash(pip show:*)",
-      "Bash(git -C \"D:\\\\my-prj\" fetch --prune)"
+      "Bash(git -C \"D:\\\\my-prj\" fetch --prune)",
+      "Bash(git commit:*)"
     ]
   }
 }

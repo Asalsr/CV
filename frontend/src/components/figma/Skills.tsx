@@ -13,31 +13,31 @@ interface Skill {
 }
 
 const uxuiSkills: Skill[] = [
-  { name: 'Figma', level: 95, icon: Figma, color: 'bg-[var(--persian-blue)]' },
-  { name: 'UI/UX Design', level: 92, icon: Palette, color: 'bg-[var(--sunset-orange)]' },
-  { name: 'Photoshop & Illustrator', level: 98, icon: Palette, color: 'bg-[var(--teal)]' },
-  { name: 'InDesign', level: 90, icon: Palette, color: 'bg-[var(--golden-yellow)]' }
+  { name: 'Figma', level: 60, icon: Figma, color: 'bg-[var(--persian-blue)]' },
+  { name: 'UI/UX Design', level: 60, icon: Palette, color: 'bg-[var(--sunset-orange)]' },
+  { name: 'Photoshop & Illustrator', level: 80, icon: Palette, color: 'bg-[var(--teal)]' },
+  { name: 'InDesign', level: 40, icon: Palette, color: 'bg-[var(--golden-yellow)]' }
 ];
 
 const frontendSkills: Skill[] = [
-  { name: 'React (JS/TS)', level: 95, icon: Code2, color: 'bg-[var(--persian-blue)]' },
-  { name: 'Redux & React Query', level: 90, icon: Code2, color: 'bg-[var(--persian-blue-light)]' },
-  { name: 'AG Grid & Material UI', level: 88, icon: Code2, color: 'bg-[var(--teal)]' },
-  { name: 'HTML5/CSS3', level: 96, icon: Code2, color: 'bg-[var(--sunset-orange)]' }
+  { name: 'React (JS/TS)', level: 70, icon: Code2, color: 'bg-[var(--persian-blue)]' },
+  { name: 'Redux & React Query', level: 70, icon: Code2, color: 'bg-[var(--persian-blue-light)]' },
+  { name: 'AG Grid & Material UI', level: 70, icon: Code2, color: 'bg-[var(--teal)]' },
+  { name: 'HTML5/CSS3', level: 75, icon: Code2, color: 'bg-[var(--sunset-orange)]' }
 ];
 
 const backendSkills: Skill[] = [
-  { name: '.NET Core (C#)', level: 88, icon: Database, color: 'bg-[var(--teal)]' },
-  { name: 'RESTful APIs & GraphQL', level: 85, icon: Database, color: 'bg-[var(--persian-blue)]' },
-  { name: 'SQL/PL-SQL & MongoDB', level: 87, icon: Database, color: 'bg-[var(--persian-blue-light)]' },
-  { name: 'Microservices', level: 82, icon: Cpu, color: 'bg-[var(--golden-yellow)]' }
+  { name: '.NET Core (C#)', level: 50, icon: Database, color: 'bg-[var(--teal)]' },
+  { name: 'RESTful APIs & GraphQL', level: 50, icon: Database, color: 'bg-[var(--persian-blue)]' },
+  { name: 'SQL/PL-SQL & MongoDB', level: 45, icon: Database, color: 'bg-[var(--persian-blue-light)]' },
+  { name: 'Microservices', level: 50, icon: Cpu, color: 'bg-[var(--golden-yellow)]' }
 ];
 
 const devopsSkills: Skill[] = [
-  { name: 'Docker & Kubernetes', level: 80, icon: Cloud, color: 'bg-[var(--persian-blue)]' },
-  { name: 'AWS & Azure', level: 78, icon: Cloud, color: 'bg-[var(--sunset-orange)]' },
-  { name: 'CI/CD & GitHub Actions', level: 85, icon: Cloud, color: 'bg-[var(--teal)]' },
-  { name: 'Git & Bash', level: 92, icon: Code2, color: 'bg-[var(--persian-blue-light)]' }
+  { name: 'Docker & Kubernetes', level: 55, icon: Cloud, color: 'bg-[var(--persian-blue)]' },
+  { name: 'AWS & Azure', level: 40, icon: Cloud, color: 'bg-[var(--sunset-orange)]' },
+  { name: 'CI/CD & GitHub Actions', level: 75, icon: Cloud, color: 'bg-[var(--teal)]' },
+  { name: 'Git & Bash', level: 70, icon: Code2, color: 'bg-[var(--persian-blue-light)]' }
 ];
 
 function SkillBar({ skill, index }: { skill: Skill; index: number }) {
