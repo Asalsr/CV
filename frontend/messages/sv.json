@@ -17,11 +17,12 @@
     "job1": {
       "year": "Dec 2025 - Nuvarande",
       "title": "Agentic Developer-praktikant",
-      "company": "Sweden Startup Nation (SSN) - SISP, Sverige",
+      "company": "Sweden Startup Nation (SISP), Sverige",
       "description": "Samarbetar med AI-agenter inom kodning, testning och driftsättning av plattformsfunktioner för Swedish Startup Nation Data Platform.",
       "h1": "Agent-First-utveckling med AI",
       "h2": "Bidrag till Data-Web-plattformen",
-      "h3": "Dashboards och adminverktyg"
+      "h3": "Dashboards och adminverktyg",
+      "h4": "Datamodeller, API:er & automationsflöden"
     },
     "job2": {
       "year": "Jun 2024 - Okt 2025",
@@ -37,19 +38,41 @@
       "year": "Sep 2023 - Maj 2024",
       "title": "Front-End-utvecklarpraktikant",
       "company": "Liquido Studio, Turin",
-      "description": "Utvecklade responsiva webbplatser med HTML, CSS, WordPress och JavaScript. Anpassade teman och implementerade UI/UX-best practices."
+      "description": "Utvecklade responsiva webbplatser med HTML, CSS, WordPress och JavaScript. Anpassade teman och implementerade UI/UX-best practices.",
+      "h1": "Responsiva webbplatser & webbapplikationer",
+      "h2": "Anpassning av WordPress-teman & plugins",
+      "h3": "Implementering av UI/UX-best practices"
     },
     "job4": {
       "year": "2009 - 2018",
       "title": "Mjukvaruingenjör & kreativ designer",
       "company": "DYS Company & Tanvarz - Teheran",
-      "description": "Medutvecklade interna sociala plattformar, designade flerkanaliga kataloger och skapade kulturellt anpassat innehåll som ökade engagemanget."
+      "description": "Medutvecklade interna sociala plattformar, designade flerkanaliga kataloger och skapade kulturellt anpassat innehåll som ökade engagemanget.",
+      "h1": "Medutvecklade intern social medieplattform",
+      "h2": "Designade kataloger, banners & e-böcker",
+      "h3": "Försäljningsstrategi & lokaliserat innehåll"
     },
     "job5": {
-      "year": "Utbildning",
-      "title": "B.A. Konst (GPA 4.0) & B.Sc. Datavetenskap",
-      "company": "Konstakademin i Rom & Abrar University of Tehran",
-      "description": "Unik kombination av konstnärlig kreativitet och teknisk expertis inom datavetenskap."
+      "year": "2018 - 2022",
+      "title": "B.A. Konst",
+      "company": "Konstakademin i Rom",
+      "description": "Kombinerar konstnärlig kreativitet med teknisk vision, och bygger broar mellan konst och teknik."
+    },
+    "job6": {
+      "year": "2023",
+      "title": "Professionella certifieringar",
+      "company": "IBM, Engim Turin, Google",
+      "description": "Branschcertifieringar inom front-end-utveckling, React och UX-design.",
+      "h1": "IBM – Utveckling av front-end-appar med React",
+      "h2": "Engim Turin – Front-end-utveckling",
+      "h3": "Google UX Design – Wireframes & Prototyper"
+    },
+    "job7": {
+      "year": "2009 - 2012",
+      "title": "B.Sc. Datavetenskap",
+      "company": "Abrar University of Tehran",
+      "description": "Grund i datavetenskapliga principer och grundläggande mjukvaruutveckling.",
+      "h1": "C++, Java, dataanalys, databaser, nätverk"
     }
   },
   "skills": {

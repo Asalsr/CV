@@ -17,11 +17,12 @@
     "job1": {
       "year": "Dec 2025 - Present",
       "title": "Agentic Developer Intern",
-      "company": "Sweden Startup Nation (SSN) - SISP, Sweden",
+      "company": "Sweden Startup Nation (SISP), Sweden",
       "description": "Collaborating with AI agents in coding, testing, and deploying platform features for the Swedish Startup Nation Data Platform.",
       "h1": "Agent-First Development with AI",
       "h2": "Data-Web Platform contribution",
-      "h3": "Dashboards and Admin Tools"
+      "h3": "Dashboards and Admin Tools",
+      "h4": "Data models, APIs & automation workflows"
     },
     "job2": {
       "year": "Jun 2024 - Oct 2025",
@@ -37,19 +38,41 @@
       "year": "Sep 2023 - May 2024",
       "title": "Front-End Development Intern",
       "company": "Liquido Studio, Turin",
-      "description": "Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices."
+      "description": "Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices.",
+      "h1": "Responsive websites & web applications",
+      "h2": "WordPress theme customization & plugins",
+      "h3": "UI/UX best practices implementation"
     },
     "job4": {
       "year": "2009 - 2018",
       "title": "Software Engineer & Creative Designer",
       "company": "DYS Company & Tanvarz - Tehran",
-      "description": "Co-developed internal social platforms, designed multi-channel catalogs, and created culturally localized content that boosted engagement."
+      "description": "Co-developed internal social platforms, designed multi-channel catalogs, and created culturally localized content that boosted engagement.",
+      "h1": "Co-developed internal social-media platform",
+      "h2": "Designed catalogs, banners & e-books",
+      "h3": "Sales strategy & localized content"
     },
     "job5": {
-      "year": "Education",
-      "title": "B.A. Fine Arts (GPA 4.0) & B.Sc. Computer Science",
-      "company": "Fine Arts Academy of Rome & Abrar University of Tehran",
-      "description": "Unique combination of artistic creativity and technical expertise in computer science."
+      "year": "2018 - 2022",
+      "title": "B.A. Fine Arts",
+      "company": "Fine Arts Academy of Rome",
+      "description": "Combining artistic creativity with technical vision, bridging the worlds of art and technology."
+    },
+    "job6": {
+      "year": "2023",
+      "title": "Professional Certifications",
+      "company": "IBM, Engim Turin, Google",
+      "description": "Industry certifications in front-end development, React, and UX design.",
+      "h1": "IBM – Developing Front-End Apps with React",
+      "h2": "Engim Turin – Front-End Development",
+      "h3": "Google UX Design – Wireframes & Prototypes"
+    },
+    "job7": {
+      "year": "2009 - 2012",
+      "title": "B.Sc. Computer Science",
+      "company": "Abrar University of Tehran",
+      "description": "Foundation in computer science principles and software engineering fundamentals.",
+      "h1": "C++, Java, Data Analysis, Databases, Networks"
     }
   },
   "skills": {

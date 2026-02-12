@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
-import { Briefcase, GraduationCap, Rocket, Palette, Code2 } from 'lucide-react';
+import { Briefcase, GraduationCap, Rocket, Palette, Code2, Award } from 'lucide-react';
 import { seededRandom } from '@/lib/seededRandom';
 
 interface RoadmapItem {
@@ -19,12 +19,13 @@ const roadmapData: RoadmapItem[] = [
   {
     year: 'Dec 2025 - Present',
     title: 'Agentic Developer Intern',
-    company: 'Sweden Startup Nation (SSN) - SISP, Sweden',
+    company: 'Sweden Startup Nation (SISP), Sweden',
     description: 'Collaborating with AI agents in coding, testing, and deploying platform features for the Swedish Startup Nation Data Platform.',
     highlights: [
       'Agent-First Development with AI',
       'Data-Web Platform contribution',
-      'Dashboards and Admin Tools'
+      'Dashboards and Admin Tools',
+      'Data models, APIs & automation workflows'
     ],
     icon: Rocket,
     color: 'from-[var(--persian-blue)] to-[var(--persian-blue-light)]',
@@ -50,8 +51,36 @@ const roadmapData: RoadmapItem[] = [
     title: 'Front-End Development Intern',
     company: 'Liquido Studio, Turin',
     description: 'Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices.',
+    highlights: [
+      'Responsive websites & web applications',
+      'WordPress theme customization & plugins',
+      'UI/UX best practices implementation'
+    ],
     icon: Briefcase,
     color: 'from-[var(--golden-yellow)] to-[var(--amber)]',
+    position: 'right'
+  },
+  {
+    year: '2023',
+    title: 'Professional Certifications',
+    company: 'IBM, Engim Turin, Google',
+    description: 'Industry certifications in front-end development, React, and UX design.',
+    highlights: [
+      'IBM – Developing Front-End Apps with React',
+      'Engim Turin – Front-End Development',
+      'Google UX Design – Wireframes & Prototypes'
+    ],
+    icon: Award,
+    color: 'from-[var(--teal-light)] to-[var(--teal)]',
+    position: 'left'
+  },
+  {
+    year: '2018 - 2022',
+    title: 'B.A. Fine Arts',
+    company: 'Fine Arts Academy of Rome',
+    description: 'Combining artistic creativity with technical vision, bridging the worlds of art and technology.',
+    icon: GraduationCap,
+    color: 'from-[var(--persian-blue-light)] to-[var(--persian-blue)]',
     position: 'right'
   },
   {
@@ -59,17 +88,25 @@ const roadmapData: RoadmapItem[] = [
     title: 'Software Engineer & Creative Designer',
     company: 'DYS Company & Tanvarz - Tehran',
     description: 'Co-developed internal social platforms, designed multi-channel catalogs, and created culturally localized content that boosted engagement.',
+    highlights: [
+      'Co-developed internal social-media platform',
+      'Designed catalogs, banners & e-books',
+      'Sales strategy & localized content'
+    ],
     icon: Palette,
     color: 'from-[var(--sunset-orange)] to-[var(--warm-coral)]',
     position: 'left'
   },
   {
-    year: 'Education',
-    title: 'B.A. Fine Arts (GPA 4.0) & B.Sc. Computer Science',
-    company: 'Fine Arts Academy of Rome & Abrar University of Tehran',
-    description: 'Unique combination of artistic creativity and technical expertise in computer science.',
+    year: '2009 - 2012',
+    title: 'B.Sc. Computer Science',
+    company: 'Abrar University of Tehran',
+    description: 'Foundation in computer science principles and software engineering fundamentals.',
+    highlights: [
+      'C++, Java, Data Analysis, Databases, Networks'
+    ],
     icon: GraduationCap,
-    color: 'from-[var(--persian-blue-light)] to-[var(--persian-blue)]',
+    color: 'from-[var(--persian-blue)] to-[var(--teal)]',
     position: 'right'
   }
 ];
@@ -164,9 +201,40 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
   );
 }
 
+function generateCurvePath(count: number, containerHeight: number, xOffset = 0): string {
+  const startY = 50;
+  const segmentH = 300;
+  const centerX = 400 + xOffset;
+  const rightX = 600 + xOffset;
+  const leftX = 200 + xOffset;
+
+  let y = startY;
+  let d = `M ${centerX},${y}`;
+  let goRight = true;
+
+  for (let i = 0; i < count; i++) {
+    const isLast = i === count - 1;
+    const endY = isLast ? containerHeight : y + segmentH;
+    const sideX = goRight ? rightX : leftX;
+    d += ` C ${sideX},${y + 100} ${sideX},${y + 200} ${centerX},${endY}`;
+    y = endY;
+    goRight = !goRight;
+  }
+
+  return d;
+}
+
 export function Roadmap() {
   const svgRef = useRef(null);
   const isInView = useInView(svgRef, { once: true, margin: "-100px" });
+
+  // Dynamic desktop layout — adapts to any number of roadmap items
+  const count = roadmapData.length;
+  const containerHeight = count * 300;
+  const milestoneSpacing = (containerHeight - 350) / (count - 1);
+  const cardSpacing = 85 / (count - 1);
+  const mainPath = generateCurvePath(count, containerHeight);
+  const secondaryPath = generateCurvePath(count, containerHeight, 5);
 
   return (
     <section id="roadmap" className="py-12 md:py-20 px-4 relative">
@@ -224,16 +292,12 @@ export function Roadmap() {
         </div>
 
         {/* Desktop: Flowing Curved Timeline */}
-        <div className="hidden md:block relative h-[1200px]" ref={svgRef}>
+        <div className="hidden md:block relative" style={{ height: containerHeight }} ref={svgRef}>
           {/* SVG Curved Path */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 1200" preserveAspectRatio="xMidYMid meet">
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox={`0 0 800 ${containerHeight}`} preserveAspectRatio="xMidYMid meet">
             {/* Main flowing curve path */}
             <motion.path
-              d="M 400,50
-                 C 600,150 600,250 400,350
-                 C 200,450 200,550 400,650
-                 C 600,750 600,850 400,950
-                 C 200,1050 200,1150 400,1200"
+              d={mainPath}
               stroke="url(#curve-gradient)"
               strokeWidth="4"
               fill="none"
@@ -246,11 +310,7 @@ export function Roadmap() {
 
             {/* Secondary paint stroke for texture */}
             <motion.path
-              d="M 405,50
-                 C 605,150 605,250 405,350
-                 C 205,450 205,550 405,650
-                 C 605,750 605,850 405,950
-                 C 205,1050 205,1150 405,1200"
+              d={secondaryPath}
               stroke="url(#curve-gradient-2)"
               strokeWidth="6"
               fill="none"
@@ -281,14 +341,14 @@ export function Roadmap() {
                   ease: "linear"
                 }}
                 style={{
-                  offsetPath: `path("M 400,50 C 600,150 600,250 400,350 C 200,450 200,550 400,650 C 600,750 600,850 400,950 C 200,1050 200,1150 400,1200")`,
+                  offsetPath: `path("${mainPath}")`,
                 }}
               />
             ))}
 
             {/* Milestone points on the curve */}
             {roadmapData.map((item, index) => {
-              const yPos = 50 + index * 240;
+              const yPos = 50 + index * milestoneSpacing;
               const xPos = index % 2 === 0 ? 400 + 200 * Math.sin(index * 0.8) : 400 - 200 * Math.sin(index * 0.8);
 
               return (
@@ -377,7 +437,7 @@ export function Roadmap() {
               key={index}
               className={`absolute ${item.position === 'left' ? 'left-8' : 'right-8'}`}
               style={{
-                top: `${index * 22}%`,
+                top: `${index * cardSpacing}%`,
                 width: 'calc(50% - 60px)',
                 maxWidth: '500px',
               }}

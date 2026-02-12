@@ -19,6 +19,7 @@ jest.mock('lucide-react', () => ({
   Rocket: () => <span data-testid="icon-rocket">Rocket</span>,
   Palette: () => <span data-testid="icon-palette">Palette</span>,
   Code2: () => <span data-testid="icon-code2">Code2</span>,
+  Award: () => <span data-testid="icon-award">Award</span>,
 }));
 
 describe('Roadmap Component', () => {
@@ -40,10 +41,10 @@ describe('Roadmap Component', () => {
 
   it('should render all job titles', () => {
     render(<Roadmap />);
-    expect(screen.getByText('Agentic Developer Intern')).toBeInTheDocument();
-    expect(screen.getByText('Full-Stack Developer & Systems Analyst')).toBeInTheDocument();
-    expect(screen.getByText('Front-End Development Intern')).toBeInTheDocument();
-    expect(screen.getByText('Software Engineer & Creative Designer')).toBeInTheDocument();
+    expect(screen.getAllByText('Agentic Developer Intern').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Full-Stack Developer & Systems Analyst').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Front-End Development Intern').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Software Engineer & Creative Designer').length).toBeGreaterThan(0);
   });
 
   it('should render education entry', () => {
@@ -54,34 +55,45 @@ describe('Roadmap Component', () => {
 
   it('should render company names', () => {
     render(<Roadmap />);
-    expect(screen.getByText(/Sweden Startup Nation/)).toBeInTheDocument();
-    expect(screen.getByText(/RADA Computing Solutions/)).toBeInTheDocument();
-    expect(screen.getByText(/Liquido Studio/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Sweden Startup Nation/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/RADA Computing Solutions/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Liquido Studio/).length).toBeGreaterThan(0);
   });
 
   it('should render year ranges', () => {
     render(<Roadmap />);
-    expect(screen.getByText('Dec 2025 - Present')).toBeInTheDocument();
-    expect(screen.getByText('Jun 2024 - Oct 2025')).toBeInTheDocument();
-    expect(screen.getByText('Sep 2023 - May 2024')).toBeInTheDocument();
-    expect(screen.getByText('2009 - 2018')).toBeInTheDocument();
-    expect(screen.getByText('Education')).toBeInTheDocument();
+    expect(screen.getAllByText('Dec 2025 - Present').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Jun 2024 - Oct 2025').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Sep 2023 - May 2024').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('2009 - 2018').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('2023').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('2009 - 2022').length).toBeGreaterThan(0);
   });
 
   it('should render highlights for jobs that have them', () => {
     render(<Roadmap />);
-    expect(screen.getByText('Agent-First Development with AI')).toBeInTheDocument();
-    expect(screen.getByText('React migration (20+ modules)')).toBeInTheDocument();
-    expect(screen.getByText('AG Grid implementation (150k+ rows)')).toBeInTheDocument();
+    // Job 1 highlights
+    expect(screen.getAllByText('Agent-First Development with AI').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Data models, APIs & automation workflows').length).toBeGreaterThan(0);
+    // Job 2 highlights
+    expect(screen.getAllByText('React migration (20+ modules)').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('AG Grid implementation (150k+ rows)').length).toBeGreaterThan(0);
+    // Job 3 highlights (new)
+    expect(screen.getAllByText('Responsive websites & web applications').length).toBeGreaterThan(0);
+    // Job 4 highlights (new)
+    expect(screen.getAllByText('Co-developed internal social-media platform').length).toBeGreaterThan(0);
+    // Job 6 highlights (certifications)
+    expect(screen.getAllByText('IBM – Developing Front-End Apps with React').length).toBeGreaterThan(0);
   });
 
-  it('should render all 5 roadmap entries', () => {
+  it('should render all 6 roadmap entries', () => {
     render(<Roadmap />);
-    // Verify all 5 entries are present by checking their unique titles
-    expect(screen.getByText('Agentic Developer Intern')).toBeInTheDocument();
-    expect(screen.getByText('Full-Stack Developer & Systems Analyst')).toBeInTheDocument();
-    expect(screen.getByText('Front-End Development Intern')).toBeInTheDocument();
-    expect(screen.getByText('Software Engineer & Creative Designer')).toBeInTheDocument();
+    // Verify all 6 entries are present by checking their unique titles
+    expect(screen.getAllByText('Agentic Developer Intern').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Full-Stack Developer & Systems Analyst').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Front-End Development Intern').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Software Engineer & Creative Designer').length).toBeGreaterThan(0);
     expect(screen.getAllByText(/B\.A\. Fine Arts/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Professional Certifications').length).toBeGreaterThan(0);
   });
 });
