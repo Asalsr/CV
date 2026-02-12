@@ -25,7 +25,7 @@ export function Footer() {
               Beyond code and pixels, I create art. Fine Arts Academy graduate exploring plastic pollution (Plastic Blue series), leading children&apos;s rights workshops (Women Life Freedom), and illustration for social causes.
             </p>
             <motion.a
-              href="/art"
+              href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/art`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--sunset-orange)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all"

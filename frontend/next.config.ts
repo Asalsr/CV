@@ -4,7 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const isGhPages = process.env.GITHUB_ACTIONS === 'true';
-const basePath = isGhPages ? '/MyPrj' : '';
+const basePath = isGhPages ? '/CV' : '';
 
 const nextConfig: NextConfig = {
   output: 'export',

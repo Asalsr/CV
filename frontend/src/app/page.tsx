@@ -13,10 +13,11 @@ import { SectionDivider } from '@/components/figma/SectionDivider';
 export default function Home() {
   const t = useTranslations('nav');
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const navItems = [
     { key: 'journey' as const, href: '#roadmap' },
     { key: 'skills' as const, href: '#skills' },
-    { key: 'art' as const, href: '/art' },
+    { key: 'art' as const, href: `${basePath}/art` },
     { key: 'contact' as const, href: '#contact' },
   ];
 
