@@ -4,12 +4,6 @@ import { useRef } from 'react';
 import { Briefcase, GraduationCap, Rocket, Palette, Code2 } from 'lucide-react';
 import { seededRandom } from '@/lib/seededRandom';
 
-// Deterministic pseudo-random to avoid SSR hydration mismatch
-function seededRandom(seed: number) {
-  const x = Math.sin(seed + 1) * 10000;
-  return x - Math.floor(x);
-}
-
 interface RoadmapItem {
   year: string;
   title: string;

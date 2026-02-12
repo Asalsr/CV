@@ -7,13 +7,6 @@ import { seededRandom } from '@/lib/seededRandom';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const heroImage = `${basePath}/images/hero-bg.png`;
-
-// Deterministic pseudo-random to avoid SSR hydration mismatch
-function seededRandom(seed: number) {
-  const x = Math.sin(seed + 1) * 10000;
-  return x - Math.floor(x);
-}
-
 // Pre-compute particle data so server and client render identically
 const particles = Array.from({ length: 15 }, (_, i) => ({
   width: seededRandom(i * 4) * 60 + 20,
