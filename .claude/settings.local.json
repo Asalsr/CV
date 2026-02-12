@@ -95,7 +95,27 @@
       "Bash(copy:*)",
       "Bash(pip show:*)",
       "Bash(git -C \"D:\\\\my-prj\" fetch --prune)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npx jest:*)",
+      "Bash(npx puppeteer:*)",
+      "Bash(node -e:*)",
+      "Bash(where:*)",
+      "Bash(npx playwright:*)",
+      "Bash(powershell -File - <<'PSEOF'\nAdd-Type -AssemblyName System.Drawing\nAdd-Type -AssemblyName System.Windows.Forms\nStart-Sleep -Seconds 2\n$screen = [System.Windows.Forms.Screen]::PrimaryScreen\n$bounds = $screen.Bounds\n$bmp = New-Object System.Drawing.Bitmap\\($bounds.Width, $bounds.Height\\)\n$gfx = [System.Drawing.Graphics]::FromImage\\($bmp\\)\n$gfx.CopyFromScreen\\($bounds.Location, [System.Drawing.Point]::Empty, $bounds.Size\\)\n$bmp.Save\\(\"D:\\\\my-prj\\\\screenshot-roadmap.png\"\\)\n$gfx.Dispose\\(\\)\n$bmp.Dispose\\(\\)\nWrite-Host \"Screenshot saved\"\nPSEOF)",
+      "Bash(pushd:*)",
+      "Bash(popd:*)",
+      "Bash(git reset:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh.exe run list --limit 5)",
+      "Bash(where.exe:*)",
+      "WebFetch(domain:asalsr.github.io)",
+      "Bash(git remote get-url:*)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(du:*)",
+      "Bash(powershell -File:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(python3:*)"
     ]
   }
 }
