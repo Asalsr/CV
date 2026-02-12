@@ -4,12 +4,6 @@ import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 import { seededRandom } from '@/lib/seededRandom';
 
-// Deterministic pseudo-random to avoid SSR hydration mismatch
-function seededRandom(seed: number) {
-  const x = Math.sin(seed + 1) * 10000;
-  return x - Math.floor(x);
-}
-
 interface PaintStrokeProps {
   children: ReactNode;
   color?: string;
