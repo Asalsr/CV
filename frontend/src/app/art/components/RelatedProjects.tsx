@@ -3,14 +3,14 @@
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Artwork } from '../types/artwork';
+import { ValidatedArtwork } from '../types/artwork';
 import { getRelatedProjects } from '../data/artworks';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 interface RelatedProjectsProps {
-  currentArtwork: Artwork;
-  allArtworks: Artwork[];
-  onProjectClick: (artwork: Artwork) => void;
+  currentArtwork: ValidatedArtwork;
+  allArtworks: ValidatedArtwork[];
+  onProjectClick: (artwork: ValidatedArtwork) => void;
 }
 
 export default function RelatedProjects({

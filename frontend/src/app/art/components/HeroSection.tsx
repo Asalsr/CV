@@ -3,11 +3,11 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
-import { Artwork, ArtworkCategory, CATEGORIES } from '../types/artwork';
+import { ValidatedArtwork, ArtworkCategory, CATEGORIES } from '../types/artwork';
 import CategoryFilter from './CategoryFilter';
 
 interface HeroSectionProps {
-  artworks: Artwork[];
+  artworks: ValidatedArtwork[];
   selectedCategory: ArtworkCategory | 'All';
   onCategorySelect: (category: ArtworkCategory | 'All') => void;
 }

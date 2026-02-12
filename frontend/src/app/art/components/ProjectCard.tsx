@@ -3,11 +3,11 @@
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { Artwork } from '../types/artwork';
+import { ValidatedArtwork } from '../types/artwork';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 interface ProjectCardProps {
-  artwork: Artwork;
+  artwork: ValidatedArtwork;
   onClick: () => void;
   index: number;
 }
@@ -48,7 +48,7 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
 
         <div className="aspect-[4/3] relative">
           <ImageWithFallback
-            src={artwork.thumbnail}
+            src={artwork.validThumbnail}
             alt={artwork.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -66,9 +66,9 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
             </div>
           )}
 
-          {artwork.images.length > 1 && (
+          {artwork.validImages.length > 1 && (
             <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm z-10">
-              {t('images', { count: artwork.images.length })}
+              {t('images', { count: artwork.validImages.length })}
             </div>
           )}
 

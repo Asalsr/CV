@@ -23,6 +23,11 @@ export interface Artwork {
   relatedProjects?: number[];
 }
 
+export interface ValidatedArtwork extends Artwork {
+  validImages: string[];
+  validThumbnail: string;
+}
+
 export const CATEGORIES: readonly (ArtworkCategory | 'All')[] = [
   'All',
   'Photography',

@@ -17,17 +17,17 @@ Introduce runtime image validation to the art portfolio page so that:
 
 ### Phase 1: Foundation (Types & Utilities)
 
-- [ ] T001: Add `ValidatedArtwork` type to artwork types
+- [x] T001: Add `ValidatedArtwork` type to artwork types
   - Files: `src/app/art/types/artwork.ts`
   - Details: Add a `ValidatedArtwork` interface that extends `Artwork` with two additional fields: `validImages: string[]` (only images that loaded successfully) and `validThumbnail: string` (thumbnail or first valid image as fallback). Export the new type.
   - Acceptance: `ValidatedArtwork` is exported and extends `Artwork` with `validImages` and `validThumbnail` fields. Existing `Artwork` type is unchanged.
 
-- [ ] T002: Create image probe utility
+- [x] T002: Create image probe utility
   - Files: `src/app/art/utils/validateImage.ts`
   - Details: Create a `validateImage(src: string): Promise<boolean>` function that creates an `Image()` element, sets `src`, and resolves `true` on `onload` or `false` on `onerror`. This is a pure utility with no React dependencies. Handle edge case of empty string src (return `false` immediately).
   - Acceptance: Function returns `true` for valid image URLs and `false` for broken/missing ones. Empty strings return `false`.
 
-- [ ] T003: Create `useValidatedArtworks` hook
+- [x] T003: Create `useValidatedArtworks` hook
   - Files: `src/app/art/hooks/useValidatedArtworks.ts`
   - Details: Create the core validation hook implementing this logic:
     1. Accept `rawArtworks: Artwork[]` as input
@@ -44,7 +44,7 @@ Introduce runtime image validation to the art portfolio page so that:
 
 ### Phase 2: Integration (Wire Up Validated Data)
 
-- [ ] T004: Integrate `useValidatedArtworks` into the art page
+- [x] T004: Integrate `useValidatedArtworks` into the art page
   - Files: `src/app/art/page.tsx`
   - Details:
     1. Import and call `useValidatedArtworks(artworks)` to get `{ artworks: validatedArtworks, isValidating }`
@@ -53,7 +53,7 @@ Introduce runtime image validation to the art portfolio page so that:
     4. No changes to filter state logic — category/year filtering still works the same, just on a smaller dataset
   - Acceptance: All child components receive validated artworks. Raw `artworks` import is only used as input to the hook. `isValidating` is passed to `ProjectGrid`.
 
-- [ ] T005: Update `useProjectModal` to work with `ValidatedArtwork`
+- [x] T005: Update `useProjectModal` to work with `ValidatedArtwork`
   - Files: `src/app/art/hooks/useProjectModal.ts`
   - Details:
     1. Update the `artworks` prop type to accept `ValidatedArtwork[]`
@@ -63,7 +63,7 @@ Introduce runtime image validation to the art portfolio page so that:
     5. Update the return type so `currentProject` is `ValidatedArtwork | null`
   - Acceptance: Image navigation (arrows, keyboard) wraps correctly within `validImages` bounds. Project navigation (shift+arrows) cycles only through validated projects.
 
-- [ ] T006: Update `ProjectModal` to pass valid images to gallery
+- [x] T006: Update `ProjectModal` to pass valid images to gallery
   - Files: `src/app/art/components/ProjectModal.tsx`
   - Details:
     1. Update the `project` prop type from `Artwork` to `ValidatedArtwork`
@@ -72,7 +72,7 @@ Introduce runtime image validation to the art portfolio page so that:
     4. `onSelectProject` callback type should accept `ValidatedArtwork`
   - Acceptance: `ImageGallery` receives only valid images. No black/empty slides appear when navigating. Video projects still render YouTube iframe correctly.
 
-- [ ] T007: Update `ProjectCard` to use `validThumbnail`
+- [x] T007: Update `ProjectCard` to use `validThumbnail`
   - Files: `src/app/art/components/ProjectCard.tsx`
   - Details:
     1. Update the `artwork` prop type from `Artwork` to `ValidatedArtwork`
@@ -80,7 +80,7 @@ Introduce runtime image validation to the art portfolio page so that:
     3. Change the image count badge from `artwork.images.length` to `artwork.validImages.length` (show count only if `> 1`)
   - Acceptance: Cards display validated thumbnails. If original thumbnail was broken, first valid image is shown. Image count badge reflects valid image count.
 
-- [ ] T008: Update `ProjectGrid` to accept `isValidating` and show loading state
+- [x] T008: Update `ProjectGrid` to accept `isValidating` and show loading state
   - Files: `src/app/art/components/ProjectGrid.tsx`
   - Details:
     1. Update `artworks` prop type from `Artwork[]` to `ValidatedArtwork[]`
@@ -96,7 +96,7 @@ Introduce runtime image validation to the art portfolio page so that:
 
 ### Phase 3: Downstream Components
 
-- [ ] T009: Update `HeroSection` and `InteractiveTimeline` prop types
+- [x] T009: Update `HeroSection` and `InteractiveTimeline` prop types
   - Files: `src/app/art/components/HeroSection.tsx`, `src/app/art/components/InteractiveTimeline.tsx`
   - Details:
     1. **HeroSection**: Update `artworks` prop type from `Artwork[]` to `ValidatedArtwork[]`. No logic changes needed — the `useMemo` already computes stats from whatever artworks array it receives. Since empty projects are already filtered out by the hook, stats will automatically be correct.
@@ -106,7 +106,7 @@ Introduce runtime image validation to the art portfolio page so that:
 
 ### Phase 4: i18n & Polish
 
-- [ ] T010: Add loading translation key to all language files
+- [x] T010: Add loading translation key to all language files
   - Files: `frontend/messages/en.json`, `frontend/messages/sv.json`, `frontend/messages/fa.json`
   - Details: Add a `loading` key under the existing `art.projectGrid` namespace in all three language files. This text is shown as an accessible label on the skeleton grid during validation.
   - i18n keys:

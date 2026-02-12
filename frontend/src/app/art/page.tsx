@@ -17,10 +17,12 @@ import ProjectGrid from './components/ProjectGrid';
 import ProjectModal from './components/ProjectModal';
 import InteractiveTimeline from './components/InteractiveTimeline';
 import { useProjectModal } from './hooks/useProjectModal';
+import { useValidatedArtworks } from './hooks/useValidatedArtworks';
 
 export default function ArtPortfolio() {
   const t = useTranslations('art.page');
   useAppSelector((state) => state.theme);
+  const { artworks: validatedArtworks, isValidating } = useValidatedArtworks(artworks);
   const [selectedCategory, setSelectedCategory] = useState<ArtworkCategory | 'All'>('All');
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
 
@@ -35,7 +37,7 @@ export default function ArtPortfolio() {
     nextImage,
     prevImage,
     setImageIndex,
-  } = useProjectModal({ artworks });
+  } = useProjectModal({ artworks: validatedArtworks });
 
   const handleCategorySelect = (category: ArtworkCategory | 'All') => {
     setSelectedCategory(category);
@@ -89,7 +91,7 @@ export default function ArtPortfolio() {
       </header>
 
       <HeroSection
-        artworks={artworks}
+        artworks={validatedArtworks}
         selectedCategory={selectedCategory}
         onCategorySelect={handleCategorySelect}
       />
@@ -97,7 +99,8 @@ export default function ArtPortfolio() {
       <SectionDivider variant="wave" color1="#5B8DEF" color2="#FFB800" />
 
       <ProjectGrid
-        artworks={artworks}
+        artworks={validatedArtworks}
+        isValidating={isValidating}
         categoryFilter={selectedCategory}
         yearFilter={selectedYear}
         onProjectClick={openProject}
@@ -106,7 +109,7 @@ export default function ArtPortfolio() {
       <SectionDivider variant="curve" color1="#0EA5E9" color2="#FF6B35" />
 
       <InteractiveTimeline
-        artworks={artworks}
+        artworks={validatedArtworks}
         selectedYear={selectedYear}
         onYearSelect={handleYearSelect}
       />
@@ -142,7 +145,7 @@ export default function ArtPortfolio() {
         isOpen={isOpen}
         project={currentProject}
         currentImageIndex={currentImageIndex}
-        allArtworks={artworks}
+        allArtworks={validatedArtworks}
         onClose={closeProject}
         onPrevProject={prevProject}
         onNextProject={nextProject}

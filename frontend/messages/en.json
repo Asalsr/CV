@@ -152,7 +152,8 @@
       "images": "{count} images"
     },
     "projectGrid": {
-      "noResults": "No projects found for the selected filters."
+      "noResults": "No projects found for the selected filters.",
+      "loading": "Loading projects..."
     },
     "modal": {
       "closeModal": "Close modal",

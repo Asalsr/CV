@@ -4,22 +4,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { useTranslations } from 'next-intl';
-import { Artwork } from '../types/artwork';
+import { ValidatedArtwork } from '../types/artwork';
 import ImageGallery from './ImageGallery';
 import RelatedProjects from './RelatedProjects';
 
 interface ProjectModalProps {
   isOpen: boolean;
-  project: Artwork | null;
+  project: ValidatedArtwork | null;
   currentImageIndex: number;
-  allArtworks: Artwork[];
+  allArtworks: ValidatedArtwork[];
   onClose: () => void;
   onPrevProject: () => void;
   onNextProject: () => void;
   onPrevImage: () => void;
   onNextImage: () => void;
   onSelectImage: (index: number) => void;
-  onSelectProject: (artwork: Artwork) => void;
+  onSelectProject: (artwork: ValidatedArtwork) => void;
 }
 
 export default function ProjectModal({
@@ -106,7 +106,7 @@ export default function ProjectModal({
             ) : (
               /* Image Gallery */
               <ImageGallery
-                images={project.images}
+                images={project.validImages}
                 currentIndex={currentImageIndex}
                 title={project.title}
                 onPrev={onPrevImage}

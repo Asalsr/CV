@@ -3,10 +3,10 @@
 import { useMemo, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Artwork } from '../types/artwork';
+import { ValidatedArtwork } from '../types/artwork';
 
 interface InteractiveTimelineProps {
-  artworks: Artwork[];
+  artworks: ValidatedArtwork[];
   selectedYear: string | null;
   onYearSelect: (year: string | null) => void;
 }

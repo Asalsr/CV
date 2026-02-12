@@ -152,7 +152,8 @@
       "images": "{count} bilder"
     },
     "projectGrid": {
-      "noResults": "Inga projekt hittades för de valda filtren."
+      "noResults": "Inga projekt hittades för de valda filtren.",
+      "loading": "Laddar projekt..."
     },
     "modal": {
       "closeModal": "Stäng",
