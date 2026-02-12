@@ -67,7 +67,8 @@ describe('Roadmap Component', () => {
     expect(screen.getAllByText('Sep 2023 - May 2024').length).toBeGreaterThan(0);
     expect(screen.getAllByText('2009 - 2018').length).toBeGreaterThan(0);
     expect(screen.getAllByText('2023').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('2009 - 2022').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('2018 - 2022').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('2009 - 2012').length).toBeGreaterThan(0);
   });
 
   it('should render highlights for jobs that have them', () => {
@@ -86,14 +87,15 @@ describe('Roadmap Component', () => {
     expect(screen.getAllByText('IBM – Developing Front-End Apps with React').length).toBeGreaterThan(0);
   });
 
-  it('should render all 6 roadmap entries', () => {
+  it('should render all 7 roadmap entries', () => {
     render(<Roadmap />);
-    // Verify all 6 entries are present by checking their unique titles
+    // Verify all 7 entries are present by checking their unique titles
     expect(screen.getAllByText('Agentic Developer Intern').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Full-Stack Developer & Systems Analyst').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Front-End Development Intern').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('Software Engineer & Creative Designer').length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/B\.A\. Fine Arts/).length).toBeGreaterThan(0);
     expect(screen.getAllByText('Professional Certifications').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('B.A. Fine Arts').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Software Engineer & Creative Designer').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('B.Sc. Computer Science').length).toBeGreaterThan(0);
   });
 });
