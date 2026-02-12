@@ -83,6 +83,9 @@ export function Footer() {
             </motion.a>
             <motion.a
               href="mailto:Saeedeh.sarmadi89@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Email"
               whileHover={{ scale: 1.1, y: -2 }}
               className="p-3 bg-white/5 dark:bg-white/10 hover:bg-white/10 dark:hover:bg-white/15 rounded-lg border border-white/10 dark:border-white/20 text-gray-300 hover:text-white transition-all"
             >
