@@ -16,7 +16,7 @@ export default function Home() {
   const navItems = [
     { key: 'journey' as const, href: '#roadmap' },
     { key: 'skills' as const, href: '#skills' },
-    { key: 'art' as const, href: '#art-projects' },
+    { key: 'art' as const, href: '/art' },
     { key: 'contact' as const, href: '#contact' },
   ];
 
