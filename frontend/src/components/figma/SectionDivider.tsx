@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { seededRandom } from '@/lib/seededRandom';
 
 // Deterministic pseudo-random to avoid SSR hydration mismatch
 function seededRandom(seed: number) {

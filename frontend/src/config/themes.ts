@@ -1,7 +1,7 @@
 // Theme Configuration - Persian Blue & Yellow Palette
 // Designed for Saeedeh's Portfolio
 
-export type ColorScheme = 'persian-blue-yellow';
+export type ColorScheme = 'palette-colors';
 export type ThemeMode = 'light' | 'dark';
 
 export interface ThemeColors {
@@ -64,7 +64,7 @@ export interface ColorSchemeConfig {
 }
 
 export const colorSchemes: Record<ColorScheme, ColorSchemeConfig> = {
-  'persian-blue-yellow': {
+  'palette-colors': {
     name: 'Persian Blue & Golden Yellow',
     description: 'Where art meets technology',
     light: {
@@ -73,8 +73,8 @@ export const colorSchemes: Record<ColorScheme, ColorSchemeConfig> = {
         100: '#D6E0FF',
         200: '#ADC1FF',
         300: '#85A2FF',
-        400: '#4A7AEF',
-        500: '#1C39BB',
+        400: '#4258b9',
+        500: '#6677c4',
         600: '#162E96',
         700: '#0F1E5C',
         800: '#0A1340',
@@ -85,9 +85,9 @@ export const colorSchemes: Record<ColorScheme, ColorSchemeConfig> = {
         100: '#FFF0B8',
         200: '#FFE68A',
         300: '#FFD95C',
-        400: '#FFC947',
-        500: '#FFB800',
-        600: '#E0A200',
+        400: '#8F6800',
+        500: '#B88500',
+        600: '#8F6800',
         700: '#B88500',
         800: '#8F6800',
         900: '#664A00',
@@ -98,7 +98,7 @@ export const colorSchemes: Record<ColorScheme, ColorSchemeConfig> = {
       textSecondary: '#5A6B7D',
       border: 'rgba(28, 57, 187, 0.15)',
       portfolio: {
-        persianBlue: '#1C39BB',
+        persianBlue: '#2b4d68',
         persianBlueLight: '#4A90E2',
         persianBlueDark: '#0F1E5C',
         goldenYellow: '#FFB800',
@@ -173,7 +173,7 @@ export const getThemeColors = (
   colorScheme: ColorScheme,
   mode: ThemeMode
 ): ThemeColors => {
-  const scheme = colorSchemes[colorScheme] ?? colorSchemes['persian-blue-yellow'];
+  const scheme = colorSchemes[colorScheme] ?? colorSchemes['palette-colors'];
   return scheme[mode];
 };
 

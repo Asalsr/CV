@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Code, Palette, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { seededRandom } from '@/lib/seededRandom';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const heroImage = `${basePath}/images/hero-bg.png`;

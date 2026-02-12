@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Briefcase, GraduationCap, Rocket, Palette, Code2 } from 'lucide-react';
+import { seededRandom } from '@/lib/seededRandom';
 
 // Deterministic pseudo-random to avoid SSR hydration mismatch
 function seededRandom(seed: number) {

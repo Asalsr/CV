@@ -9,7 +9,7 @@ import themeReducer, {
 
 describe('themeSlice', () => {
   const initialState: ThemeState = {
-    colorScheme: 'persian-blue-yellow',
+    colorScheme: 'palette-colors',
     mode: 'light',
     isHydrated: false,
   };
@@ -20,8 +20,8 @@ describe('themeSlice', () => {
 
   describe('setColorScheme', () => {
     it('should set the color scheme', () => {
-      const state = themeReducer(initialState, setColorScheme('persian-blue-yellow'));
-      expect(state.colorScheme).toBe('persian-blue-yellow');
+      const state = themeReducer(initialState, setColorScheme('palette-colors'));
+      expect(state.colorScheme).toBe('palette-colors');
     });
   });
 
@@ -55,9 +55,9 @@ describe('themeSlice', () => {
     it('should set both color scheme and mode', () => {
       const state = themeReducer(
         initialState,
-        setTheme({ colorScheme: 'persian-blue-yellow', mode: 'dark' })
+        setTheme({ colorScheme: 'palette-colors', mode: 'dark' })
       );
-      expect(state.colorScheme).toBe('persian-blue-yellow');
+      expect(state.colorScheme).toBe('palette-colors');
       expect(state.mode).toBe('dark');
     });
   });
@@ -66,9 +66,9 @@ describe('themeSlice', () => {
     it('should hydrate the theme and set isHydrated to true', () => {
       const state = themeReducer(
         initialState,
-        hydrateTheme({ colorScheme: 'persian-blue-yellow', mode: 'dark' })
+        hydrateTheme({ colorScheme: 'palette-colors', mode: 'dark' })
       );
-      expect(state.colorScheme).toBe('persian-blue-yellow');
+      expect(state.colorScheme).toBe('palette-colors');
       expect(state.mode).toBe('dark');
       expect(state.isHydrated).toBe(true);
     });
@@ -77,7 +77,7 @@ describe('themeSlice', () => {
       expect(initialState.isHydrated).toBe(false);
       const state = themeReducer(
         initialState,
-        hydrateTheme({ colorScheme: 'persian-blue-yellow', mode: 'light' })
+        hydrateTheme({ colorScheme: 'palette-colors', mode: 'light' })
       );
       expect(state.isHydrated).toBe(true);
     });
