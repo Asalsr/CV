@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import { Code, Palette, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-const heroImage = '/images/hero-bg.png';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+const heroImage = `${basePath}/images/hero-bg.png`;
 
 // Deterministic pseudo-random to avoid SSR hydration mismatch
 function seededRandom(seed: number) {
