@@ -53,7 +53,7 @@ jest.mock('next/image', () => ({
 // Mock Redux hooks
 jest.mock('@/lib/redux/hooks', () => ({
   useAppSelector: jest.fn((selector: (state: { theme: { mode: string; isHydrated: boolean; colorScheme: string } }) => unknown) =>
-    selector({ theme: { mode: 'light', isHydrated: true, colorScheme: 'persian-blue-yellow' } })
+    selector({ theme: { mode: 'light', isHydrated: true, colorScheme: 'palette-colors' } })
   ),
   useAppDispatch: jest.fn(() => jest.fn()),
 }));

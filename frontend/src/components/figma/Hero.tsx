@@ -3,26 +3,21 @@
 import { motion } from 'framer-motion';
 import { Code, Palette, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { seededRandom } from '@/lib/seededRandom';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const heroImage = `${basePath}/images/hero-bg.png`;
 
-// Deterministic pseudo-random to avoid SSR hydration mismatch
-function seededRandom(seed: number) {
-  const x = Math.sin(seed + 1) * 10000;
-  return x - Math.floor(x);
-}
-
 // Pre-compute particle data so server and client render identically
 const particles = Array.from({ length: 15 }, (_, i) => ({
-  width: seededRandom(i * 4) * 60 + 20,
-  height: seededRandom(i * 4 + 1) * 60 + 20,
-  left: seededRandom(i * 4 + 2) * 100,
-  top: seededRandom(i * 4 + 3) * 100,
-  animX: seededRandom(i * 5) * 100 - 50,
-  animY: seededRandom(i * 5 + 1) * 100 - 50,
-  duration: seededRandom(i * 5 + 2) * 10 + 10,
-  delay: seededRandom(i * 5 + 3) * 2,
+  width: seededRandom(i * 7 + 1) * 60 + 20,
+  height: seededRandom(i * 7 + 2) * 60 + 20,
+  left: seededRandom(i * 7 + 3) * 100,
+  top: seededRandom(i * 7 + 4) * 100,
+  animX: seededRandom(i * 7 + 5) * 100 - 50,
+  animY: seededRandom(i * 7 + 6) * 100 - 50,
+  duration: seededRandom(i * 7 + 7) * 10 + 10,
+  delay: seededRandom(i * 7 + 8) * 2,
 }));
 
 export function Hero() {

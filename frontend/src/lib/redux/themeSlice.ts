@@ -10,7 +10,7 @@ export interface ThemeState {
 
 // Use consistent initial state for SSR - will be updated on client after hydration
 const initialState: ThemeState = {
-  colorScheme: 'persian-blue-yellow',
+  colorScheme: 'palette-colors',
   mode: 'light',
   isHydrated: false,
 };
@@ -24,7 +24,7 @@ export const loadPersistedTheme = (): { colorScheme: ColorScheme; mode: ThemeMod
 
     const validScheme = savedColorScheme && savedColorScheme in colorSchemes
       ? (savedColorScheme as ColorScheme)
-      : 'persian-blue-yellow';
+      : 'palette-colors';
     const validMode = savedMode === 'light' || savedMode === 'dark'
       ? savedMode
       : (systemPrefersDark ? 'dark' : 'light');
@@ -34,7 +34,7 @@ export const loadPersistedTheme = (): { colorScheme: ColorScheme; mode: ThemeMod
       mode: validMode,
     };
   } catch {
-    return { colorScheme: 'persian-blue-yellow', mode: 'light' };
+    return { colorScheme: 'palette-colors', mode: 'light' };
   }
 };
 

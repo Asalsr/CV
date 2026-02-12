@@ -2,12 +2,7 @@ import { motion } from 'motion/react';
 import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Briefcase, GraduationCap, Rocket, Palette, Code2 } from 'lucide-react';
-
-// Deterministic pseudo-random to avoid SSR hydration mismatch
-function seededRandom(seed: number) {
-  const x = Math.sin(seed + 1) * 10000;
-  return x - Math.floor(x);
-}
+import { seededRandom } from '@/lib/seededRandom';
 
 interface RoadmapItem {
   year: string;
@@ -334,9 +329,9 @@ export function Roadmap() {
                   {[...Array(3)].map((_, i) => (
                     <motion.circle
                       key={i}
-                      cx={xPos + (seededRandom(index * 10 + i * 3) - 0.5) * 40}
-                      cy={yPos + (seededRandom(index * 10 + i * 3 + 1) - 0.5) * 40}
-                      r={seededRandom(index * 10 + i * 3 + 2) * 3 + 2}
+                      cx={xPos + (seededRandom(index * 10 + i * 3 + 200) - 0.5) * 40}
+                      cy={yPos + (seededRandom(index * 10 + i * 3 + 201) - 0.5) * 40}
+                      r={seededRandom(index * 10 + i * 3 + 202) * 3 + 2}
                       fill={i % 2 === 0 ? "var(--golden-yellow)" : "var(--persian-blue)"}
                       opacity="0.3"
                       initial={{ scale: 0 }}
