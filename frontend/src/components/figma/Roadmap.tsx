@@ -1,5 +1,4 @@
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase, GraduationCap, Rocket, Palette, Code2, Award } from 'lucide-react';
 import { seededRandom } from '@/lib/seededRandom';
