@@ -535,12 +535,12 @@ export const categories: (ArtworkCategory | 'All')[] = [
   'Video',
 ];
 
-export function getRelatedProjects(artwork: Artwork, allArtworks: Artwork[]): Artwork[] {
+export function getRelatedProjects<T extends Artwork>(artwork: T, allArtworks: T[]): T[] {
   // First try explicit related projects
   if (artwork.relatedProjects && artwork.relatedProjects.length > 0) {
     return artwork.relatedProjects
       .map(id => allArtworks.find(a => a.id === id))
-      .filter((a): a is Artwork => a !== undefined)
+      .filter((a): a is T => a !== undefined)
       .slice(0, 3);
   }
 
