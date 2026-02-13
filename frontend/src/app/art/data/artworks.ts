@@ -411,20 +411,15 @@ Each design balances visual impact with clear communication. Typography, imagery
     thumbnail: 'https://mir-s3-cdn-cf.behance.net/projects/404/67ca2c158301069.Y3JvcCwxNDAwLDEwOTUsMCw0NDM.jpg',
     images: ['https://mir-s3-cdn-cf.behance.net/projects/404/67ca2c158301069.Y3JvcCwxNDAwLDEwOTUsMCw0NDM.jpg'],
     type: 'image',
-    description: `**Midnight Sun 2020 - Photography Series**
+    description: `**Mid Night Sun 2020 - Photography Series**
 
-Capturing the ethereal phenomenon of the midnight sun in northern latitudes.
+We are all going through a period of difficulty. In this particular time, like everyone, I had a different experience of life. For some people like me, it was even harder—because not only was I in quarantine, but I was also very far from my family and friends.
 
-**Location**
-Photographed during summer in regions where the sun remains visible at midnight, creating surreal lighting conditions and extended golden hours.
+But it was also a very interesting and powerful experience. In my absolute solitude, I began to see things differently.
 
-**Technical Challenges**
-- Exposure management in constant daylight
-- Color temperature variations
-- Capturing the unique atmosphere of perpetual twilight
+When I had the idea for these photos, we were in difficult moments—everyone at home, and many of us were alone. The window of my room was the only real connection I had with the world. From that window, I could watch people passing by, children playing, people keeping their distance from one another, and the new way of life.
 
-**Theme**
-The series explores how constant light affects perception of time and space, creating dreamlike landscapes that blur the boundary between day and night.`,
+To pass those days, I always tried to keep myself busy. During the day, the room was bright and the lights were always on. But one afternoon, when I was really down with all the lights off, I saw something else. My window was giving me something I hadn't seen until that moment. Every afternoon, the shadows, the sunlight, and the images of the world entered my room. My window painted my walls with different shapes. Every afternoon, when I turned off the lights, my room became my darkroom—with all the images that were different each time. And I began to photograph.`,
     relatedProjects: [1, 6],
   },
   {
