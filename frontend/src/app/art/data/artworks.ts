@@ -152,8 +152,8 @@ Gruppo Abele is a renowned Italian social organization founded by Don Luigi Ciot
     title: 'Commercial Photography',
     category: 'Photography',
     year: '2023',
-    thumbnail: 'https://mir-s3-cdn-cf.behance.net/projects/404/f3e026162745975.Y3JvcCwzODQwLDMwMDMsMCwxMzc4.jpg',
-    images: ['https://mir-s3-cdn-cf.behance.net/projects/404/f3e026162745975.Y3JvcCwzODQwLDMwMDMsMCwxMzc4.jpg'],
+    thumbnail: '',
+    images: [],
     type: 'image',
     description: `**Commercial Photography**
 
@@ -359,10 +359,8 @@ The murals transformed a plain space into a vibrant environment, demonstrating t
     title: 'Where Heart Goes',
     category: 'Illustration',
     year: '2022',
-    thumbnail: 'https://mir-s3-cdn-cf.behance.net/projects/404/6b6d90158301219.Y3JvcCw4MDgsNjMyLDAsMA.png',
-    images: [
-      'https://mir-s3-cdn-cf.behance.net/projects/404/6b6d90158301219.Y3JvcCw4MDgsNjMyLDAsMA.png',
-    ],
+    thumbnail: '',
+    images: [],
     type: 'image',
     description: `**Where Heart Goes - Illustration Series**
 
@@ -383,10 +381,8 @@ Drawing from both psychological research and personal introspection, these illus
     title: 'Poster and Cover Design',
     category: 'Graphic Design',
     year: '2017-2022',
-    thumbnail: 'https://mir-s3-cdn-cf.behance.net/projects/404/d2f3a1103571959.Y3JvcCwxMDgwLDg0NCwwLDA.jpg',
-    images: [
-      'https://mir-s3-cdn-cf.behance.net/projects/404/d2f3a1103571959.Y3JvcCwxMDgwLDg0NCwwLDA.jpg',
-    ],
+    thumbnail: '',
+    images: [],
     type: 'image',
     description: `**Poster and Cover Design Collection**
 

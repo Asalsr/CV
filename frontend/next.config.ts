@@ -18,11 +18,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'mir-s3-cdn-cf.behance.net',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'img.youtube.com',
         pathname: '/**',
       },
