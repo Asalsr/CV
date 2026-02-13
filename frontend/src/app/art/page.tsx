@@ -120,6 +120,15 @@ export default function ArtPortfolio() {
             {t('copyright', { year: new Date().getFullYear() })}
           </p>
           <div className="mt-4 flex justify-center gap-4">
+            <a
+              href="https://www.behance.net/asalsr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
+            >
+              Behance
+            </a>
+            <span className="text-white/20">&bull;</span>
             <Link
               href="/"
               className="text-sm text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"

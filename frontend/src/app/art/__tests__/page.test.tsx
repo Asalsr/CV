@@ -171,6 +171,10 @@ describe('ArtPortfolio Page', () => {
   it('should render footer with copyright and links', () => {
     render(<ArtPortfolio />);
     expect(screen.getByText(/art\.page\.copyright/)).toBeInTheDocument();
+    expect(screen.getByText('Behance')).toHaveAttribute(
+      'href',
+      'https://www.behance.net/asalsr'
+    );
     expect(screen.getByText('art.page.devPortfolio')).toHaveAttribute('href', '/');
   });
 
