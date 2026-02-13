@@ -413,29 +413,29 @@ Each design balances visual impact with clear communication. Typography, imagery
     title: 'Mid Night Sun 2020',
     category: 'Photography',
     year: '2020',
-    thumbnail: `${CL}/d032be244106067.698f8a87ef292_okmift.jpg`,
+    thumbnail: '/art/midnight-sun/1.jpg',
     images: [
-      `${CL}/d032be244106067.698f8a87ef292_okmift.jpg`,
-      `${CL}/1_lkrcfi.jpg`,
-      `${CL}/2_qaagcp.jpg`,
-      `${CL}/2d240f244106067.698f8a88020a9_mrunj4.jpg`,
-      `${CL}/3e3b34244106067.698f8a87f27f8_wpkh1o.jpg`,
-      `${CL}/5c0ded244106067.698f8a8805420_jlnvtl.jpg`,
-      `${CL}/5ccf95244106067.698f8a88136fd_qseytt.jpg`,
-      `${CL}/5ef634244106067.698f8a881170f_bxzywx.jpg`,
-      `${CL}/9ca9f8244106067.698f8a8819289_mkgkfx.jpg`,
-      `${CL}/10bfd6244106067.698f8a880bf23_uufczk.jpg`,
-      `${CL}/45f4c8244106067.698f8a880726b_yxiyxp.jpg`,
-      `${CL}/46cddc244106067.698f8a880a787_e9kvye.jpg`,
-      `${CL}/978813244106067.698f8a880ed06_f2jeq9.jpg`,
-      `${CL}/af327f244106067.698f8a8817153_ne9etd.jpg`,
-      `${CL}/ca130d244106067.698f8a881544b_kbh2qu.jpg`,
-      `${CL}/d65fc8244106067.698f8a881b5bd_qndemr.jpg`,
-      `${CL}/e4818d244106067.698f8a880d648_jmhbuz.jpg`,
-      `${CL}/ec1d63244106067.698f8a8800339_ojjcss.jpg`,
-      `${CL}/efdc2f244106067.698f8a87f0f4d_qbmu9a.jpg`,
-      `${CL}/f1bb53244106067.698f8a880388c_zewkb9.jpg`,
-      `${CL}/f3bfe6244106067.698f8a8808fba_edikuu.jpg`,
+      '/art/midnight-sun/1.jpg',
+      '/art/midnight-sun/2.jpg',
+      '/art/midnight-sun/10bfd6244106067.698f8a880bf23.jpg',
+      '/art/midnight-sun/2d240f244106067.698f8a88020a9.jpg',
+      '/art/midnight-sun/3e3b34244106067.698f8a87f27f8.jpg',
+      '/art/midnight-sun/45f4c8244106067.698f8a880726b.jpg',
+      '/art/midnight-sun/46cddc244106067.698f8a880a787.jpg',
+      '/art/midnight-sun/5c0ded244106067.698f8a8805420.jpg',
+      '/art/midnight-sun/5ccf95244106067.698f8a88136fd.jpg',
+      '/art/midnight-sun/5ef634244106067.698f8a881170f.jpg',
+      '/art/midnight-sun/978813244106067.698f8a880ed06.jpg',
+      '/art/midnight-sun/9ca9f8244106067.698f8a8819289.jpg',
+      '/art/midnight-sun/af327f244106067.698f8a8817153.jpg',
+      '/art/midnight-sun/ca130d244106067.698f8a881544b.jpg',
+      '/art/midnight-sun/d032be244106067.698f8a87ef292.jpg',
+      '/art/midnight-sun/d65fc8244106067.698f8a881b5bd.jpg',
+      '/art/midnight-sun/e4818d244106067.698f8a880d648.jpg',
+      '/art/midnight-sun/ec1d63244106067.698f8a8800339.jpg',
+      '/art/midnight-sun/efdc2f244106067.698f8a87f0f4d.jpg',
+      '/art/midnight-sun/f1bb53244106067.698f8a880388c.jpg',
+      '/art/midnight-sun/f3bfe6244106067.698f8a8808fba.jpg',
     ],
     type: 'image',
     description: `**Mid Night Sun 2020 - Photography Series**
@@ -535,12 +535,12 @@ export const categories: (ArtworkCategory | 'All')[] = [
   'Video',
 ];
 
-export function getRelatedProjects(artwork: Artwork, allArtworks: Artwork[]): Artwork[] {
+export function getRelatedProjects<T extends Artwork>(artwork: T, allArtworks: T[]): T[] {
   // First try explicit related projects
   if (artwork.relatedProjects && artwork.relatedProjects.length > 0) {
     return artwork.relatedProjects
       .map(id => allArtworks.find(a => a.id === id))
-      .filter((a): a is Artwork => a !== undefined)
+      .filter((a): a is T => a !== undefined)
       .slice(0, 3);
   }
 

@@ -115,7 +115,8 @@
       "Bash(du:*)",
       "Bash(powershell -File:*)",
       "WebFetch(domain:localhost)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(npx sharp-cli:*)"
     ]
   }
 }
