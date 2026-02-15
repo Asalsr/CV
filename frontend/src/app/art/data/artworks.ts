@@ -428,20 +428,27 @@ Each design balances visual impact with clear communication. Typography, imagery
       `${CL}/f3bfe6244106067.698f8a8808fba_edikuu.jpg`,
     ],
     type: 'image',
-    description: `**Midnight Sun 2020 - Photography Series**
+    description: `**Il Sole di Mezzanotte / The Midnight Sun**
 
-Capturing the ethereal phenomenon of the midnight sun in northern latitudes.
+I always loved the night so much, there are many reasons but one of the reasons is the shadows, the images become surreal, and we can imagine different things.
 
-**Location**
-Photographed during summer in regions where the sun remains visible at midnight, creating surreal lighting conditions and extended golden hours.
+For me shadows were always very interesting and I also tried to paint them several times. This is a recent work where I tried to paint the shadows.
 
-**Technical Challenges**
-- Exposure management in constant daylight
-- Color temperature variations
-- Capturing the unique atmosphere of perpetual twilight
+I am Saeedeh Sarmadi, a second-year painting student and I am Iranian. We are all in a difficult period, in this particular time like everyone I had a different experience of life, for some people like me it was even harder because not only was I in quarantine but I was also very far from my family and friends.
 
-**Theme**
-The series explores how constant light affects perception of time and space, creating dreamlike landscapes that blur the boundary between day and night.`,
+But it was also a very interesting and powerful experience. In my absolute solitude I began to see things differently.
+
+When I had the idea for these photos we were in difficult times, everyone at home and many of us were alone, the window of my room was the only real connection I had with the world, from this window I could watch people passing by, children playing, people keeping their distance from one another, and the new style of life.
+
+To get through these days I always tried to keep myself busy. During the day the room was bright and the light was always on.
+
+But one afternoon when I was really down with all the lights off, I saw something else, my window was giving me something I hadn't seen until that moment, every afternoon the shadows, the sunlight and the images of the world would enter my room.
+
+My window painted my walls with different shapes. Every afternoon when I turned off the light, my room became my dark room with all the images that were different every time.
+
+And I began to photograph.
+
+All the photos were taken with an iPhone 11 in raw format and edited with Photoshop.`,
     relatedProjects: [1, 6],
   },
   {

@@ -36,7 +36,20 @@ export default function ProjectModal({
   onSelectProject,
 }: ProjectModalProps) {
   const t = useTranslations('art.modal');
+  const tDesc = useTranslations('art.descriptions');
   if (!project) return null;
+
+  // Use translated description if available, otherwise fall back to hardcoded
+  const descriptionKey = String(project.id);
+  let description = project.description;
+  try {
+    const translated = tDesc(descriptionKey);
+    if (translated && translated !== descriptionKey) {
+      description = translated;
+    }
+  } catch {
+    // No translation available, use default
+  }
 
   return (
     <AnimatePresence>
@@ -138,7 +151,7 @@ export default function ProjectModal({
               </div>
 
               {/* Description */}
-              {project.description && (
+              {description && (
                 <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 mb-6">
                   <div className="prose prose-invert prose-sm max-w-none">
                     <ReactMarkdown
@@ -193,7 +206,7 @@ export default function ProjectModal({
                         ),
                       }}
                     >
-                      {project.description}
+                      {description}
                     </ReactMarkdown>
                   </div>
                 </div>
