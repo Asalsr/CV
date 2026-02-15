@@ -81,7 +81,7 @@ export default function HeroSection({
               />
             </svg>
             {/* Paint stroke underline */}
-            <svg className="absolute -bottom-2 left-1/4 w-1/2 h-3" preserveAspectRatio="none">
+            <svg className="absolute -bottom-2 left-1/4 w-1/2 h-3" viewBox="0 0 100 6" preserveAspectRatio="none">
               <motion.path
                 d="M 0,1 Q 25,5 50,1 T 100,1"
                 stroke="var(--golden-yellow)"
