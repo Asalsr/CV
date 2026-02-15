@@ -279,15 +279,16 @@ The brand identity emphasizes authenticity, craftsmanship, and the personal touc
     title: 'Podcast Cover Design',
     category: 'Graphic Design',
     year: '2020-2021',
-    thumbnail: `${CL}/1_xate9z.webp`,
+    thumbnail: `${CL}/PROFILE_r0ukli.webp`,
     images: [
-      `${CL}/1_xate9z.webp`,
-      `${CL}/2_i2tkuh.webp`,
-      `${CL}/Untitled-2_ydjsbv.webp`,
+      `${CL}/PROFILE_r0ukli.webp`,
       `${CL}/blueblue2_zfbgbc.webp`,
       `${CL}/matrix_m8fioq.webp`,
       `${CL}/tars_film1_svkevy.webp`,
-      `${CL}/PROFILE_r0ukli.webp`,
+      `${CL}/1_xate9z.webp`,
+      `${CL}/2_i2tkuh.webp`,
+      `${CL}/Untitled-2_ydjsbv.webp`,
+      
     ],
     type: 'image',
     description: `**Pale Blue Dot Podcast - Cover Design**
