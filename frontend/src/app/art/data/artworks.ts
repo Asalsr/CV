@@ -76,7 +76,6 @@ Mixed media illustrations combining traditional drawing with digital enhancement
       `${CL}/a6_ph6unf.webp`,
       `${CL}/a8_brxuje.webp`,
       `${CL}/a9_sibsyz.webp`,
-      `${CL}/1_hggbwl.webp`,
       `${CL}/IMG_7605_hxc9tf.webp`,
       `${CL}/IMG_7620_l5wib4.webp`,
       `${CL}/IMG_1024_ldtagd.webp`,
@@ -289,7 +288,6 @@ The brand identity emphasizes authenticity, craftsmanship, and the personal touc
       `${CL}/matrix_m8fioq.webp`,
       `${CL}/tars_film1_svkevy.webp`,
       `${CL}/PROFILE_r0ukli.webp`,
-      `${CL}/ترس_tlf9zl.webp`,
     ],
     type: 'image',
     description: `**Pale Blue Dot Podcast - Cover Design**
