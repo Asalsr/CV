@@ -166,7 +166,7 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
               <h3 className="text-lg md:text-xl text-white mb-1 relative inline-block">
                 {item.title}
                 {/* Paint stroke underline */}
-                <svg className="absolute -bottom-1 left-0 w-full h-2" preserveAspectRatio="none">
+                <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 4" preserveAspectRatio="none">
                   <motion.path
                     d="M 0,1 Q 50,3 100,1"
                     stroke="rgba(255,184,0,0.4)"

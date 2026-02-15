@@ -158,7 +158,7 @@ function SkillSection({ title, skills, icon: Icon, gradient, index }: {
         <h3 className="text-xl md:text-2xl text-white relative">
           {title}
           {/* Hand-drawn underline */}
-          <svg className="absolute -bottom-1 left-0 w-full h-2" preserveAspectRatio="none">
+          <svg className="absolute -bottom-1 left-0 w-full h-2" viewBox="0 0 100 4" preserveAspectRatio="none">
             <motion.path
               d="M 0,1 Q 50,3 100,1"
               stroke="rgba(255,184,0,0.5)"
@@ -251,7 +251,7 @@ export function Skills() {
         >
           <h3 className="text-2xl text-center text-white mb-8 relative inline-block left-1/2 -translate-x-1/2">
             Special Focus
-            <svg className="absolute -bottom-2 left-0 w-full h-2" preserveAspectRatio="none">
+            <svg className="absolute -bottom-2 left-0 w-full h-2" viewBox="0 0 100 5" preserveAspectRatio="none">
               <motion.path
                 d="M 0,1 Q 50,4 100,1"
                 stroke="var(--teal)"
