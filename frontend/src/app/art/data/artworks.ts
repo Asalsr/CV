@@ -76,6 +76,7 @@ Mixed media illustrations combining traditional drawing with digital enhancement
       `${CL}/a6_ph6unf.webp`,
       `${CL}/a8_brxuje.webp`,
       `${CL}/a9_sibsyz.webp`,
+      `${CL}/1_hggbwl.webp`,
       `${CL}/IMG_7605_hxc9tf.webp`,
       `${CL}/IMG_7620_l5wib4.webp`,
       `${CL}/IMG_1024_ldtagd.webp`,
@@ -107,7 +108,7 @@ Primarily acrylic on canvas, with some works incorporating mixed media elements.
     title: 'Liberi di Crescere',
     category: 'Workshop/Illustration',
     year: '2023',
-    thumbnail: `${CL}/7_tyf2du.webp`,
+    thumbnail: `${CL}/thumbnail_tx7mwu.webp`,
     images: [
       `${CL}/7_tyf2du.webp`,
       `${CL}/copy_yzjzeb.webp`,
@@ -173,7 +174,7 @@ Clean, professional aesthetic with attention to lighting, composition, and post-
     title: 'Woman Life Liberty',
     category: 'Photography',
     year: '2022-2023',
-    thumbnail: `${CL}/1_r7ays8.webp`,
+    thumbnail: `${CL}/thumbnail_wwrvt2.jpg`,
     images: [
       `${CL}/1_r7ays8.webp`,
       `${CL}/443A4611_shddzh.webp`,
@@ -253,7 +254,7 @@ Aligned with Goals 3, 6, 12, 13, 14, and 15 — addressing health, clean water, 
     title: 'Craftswomenship',
     category: 'Graphic Design',
     year: '2022',
-    thumbnail: `${CL}/1-logo_onwzki.webp`,
+    thumbnail: `${CL}/thumbnail_ome7up.webp`,
     images: [
       `${CL}/1-logo_onwzki.webp`,
       `${CL}/business-card-2_cgkq49.webp`,
@@ -279,7 +280,7 @@ The brand identity emphasizes authenticity, craftsmanship, and the personal touc
     title: 'Podcast Cover Design',
     category: 'Graphic Design',
     year: '2020-2021',
-    thumbnail: `${CL}/1_xate9z.webp`,
+    thumbnail: `${CL}/thumbnail_odz1ye.webp`,
     images: [
       `${CL}/1_xate9z.webp`,
       `${CL}/2_i2tkuh.webp`,
@@ -288,6 +289,7 @@ The brand identity emphasizes authenticity, craftsmanship, and the personal touc
       `${CL}/matrix_m8fioq.webp`,
       `${CL}/tars_film1_svkevy.webp`,
       `${CL}/PROFILE_r0ukli.webp`,
+      `${CL}/ترس_tlf9zl.webp`,
     ],
     type: 'image',
     description: `**Pale Blue Dot Podcast - Cover Design**
@@ -312,7 +314,7 @@ The cover designs capture the essence of curiosity and cosmic wonder that define
     title: 'Mural Painting',
     category: 'Mural Art',
     year: '2017',
-    thumbnail: `${CL}/mural_uohos2.webp`,
+    thumbnail: `${CL}/thumbnail_yegxcu.webp`,
     images: [
       `${CL}/mural_uohos2.webp`,
       `${CL}/mural-2_uoxwli.webp`,
