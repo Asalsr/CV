@@ -107,7 +107,7 @@ Primarily acrylic on canvas, with some works incorporating mixed media elements.
     title: 'Liberi di Crescere',
     category: 'Workshop/Illustration',
     year: '2023',
-    thumbnail: `${CL}/thumbnail_tx7mwu.webp`,
+    thumbnail: `${CL}/7_tyf2du.webp`,
     images: [
       `${CL}/7_tyf2du.webp`,
       `${CL}/copy_yzjzeb.webp`,
@@ -173,7 +173,7 @@ Clean, professional aesthetic with attention to lighting, composition, and post-
     title: 'Woman Life Liberty',
     category: 'Photography',
     year: '2022-2023',
-    thumbnail: `${CL}/thumbnail_wwrvt2.jpg`,
+    thumbnail: `${CL}/1_r7ays8.webp`,
     images: [
       `${CL}/1_r7ays8.webp`,
       `${CL}/443A4611_shddzh.webp`,
@@ -253,7 +253,7 @@ Aligned with Goals 3, 6, 12, 13, 14, and 15 — addressing health, clean water, 
     title: 'Craftswomenship',
     category: 'Graphic Design',
     year: '2022',
-    thumbnail: `${CL}/thumbnail_ome7up.webp`,
+    thumbnail: `${CL}/1-logo_onwzki.webp`,
     images: [
       `${CL}/1-logo_onwzki.webp`,
       `${CL}/business-card-2_cgkq49.webp`,
@@ -279,7 +279,7 @@ The brand identity emphasizes authenticity, craftsmanship, and the personal touc
     title: 'Podcast Cover Design',
     category: 'Graphic Design',
     year: '2020-2021',
-    thumbnail: `${CL}/thumbnail_odz1ye.webp`,
+    thumbnail: `${CL}/PROFILE_r0ukli.webp`,
     images: [
       `${CL}/PROFILE_r0ukli.webp`,
       `${CL}/blueblue2_zfbgbc.webp`,
@@ -313,7 +313,7 @@ The cover designs capture the essence of curiosity and cosmic wonder that define
     title: 'Mural Painting',
     category: 'Mural Art',
     year: '2017',
-    thumbnail: `${CL}/thumbnail_yegxcu.webp`,
+    thumbnail: `${CL}/mural_uohos2.webp`,
     images: [
       `${CL}/mural_uohos2.webp`,
       `${CL}/mural-2_uoxwli.webp`,
