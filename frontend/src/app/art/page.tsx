@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
@@ -25,6 +25,7 @@ export default function ArtPortfolio() {
   const { artworks: validatedArtworks, isValidating } = useValidatedArtworks(artworks);
   const [selectedCategory, setSelectedCategory] = useState<ArtworkCategory | 'All'>('All');
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
+  const projectGridRef = useRef<HTMLDivElement>(null);
 
   const {
     isOpen,
@@ -50,6 +51,7 @@ export default function ArtPortfolio() {
     setSelectedYear(year);
     if (year !== null) {
       setSelectedCategory('All');
+      projectGridRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -98,13 +100,15 @@ export default function ArtPortfolio() {
 
       <SectionDivider variant="wave" color1="#5B8DEF" color2="#FFB800" />
 
-      <ProjectGrid
-        artworks={validatedArtworks}
-        isValidating={isValidating}
-        categoryFilter={selectedCategory}
-        yearFilter={selectedYear}
-        onProjectClick={openProject}
-      />
+      <div ref={projectGridRef}>
+        <ProjectGrid
+          artworks={validatedArtworks}
+          isValidating={isValidating}
+          categoryFilter={selectedCategory}
+          yearFilter={selectedYear}
+          onProjectClick={openProject}
+        />
+      </div>
 
       <SectionDivider variant="curve" color1="#0EA5E9" color2="#FF6B35" />
 
