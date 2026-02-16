@@ -67,13 +67,6 @@ export function Footer() {
             </a>
             <span className="text-white/20">&bull;</span>
             <a
-              href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/art`}
-              className="text-[var(--persian-blue)] hover:underline transition-colors"
-            >
-              Art Portfolio
-            </a>
-            <span className="text-white/20">&bull;</span>
-            <a
               href="https://res.cloudinary.com/dvtsn17rp/image/upload/cv/CV_Saeedeh_Sarmadi.pdf"
               download
               className="text-[var(--persian-blue)] hover:underline transition-colors"
