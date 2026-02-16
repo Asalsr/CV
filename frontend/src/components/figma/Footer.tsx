@@ -21,7 +21,7 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <motion.a
-              href="https://res.cloudinary.com/dvtsn17rp/image/upload/CV/CV_Saeedeh_Sarmadi.pdf"
+              href="https://res.cloudinary.com/dvtsn17rp/image/upload/CV_Saeedeh_Sarmadi_sit1uq.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download
