@@ -78,7 +78,7 @@ export function Footer() {
             </a>
             <span className="text-white/20">&bull;</span>
             <a
-              href="https://res.cloudinary.com/dvtsn17rp/image/upload/cv/CV_Saeedeh_Sarmadi.pdf"
+              href="https://res.cloudinary.com/dvtsn17rp/image/upload/CV_Saeedeh_Sarmadi_sit1uq.pdf"
               download
               className="text-[var(--persian-blue)] hover:underline transition-colors"
             >
