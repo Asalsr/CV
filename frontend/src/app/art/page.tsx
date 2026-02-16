@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { useRef, useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { ArrowLeft, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
@@ -18,6 +19,31 @@ import ProjectModal from './components/ProjectModal';
 import InteractiveTimeline from './components/InteractiveTimeline';
 import { useProjectModal } from './hooks/useProjectModal';
 import { useValidatedArtworks } from './hooks/useValidatedArtworks';
+
+/** Reads ?project= query param and auto-opens the matching modal */
+function ProjectAutoOpener({
+  artworks: validatedArtworks,
+  openProject,
+  isOpen,
+}: {
+  artworks: import('./types/artwork').ValidatedArtwork[];
+  openProject: (p: import('./types/artwork').ValidatedArtwork) => void;
+  isOpen: boolean;
+}) {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const projectId = searchParams.get('project');
+    if (projectId && validatedArtworks.length > 0 && !isOpen) {
+      const project = validatedArtworks.find((a) => a.id === Number(projectId));
+      if (project) {
+        openProject(project);
+      }
+    }
+  }, [searchParams, validatedArtworks]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return null;
+}
 
 export default function ArtPortfolio() {
   const t = useTranslations('art.page');
@@ -119,31 +145,47 @@ export default function ArtPortfolio() {
       />
 
       <footer className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-300 dark:text-gray-400">
-            {t('copyright', { year: new Date().getFullYear() })}
+        <div className="max-w-7xl mx-auto text-center text-gray-300 dark:text-gray-400">
+          <p className="flex items-center justify-center gap-2">
+            Designed &amp; Built with <Heart className="w-4 h-4 text-[var(--sunset-orange)]" fill="currentColor" /> by Saeedeh Sarmadi &copy; 2026
           </p>
-          <div className="mt-4 flex justify-center gap-4">
+          <div className="mt-2 flex items-center justify-center gap-2 text-sm">
             <a
               href="https://www.behance.net/asalsr"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
+              className="text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
             >
               Behance
             </a>
             <span className="text-white/20">&bull;</span>
             <Link
               href="/"
-              className="text-sm text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
+              className="text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
             >
               {t('devPortfolio')}
             </Link>
+            <span className="text-white/20">&bull;</span>
+            <a
+              href="https://res.cloudinary.com/dvtsn17rp/image/upload/cv/CV_Saeedeh_Sarmadi.pdf"
+              download
+              className="text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
+            >
+              {t('downloadCv')}
+            </a>
           </div>
         </div>
       </footer>
 
       <ThemeModeToggle />
+
+      <Suspense fallback={null}>
+        <ProjectAutoOpener
+          artworks={validatedArtworks}
+          openProject={openProject}
+          isOpen={isOpen}
+        />
+      </Suspense>
 
       <ProjectModal
         isOpen={isOpen}

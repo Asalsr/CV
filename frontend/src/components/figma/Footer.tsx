@@ -67,7 +67,24 @@ export function Footer() {
           <p className="flex items-center justify-center gap-2">
             Designed &amp; Built with <Heart className="w-4 h-4 text-[var(--sunset-orange)]" fill="currentColor" /> by Saeedeh Sarmadi &copy; 2026
           </p>
-          <p className="text-sm mt-2">{t('location')}</p>
+          <div className="mt-2 flex items-center justify-center gap-2 text-sm">
+            <a
+              href="https://www.behance.net/asalsr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--persian-blue)] hover:underline transition-colors"
+            >
+              Behance
+            </a>
+            <span className="text-white/20">&bull;</span>
+            <a
+              href="https://res.cloudinary.com/dvtsn17rp/image/upload/cv/CV_Saeedeh_Sarmadi.pdf"
+              download
+              className="text-[var(--persian-blue)] hover:underline transition-colors"
+            >
+              {t('downloadCv')}
+            </a>
+          </div>
         </div>
       </div>
     </footer>

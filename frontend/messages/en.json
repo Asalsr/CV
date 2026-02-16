@@ -115,14 +115,15 @@
     "connectTitle": "Let's Connect",
     "connectSubtitle": "Open to new opportunities and collaborations",
     "copyright": "Designed & Built with <heart></heart> by Saeedeh Sarmadi © 2026",
-    "location": "Gothenburg, Sweden"
+    "downloadCv": "Download my CV"
   },
   "art": {
     "page": {
       "back": "Back",
       "title": "Art Portfolio",
       "copyright": "\u00a9 {year} Saeedeh Sarmadi. All rights reserved.",
-      "devPortfolio": "Developer Portfolio"
+      "devPortfolio": "Developer Portfolio",
+      "downloadCv": "Download my CV"
     },
     "hero": {
       "headingWhite": "My Artistic",

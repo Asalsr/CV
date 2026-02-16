@@ -115,14 +115,15 @@
     "connectTitle": "ارتباط با من",
     "connectSubtitle": "آماده فرصت‌ها و همکاری‌های جدید",
     "copyright": "طراحی و ساخت با <heart></heart> توسط سعیده سرمدی © ۲۰۲۶",
-    "location": "یوتبری، سوئد"
+    "downloadCv": "دانلود رزومه من"
   },
   "art": {
     "page": {
       "back": "بازگشت",
       "title": "پورتفولیوی هنری",
       "copyright": "\u00a9 {year} سعیده سرمدی. تمامی حقوق محفوظ است.",
-      "devPortfolio": "پورتفولیوی توسعه‌دهنده"
+      "devPortfolio": "پورتفولیوی توسعه‌دهنده",
+      "downloadCv": "دانلود رزومه من"
     },
     "hero": {
       "headingWhite": "سفر هنری",

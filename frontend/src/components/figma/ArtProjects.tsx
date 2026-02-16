@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Palette, Users, Sparkles } from 'lucide-react';
+import { Palette, Users, Sparkles, ExternalLink } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 interface ArtProject {
@@ -13,6 +13,7 @@ interface ArtProject {
   icon: typeof Palette;
   color: string;
   sketch: 'wave' | 'heart' | 'star';
+  artworkId: number;
 }
 
 // Project data is defined inside ArtProjects() with i18n translations
@@ -86,19 +87,21 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const Icon = project.icon;
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
-  const SketchComponent = 
+  const SketchComponent =
     project.sketch === 'wave' ? SketchWave :
     project.sketch === 'heart' ? SketchHeart :
     SketchStar;
 
   return (
-    <motion.div
+    <motion.a
+      href={`${basePath}/art?project=${project.artworkId}`}
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      className="relative group"
+      className="relative group cursor-pointer"
     >
       <div className="bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-white/10 dark:border-white/20 rounded-2xl p-4 md:p-6 hover:border-[var(--persian-blue)]/30 transition-all h-full relative overflow-hidden">
         {/* Hand-drawn sketch border */}
@@ -170,12 +173,14 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
         {/* Decorative sketch element */}
         <SketchComponent />
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
 export function ArtProjects() {
   const t = useTranslations('artProjects');
+
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   const projects = [
     {
@@ -186,6 +191,7 @@ export function ArtProjects() {
       icon: Palette,
       color: 'from-[var(--persian-blue)] to-[var(--teal)]',
       sketch: 'wave' as const,
+      artworkId: 7,
     },
     {
       title: t('womenLifeFreedom.title'),
@@ -195,6 +201,7 @@ export function ArtProjects() {
       icon: Users,
       color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]',
       sketch: 'heart' as const,
+      artworkId: 16,
     },
     {
       title: t('illustrationWorkshops.title'),
@@ -204,6 +211,7 @@ export function ArtProjects() {
       icon: Sparkles,
       color: 'from-[var(--golden-yellow)] to-[var(--sunset-orange)]',
       sketch: 'star' as const,
+      artworkId: 4,
     }
   ];
 
@@ -218,9 +226,11 @@ export function ArtProjects() {
           className="text-center mb-12 md:mb-16"
         >
           <div className="relative inline-block">
-            <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--sunset-orange)] via-[var(--golden-yellow)] to-[var(--persian-blue)] bg-clip-text text-transparent">
-              Artistic Projects
-            </h2>
+            <a href={`${basePath}/art`} className="hover:opacity-80 transition-opacity">
+              <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--sunset-orange)] via-[var(--golden-yellow)] to-[var(--persian-blue)] bg-clip-text text-transparent">
+                Artistic Projects
+              </h2>
+            </a>
             {/* Hand-drawn sketch decoration */}
             <motion.svg 
               className="absolute -right-16 top-0 w-16 h-16 hidden lg:block"
@@ -252,28 +262,24 @@ export function ArtProjects() {
           ))}
         </div>
 
-        {/* Hand-drawn doodles decoration at bottom */}
-        <div className="mt-16 relative">
-          <svg className="w-full h-24 opacity-10">
-            <motion.path
-              d="M 0,40 Q 100,20 200,40 T 400,40 T 600,40 T 800,40 T 1000,40 T 1200,40"
-              stroke="url(#art-gradient)"
-              strokeWidth="2"
-              fill="none"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 3 }}
-            />
-            <defs>
-              <linearGradient id="art-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="var(--sunset-orange)" />
-                <stop offset="50%" stopColor="var(--golden-yellow)" />
-                <stop offset="100%" stopColor="var(--persian-blue)" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        {/* Explore My Artistic Side CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-10 md:mt-14 text-center"
+        >
+          <motion.a
+            href={`${basePath}/art`}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--sunset-orange)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all"
+          >
+            Explore My Artistic Side
+            <ExternalLink className="w-5 h-5" />
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

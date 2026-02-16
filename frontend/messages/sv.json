@@ -115,14 +115,15 @@
     "connectTitle": "Kontakta mig",
     "connectSubtitle": "Öppen för nya möjligheter och samarbeten",
     "copyright": "Designad & byggd med <heart></heart> av Saeedeh Sarmadi © 2026",
-    "location": "Göteborg, Sverige"
+    "downloadCv": "Ladda ner mitt CV"
   },
   "art": {
     "page": {
       "back": "Tillbaka",
       "title": "Konstportfolio",
       "copyright": "\u00a9 {year} Saeedeh Sarmadi. Alla rättigheter förbehållna.",
-      "devPortfolio": "Utvecklarportfolio"
+      "devPortfolio": "Utvecklarportfolio",
+      "downloadCv": "Ladda ner mitt CV"
     },
     "hero": {
       "headingWhite": "Min konstnärliga",
