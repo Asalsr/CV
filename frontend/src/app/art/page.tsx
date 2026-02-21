@@ -47,6 +47,7 @@ function ProjectAutoOpener({
 
 export default function ArtPortfolio() {
   const t = useTranslations('art.page');
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   useAppSelector((state) => state.theme);
   const { artworks: validatedArtworks, isValidating } = useValidatedArtworks(artworks);
   const [selectedCategory, setSelectedCategory] = useState<ArtworkCategory | 'All'>('All');
@@ -167,7 +168,7 @@ export default function ArtPortfolio() {
             </Link>
             <span className="text-white/20">&bull;</span>
             <a
-              href="/CV-Saeedeh-Sarmadi.pdf"
+              href={`${basePath}/CV-Saeedeh-Sarmadi.pdf`}
               download
               className="text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
             >

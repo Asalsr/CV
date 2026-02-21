@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 
 export function Footer() {
   const t = useTranslations('footer');
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   return (
     <footer id="contact" className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
       <div className="max-w-6xl mx-auto">
@@ -21,7 +22,7 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <motion.a
-              href="/CV-Saeedeh-Sarmadi.pdf"
+              href={`${basePath}/CV-Saeedeh-Sarmadi.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               download
@@ -78,7 +79,7 @@ export function Footer() {
             </a>
             <span className="text-white/20">&bull;</span>
             <a
-              href="/CV-Saeedeh-Sarmadi.pdf"
+              href={`${basePath}/CV-Saeedeh-Sarmadi.pdf`}
               download
               className="text-[var(--persian-blue)] hover:underline transition-colors"
             >
