@@ -167,7 +167,7 @@ export default function ArtPortfolio() {
             </Link>
             <span className="text-white/20">&bull;</span>
             <a
-              href="/CV Saeedeh Sarmadi.pdf"
+              href="/CV-Saeedeh-Sarmadi.pdf"
               download
               className="text-[#5B8DEF] dark:text-[#7BA8F5] hover:underline transition-colors"
             >
