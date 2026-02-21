@@ -1,12 +1,21 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, FileDown, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, FileDown, Heart, Check } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export function Footer() {
   const t = useTranslations('footer');
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const [copied, setCopied] = useState(false);
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('Saeedeh.sarmadi89@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <footer id="contact" className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
       <div className="max-w-6xl mx-auto">
@@ -15,9 +24,9 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-white text-xl mb-2">Let&apos;s Connect</h4>
             <p className="text-gray-300 dark:text-gray-400 mb-2">Open to new opportunities and collaborations</p>
-            <a href="mailto:Saeedeh.sarmadi89@gmail.com" className="text-[var(--persian-blue)] hover:text-[var(--persian-blue-dark)]">
-              Saeedeh.sarmadi89@gmail.com
-            </a>
+            <button onClick={copyEmail} className="text-[var(--persian-blue)] hover:text-[var(--persian-blue-dark)] cursor-pointer transition-colors">
+              {copied ? 'Copied!' : 'Saeedeh.sarmadi89@gmail.com'}
+            </button>
           </div>
 
           <div className="flex items-center gap-4">
@@ -50,16 +59,14 @@ export function Footer() {
             >
               <Linkedin className="w-6 h-6" />
             </motion.a>
-            {/* <motion.a
+            <motion.a
               href="mailto:Saeedeh.sarmadi89@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
               aria-label="Email"
               whileHover={{ scale: 1.1, y: -2 }}
               className="p-3 bg-white/5 dark:bg-white/10 hover:bg-white/10 dark:hover:bg-white/15 rounded-lg border border-white/10 dark:border-white/20 text-gray-300 hover:text-white transition-all"
             >
               <Mail className="w-6 h-6" />
-            </motion.a> */}
+            </motion.a>
           </div>
         </div>
 
