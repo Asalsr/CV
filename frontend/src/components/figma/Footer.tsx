@@ -42,7 +42,7 @@ export function Footer() {
               <Github className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/saeedeh-asal-sarmadi"
+              href="https://www.linkedin.com/in/saeedeh-asal-sarmadi-08648155/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
@@ -50,7 +50,7 @@ export function Footer() {
             >
               <Linkedin className="w-6 h-6" />
             </motion.a>
-            <motion.a
+            {/* <motion.a
               href="mailto:Saeedeh.sarmadi89@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -59,7 +59,7 @@ export function Footer() {
               className="p-3 bg-white/5 dark:bg-white/10 hover:bg-white/10 dark:hover:bg-white/15 rounded-lg border border-white/10 dark:border-white/20 text-gray-300 hover:text-white transition-all"
             >
               <Mail className="w-6 h-6" />
-            </motion.a>
+            </motion.a> */}
           </div>
         </div>
 

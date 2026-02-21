@@ -52,7 +52,7 @@ describe('Footer Component', () => {
     expect(githubLink).toHaveAttribute('target', '_blank');
 
     const linkedinLink = screen.getByTestId('icon-linkedin').closest('a');
-    expect(linkedinLink).toHaveAttribute('href', 'https://www.linkedin.com/in/saeedeh-asal-sarmadi');
+    expect(linkedinLink).toHaveAttribute('href', 'https://www.linkedin.com/in/saeedeh-asal-sarmadi-08648155/');
     expect(linkedinLink).toHaveAttribute('target', '_blank');
   });
 
