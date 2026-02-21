@@ -21,7 +21,7 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             <motion.a
-              href="https://res.cloudinary.com/dvtsn17rp/image/upload/CV_Saeedeh_Sarmadi_sit1uq.pdf"
+              href="/CV Saeedeh Sarmadi.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download
@@ -78,7 +78,7 @@ export function Footer() {
             </a>
             <span className="text-white/20">&bull;</span>
             <a
-              href="https://res.cloudinary.com/dvtsn17rp/image/upload/CV_Saeedeh_Sarmadi_sit1uq.pdf"
+              href="/CV Saeedeh Sarmadi.pdf"
               download
               className="text-[var(--persian-blue)] hover:underline transition-colors"
             >
