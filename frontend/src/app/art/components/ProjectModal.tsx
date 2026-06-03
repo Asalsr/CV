@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useMessages } from 'next-intl';
 import { ValidatedArtwork } from '../types/artwork';
 import ImageGallery from './ImageGallery';
 import RelatedProjects from './RelatedProjects';
@@ -36,20 +36,11 @@ export default function ProjectModal({
   onSelectProject,
 }: ProjectModalProps) {
   const t = useTranslations('art.modal');
-  const tDesc = useTranslations('art.descriptions');
+  const messages = useMessages() as { art?: { descriptions?: Record<string, string> } };
   if (!project) return null;
 
-  // Use translated description if available, otherwise fall back to hardcoded
-  const descriptionKey = String(project.id);
-  let description = project.description;
-  try {
-    const translated = tDesc(descriptionKey);
-    if (translated && translated !== descriptionKey) {
-      description = translated;
-    }
-  } catch {
-    // No translation available, use default
-  }
+  const translatedDescription = messages?.art?.descriptions?.[String(project.id)];
+  const description = translatedDescription || project.description;
 
   return (
     <AnimatePresence>
