@@ -35,6 +35,7 @@ const projects: CodeProject[] = [
     title: 'Relay',
     year: '2026',
     subtitle: 'Cross-border freelancer client app',
+    link: { label: 'github.com/Asalsr/relay', href: 'https://github.com/Asalsr/relay' },
     highlights: [
       'Expo + Supabase + Stripe mobile app',
       'Stripe-integrated invoicing & payments',
