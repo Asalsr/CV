@@ -41,7 +41,8 @@ describe('Roadmap Component', () => {
 
   it('should render all job titles', () => {
     render(<Roadmap />);
-    expect(screen.getAllByText('Agentic Developer Intern').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Freelance Full-Stack Developer').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Agentic Developer').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Full-Stack Developer & Systems Analyst').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Front-End Development Intern').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Software Engineer & Creative Designer').length).toBeGreaterThan(0);
@@ -62,6 +63,7 @@ describe('Roadmap Component', () => {
 
   it('should render year ranges', () => {
     render(<Roadmap />);
+    expect(screen.getAllByText('2026 - Present').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Dec 2025 - Present').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Jun 2024 - Oct 2025').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Sep 2023 - May 2024').length).toBeGreaterThan(0);
@@ -73,24 +75,25 @@ describe('Roadmap Component', () => {
 
   it('should render highlights for jobs that have them', () => {
     render(<Roadmap />);
-    // Job 1 highlights
-    expect(screen.getAllByText('Agent-First Development with AI').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('Data models, APIs & automation workflows').length).toBeGreaterThan(0);
-    // Job 2 highlights
+    // Freelance highlights
+    expect(screen.getAllByText('Full-stack Next.js + Supabase products').length).toBeGreaterThan(0);
+    // SISP highlights
+    expect(screen.getAllByText('Agent-first development workflow').length).toBeGreaterThan(0);
+    // RADA highlights
     expect(screen.getAllByText('React migration (20+ modules)').length).toBeGreaterThan(0);
     expect(screen.getAllByText('AG Grid implementation (150k+ rows)').length).toBeGreaterThan(0);
-    // Job 3 highlights (new)
+    // Liquido highlights
     expect(screen.getAllByText('Responsive websites & web applications').length).toBeGreaterThan(0);
-    // Job 4 highlights (new)
+    // DYS highlights
     expect(screen.getAllByText('Co-developed internal social-media platform').length).toBeGreaterThan(0);
-    // Job 6 highlights (certifications)
+    // Certifications
     expect(screen.getAllByText('IBM – Developing Front-End Apps with React').length).toBeGreaterThan(0);
   });
 
-  it('should render all 7 roadmap entries', () => {
+  it('should render all 8 roadmap entries', () => {
     render(<Roadmap />);
-    // Verify all 7 entries are present by checking their unique titles
-    expect(screen.getAllByText('Agentic Developer Intern').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Freelance Full-Stack Developer').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Agentic Developer').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Full-Stack Developer & Systems Analyst').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Front-End Development Intern').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Professional Certifications').length).toBeGreaterThan(0);

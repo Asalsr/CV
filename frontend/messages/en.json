@@ -14,15 +14,25 @@
   "roadmap": {
     "heading": "My Journey",
     "subtitle": "A roadmap of growth and innovation",
+    "job0": {
+      "year": "2026 - Present",
+      "title": "Freelance Full-Stack Developer",
+      "company": "Self-employed (enskild firma), Gothenburg",
+      "description": "Building production web apps, full-stack products, and e-commerce for clients in Sweden and abroad. Next.js/React, Supabase, WordPress/WooCommerce, and AI-assisted delivery.",
+      "h1": "Full-stack Next.js + Supabase products",
+      "h2": "React & Next.js client builds",
+      "h3": "WordPress + WooCommerce stores (Printify)",
+      "h4": "AI-assisted, end-to-end delivery"
+    },
     "job1": {
       "year": "Dec 2025 - Present",
-      "title": "Agentic Developer Intern",
-      "company": "Sweden Startup Nation (SISP), Sweden",
-      "description": "Collaborating with AI agents in coding, testing, and deploying platform features for the Swedish Startup Nation Data Platform.",
-      "h1": "Agent-First Development with AI",
-      "h2": "Data-Web Platform contribution",
-      "h3": "Dashboards and Admin Tools",
-      "h4": "Data models, APIs & automation workflows"
+      "title": "Agentic Developer",
+      "company": "Sweden Startup Nation (SISP), Gothenburg",
+      "description": "Building Sweden Startup Next, a national data platform for the Swedish startup ecosystem, working across database and full stack with AI agents in the development loop.",
+      "h1": "Sweden Startup Next platform (live at swedenstartupnext.se)",
+      "h2": "Agent-first development workflow",
+      "h3": "Dashboards & admin tools",
+      "h4": "Data models, APIs & automation"
     },
     "job2": {
       "year": "Jun 2024 - Oct 2025",

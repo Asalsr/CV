@@ -13,31 +13,31 @@ interface Skill {
 }
 
 const uxuiSkills: Skill[] = [
-  { name: 'Figma', level: 60, icon: Figma, color: 'bg-[var(--persian-blue)]' },
-  { name: 'UI/UX Design', level: 60, icon: Palette, color: 'bg-[var(--sunset-orange)]' },
-  { name: 'Photoshop & Illustrator', level: 80, icon: Palette, color: 'bg-[var(--teal)]' },
-  { name: 'InDesign', level: 40, icon: Palette, color: 'bg-[var(--golden-yellow)]' }
+  { name: 'Figma', level: 70, icon: Figma, color: 'bg-[var(--persian-blue)]' },
+  { name: 'UI/UX Design', level: 75, icon: Palette, color: 'bg-[var(--sunset-orange)]' },
+  { name: 'Photoshop & Illustrator', level: 85, icon: Palette, color: 'bg-[var(--teal)]' },
+  { name: 'WordPress + WooCommerce', level: 80, icon: Palette, color: 'bg-[var(--golden-yellow)]' }
 ];
 
 const frontendSkills: Skill[] = [
-  { name: 'React (JS/TS)', level: 70, icon: Code2, color: 'bg-[var(--persian-blue)]' },
-  { name: 'Redux & React Query', level: 70, icon: Code2, color: 'bg-[var(--persian-blue-light)]' },
-  { name: 'AG Grid & Material UI', level: 70, icon: Code2, color: 'bg-[var(--teal)]' },
-  { name: 'HTML5/CSS3', level: 75, icon: Code2, color: 'bg-[var(--sunset-orange)]' }
+  { name: 'Next.js & React (TS)', level: 95, icon: Code2, color: 'bg-[var(--persian-blue)]' },
+  { name: 'React Native / Expo', level: 65, icon: Code2, color: 'bg-[var(--persian-blue-light)]' },
+  { name: 'Redux & React Query', level: 85, icon: Code2, color: 'bg-[var(--teal)]' },
+  { name: 'HTML5/CSS3 & Tailwind', level: 90, icon: Code2, color: 'bg-[var(--sunset-orange)]' }
 ];
 
 const backendSkills: Skill[] = [
-  { name: '.NET Core (C#)', level: 50, icon: Database, color: 'bg-[var(--teal)]' },
-  { name: 'RESTful APIs & GraphQL', level: 50, icon: Database, color: 'bg-[var(--persian-blue)]' },
-  { name: 'SQL/PL-SQL & MongoDB', level: 45, icon: Database, color: 'bg-[var(--persian-blue-light)]' },
-  { name: 'Microservices', level: 50, icon: Cpu, color: 'bg-[var(--golden-yellow)]' }
+  { name: 'Supabase (PostgreSQL + RLS)', level: 80, icon: Database, color: 'bg-[var(--teal)]' },
+  { name: '.NET Core (C#)', level: 55, icon: Database, color: 'bg-[var(--persian-blue)]' },
+  { name: 'RESTful APIs & GraphQL', level: 70, icon: Database, color: 'bg-[var(--persian-blue-light)]' },
+  { name: 'SQL & MongoDB', level: 65, icon: Cpu, color: 'bg-[var(--golden-yellow)]' }
 ];
 
 const devopsSkills: Skill[] = [
   { name: 'Docker & Kubernetes', level: 55, icon: Cloud, color: 'bg-[var(--persian-blue)]' },
-  { name: 'AWS & Azure', level: 40, icon: Cloud, color: 'bg-[var(--sunset-orange)]' },
-  { name: 'CI/CD & GitHub Actions', level: 75, icon: Cloud, color: 'bg-[var(--teal)]' },
-  { name: 'Git & Bash', level: 70, icon: Code2, color: 'bg-[var(--persian-blue-light)]' }
+  { name: 'AWS & Azure', level: 45, icon: Cloud, color: 'bg-[var(--sunset-orange)]' },
+  { name: 'CI/CD & GitHub Actions', level: 80, icon: Cloud, color: 'bg-[var(--teal)]' },
+  { name: 'Git & Bash', level: 80, icon: Code2, color: 'bg-[var(--persian-blue-light)]' }
 ];
 
 function SkillBar({ skill, index }: { skill: Skill; index: number }) {
@@ -280,8 +280,8 @@ export function Skills() {
                 />
               </svg>
               <div className="text-4xl mb-2">🤖</div>
-              <h4 className="text-white mb-2">AI &amp; LLM Apps</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">Building intelligent applications with OpenAI APIs</p>
+              <h4 className="text-white mb-2">Agentic / AI-Assisted Dev</h4>
+              <p className="text-gray-300 dark:text-gray-400 text-sm">End-to-end delivery with AI agents in the dev loop</p>
             </div>
             <div className="bg-gradient-to-br from-[var(--golden-yellow)]/10 to-[var(--amber)]/10 border border-[var(--golden-yellow)]/20 rounded-xl p-6 text-center relative overflow-hidden">
               <svg className="absolute top-2 right-2 w-8 h-8 opacity-20">

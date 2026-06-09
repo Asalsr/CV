@@ -45,24 +45,25 @@ describe('Skills Component', () => {
 
   it('should render UI/UX skills', () => {
     render(<Skills />);
-    // "Figma" appears as both skill name and icon mock text
     expect(screen.getAllByText('Figma').length).toBeGreaterThan(0);
     expect(screen.getByText('Photoshop & Illustrator')).toBeInTheDocument();
-    expect(screen.getByText('InDesign')).toBeInTheDocument();
+    expect(screen.getByText('WordPress + WooCommerce')).toBeInTheDocument();
   });
 
   it('should render front-end skills', () => {
     render(<Skills />);
-    expect(screen.getByText('React (JS/TS)')).toBeInTheDocument();
+    expect(screen.getByText('Next.js & React (TS)')).toBeInTheDocument();
+    expect(screen.getByText('React Native / Expo')).toBeInTheDocument();
     expect(screen.getByText('Redux & React Query')).toBeInTheDocument();
-    expect(screen.getByText('HTML5/CSS3')).toBeInTheDocument();
+    expect(screen.getByText('HTML5/CSS3 & Tailwind')).toBeInTheDocument();
   });
 
   it('should render back-end skills', () => {
     render(<Skills />);
+    expect(screen.getByText('Supabase (PostgreSQL + RLS)')).toBeInTheDocument();
     expect(screen.getByText('.NET Core (C#)')).toBeInTheDocument();
     expect(screen.getByText('RESTful APIs & GraphQL')).toBeInTheDocument();
-    expect(screen.getByText('SQL/PL-SQL & MongoDB')).toBeInTheDocument();
+    expect(screen.getByText('SQL & MongoDB')).toBeInTheDocument();
   });
 
   it('should render devops skills', () => {
@@ -74,15 +75,14 @@ describe('Skills Component', () => {
 
   it('should render skill percentages', () => {
     render(<Skills />);
-    // 95% appears twice (Figma and React), 98% once (Photoshop)
     expect(screen.getAllByText('95%').length).toBeGreaterThan(0);
-    expect(screen.getByText('98%')).toBeInTheDocument();
+    expect(screen.getAllByText('90%').length).toBeGreaterThan(0);
   });
 
   it('should render special focus areas', () => {
     render(<Skills />);
     expect(screen.getByText('Special Focus')).toBeInTheDocument();
-    expect(screen.getAllByText(/AI/).length).toBeGreaterThan(0);
+    expect(screen.getByText('Agentic / AI-Assisted Dev')).toBeInTheDocument();
     expect(screen.getByText('Performance')).toBeInTheDocument();
     expect(screen.getByText('Serverless')).toBeInTheDocument();
     expect(screen.getByText('Design Systems')).toBeInTheDocument();

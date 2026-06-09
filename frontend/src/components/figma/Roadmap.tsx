@@ -16,19 +16,34 @@ interface RoadmapItem {
 
 const roadmapData: RoadmapItem[] = [
   {
-    year: 'Dec 2025 - Present',
-    title: 'Agentic Developer Intern',
-    company: 'Sweden Startup Nation (SISP), Sweden',
-    description: 'Collaborating with AI agents in coding, testing, and deploying platform features for the Swedish Startup Nation Data Platform.',
+    year: '2026 - Present',
+    title: 'Freelance Full-Stack Developer',
+    company: 'Self-employed (enskild firma), Gothenburg',
+    description: 'Building production web apps, full-stack products, and e-commerce for clients in Sweden and abroad. Next.js/React, Supabase, WordPress/WooCommerce, and AI-assisted delivery.',
     highlights: [
-      'Agent-First Development with AI',
-      'Data-Web Platform contribution',
-      'Dashboards and Admin Tools',
-      'Data models, APIs & automation workflows'
+      'Full-stack Next.js + Supabase products',
+      'React & Next.js client builds',
+      'WordPress + WooCommerce stores (Printify)',
+      'AI-assisted, end-to-end delivery'
+    ],
+    icon: Rocket,
+    color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]',
+    position: 'right'
+  },
+  {
+    year: 'Dec 2025 - Present',
+    title: 'Agentic Developer',
+    company: 'Sweden Startup Nation (SISP), Gothenburg',
+    description: 'Building Sweden Startup Next, a national data platform for the Swedish startup ecosystem, working across database and full stack with AI agents in the development loop.',
+    highlights: [
+      'Sweden Startup Next platform (live at swedenstartupnext.se)',
+      'Agent-first development workflow',
+      'Dashboards & admin tools',
+      'Data models, APIs & automation'
     ],
     icon: Rocket,
     color: 'from-[var(--persian-blue)] to-[var(--persian-blue-light)]',
-    position: 'right'
+    position: 'left'
   },
   {
     year: 'Jun 2024 - Oct 2025',
@@ -43,7 +58,7 @@ const roadmapData: RoadmapItem[] = [
     ],
     icon: Code2,
     color: 'from-[var(--teal)] to-[var(--teal-light)]',
-    position: 'left'
+    position: 'right'
   },
   {
     year: 'Sep 2023 - May 2024',
@@ -57,7 +72,7 @@ const roadmapData: RoadmapItem[] = [
     ],
     icon: Briefcase,
     color: 'from-[var(--golden-yellow)] to-[var(--amber)]',
-    position: 'right'
+    position: 'left'
   },
   {
     year: '2023',
@@ -71,7 +86,7 @@ const roadmapData: RoadmapItem[] = [
     ],
     icon: Award,
     color: 'from-[var(--teal-light)] to-[var(--teal)]',
-    position: 'left'
+    position: 'right'
   },
   {
     year: '2018 - 2022',
@@ -80,7 +95,7 @@ const roadmapData: RoadmapItem[] = [
     description: 'Combining artistic creativity with technical vision, bridging the worlds of art and technology.',
     icon: GraduationCap,
     color: 'from-[var(--persian-blue-light)] to-[var(--persian-blue)]',
-    position: 'right'
+    position: 'left'
   },
   {
     year: '2009 - 2018',
@@ -94,7 +109,7 @@ const roadmapData: RoadmapItem[] = [
     ],
     icon: Palette,
     color: 'from-[var(--sunset-orange)] to-[var(--warm-coral)]',
-    position: 'left'
+    position: 'right'
   },
   {
     year: '2009 - 2012',
@@ -106,7 +121,7 @@ const roadmapData: RoadmapItem[] = [
     ],
     icon: GraduationCap,
     color: 'from-[var(--persian-blue)] to-[var(--teal)]',
-    position: 'right'
+    position: 'left'
   }
 ];
 

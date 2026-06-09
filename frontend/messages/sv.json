@@ -14,15 +14,25 @@
   "roadmap": {
     "heading": "Min resa",
     "subtitle": "En färdplan av tillväxt och innovation",
+    "job0": {
+      "year": "2026 - Nuvarande",
+      "title": "Frilansande Full-Stack-utvecklare",
+      "company": "Egen firma (enskild firma), Göteborg",
+      "description": "Bygger produktionsklara webbappar, full-stack-produkter och e-handel för kunder i Sverige och utomlands. Next.js/React, Supabase, WordPress/WooCommerce och AI-assisterad leverans.",
+      "h1": "Full-stack-produkter med Next.js + Supabase",
+      "h2": "React- och Next.js-kunduppdrag",
+      "h3": "WordPress + WooCommerce-butiker (Printify)",
+      "h4": "AI-assisterad helhetsleverans"
+    },
     "job1": {
       "year": "Dec 2025 - Nuvarande",
-      "title": "Agentic Developer-praktikant",
-      "company": "Sweden Startup Nation (SISP), Sverige",
-      "description": "Samarbetar med AI-agenter inom kodning, testning och driftsättning av plattformsfunktioner för Swedish Startup Nation Data Platform.",
-      "h1": "Agent-First-utveckling med AI",
-      "h2": "Bidrag till Data-Web-plattformen",
-      "h3": "Dashboards och adminverktyg",
-      "h4": "Datamodeller, API:er & automationsflöden"
+      "title": "Agentic Developer",
+      "company": "Sweden Startup Nation (SISP), Göteborg",
+      "description": "Bygger Sweden Startup Next, en nationell dataplattform för det svenska startup-ekosystemet, och arbetar tvärs över databas och full stack med AI-agenter i utvecklingsflödet.",
+      "h1": "Sweden Startup Next-plattformen (live på swedenstartupnext.se)",
+      "h2": "Agent-first-utvecklingsflöde",
+      "h3": "Dashboards & adminverktyg",
+      "h4": "Datamodeller, API:er & automatisering"
     },
     "job2": {
       "year": "Jun 2024 - Okt 2025",
