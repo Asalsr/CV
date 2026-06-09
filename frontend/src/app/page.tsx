@@ -18,6 +18,7 @@ export default function Home() {
   const navItems = [
     { key: 'journey' as const, href: '#roadmap' },
     { key: 'skills' as const, href: '#skills' },
+    { key: 'projects' as const, href: '#code-projects' },
     { key: 'art' as const, href: `${basePath}/art` },
     { key: 'contact' as const, href: '#contact' },
   ];
