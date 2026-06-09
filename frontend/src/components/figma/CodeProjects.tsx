@@ -235,9 +235,9 @@ function ProjectCard({ project, index }: { project: CodeProject; index: number }
             {project.highlights.map((h, i) => (
               <li
                 key={i}
-                className="text-xs md:text-sm text-gray-200 dark:text-gray-300 flex items-start gap-2"
+                className="text-xs md:text-sm text-gray-200 dark:text-gray-300 flex items-baseline gap-2"
               >
-                <span className="text-[var(--golden-yellow)] mt-1 flex-shrink-0">→</span>
+                <span className="text-[var(--golden-yellow)] flex-shrink-0 leading-none">→</span>
                 <span className="flex-1">{h}</span>
               </li>
             ))}

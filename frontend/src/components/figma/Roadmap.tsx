@@ -202,8 +202,8 @@ function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
           {item.highlights && (
             <ul className="space-y-1">
               {item.highlights.map((highlight, i) => (
-                <li key={i} className="text-xs md:text-sm text-gray-300 dark:text-gray-400 flex items-start gap-2">
-                  <span className="text-[var(--golden-yellow)] mt-1 flex-shrink-0">→</span>
+                <li key={i} className="text-xs md:text-sm text-gray-300 dark:text-gray-400 flex items-baseline gap-2">
+                  <span className="text-[var(--golden-yellow)] flex-shrink-0 leading-none">→</span>
                   <span className="flex-1">{highlight}</span>
                 </li>
               ))}
