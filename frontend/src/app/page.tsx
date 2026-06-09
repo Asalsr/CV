@@ -6,6 +6,7 @@ import LanguageSelector from '@/components/LanguageSelector';
 import { Hero } from '@/components/figma/Hero';
 import { Roadmap } from '@/components/figma/Roadmap';
 import { Skills } from '@/components/figma/Skills';
+import { CodeProjects } from '@/components/figma/CodeProjects';
 import { ArtProjects } from '@/components/figma/ArtProjects';
 import { Footer } from '@/components/figma/Footer';
 import { SectionDivider } from '@/components/figma/SectionDivider';
@@ -65,6 +66,8 @@ export default function Home() {
       <Roadmap />
       <SectionDivider variant="curve" color1="#0EA5E9" color2="#FF6B35" />
       <Skills />
+      <SectionDivider variant="curve" color1="#0EA5E9" color2="#1C39BB" />
+      <CodeProjects />
       <SectionDivider variant="organic" color1="#FFB800" color2="#5B8DEF" />
       <ArtProjects />
       <Footer />
