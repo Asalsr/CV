@@ -234,22 +234,21 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <motion.ul
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 max-w-4xl mx-auto mb-8 md:mb-12 px-4 text-left"
+          className="max-w-4xl mx-auto mb-8 md:mb-12 px-4 text-sm sm:text-base md:text-lg text-gray-200 dark:text-gray-300 text-center"
         >
           {[1, 2, 3, 4].map((i) => (
-            <li
-              key={i}
-              className="flex items-baseline gap-2 text-sm sm:text-base md:text-lg text-gray-200 dark:text-gray-300"
-            >
-              <span className="text-[var(--golden-yellow)] flex-shrink-0 leading-none">→</span>
-              <span>{t(`highlight${i}` as 'highlight1')}</span>
-            </li>
+            <span key={i}>
+              {i > 1 && (
+                <span className="mx-2 md:mx-3 text-[var(--golden-yellow)]/60">|</span>
+              )}
+              {t(`highlight${i}` as 'highlight1')}
+            </span>
           ))}
-        </motion.ul>
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
