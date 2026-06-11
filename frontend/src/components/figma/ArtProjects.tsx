@@ -144,19 +144,6 @@ function ProjectCard({ project, index }: { project: ArtProject; index: number })
 
           <div className="flex items-center gap-2 mb-2 md:mb-3">
             <h3 className="text-xl md:text-2xl text-white">{project.title}</h3>
-            {/* Hand-drawn underline */}
-            <svg className="w-12 h-2" preserveAspectRatio="none">
-              <motion.path
-                d="M 0,1 L 48,1"
-                stroke="rgba(255,184,0,0.5)"
-                strokeWidth="2"
-                fill="none"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: index * 0.2 + 0.3 }}
-              />
-            </svg>
           </div>
 
           <div className="flex items-center gap-3 mb-3 md:mb-4 text-xs md:text-sm">
