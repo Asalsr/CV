@@ -24,9 +24,16 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h4 className="text-white text-xl mb-2">{t('connectTitle')}</h4>
             <p className="text-gray-300 dark:text-gray-400 mb-2">{t('connectSubtitle')}</p>
-            <button onClick={copyEmail} className="text-[var(--persian-blue)] hover:text-[var(--persian-blue-dark)] cursor-pointer transition-colors">
+            <button onClick={copyEmail} className="block text-[var(--persian-blue)] hover:text-[var(--persian-blue-dark)] cursor-pointer transition-colors">
               {copied ? t('copied') : 'Saeedeh.sarmadi89@gmail.com'}
             </button>
+            <a
+              href="tel:+46765761526"
+              className="block mt-1 text-[var(--persian-blue)] hover:text-[var(--persian-blue-dark)] transition-colors"
+              dir="ltr"
+            >
+              +46 76 576 1526
+            </a>
           </div>
 
           <div className="flex items-center gap-4">
