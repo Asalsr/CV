@@ -3,9 +3,8 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "@/lib/redux/StoreProvider";
 import ThemeProvider from "@/components/theme/ThemeProvider";
-import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
-import { isRtl } from "@/i18n/config";
+import ClientIntlProvider from "@/i18n/ClientIntlProvider";
+import { defaultLocale, isRtl } from "@/i18n/config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -24,26 +23,27 @@ export const metadata: Metadata = {
   description: "Portfolio of Saeedeh Sarmadi - Agentic Developer, Full-Stack Software Engineer, Front-End Specialist & UI/UX Enthusiast",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getLocale();
-  const messages = await getMessages();
-
   return (
-    <html lang={locale} dir={isRtl(locale) ? 'rtl' : 'ltr'} suppressHydrationWarning>
+    <html
+      lang={defaultLocale}
+      dir={isRtl(defaultLocale) ? 'rtl' : 'ltr'}
+      suppressHydrationWarning
+    >
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
+        <ClientIntlProvider>
           <StoreProvider>
             <ThemeProvider>
               {children}
             </ThemeProvider>
           </StoreProvider>
-        </NextIntlClientProvider>
+        </ClientIntlProvider>
       </body>
     </html>
   );
