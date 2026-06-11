@@ -63,7 +63,7 @@ export default function Home() {
 
       {/* Main Content */}
       <Hero />
-      <SectionDivider variant="wave" color1="#5B8DEF" color2="#FFB800" />
+      <SectionDivider variant="wave" color1="#5B8DEF" color2="#FFB800" overlapTop />
       <Roadmap />
       <SectionDivider variant="curve" color1="#0EA5E9" color2="#FF6B35" />
       <Skills />

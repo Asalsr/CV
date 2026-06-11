@@ -7,16 +7,20 @@ interface SectionDividerProps {
   variant?: 'wave' | 'curve' | 'organic';
   color1?: string;
   color2?: string;
+  /** Pulls the divider up so it overlaps the section above it. */
+  overlapTop?: boolean;
 }
 
 export function SectionDivider({
   variant = 'wave',
   color1 = 'var(--persian-blue)',
-  color2 = 'var(--golden-yellow)'
+  color2 = 'var(--golden-yellow)',
+  overlapTop = false,
 }: SectionDividerProps) {
   if (variant === 'wave') {
+    const overlap = overlapTop ? '-mt-16 md:-mt-24' : '';
     return (
-      <div className="relative h-16 md:h-24 overflow-hidden">
+      <div className={`relative h-16 md:h-24 overflow-hidden z-10 ${overlap}`}>
         <svg
           className="absolute inset-0 w-full h-full"
           viewBox="0 0 1200 100"
