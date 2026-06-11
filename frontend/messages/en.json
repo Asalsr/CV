@@ -26,7 +26,8 @@
       "h1": "Full-stack Next.js + Supabase products",
       "h2": "React & Next.js client builds",
       "h3": "WordPress + WooCommerce stores (Printify)",
-      "h4": "AI-assisted, end-to-end delivery"
+      "h4": "AI-assisted, end-to-end delivery",
+      "h5": "Scope, manage, and deliver client projects end to end"
     },
     "job1": {
       "year": "Dec 2025 - Present",
@@ -106,7 +107,9 @@
     "serverlessTitle": "Serverless",
     "serverlessDesc": "AWS Lambda & microservices architecture",
     "designTitle": "Design Systems",
-    "designDesc": "Creating scalable, accessible UI frameworks"
+    "designDesc": "Creating scalable, accessible UI frameworks",
+    "deliveryTitle": "Project Delivery",
+    "deliveryDesc": "Scoping to launch: client management, technical leadership, end-to-end ownership"
   },
   "artProjects": {
     "heading": "Artistic Projects",

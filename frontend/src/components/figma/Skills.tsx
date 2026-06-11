@@ -264,7 +264,7 @@ export function Skills() {
               />
             </svg>
           </h3>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
             <div className="bg-gradient-to-br from-[var(--persian-blue)]/10 to-[var(--persian-blue-light)]/10 border border-[var(--persian-blue)]/20 rounded-xl p-6 text-center relative overflow-hidden">
               <svg className="absolute top-2 right-2 w-8 h-8 opacity-20">
                 <motion.path
@@ -338,6 +338,24 @@ export function Skills() {
               <div className="text-4xl mb-2">🎨</div>
               <h4 className="text-white mb-2">{t('designTitle')}</h4>
               <p className="text-gray-300 dark:text-gray-400 text-sm">{t('designDesc')}</p>
+            </div>
+            <div className="bg-gradient-to-br from-[var(--persian-blue-light)]/10 to-[var(--teal)]/10 border border-[var(--persian-blue-light)]/20 rounded-xl p-6 text-center relative overflow-hidden">
+              <svg className="absolute top-2 right-2 w-8 h-8 opacity-20">
+                <motion.path
+                  d="M 4,28 L 16,4 L 28,28 Z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="text-[var(--persian-blue-light)]"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 2, delay: 0.8 }}
+                />
+              </svg>
+              <div className="text-4xl mb-2">🚀</div>
+              <h4 className="text-white mb-2">{t('deliveryTitle')}</h4>
+              <p className="text-gray-300 dark:text-gray-400 text-sm">{t('deliveryDesc')}</p>
             </div>
           </div>
         </motion.div>

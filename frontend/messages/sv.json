@@ -26,7 +26,8 @@
       "h1": "Full-stack-produkter med Next.js + Supabase",
       "h2": "React- och Next.js-kunduppdrag",
       "h3": "WordPress + WooCommerce-butiker (Printify)",
-      "h4": "AI-assisterad helhetsleverans"
+      "h4": "AI-assisterad helhetsleverans",
+      "h5": "Scoping, projektledning och helhetsleverans åt kunder"
     },
     "job1": {
       "year": "Dec 2025 - Nuvarande",
@@ -106,7 +107,9 @@
     "serverlessTitle": "Serverlöst",
     "serverlessDesc": "AWS Lambda & mikrotjänstarkitektur",
     "designTitle": "Designsystem",
-    "designDesc": "Skapar skalbara, tillgängliga UI-ramverk"
+    "designDesc": "Skapar skalbara, tillgängliga UI-ramverk",
+    "deliveryTitle": "Projektleverans",
+    "deliveryDesc": "Från scoping till lansering: kundansvar, tekniskt ledarskap, helhetsleverans"
   },
   "artProjects": {
     "heading": "Konstnärliga projekt",
