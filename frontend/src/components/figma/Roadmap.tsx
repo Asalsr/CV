@@ -28,7 +28,7 @@ interface JobConfig {
 }
 
 const jobConfigs: JobConfig[] = [
-  { key: 'job0', icon: Rocket, color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]', position: 'right', highlightCount: 4 },
+  { key: 'job0', icon: Rocket, color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]', position: 'right', highlightCount: 5 },
   { key: 'job1', icon: Rocket, color: 'from-[var(--persian-blue)] to-[var(--persian-blue-light)]', position: 'left', highlightCount: 4 },
   { key: 'job2', icon: Code2, color: 'from-[var(--teal)] to-[var(--teal-light)]', position: 'right', highlightCount: 4 },
   { key: 'job3', icon: Briefcase, color: 'from-[var(--golden-yellow)] to-[var(--amber)]', position: 'left', highlightCount: 3 },
