@@ -8,7 +8,10 @@
   },
   "hero": {
     "tagline": "Agentic Developer | Full-Stack Engineer | UI/UX Enthusiast",
-    "subtitle": "Fine Arts meets Computer Science — Crafting beautiful digital experiences from Gothenburg, Sweden",
+    "highlight1": "Shipped a live full-stack AI product solo",
+    "highlight2": "Modernized an enterprise platform for Alstom: 20+ modules, 150k+ rows, 60% faster",
+    "highlight3": "Full-stack: React / Next.js, .NET Core, Supabase / PostgreSQL",
+    "highlight4": "AI-native: agentic workflows, provider-agnostic LLM",
     "exploreJourney": "Explore My Journey",
     "viewSkills": "View Skills"
   },

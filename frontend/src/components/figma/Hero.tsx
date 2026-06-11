@@ -234,14 +234,22 @@ export function Hero() {
           </div>
         </motion.div>
 
-        <motion.p
+        <motion.ul
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-2xl text-gray-200 dark:text-gray-300 mb-8 md:mb-12 px-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 max-w-4xl mx-auto mb-8 md:mb-12 px-4 text-left"
         >
-          {t('subtitle')}
-        </motion.p>
+          {[1, 2, 3, 4].map((i) => (
+            <li
+              key={i}
+              className="flex items-baseline gap-2 text-sm sm:text-base md:text-lg text-gray-200 dark:text-gray-300"
+            >
+              <span className="text-[var(--golden-yellow)] flex-shrink-0 leading-none">→</span>
+              <span>{t(`highlight${i}` as 'highlight1')}</span>
+            </li>
+          ))}
+        </motion.ul>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

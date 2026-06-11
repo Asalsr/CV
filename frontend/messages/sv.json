@@ -8,7 +8,10 @@
   },
   "hero": {
     "tagline": "Agentic Developer | Full-Stack-ingenjör | UI/UX-entusiast",
-    "subtitle": "Konst möter datavetenskap — Skapar vackra digitala upplevelser från Göteborg, Sverige",
+    "highlight1": "Lanserade en live full-stack AI-produkt solo",
+    "highlight2": "Moderniserade en företagsplattform för Alstom: 20+ moduler, 150k+ rader, 60 % snabbare",
+    "highlight3": "Full-stack: React / Next.js, .NET Core, Supabase / PostgreSQL",
+    "highlight4": "AI-native: agentic-arbetsflöden, leverantörsoberoende LLM",
     "exploreJourney": "Utforska min resa",
     "viewSkills": "Visa kompetenser"
   },
