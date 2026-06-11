@@ -3,8 +3,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
-import { useTranslations, useMessages } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { ValidatedArtwork } from '../types/artwork';
+import { useArtworkText } from '../hooks/useArtworkText';
 import ImageGallery from './ImageGallery';
 import RelatedProjects from './RelatedProjects';
 
@@ -36,11 +37,12 @@ export default function ProjectModal({
   onSelectProject,
 }: ProjectModalProps) {
   const t = useTranslations('art.modal');
-  const messages = useMessages() as { art?: { descriptions?: Record<string, string> } };
+  const tCategory = useTranslations('art.categories');
+  const artworkText = useArtworkText();
   if (!project) return null;
 
-  const translatedDescription = messages?.art?.descriptions?.[String(project.id)];
-  const description = translatedDescription || project.description;
+  const title = artworkText.title(project.id, project.title);
+  const description = artworkText.description(project.id, project.description);
 
   return (
     <AnimatePresence>
@@ -100,7 +102,7 @@ export default function ProjectModal({
                 <div className="w-full max-w-4xl aspect-video rounded-lg overflow-hidden">
                   <iframe
                     src={`https://www.youtube.com/embed/${project.videoId}?autoplay=1`}
-                    title={project.title}
+                    title={title}
                     className="w-full h-full"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -112,7 +114,7 @@ export default function ProjectModal({
               <ImageGallery
                 images={project.validImages}
                 currentIndex={currentImageIndex}
-                title={project.title}
+                title={title}
                 onPrev={onPrevImage}
                 onNext={onNextImage}
                 onSelectIndex={onSelectImage}
@@ -123,10 +125,10 @@ export default function ProjectModal({
             <div className="px-4 md:px-8 py-6 max-w-4xl mx-auto w-full">
               <div className="text-center mb-6">
                 <h2 className="text-white text-2xl md:text-3xl font-bold mb-2">
-                  {project.title}
+                  {title}
                 </h2>
                 <p className="text-white/60">
-                  {project.category} • {project.year}
+                  {tCategory(project.category)} • {project.year}
                 </p>
                 {project.externalLink && (
                   <a

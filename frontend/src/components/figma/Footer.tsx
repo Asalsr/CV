@@ -37,7 +37,7 @@ export function Footer() {
               download
               whileHover={{ scale: 1.1, y: -2 }}
               className="p-3 bg-white/5 dark:bg-white/10 hover:bg-white/10 dark:hover:bg-white/15 rounded-lg border border-white/10 dark:border-white/20 text-gray-300 hover:text-white transition-all"
-              aria-label="Download CV"
+              aria-label={t('downloadCvAria')}
             >
               <FileDown className="w-6 h-6" />
             </motion.a>
@@ -61,7 +61,7 @@ export function Footer() {
             </motion.a>
             <motion.a
               href="mailto:Saeedeh.sarmadi89@gmail.com"
-              aria-label="Email"
+              aria-label={t('emailAria')}
               whileHover={{ scale: 1.1, y: -2 }}
               className="p-3 bg-white/5 dark:bg-white/10 hover:bg-white/10 dark:hover:bg-white/15 rounded-lg border border-white/10 dark:border-white/20 text-gray-300 hover:text-white transition-all"
             >

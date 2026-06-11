@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { ValidatedArtwork } from '../types/artwork';
+import { useArtworkText } from '../hooks/useArtworkText';
 import ImageWithFallback from '@/components/figma/ImageWithFallback';
 
 interface ProjectCardProps {
@@ -14,6 +15,9 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ artwork, onClick, index }: ProjectCardProps) {
   const t = useTranslations('art.projectCard');
+  const tCategory = useTranslations('art.categories');
+  const artworkText = useArtworkText();
+  const title = artworkText.title(artwork.id, artwork.title);
   return (
     <motion.div
       layout
@@ -49,7 +53,7 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
         <div className="aspect-[4/3] relative">
           <ImageWithFallback
             src={artwork.validThumbnail}
-            alt={artwork.title}
+            alt={title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
@@ -76,20 +80,20 @@ export default function ProjectCard({ artwork, onClick, index }: ProjectCardProp
 
           <div className="absolute top-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
             <span className="px-3 py-1 text-xs font-medium rounded-full text-white backdrop-blur-sm bg-[var(--persian-blue)]/30 border border-[var(--persian-blue)]/20">
-              {artwork.category}
+              {tCategory(artwork.category)}
             </span>
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-            <h3 className="text-white font-semibold text-lg">{artwork.title}</h3>
+            <h3 className="text-white font-semibold text-lg">{title}</h3>
             <p className="text-white/70 text-sm">{artwork.year}</p>
           </div>
         </div>
       </div>
 
       <div className="mt-3 md:hidden">
-        <h3 className="font-semibold text-white">{artwork.title}</h3>
-        <p className="text-sm text-gray-300 dark:text-gray-400">{artwork.category} &bull; {artwork.year}</p>
+        <h3 className="font-semibold text-white">{title}</h3>
+        <p className="text-sm text-gray-300 dark:text-gray-400">{tCategory(artwork.category)} &bull; {artwork.year}</p>
       </div>
     </motion.div>
   );

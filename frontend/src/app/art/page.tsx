@@ -47,6 +47,7 @@ function ProjectAutoOpener({
 
 export default function ArtPortfolio() {
   const t = useTranslations('art.page');
+  const tFooter = useTranslations('footer');
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   useAppSelector((state) => state.theme);
   const { artworks: validatedArtworks, isValidating } = useValidatedArtworks(artworks);
@@ -148,7 +149,11 @@ export default function ArtPortfolio() {
       <footer className="relative py-16 px-4 border-t border-white/10 dark:border-white/20">
         <div className="max-w-7xl mx-auto text-center text-gray-300 dark:text-gray-400">
           <p className="flex items-center justify-center gap-2">
-            Designed &amp; Built with <Heart className="w-4 h-4 text-[var(--sunset-orange)]" fill="currentColor" /> by Saeedeh Sarmadi &copy; 2026
+            {tFooter.rich('copyright', {
+              heart: () => (
+                <Heart className="w-4 h-4 text-[var(--sunset-orange)]" fill="currentColor" />
+              ),
+            })}
           </p>
           <div className="mt-2 flex items-center justify-center gap-2 text-sm">
             <a

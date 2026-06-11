@@ -38,8 +38,8 @@
     "job2": {
       "year": "Jun 2024 - Okt 2025",
       "title": "Full-Stack-utvecklare & systemanalytiker",
-      "company": "RADA Computing Solutions, Turin",
-      "description": "Ledde migrering från äldre system (2008) till modern React-plattform. Byggde REST-API:er, optimerade Oracle DB-frågor (60 % snabbare) och skapade AI-chattbot.",
+      "company": "RADA Computing Solutions, Turin · kund: Alstom",
+      "description": "Ledde migreringen av ett äldre system från 2008 till en modern React-plattform för Alstom, ett globalt järnvägstransportföretag. Byggde .NET REST-API:er, optimerade Oracle-frågor (60 % snabbare) och skapade en intern AI-chattbot.",
       "h1": "React-migrering (20+ moduler)",
       "h2": "AG Grid-implementation (150k+ rader)",
       "h3": "GraphQL POC (30 % mindre payload)",
@@ -165,7 +165,9 @@
     "connectSubtitle": "Öppen för nya möjligheter och samarbeten",
     "copied": "Kopierat!",
     "copyright": "Designad & byggd med <heart></heart> av Saeedeh Sarmadi © 2026",
-    "downloadCv": "Ladda ner mitt CV"
+    "downloadCv": "Ladda ner mitt CV",
+    "downloadCvAria": "Ladda ner CV",
+    "emailAria": "E-post"
   },
   "art": {
     "page": {
