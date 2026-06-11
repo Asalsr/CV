@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code2, Smartphone, ShoppingBag, Database, ExternalLink } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface CodeProject {
   title: string;
@@ -15,65 +16,59 @@ interface CodeProject {
   sketch: 'wave' | 'heart' | 'star';
 }
 
-const projects: CodeProject[] = [
+type ProjectKey = 'mjukLov' | 'relay' | 'nabila' | 'swedenStartupNext';
+
+interface ProjectConfig {
+  key: ProjectKey;
+  title: string;
+  year: string;
+  link?: { label: string; href: string };
+  icon: typeof Code2;
+  color: string;
+  sketch: 'wave' | 'heart' | 'star';
+  highlightCount: number;
+}
+
+const projectConfigs: ProjectConfig[] = [
   {
+    key: 'mjukLov',
     title: 'Mjuk Lov',
     year: '2026',
-    subtitle: 'Live AI-powered bilingual dessert platform',
     link: { label: 'mjuklov.se', href: 'https://mjuklov.se' },
-    highlights: [
-      'Next.js 16, React 19, TypeScript, Supabase',
-      'AI allergen labels with safety guardrails (EU 1169/2011)',
-      '40+ bilingual recipes, accounts, order back office',
-      'Stripe, Resend, YouTube & Google Places APIs',
-    ],
     icon: Code2,
     color: 'from-[var(--persian-blue)] to-[var(--teal)]',
     sketch: 'wave',
+    highlightCount: 4,
   },
   {
+    key: 'relay',
     title: 'Relay',
     year: '2026',
-    subtitle: 'Cross-border freelancer client app',
     link: { label: 'github.com/Asalsr/relay', href: 'https://github.com/Asalsr/relay' },
-    highlights: [
-      'Expo + Supabase + Stripe mobile app',
-      'Stripe-integrated invoicing & payments',
-      'AI project summaries (EN/IT/FA/SV)',
-      'Documented architecture & launch plan',
-    ],
     icon: Smartphone,
     color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]',
     sketch: 'star',
+    highlightCount: 4,
   },
   {
+    key: 'nabila',
     title: 'Nabila',
     year: '2026',
-    subtitle: 'WordPress e-commerce for an artist (in progress)',
     link: { label: 'nabila.se', href: 'https://nabila.se' },
-    highlights: [
-      'WordPress + WooCommerce store',
-      'Printify print-on-demand integration',
-      'Polylang bilingual SV/EN',
-      'Custom artist portfolio + shop',
-    ],
     icon: ShoppingBag,
     color: 'from-[var(--golden-yellow)] to-[var(--sunset-orange)]',
     sketch: 'heart',
+    highlightCount: 4,
   },
   {
+    key: 'swedenStartupNext',
     title: 'Sweden Startup Next',
     year: '2026',
-    subtitle: 'National startup-ecosystem data platform',
     link: { label: 'swedenstartupnext.se', href: 'https://swedenstartupnext.se' },
-    highlights: [
-      'React, Redux, AG Grid',
-      'Built with AI agents in the dev workflow',
-      'Beta (Next 0.9) launched 2026',
-    ],
     icon: Database,
     color: 'from-[var(--teal)] to-[var(--persian-blue)]',
     sketch: 'wave',
+    highlightCount: 3,
   },
 ];
 
@@ -251,6 +246,22 @@ function ProjectCard({ project, index }: { project: CodeProject; index: number }
 }
 
 export function CodeProjects() {
+  const t = useTranslations('codeProjects');
+
+  const projects: CodeProject[] = projectConfigs.map((config) => ({
+    title: config.title,
+    year: config.year,
+    subtitle: t(`${config.key}.subtitle` as `${ProjectKey}.subtitle`),
+    link: config.link,
+    highlights: Array.from(
+      { length: config.highlightCount },
+      (_, i) => t(`${config.key}.h${i + 1}` as `${ProjectKey}.h1`)
+    ),
+    icon: config.icon,
+    color: config.color,
+    sketch: config.sketch,
+  }));
+
   return (
     <section id="code-projects" className="py-12 md:py-20 px-4 relative">
       <div className="max-w-6xl mx-auto">
@@ -263,11 +274,11 @@ export function CodeProjects() {
         >
           <div className="relative inline-block">
             <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--teal)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
-              Recent Projects
+              {t('heading')}
             </h2>
           </div>
           <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">
-            Production builds shipped with AI-assisted delivery
+            {t('subtitle')}
           </p>
         </motion.div>
 

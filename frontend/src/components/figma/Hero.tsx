@@ -185,7 +185,7 @@ export function Hero() {
 
           <div className="relative inline-block mb-4 md:mb-6 px-4">
             <p className="text-lg sm:text-xl md:text-3xl text-gray-100 dark:text-gray-200">
-              Agentic Developer | Full-Stack Engineer | UI/UX Enthusiast
+              {t('tagline')}
             </p>
             {/* Paint brush stroke underline */}
             <svg
@@ -253,7 +253,7 @@ export function Hero() {
             href="#roadmap"
             className="w-full sm:w-auto px-6 md:px-8 py-3 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--persian-blue-light)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all relative overflow-hidden group"
           >
-            <span className="relative z-10">Explore My Journey</span>
+            <span className="relative z-10">{t('exploreJourney')}</span>
             {/* Paint splatter on hover - hidden on mobile */}
             <motion.div
               className="hidden md:block absolute inset-0 opacity-0 group-hover:opacity-20"
@@ -270,7 +270,7 @@ export function Hero() {
             className="w-full sm:w-auto px-6 md:px-8 py-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full text-white border-2 border-white/20 hover:bg-white/20 dark:hover:bg-white/10 transition-all relative overflow-hidden group"
             style={{ borderStyle: 'dashed' }}
           >
-            <span className="relative z-10">View Skills</span>
+            <span className="relative z-10">{t('viewSkills')}</span>
           </a>
         </motion.div>
       </div>

@@ -1,6 +1,9 @@
+'use client';
+
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Briefcase, GraduationCap, Rocket, Palette, Code2, Award } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { seededRandom } from '@/lib/seededRandom';
 
 interface RoadmapItem {
@@ -14,115 +17,25 @@ interface RoadmapItem {
   position: 'left' | 'right';
 }
 
-const roadmapData: RoadmapItem[] = [
-  {
-    year: '2026 - Present',
-    title: 'Freelance Full-Stack Developer',
-    company: 'Self-employed (enskild firma), Gothenburg',
-    description: 'Building production web apps, full-stack products, and e-commerce for clients in Sweden and abroad. Next.js/React, Supabase, WordPress/WooCommerce, and AI-assisted delivery.',
-    highlights: [
-      'Full-stack Next.js + Supabase products',
-      'React & Next.js client builds',
-      'WordPress + WooCommerce stores (Printify)',
-      'AI-assisted, end-to-end delivery'
-    ],
-    icon: Rocket,
-    color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]',
-    position: 'right'
-  },
-  {
-    year: 'Dec 2025 - Present',
-    title: 'Agentic Developer',
-    company: 'Sweden Startup Nation (SISP), Gothenburg',
-    description: 'Building Sweden Startup Next, a national data platform for the Swedish startup ecosystem, working across database and full stack with AI agents in the development loop.',
-    highlights: [
-      'Sweden Startup Next platform (live at swedenstartupnext.se)',
-      'Agent-first development workflow',
-      'Dashboards & admin tools',
-      'Data models, APIs & automation'
-    ],
-    icon: Rocket,
-    color: 'from-[var(--persian-blue)] to-[var(--persian-blue-light)]',
-    position: 'left'
-  },
-  {
-    year: 'Jun 2024 - Oct 2025',
-    title: 'Full-Stack Developer & Systems Analyst',
-    company: 'RADA Computing Solutions, Turin',
-    description: 'Led migration from 2008 legacy system to modern React platform. Built REST APIs, optimized Oracle DB queries (60% faster), and created AI chatbot.',
-    highlights: [
-      'React migration (20+ modules)',
-      'AG Grid implementation (150k+ rows)',
-      'GraphQL POC (30% payload reduction)',
-      'AWS Lambda serverless workflows'
-    ],
-    icon: Code2,
-    color: 'from-[var(--teal)] to-[var(--teal-light)]',
-    position: 'right'
-  },
-  {
-    year: 'Sep 2023 - May 2024',
-    title: 'Front-End Development Intern',
-    company: 'Liquido Studio, Turin',
-    description: 'Developed responsive websites using HTML, CSS, WordPress, and JavaScript. Customized themes and implemented UI/UX best practices.',
-    highlights: [
-      'Responsive websites & web applications',
-      'WordPress theme customization & plugins',
-      'UI/UX best practices implementation'
-    ],
-    icon: Briefcase,
-    color: 'from-[var(--golden-yellow)] to-[var(--amber)]',
-    position: 'left'
-  },
-  {
-    year: '2023',
-    title: 'Professional Certifications',
-    company: 'IBM, Engim Turin, Google',
-    description: 'Industry certifications in front-end development, React, and UX design.',
-    highlights: [
-      'IBM – Developing Front-End Apps with React',
-      'Engim Turin – Front-End Development',
-      'Google UX Design – Wireframes & Prototypes'
-    ],
-    icon: Award,
-    color: 'from-[var(--teal-light)] to-[var(--teal)]',
-    position: 'right'
-  },
-  {
-    year: '2018 - 2022',
-    title: 'B.A. Fine Arts',
-    company: 'Fine Arts Academy of Rome',
-    description: 'Combining artistic creativity with technical vision, bridging the worlds of art and technology.',
-    icon: GraduationCap,
-    color: 'from-[var(--persian-blue-light)] to-[var(--persian-blue)]',
-    position: 'left'
-  },
-  {
-    year: '2009 - 2018',
-    title: 'Software Engineer & Creative Designer',
-    company: 'DYS Company & Tanvarz - Tehran',
-    description: 'Co-developed internal social platforms, designed multi-channel catalogs, and created culturally localized content that boosted engagement.',
-    highlights: [
-      'Co-developed internal social-media platform',
-      'Designed catalogs, banners & e-books',
-      'Sales strategy & localized content'
-    ],
-    icon: Palette,
-    color: 'from-[var(--sunset-orange)] to-[var(--warm-coral)]',
-    position: 'right'
-  },
-  {
-    year: '2009 - 2012',
-    title: 'B.Sc. Computer Science',
-    company: 'Abrar University of Tehran',
-    description: 'Foundation in computer science principles and software engineering fundamentals.',
-    highlights: [
-      'C++, Java, Data Analysis, Databases, Networks'
-    ],
-    icon: GraduationCap,
-    color: 'from-[var(--persian-blue)] to-[var(--teal)]',
-    position: 'left'
-  }
+type JobKey = 'job0' | 'job1' | 'job2' | 'job3' | 'job4' | 'job5' | 'job6' | 'job7';
+
+interface JobConfig {
+  key: JobKey;
+  icon: typeof Briefcase;
+  color: string;
+  position: 'left' | 'right';
+  highlightCount: number;
+}
+
+const jobConfigs: JobConfig[] = [
+  { key: 'job0', icon: Rocket, color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]', position: 'right', highlightCount: 4 },
+  { key: 'job1', icon: Rocket, color: 'from-[var(--persian-blue)] to-[var(--persian-blue-light)]', position: 'left', highlightCount: 4 },
+  { key: 'job2', icon: Code2, color: 'from-[var(--teal)] to-[var(--teal-light)]', position: 'right', highlightCount: 4 },
+  { key: 'job3', icon: Briefcase, color: 'from-[var(--golden-yellow)] to-[var(--amber)]', position: 'left', highlightCount: 3 },
+  { key: 'job6', icon: Award, color: 'from-[var(--teal-light)] to-[var(--teal)]', position: 'right', highlightCount: 3 },
+  { key: 'job5', icon: GraduationCap, color: 'from-[var(--persian-blue-light)] to-[var(--persian-blue)]', position: 'left', highlightCount: 0 },
+  { key: 'job4', icon: Palette, color: 'from-[var(--sunset-orange)] to-[var(--warm-coral)]', position: 'right', highlightCount: 3 },
+  { key: 'job7', icon: GraduationCap, color: 'from-[var(--persian-blue)] to-[var(--teal)]', position: 'left', highlightCount: 1 },
 ];
 
 function RoadmapCard({ item, index }: { item: RoadmapItem; index: number }) {
@@ -241,6 +154,23 @@ function generateCurvePath(count: number, containerHeight: number, xOffset = 0):
 export function Roadmap() {
   const svgRef = useRef(null);
   const isInView = useInView(svgRef, { once: true, margin: "-100px" });
+  const t = useTranslations('roadmap');
+
+  const roadmapData: RoadmapItem[] = jobConfigs.map((config) => {
+    const highlights = config.highlightCount > 0
+      ? Array.from({ length: config.highlightCount }, (_, i) => t(`${config.key}.h${i + 1}` as `${JobKey}.h1`))
+      : undefined;
+    return {
+      year: t(`${config.key}.year` as `${JobKey}.year`),
+      title: t(`${config.key}.title` as `${JobKey}.title`),
+      company: t(`${config.key}.company` as `${JobKey}.company`),
+      description: t(`${config.key}.description` as `${JobKey}.description`),
+      icon: config.icon,
+      color: config.color,
+      highlights,
+      position: config.position,
+    };
+  });
 
   // Dynamic desktop layout — adapts to any number of roadmap items
   const count = roadmapData.length;
@@ -262,7 +192,7 @@ export function Roadmap() {
         >
           <div className="relative inline-block">
             <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--persian-blue)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
-              My Journey
+              {t('heading')}
             </h2>
             {/* Paint brush decoration - hidden on mobile */}
             <svg className="hidden md:block absolute -right-20 top-1/2 -translate-y-1/2 w-16 h-16" viewBox="0 0 64 64">
@@ -282,7 +212,7 @@ export function Roadmap() {
               <circle cx="32" cy="32" r="6" fill="var(--golden-yellow)" opacity="0.6" />
             </svg>
           </div>
-          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">A roadmap of growth and innovation</p>
+          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">{t('subtitle')}</p>
         </motion.div>
 
         {/* Mobile: Simple vertical timeline */}

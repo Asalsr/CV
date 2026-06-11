@@ -186,7 +186,7 @@ export function ArtProjects() {
     {
       title: t('plasticBlue.title'),
       year: '2021-2022',
-      location: 'Rome',
+      location: t('locations.rome'),
       description: t('plasticBlue.description'),
       icon: Palette,
       color: 'from-[var(--persian-blue)] to-[var(--teal)]',
@@ -196,7 +196,7 @@ export function ArtProjects() {
     {
       title: t('womenLifeFreedom.title'),
       year: '2022',
-      location: 'Turin',
+      location: t('locations.turin'),
       description: t('womenLifeFreedom.description'),
       icon: Users,
       color: 'from-[var(--sunset-orange)] to-[var(--golden-yellow)]',
@@ -206,7 +206,7 @@ export function ArtProjects() {
     {
       title: t('illustrationWorkshops.title'),
       year: '2023',
-      location: 'Turin',
+      location: t('locations.turin'),
       description: t('illustrationWorkshops.description'),
       icon: Sparkles,
       color: 'from-[var(--golden-yellow)] to-[var(--sunset-orange)]',
@@ -228,7 +228,7 @@ export function ArtProjects() {
           <div className="relative inline-block">
             <a href={`${basePath}/art`} className="hover:opacity-80 transition-opacity">
               <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--sunset-orange)] via-[var(--golden-yellow)] to-[var(--persian-blue)] bg-clip-text text-transparent">
-                Artistic Projects
+                {t('heading')}
               </h2>
             </a>
             {/* Hand-drawn sketch decoration */}
@@ -253,7 +253,7 @@ export function ArtProjects() {
               />
             </motion.svg>
           </div>
-          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">Where art meets activism and social impact</p>
+          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">{t('subtitle')}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -276,7 +276,7 @@ export function ArtProjects() {
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[var(--persian-blue)] via-[var(--golden-yellow)] to-[var(--sunset-orange)] rounded-full text-white hover:shadow-lg hover:shadow-[var(--persian-blue)]/50 transition-all"
           >
-            Explore My Artistic Side
+            {t('exploreCta')}
             <ExternalLink className="w-5 h-5" />
           </motion.a>
         </motion.div>

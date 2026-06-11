@@ -22,10 +22,10 @@ export function Footer() {
         {/* Social Links & Contact */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
-            <h4 className="text-white text-xl mb-2">Let&apos;s Connect</h4>
-            <p className="text-gray-300 dark:text-gray-400 mb-2">Open to new opportunities and collaborations</p>
+            <h4 className="text-white text-xl mb-2">{t('connectTitle')}</h4>
+            <p className="text-gray-300 dark:text-gray-400 mb-2">{t('connectSubtitle')}</p>
             <button onClick={copyEmail} className="text-[var(--persian-blue)] hover:text-[var(--persian-blue-dark)] cursor-pointer transition-colors">
-              {copied ? 'Copied!' : 'Saeedeh.sarmadi89@gmail.com'}
+              {copied ? t('copied') : 'Saeedeh.sarmadi89@gmail.com'}
             </button>
           </div>
 
@@ -73,7 +73,11 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-white/10 dark:border-white/20 text-center text-gray-300 dark:text-gray-400">
           <p className="flex items-center justify-center gap-2">
-            Designed &amp; Built with <Heart className="w-4 h-4 text-[var(--sunset-orange)]" fill="currentColor" /> by Saeedeh Sarmadi &copy; 2026
+            {t.rich('copyright', {
+              heart: () => (
+                <Heart className="w-4 h-4 text-[var(--sunset-orange)]" fill="currentColor" />
+              ),
+            })}
           </p>
           <div className="mt-2 flex items-center justify-center gap-2 text-sm">
             <a

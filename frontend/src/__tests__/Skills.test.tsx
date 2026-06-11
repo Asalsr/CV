@@ -28,19 +28,17 @@ describe('Skills Component', () => {
     expect(section).toBeInTheDocument();
   });
 
-  it('should render the section heading', () => {
+  it('should render the section heading from translations', () => {
     render(<Skills />);
-    expect(screen.getByText(/Skills/)).toBeInTheDocument();
-    expect(screen.getByText(/Expertise/)).toBeInTheDocument();
+    expect(screen.getByText('skills.heading')).toBeInTheDocument();
   });
 
-  it('should render all four skill categories', () => {
+  it('should render all four skill categories from translations', () => {
     render(<Skills />);
-    // "UI/UX Design" appears as both section title and skill name
-    expect(screen.getAllByText('UI/UX Design').length).toBeGreaterThanOrEqual(1);
-    expect(screen.getByText('Front-End')).toBeInTheDocument();
-    expect(screen.getByText('Back-End & Database')).toBeInTheDocument();
-    expect(screen.getByText('DevOps & Cloud')).toBeInTheDocument();
+    expect(screen.getByText('skills.uiux')).toBeInTheDocument();
+    expect(screen.getByText('skills.frontend')).toBeInTheDocument();
+    expect(screen.getByText('skills.backend')).toBeInTheDocument();
+    expect(screen.getByText('skills.devops')).toBeInTheDocument();
   });
 
   it('should render UI/UX skills', () => {
@@ -79,12 +77,12 @@ describe('Skills Component', () => {
     expect(screen.getAllByText('90%').length).toBeGreaterThan(0);
   });
 
-  it('should render special focus areas', () => {
+  it('should render special focus areas from translations', () => {
     render(<Skills />);
-    expect(screen.getByText('Special Focus')).toBeInTheDocument();
-    expect(screen.getByText('Agentic / AI-Assisted Dev')).toBeInTheDocument();
-    expect(screen.getByText('Performance')).toBeInTheDocument();
-    expect(screen.getByText('Serverless')).toBeInTheDocument();
-    expect(screen.getByText('Design Systems')).toBeInTheDocument();
+    expect(screen.getByText('skills.specialFocus')).toBeInTheDocument();
+    expect(screen.getByText('skills.agenticTitle')).toBeInTheDocument();
+    expect(screen.getByText('skills.perfTitle')).toBeInTheDocument();
+    expect(screen.getByText('skills.serverlessTitle')).toBeInTheDocument();
+    expect(screen.getByText('skills.designTitle')).toBeInTheDocument();
   });
 });

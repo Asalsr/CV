@@ -193,7 +193,7 @@ export function Skills() {
         >
           <div className="relative inline-block">
             <h2 className="text-3xl md:text-5xl mb-3 md:mb-4 bg-gradient-to-r from-[var(--teal)] to-[var(--golden-yellow)] bg-clip-text text-transparent">
-              Skills &amp; Expertise
+              {t('heading')}
             </h2>
             {/* Sketch doodle decoration */}
             <motion.svg 
@@ -207,34 +207,34 @@ export function Skills() {
               <circle cx="32" cy="32" r="4" fill="var(--golden-yellow)" />
             </motion.svg>
           </div>
-          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">Where creativity meets technology</p>
+          <p className="text-gray-300 dark:text-gray-400 text-lg md:text-xl">{t('subtitle')}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 mb-12">
-          <SkillSection 
-            title="UI/UX Design" 
-            skills={uxuiSkills} 
+          <SkillSection
+            title={t('uiux')}
+            skills={uxuiSkills}
             icon={Palette}
             gradient="from-[var(--persian-blue)] to-[var(--sunset-orange)]"
             index={0}
           />
-          <SkillSection 
-            title="Front-End" 
-            skills={frontendSkills} 
+          <SkillSection
+            title={t('frontend')}
+            skills={frontendSkills}
             icon={Code2}
             gradient="from-[var(--persian-blue)] to-[var(--teal)]"
             index={1}
           />
-          <SkillSection 
-            title="Back-End & Database" 
-            skills={backendSkills} 
+          <SkillSection
+            title={t('backend')}
+            skills={backendSkills}
             icon={Database}
             gradient="from-[var(--teal)] to-[var(--golden-yellow)]"
             index={2}
           />
-          <SkillSection 
-            title="DevOps & Cloud" 
-            skills={devopsSkills} 
+          <SkillSection
+            title={t('devops')}
+            skills={devopsSkills}
             icon={Cloud}
             gradient="from-[var(--sunset-orange)] to-[var(--persian-blue)]"
             index={3}
@@ -250,7 +250,7 @@ export function Skills() {
           className="mt-16"
         >
           <h3 className="text-2xl text-center text-white mb-8 relative inline-block left-1/2 -translate-x-1/2">
-            Special Focus
+            {t('specialFocus')}
             <svg className="absolute -bottom-2 left-0 w-full h-2" viewBox="0 0 100 5" preserveAspectRatio="none">
               <motion.path
                 d="M 0,1 Q 50,4 100,1"
@@ -280,8 +280,8 @@ export function Skills() {
                 />
               </svg>
               <div className="text-4xl mb-2">🤖</div>
-              <h4 className="text-white mb-2">Agentic / AI-Assisted Dev</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">End-to-end delivery with AI agents in the dev loop</p>
+              <h4 className="text-white mb-2">{t('agenticTitle')}</h4>
+              <p className="text-gray-300 dark:text-gray-400 text-sm">{t('agenticDesc')}</p>
             </div>
             <div className="bg-gradient-to-br from-[var(--golden-yellow)]/10 to-[var(--amber)]/10 border border-[var(--golden-yellow)]/20 rounded-xl p-6 text-center relative overflow-hidden">
               <svg className="absolute top-2 right-2 w-8 h-8 opacity-20">
@@ -300,8 +300,8 @@ export function Skills() {
                 />
               </svg>
               <div className="text-4xl mb-2">⚡</div>
-              <h4 className="text-white mb-2">Performance</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">Optimized queries 60% faster, reduced load time 40%</p>
+              <h4 className="text-white mb-2">{t('perfTitle')}</h4>
+              <p className="text-gray-300 dark:text-gray-400 text-sm">{t('perfDesc')}</p>
             </div>
             <div className="bg-gradient-to-br from-[var(--teal)]/10 to-[var(--teal-light)]/10 border border-[var(--teal)]/20 rounded-xl p-6 text-center relative overflow-hidden">
               <svg className="absolute top-2 right-2 w-8 h-8 opacity-20">
@@ -318,8 +318,8 @@ export function Skills() {
                 />
               </svg>
               <div className="text-4xl mb-2">☁️</div>
-              <h4 className="text-white mb-2">Serverless</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">AWS Lambda &amp; microservices architecture</p>
+              <h4 className="text-white mb-2">{t('serverlessTitle')}</h4>
+              <p className="text-gray-300 dark:text-gray-400 text-sm">{t('serverlessDesc')}</p>
             </div>
             <div className="bg-gradient-to-br from-[var(--sunset-orange)]/10 to-[var(--warm-coral)]/10 border border-[var(--sunset-orange)]/20 rounded-xl p-6 text-center relative overflow-hidden">
               <svg className="absolute top-2 right-2 w-8 h-8 opacity-20">
@@ -336,8 +336,8 @@ export function Skills() {
                 />
               </svg>
               <div className="text-4xl mb-2">🎨</div>
-              <h4 className="text-white mb-2">Design Systems</h4>
-              <p className="text-gray-300 dark:text-gray-400 text-sm">Creating scalable, accessible UI frameworks</p>
+              <h4 className="text-white mb-2">{t('designTitle')}</h4>
+              <p className="text-gray-300 dark:text-gray-400 text-sm">{t('designDesc')}</p>
             </div>
           </div>
         </motion.div>

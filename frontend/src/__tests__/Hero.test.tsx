@@ -26,9 +26,9 @@ describe('Hero Component', () => {
     expect(screen.getByText('Saeedeh Sarmadi')).toBeInTheDocument();
   });
 
-  it('should render the tagline', () => {
+  it('should render the tagline from translations', () => {
     render(<Hero />);
-    expect(screen.getByText(/Agentic Developer/)).toBeInTheDocument();
+    expect(screen.getByText('hero.tagline')).toBeInTheDocument();
   });
 
   it('should render the subtitle from translations', () => {
@@ -36,16 +36,16 @@ describe('Hero Component', () => {
     expect(screen.getByText('hero.subtitle')).toBeInTheDocument();
   });
 
-  it('should render Explore My Journey CTA', () => {
+  it('should render Explore Journey CTA from translations', () => {
     render(<Hero />);
-    const cta = screen.getByText('Explore My Journey');
+    const cta = screen.getByText('hero.exploreJourney');
     expect(cta).toBeInTheDocument();
     expect(cta.closest('a')).toHaveAttribute('href', '#roadmap');
   });
 
-  it('should render View Skills CTA', () => {
+  it('should render View Skills CTA from translations', () => {
     render(<Hero />);
-    const cta = screen.getByText('View Skills');
+    const cta = screen.getByText('hero.viewSkills');
     expect(cta).toBeInTheDocument();
     expect(cta.closest('a')).toHaveAttribute('href', '#skills');
   });

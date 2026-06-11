@@ -94,6 +94,8 @@
     "backend": "Back-End & databas",
     "devops": "DevOps & moln",
     "specialFocus": "Specialfokus",
+    "agenticTitle": "Agentic / AI-assisterad utveckling",
+    "agenticDesc": "Helhetsleverans med AI-agenter i utvecklingsflödet",
     "aiTitle": "AI & LLM-appar",
     "aiDesc": "Bygger intelligenta applikationer med OpenAI API:er",
     "perfTitle": "Prestanda",
@@ -106,6 +108,11 @@
   "artProjects": {
     "heading": "Konstnärliga projekt",
     "subtitle": "Där konst möter aktivism och social påverkan",
+    "exploreCta": "Utforska min konstnärliga sida",
+    "locations": {
+      "rome": "Rom",
+      "turin": "Turin"
+    },
     "plasticBlue": {
       "title": "Plastic Blue",
       "description": "Målningsserie och konstnärliga studier som utforskar plastföroreningarnas påverkan på natur och människoliv."
@@ -119,12 +126,44 @@
       "description": "Ledde visuell identitet, marknadsföringsmaterial och facilitering på plats för Liberi di Crescere-föreningens evenemang för barns rättigheter."
     }
   },
+  "codeProjects": {
+    "heading": "Senaste projekt",
+    "subtitle": "Produktionsbyggen levererade med AI-assisterad utveckling",
+    "mjukLov": {
+      "subtitle": "Live AI-driven tvåspråkig dessertplattform",
+      "h1": "Next.js 16, React 19, TypeScript, Supabase",
+      "h2": "AI-allergenetiketter med säkerhetsskydd (EU 1169/2011)",
+      "h3": "40+ tvåspråkiga recept, konton, orderhantering",
+      "h4": "Stripe, Resend, YouTube & Google Places API:er"
+    },
+    "relay": {
+      "subtitle": "Klientapp för frilansare över gränser",
+      "h1": "Expo + Supabase + Stripe mobilapp",
+      "h2": "Stripe-integrerad fakturering & betalningar",
+      "h3": "AI-projektsammanfattningar (EN/IT/FA/SV)",
+      "h4": "Dokumenterad arkitektur & lanseringsplan"
+    },
+    "nabila": {
+      "subtitle": "WordPress-e-handel för en konstnär (pågående)",
+      "h1": "WordPress + WooCommerce-butik",
+      "h2": "Printify print-on-demand-integration",
+      "h3": "Polylang tvåspråkig SV/EN",
+      "h4": "Skräddarsydd konstnärsportfolio + butik"
+    },
+    "swedenStartupNext": {
+      "subtitle": "Nationell dataplattform för startup-ekosystemet",
+      "h1": "React, Redux, AG Grid",
+      "h2": "Byggd med AI-agenter i utvecklingsflödet",
+      "h3": "Beta (Next 0.9) lanserad 2026"
+    }
+  },
   "footer": {
     "artCtaTitle": "Utforska min konstnärliga sida",
     "artCtaDescription": "Bortom kod och pixlar skapar jag konst. Utexaminerad från Konstakademin, utforskar plastföroreningar (Plastic Blue-serien), leder workshops för barns rättigheter (Women Life Freedom) och illustration för sociala ändamål.",
     "viewPortfolio": "Visa konstnärlig portfolio",
     "connectTitle": "Kontakta mig",
     "connectSubtitle": "Öppen för nya möjligheter och samarbeten",
+    "copied": "Kopierat!",
     "copyright": "Designad & byggd med <heart></heart> av Saeedeh Sarmadi © 2026",
     "downloadCv": "Ladda ner mitt CV"
   },

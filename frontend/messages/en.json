@@ -94,6 +94,8 @@
     "backend": "Back-End & Database",
     "devops": "DevOps & Cloud",
     "specialFocus": "Special Focus",
+    "agenticTitle": "Agentic / AI-Assisted Dev",
+    "agenticDesc": "End-to-end delivery with AI agents in the dev loop",
     "aiTitle": "AI & LLM Apps",
     "aiDesc": "Building intelligent applications with OpenAI APIs",
     "perfTitle": "Performance",
@@ -106,6 +108,11 @@
   "artProjects": {
     "heading": "Artistic Projects",
     "subtitle": "Where art meets activism and social impact",
+    "exploreCta": "Explore My Artistic Side",
+    "locations": {
+      "rome": "Rome",
+      "turin": "Turin"
+    },
     "plasticBlue": {
       "title": "Plastic Blue",
       "description": "Painting series and artistic studies exploring the impact of plastic pollution on nature and human life."
@@ -119,12 +126,44 @@
       "description": "Led visual identity, promotional assets and on-site facilitation for Liberi di Crescere Association children's-rights non-profit event."
     }
   },
+  "codeProjects": {
+    "heading": "Recent Projects",
+    "subtitle": "Production builds shipped with AI-assisted delivery",
+    "mjukLov": {
+      "subtitle": "Live AI-powered bilingual dessert platform",
+      "h1": "Next.js 16, React 19, TypeScript, Supabase",
+      "h2": "AI allergen labels with safety guardrails (EU 1169/2011)",
+      "h3": "40+ bilingual recipes, accounts, order back office",
+      "h4": "Stripe, Resend, YouTube & Google Places APIs"
+    },
+    "relay": {
+      "subtitle": "Cross-border freelancer client app",
+      "h1": "Expo + Supabase + Stripe mobile app",
+      "h2": "Stripe-integrated invoicing & payments",
+      "h3": "AI project summaries (EN/IT/FA/SV)",
+      "h4": "Documented architecture & launch plan"
+    },
+    "nabila": {
+      "subtitle": "WordPress e-commerce for an artist (in progress)",
+      "h1": "WordPress + WooCommerce store",
+      "h2": "Printify print-on-demand integration",
+      "h3": "Polylang bilingual SV/EN",
+      "h4": "Custom artist portfolio + shop"
+    },
+    "swedenStartupNext": {
+      "subtitle": "National startup-ecosystem data platform",
+      "h1": "React, Redux, AG Grid",
+      "h2": "Built with AI agents in the dev workflow",
+      "h3": "Beta (Next 0.9) launched 2026"
+    }
+  },
   "footer": {
     "artCtaTitle": "Explore My Artistic Side",
     "artCtaDescription": "Beyond code and pixels, I create art. Fine Arts Academy graduate exploring plastic pollution (Plastic Blue series), leading children's rights workshops (Women Life Freedom), and illustration for social causes.",
     "viewPortfolio": "View Artistic Portfolio",
     "connectTitle": "Let's Connect",
     "connectSubtitle": "Open to new opportunities and collaborations",
+    "copied": "Copied!",
     "copyright": "Designed & Built with <heart></heart> by Saeedeh Sarmadi © 2026",
     "downloadCv": "Download my CV"
   },
